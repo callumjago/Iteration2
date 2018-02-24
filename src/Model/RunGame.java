@@ -31,9 +31,15 @@ public class RunGame extends Application {
 
 
         ArrayList<ArrayList<Tile>> tileSet = new ArrayList<ArrayList<Tile>>();
-        tileSet.add(new ArrayList<Tile>());
-        tileSet.get(0).add(new EmptyTile());
-        tileSet.get(0).add(new OneShotItem());
+        for(int i = 0; i < 10; i++) {
+            tileSet.add(new ArrayList<Tile>());
+            for(int j = 0; j < 10; j++) {
+                tileSet.get(i).add(new EmptyTile());
+            }
+        }
+
+
+        tileSet.get(2).add(5, new OneShotItem());
 
         GameState gameState = new GameState();
         gameState.setTileSet(tileSet);
