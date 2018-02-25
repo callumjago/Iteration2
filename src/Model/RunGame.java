@@ -15,6 +15,8 @@ import java.util.ArrayList;
 public class RunGame extends Application {
     private Stage mainStage;
     private Scene mainScene;
+    private final long ticksPerSecond = 2;
+
     @Override
     public void start(Stage theStage) {
         mainStage = theStage;
@@ -47,9 +49,23 @@ public class RunGame extends Application {
 
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
+        final long delta = 1000000000/ticksPerSecond;
+
         new AnimationTimer() {
+
+            long nanoTime = System.nanoTime()/delta;
+            int tick = 0;
             public void handle(long currentNanoTime) {
-                mv.render(gameState);
+                if(System.nanoTime()/delta != nanoTime) {
+                    mv.render(gameState);
+                    System.out.println("FPS: " + tick);
+                    nanoTime = System.nanoTime()/delta;
+                    tick = 0;
+                } else {
+                    tick++;
+                }
+
+
 
             }
         }.start();

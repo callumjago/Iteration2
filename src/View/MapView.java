@@ -31,6 +31,6 @@ public class MapView {
     }
 
     private void renderGrid(int width, int height) {
-        
+
     }
 }
