@@ -134,13 +134,13 @@ Responsibilities
 SentientEntity
 --
 -Inventory:inventory
--Equipment:equipment
+-Equipment[]:equipment
 -Health:HP
 -Mana:MP
 -Attack:Atk
 -Defense:Def
 -Level:Lvl
--Money:money
+-Wallet:wallet
 --
 +modifyHealth(Int:delta)
 +isDead():bool
@@ -1595,7 +1595,7 @@ If so, the move is completed. If not, the entity does not move.</panel_attribute
       <w>196</w>
       <h>133</h>
     </coordinates>
-    <panel_attributes>Money
+    <panel_attributes>Wallet
 --
 -int mulah
 -int maxMoney
@@ -1744,7 +1744,7 @@ Responsibilities
 --
 Responsibilities
 -- Holds and maintains levels points
-- Level goes from [1 up to 99]</panel_attributes>
+- Level goes from [1 up to 100]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
