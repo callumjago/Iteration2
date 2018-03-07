@@ -37,7 +37,10 @@ public class RunGame extends Application {
         canvas.setFocusTraversable(true);
 
         menu = new Menu(canvas);
-        
+        Player p = new Player();
+        p.addItem(new Armor());
+        p.addItem(new Ring());
+        menu.addSubMenu(new InventoryMenu(0, p.getInventory()));
 
         menuView = new MenuView(canvas);
 
@@ -50,7 +53,7 @@ public class RunGame extends Application {
         }
 
 
-        tileSet.get(2).add(5, new OneShotItem());
+
 
         GameState gameState = new GameState();
         gameState.setTileSet(tileSet);

@@ -26,12 +26,20 @@ public class MenuState {
         MenuItems.add(item);
     }
 
-    public ArrayList<String> getMenuList() {
-        return MenuList;
+    public String getMenuListName(int index) {
+        if(index >= MenuList.size()) { return ""; }
+        return MenuList.get(index);
+    }
+    public String getSubMenuListName(int index) {
+        if(index >= SubMenuList.size()) { return ""; }
+        return SubMenuList.get(index);
     }
 
     public ArrayList<String> getSubMenuList() {
         return SubMenuList;
+    }
+    public int getSubMenuSize() {
+        return SubMenuList.size();
     }
 
     public ArrayList<MenuItem> getMenuItems() {

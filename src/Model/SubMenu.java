@@ -9,6 +9,7 @@ public abstract class SubMenu {
     public SubMenu(int index, String name) {
         menuIndex = index;
         selectedInd = 0;
+        this.name = name;
     }
 
 

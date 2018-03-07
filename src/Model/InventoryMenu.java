@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class InventoryMenu extends SubMenu {
     private Inventory inventory;
-    public InventoryMenu(int index, Player player) {
+    public InventoryMenu(int index, Inventory inventory) {
         super(index, "Inventory");
+        this.inventory = inventory;
     }
 
     @Override

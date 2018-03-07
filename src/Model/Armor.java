@@ -1,4 +1,8 @@
 package Model;
 
-public abstract class Armor extends Equipment{
+public class Armor extends Equipment{
+
+    public Armor() {
+        this.setName("Armor");
+    }
 }

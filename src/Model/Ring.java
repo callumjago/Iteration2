@@ -1,4 +1,8 @@
 package Model;
 
-public abstract class Ring extends Equipment{
+public class Ring extends Equipment{
+    public Ring() {
+
+        this.setName("Ring");
+    }
 }
