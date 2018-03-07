@@ -23,4 +23,8 @@ public class Inventory {
         }
         return stringList;
     }
+
+    public int numOfItems() {
+        return itemList.size();
+    }
 }

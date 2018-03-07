@@ -41,6 +41,9 @@ public class MenuState {
     public int getSubMenuSize() {
         return SubMenuList.size();
     }
+    public int getMenuSize() {
+        return MenuList.size();
+    }
 
     public ArrayList<MenuItem> getMenuItems() {
         return MenuItems;

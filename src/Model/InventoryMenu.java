@@ -19,4 +19,11 @@ public class InventoryMenu extends SubMenu {
 
         return menuState;
     }
+
+    @Override
+    int subMenuSize() {
+        return inventory.numOfItems();
+    }
+
+
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class SubMenu {
     private int selectedInd;
-    private int menuIndex; //Index of this menu item
+    private int menuIndex; //Index of this sub menu
     private String name;
     public SubMenu(int index, String name) {
         menuIndex = index;
@@ -22,6 +22,17 @@ public abstract class SubMenu {
         return menuState;
     }
 
+    public int getSubMenuSelectedIndex() {
+        return selectedInd;
+    }
+    public void setSubMenuSelectedIndex(int index) {
+        if(index >= subMenuSize()) {
+            return;
+        }
+        selectedInd = index;
+    }
+
     abstract ArrayList<String> generateMenuList();
     abstract MenuState generateSubMenuState(MenuState menuState);
+    abstract int subMenuSize();
 }

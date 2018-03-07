@@ -11,6 +11,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class RunGame extends Application {
@@ -42,6 +43,8 @@ public class RunGame extends Application {
         p.addItem(new Ring());
         menu.addSubMenu(new InventoryMenu(0, p.getInventory()));
 
+        menu.addSubMenu(new InventoryMenu(1, p.getInventory()));
+
         menuView = new MenuView(canvas);
 
         ArrayList<ArrayList<Tile>> tileSet = new ArrayList<ArrayList<Tile>>();
@@ -68,6 +71,7 @@ public class RunGame extends Application {
             long nanoTime = System.nanoTime()/delta;
             int tick = 0;
             public void handle(long currentNanoTime) {
+                //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map

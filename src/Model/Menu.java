@@ -2,22 +2,34 @@ package Model;
 
 import Controller.MenuController;
 
+import Controller.MenuMouseController;
+import Controller.MenuClickHandler;
+import View.MenuUI;
 import javafx.scene.canvas.Canvas;
 import java.util.ArrayList;
 
 public class Menu {
-    MenuController controller;
-    Canvas canvas;
-    ArrayList<SubMenu> SubMenus;
+    private MenuController controller;
+    private MenuMouseController mmc;
+    private MenuClickHandler mch;
+    private MenuUI ui;
+    private Canvas canvas;
+    private ArrayList<SubMenu> SubMenus;
     private int selectedInd;
     private boolean open;
+
     public Menu(Canvas canvas) {
 
         this.canvas = canvas;
         controller = new MenuController(this);
+        mmc = new MenuMouseController();
+        mch = new MenuClickHandler(this);
+        ui = new MenuUI();
         SubMenus = new ArrayList<>();
 
         canvas.setOnKeyPressed(controller);
+        canvas.setOnMouseMoved(mmc);
+        canvas.setOnMouseClicked(mch);
         selectedInd = 0;
         open = false;
     }
@@ -29,6 +41,19 @@ public class Menu {
     public void Escape() {
         System.out.println("Escape");
         open = !open;
+    }
+    public void Enter() {
+        if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
+            if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) >= SubMenus.size()) {
+                return;
+            }
+            selectedInd = ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY());
+        }
+
+        if(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
+            SubMenus.get(selectedInd).setSubMenuSelectedIndex(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()));
+        }
+
     }
 
     public ArrayList<String> getMenuList() {
