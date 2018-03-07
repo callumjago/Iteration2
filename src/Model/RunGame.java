@@ -43,7 +43,7 @@ public class RunGame extends Application {
         p.addItem(new Ring());
         menu.addSubMenu(new InventoryMenu(0, p.getInventory()));
 
-        menu.addSubMenu(new InventoryMenu(1, p.getInventory()));
+        menu.addSubMenu(new QuitGameMenu(1));
 
         menuView = new MenuView(canvas);
 

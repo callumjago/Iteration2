@@ -34,5 +34,6 @@ public abstract class SubMenu {
 
     abstract ArrayList<String> generateMenuList();
     abstract MenuState generateSubMenuState(MenuState menuState);
+    abstract void Enter(int mouseX, int mouseY);
     abstract int subMenuSize();
 }

@@ -7,31 +7,44 @@ import javafx.scene.paint.Color;
 
 public class MenuView {
     private Canvas canvas;
+    private MenuItemView itemView;
     private GraphicsContext gc;
     private MenuUI ui;
+
+    private Color backgroundColor;
     public MenuView(Canvas canvas) {
         this.canvas = canvas;
         gc = canvas.getGraphicsContext2D();
         ui = new MenuUI();
+        itemView = new MenuItemView(canvas);
+
+        backgroundColor = new Color(.85f, .644f, .125f, .5);
     }
 
     public void render(MenuState state) {
+        gc.setFill(backgroundColor);
+        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         //System.out.println("rending");
-        gc.setFill(Color.WHITE);
-        gc.fillRect(0, 0, 500, 500);
+
         //System.out.println(state.getMenuListName(0));
 
         renderMenu(state);
         renderSubMenu(state);
+
+        for(int i = 0; i < state.getMenuItemSize(); i++) {
+            itemView.renderMenuItem(state.getMenuItem(i));
+        }
+
+        renderMenuDivisionLine();
     }
 
     private void renderMenu(MenuState state) {
 
         Bound bound;
         for(int i = 0; i < state.getMenuSize(); i++) {
-            gc.setFill(Color.GREEN);
+            gc.setFill(Color.GRAY);
             if(i == state.getSelectedInd()) {
-                gc.setFill(Color.BROWN);
+                gc.setFill(Color.RED);
             }
             bound = ui.getMenuBound(i);
             gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWitdh(), bound.getHeight());
@@ -47,9 +60,9 @@ public class MenuView {
 
         Bound bound;
         for(int i = 0; i < state.getSubMenuSize(); i++) {
-            gc.setFill(Color.RED);
+            gc.setFill(Color.GRAY);
             if(i == state.getSubMenuSelectedInd()) {
-                gc.setFill(Color.GRAY);
+                gc.setFill(Color.RED);
             }
             bound = ui.getSubMenuBound(i);
             gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWitdh(), bound.getHeight());
@@ -59,5 +72,10 @@ public class MenuView {
         }
 
 
+    }
+
+    private void renderMenuDivisionLine() {
+        gc.setFill(Color.BLACK);
+        gc.fillRect(ui.getMenuEntryWidth()-2, 0, 4, canvas.getHeight());
     }
 }

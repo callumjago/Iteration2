@@ -22,7 +22,7 @@ public class MenuState {
         SubMenuSelectedInd = ind;
     }
 
-    public void AddMenuItem(MenuItem item) {
+    public void addMenuItem(MenuItem item) {
         MenuItems.add(item);
     }
 
@@ -45,8 +45,15 @@ public class MenuState {
         return MenuList.size();
     }
 
-    public ArrayList<MenuItem> getMenuItems() {
-        return MenuItems;
+    public MenuItem getMenuItem(int index) {
+        if(index >= MenuItems.size()) {
+            return null;
+        }
+        return MenuItems.get(index);
+    }
+
+    public int getMenuItemSize() {
+        return MenuItems.size();
     }
 
     public int getSelectedInd() {

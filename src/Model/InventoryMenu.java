@@ -21,6 +21,11 @@ public class InventoryMenu extends SubMenu {
     }
 
     @Override
+    void Enter(int mouseX, int mouseY) {
+
+    }
+
+    @Override
     int subMenuSize() {
         return inventory.numOfItems();
     }

@@ -43,16 +43,21 @@ public class Menu {
         open = !open;
     }
     public void Enter() {
-        if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
-            if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) >= SubMenus.size()) {
+        if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {//Menu entry clicked
+            if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) >= SubMenus.size()) {//Out of bounds
                 return;
             }
             selectedInd = ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY());
+            return;
         }
 
-        if(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
+        if(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {//Sub menu entry clicked
             SubMenus.get(selectedInd).setSubMenuSelectedIndex(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()));
+            return;
         }
+
+        //Tell sub menu to check for actions
+        SubMenus.get(selectedInd).Enter(mmc.getMouseX(), mmc.getMouseY());
 
     }
 

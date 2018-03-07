@@ -37,4 +37,8 @@ public class MenuUI {
         }
         return -1;
     }
+
+    public int getMenuEntryWidth() {
+        return menuEntryWidth;
+    }
 }
