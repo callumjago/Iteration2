@@ -1,6 +1,7 @@
 package Model;
 
 import View.MapView;
+import View.MenuView;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -15,6 +16,10 @@ import java.util.ArrayList;
 public class RunGame extends Application {
     private Stage mainStage;
     private Scene mainScene;
+
+    private Menu menu;
+    private MenuView menuView;
+
     private final long ticksPerSecond = 2;
 
     @Override
@@ -31,6 +36,10 @@ public class RunGame extends Application {
 
         canvas.setFocusTraversable(true);
 
+        menu = new Menu(canvas);
+        
+
+        menuView = new MenuView(canvas);
 
         ArrayList<ArrayList<Tile>> tileSet = new ArrayList<ArrayList<Tile>>();
         for(int i = 0; i < 10; i++) {
@@ -56,13 +65,17 @@ public class RunGame extends Application {
             long nanoTime = System.nanoTime()/delta;
             int tick = 0;
             public void handle(long currentNanoTime) {
-                if(System.nanoTime()/delta != nanoTime) {
-                    mv.render(gameState);
-                    System.out.println("FPS: " + tick);
-                    nanoTime = System.nanoTime()/delta;
-                    tick = 0;
-                } else {
-                    tick++;
+                if(menu.isOpen()) {//render menu
+                    menuView.render(menu.getActiveMenuState());
+                } else {//render map
+                    if (System.nanoTime() / delta != nanoTime) {
+                        mv.render(gameState);
+                        System.out.println("FPS: " + tick);
+                        nanoTime = System.nanoTime() / delta;
+                        tick = 0;
+                    } else {
+                        tick++;
+                    }
                 }
 
 
