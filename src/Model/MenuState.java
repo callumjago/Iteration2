@@ -8,13 +8,14 @@ public class MenuState {
     private ArrayList<String> MenuList, SubMenuList;
     private ArrayList<MenuItem> MenuItems;
     private int SelectedInd, SubMenuSelectedInd;
+    private int mouseX, mouseY;
 
-    public MenuState(ArrayList<String> MenuList, ArrayList<String> SubMenuList, int SelectedInd, int SubMenuSelectedInd) {
+    public MenuState(ArrayList<String> MenuList, ArrayList<String> SubMenuList, int SelectedInd, int SubMenuSelectedInd, int mouseX, int mouseY) {
         this.MenuList = MenuList;
         this.SubMenuList = SubMenuList;
         this.SelectedInd = SelectedInd;
         this.SubMenuSelectedInd = SubMenuSelectedInd;
-
+        this.mouseX = mouseX; this.mouseY = mouseY;
         MenuItems = new ArrayList<>();
     }
 
@@ -62,5 +63,12 @@ public class MenuState {
 
     public int getSubMenuSelectedInd() {
         return SubMenuSelectedInd;
+    }
+    public int getMouseX() {
+        return mouseX;
+    }
+
+    public int getMouseY() {
+        return mouseY;
     }
 }

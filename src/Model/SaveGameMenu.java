@@ -4,17 +4,20 @@ import View.Bound;
 
 import java.util.ArrayList;
 
-public class QuitGameMenu extends SubMenu{
+public class SaveGameMenu extends SubMenu {
+    private SaveGame save;
     private ConfirmationMenuItem confirmation;
-    private final String quitButtonText = "Quit";
-    public QuitGameMenu(int index) {
-        super(index, "Quit Game");
+    private final String saveButtonText = "Save";
+    public SaveGameMenu(int index, SaveGame save) {
+        super(index, "Save Game");
+        this.save = save;
+
         confirmation = new ConfirmationMenuItem();
         Bound itemBound = confirmation.getBound();
         confirmation.addButton(new Bound(itemBound.getBoundLeft()+100, itemBound.getBoundLeft()+300,
-                itemBound.getBoundTop()+200, itemBound.getBoundTop()+300), quitButtonText);
-
+                itemBound.getBoundTop()+200, itemBound.getBoundTop()+300), saveButtonText);
     }
+
     @Override
     ArrayList<String> generateMenuList() {
         return new ArrayList<String>();
@@ -26,11 +29,10 @@ public class QuitGameMenu extends SubMenu{
         return menuState;
     }
 
-    //If mouse is in bounds of confirm box, quit game
     @Override
     void Enter(int mouseX, int mouseY) {
-        if(confirmation.collisionCheckByName(quitButtonText, mouseX, mouseY)) {
-            System.exit(0);
+        if(confirmation.collisionCheckByName(saveButtonText, mouseX, mouseY)) {
+            save.save();
         }
     }
 

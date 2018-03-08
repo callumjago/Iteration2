@@ -11,7 +11,6 @@ public class MenuClickHandler implements EventHandler<MouseEvent> {
     }
 
     public void handle(MouseEvent event) {
-        System.out.println("Clicked");
         menu.Enter();
     }
 }

@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MenuMouseController;
 import Model.MenuState;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -8,6 +9,7 @@ import javafx.scene.paint.Color;
 public class MenuView {
     private Canvas canvas;
     private MenuItemView itemView;
+
     private GraphicsContext gc;
     private MenuUI ui;
 
@@ -17,6 +19,7 @@ public class MenuView {
         gc = canvas.getGraphicsContext2D();
         ui = new MenuUI();
         itemView = new MenuItemView(canvas);
+
 
         backgroundColor = new Color(.85f, .644f, .125f, .5);
     }
@@ -43,10 +46,14 @@ public class MenuView {
         Bound bound;
         for(int i = 0; i < state.getMenuSize(); i++) {
             gc.setFill(Color.GRAY);
+            bound = ui.getMenuBound(i);
+            if(bound.collisionTest(state.getMouseX(), state.getMouseY())) {
+                gc.setFill(Color.BLUE);
+            }
             if(i == state.getSelectedInd()) {
                 gc.setFill(Color.RED);
             }
-            bound = ui.getMenuBound(i);
+
             gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWitdh(), bound.getHeight());
 
             //drawText
@@ -61,10 +68,14 @@ public class MenuView {
         Bound bound;
         for(int i = 0; i < state.getSubMenuSize(); i++) {
             gc.setFill(Color.GRAY);
+            bound = ui.getSubMenuBound(i);
+            if(bound.collisionTest(state.getMouseX(), state.getMouseY())) {
+                gc.setFill(Color.BLUE);
+            }
             if(i == state.getSubMenuSelectedInd()) {
                 gc.setFill(Color.RED);
             }
-            bound = ui.getSubMenuBound(i);
+
             gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWitdh(), bound.getHeight());
 
             gc.setFill(Color.BLACK);

@@ -16,8 +16,8 @@ public abstract class SubMenu {
     public String getName() {
         return name;
     }
-    public MenuState generateMenuState(ArrayList<String> menuList) {
-        MenuState menuState = new MenuState(menuList, generateMenuList(), menuIndex, selectedInd);
+    public MenuState generateMenuState(ArrayList<String> menuList, int mouseX, int mouseY) {
+        MenuState menuState = new MenuState(menuList, generateMenuList(), menuIndex, selectedInd, mouseX, mouseY);
         menuState = generateSubMenuState(menuState);
         return menuState;
     }

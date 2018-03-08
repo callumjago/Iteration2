@@ -43,6 +43,9 @@ public class Menu {
         open = !open;
     }
     public void Enter() {
+        if(!open) {
+            return;
+        }
         if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {//Menu entry clicked
             if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) >= SubMenus.size()) {//Out of bounds
                 return;
@@ -73,7 +76,7 @@ public class Menu {
         if(SubMenus.size() == 0) {
             return null;
         }
-        return SubMenus.get(selectedInd).generateMenuState(getMenuList());
+        return SubMenus.get(selectedInd).generateMenuState(getMenuList(), mmc.getMouseX(), mmc.getMouseY());
     }
 
     public boolean isOpen() {
