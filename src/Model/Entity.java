@@ -3,10 +3,22 @@ package Model;
 import java.awt.*;
 
 public abstract class Entity {
-    Point position;
-    Interaction interaction;
-    Angle orientation;
-    Image sprite;
+    private Point position;
+    private Interaction interaction;
+    private Angle orientation;
+    private Image sprite;
+
+    Entity(){
+        position = new Point(0,0);
+        orientation = new Angle(90);
+        // Default image here
+    }
+
+    Entity(Point pos, Angle theta, Image img){
+        position = pos;
+        orientation = theta;
+        sprite = img;
+    }
 
     public Angle getOrientation() {
         return orientation;

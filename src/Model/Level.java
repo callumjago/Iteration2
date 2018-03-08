@@ -31,21 +31,22 @@ public class Level {
         Experience = 0;
     }
 
-    public void raiseLvl(){
+    private void raiseLvl(){
         Lvl++;
         ExpToNextLevel = Lvl * 100;
         Experience = 0;
     }
 
-    public void gainExp(int expAmt){
+    public int gainExp(int expAmt){
         if (Experience + expAmt >= ExpToNextLevel) {
             expAmt -= ExpToNextLevel;
             raiseLvl();
-            gainExp(expAmt);
+            return expAmt;
         }
         else{
             Experience += expAmt;
             ExpToNextLevel -= Experience;
+            return 0;
         }
     }
 

@@ -4,6 +4,16 @@ public class Attack {
     private int BaseAttackPoints;
     private int AddedAttackPoints;
 
+    public Attack(int baseAttackPoints){
+        if (baseAttackPoints <= 0) {
+            BaseAttackPoints = 1; // Attack must be set above 0
+        }
+        else {
+            BaseAttackPoints = baseAttackPoints;
+        }
+        AddedAttackPoints = 0;
+    }
+
     public Attack(int baseAttackPoints, int addedAttackPoints) {
         if (baseAttackPoints <= 0) {
             BaseAttackPoints = 1; // Attack must be set above 0
@@ -46,7 +56,12 @@ public class Attack {
     }
 
     public int getAttackPoints(){
-        return BaseAttackPoints + AddedAttackPoints;
+        if (AddedAttackPoints + BaseAttackPoints <= 0){
+            return 1;
+        }
+        else {
+            return BaseAttackPoints + AddedAttackPoints;
+        }
     }
 
     public void clearAttackModifiers(){
@@ -60,5 +75,9 @@ public class Attack {
         else{
             BaseAttackPoints += boost;
         }
+    }
+
+    public void modifyAttack(int delta) {
+        AddedAttackPoints += delta;
     }
 }

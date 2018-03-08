@@ -4,6 +4,16 @@ public class Defense {
     private int BaseDefensePoints;
     private int AddedDefensePoints;
 
+    public Defense(int baseDefensePoints){
+        if (baseDefensePoints <= 0) {
+            BaseDefensePoints = 1; // Defense must be set above 0
+        }
+        else {
+            BaseDefensePoints = baseDefensePoints;
+        }
+        AddedDefensePoints = 0;
+    }
+
     public Defense(int baseDefensePoints, int addedDefensePoints) {
         if (baseDefensePoints <= 0) {
             BaseDefensePoints = 1; // Defense must be set above 0
@@ -46,7 +56,12 @@ public class Defense {
     }
 
     public int getDefensePoints(){
-        return BaseDefensePoints + AddedDefensePoints;
+        if (AddedDefensePoints + BaseDefensePoints <= 0){
+            return 1;
+        }
+        else {
+            return BaseDefensePoints + AddedDefensePoints;
+        }
     }
 
     public void clearDefenseModifiers(){
@@ -60,5 +75,9 @@ public class Defense {
         else{
             BaseDefensePoints += boost;
         }
+    }
+
+    public void modifyDefense(int delta) {
+        AddedDefensePoints += delta;
     }
 }
