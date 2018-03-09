@@ -32,7 +32,7 @@ public class Menu {
         mch = new MenuClickHandler(this);
         sc = new ScrollController(this);
 
-        ui = new MenuUI();
+        ui = new MenuUI(canvas);
         SubMenus = new ArrayList<>();
 
 
@@ -72,7 +72,7 @@ public class Menu {
         }
 
         //Tell sub menu to check for actions
-        SubMenus.get(selectedInd).Enter(mmc.getMouseX(), mmc.getMouseY());
+        SubMenus.get(selectedInd).Enter(ui.resizeXCoord(mmc.getMouseX()), ui.resizeYCoord(mmc.getMouseY()));
 
     }
 
@@ -88,10 +88,14 @@ public class Menu {
     }
 
     public void scrollUp() {
-        SubMenus.get(selectedInd).scrollUp();
+        if(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
+            SubMenus.get(selectedInd).scrollUp();
+        }
     }
     public void scrollDown() {
-        SubMenus.get(selectedInd).scrollDown();
+        if(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
+            SubMenus.get(selectedInd).scrollDown();
+        }
     }
 
     public ArrayList<String> getMenuList() {

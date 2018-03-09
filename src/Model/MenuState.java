@@ -46,9 +46,7 @@ public class MenuState {
         return SubMenuList.get(index + scrollOffset);
     }
 
-    public ArrayList<String> getSubMenuList() {
-        return SubMenuList;
-    }
+
     public int getSubMenuSize() {
         return SubMenuList.size();
     }

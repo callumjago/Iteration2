@@ -25,7 +25,7 @@ public class Bound {
         return boundBottom;
     }
 
-    public int getWitdh() {
+    public int getWidth() {
         return boundRight-boundLeft;
     }
 

@@ -4,6 +4,8 @@ import Model.MenuState;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class MenuView {
     private Canvas canvas;
@@ -12,14 +14,13 @@ public class MenuView {
     private GraphicsContext gc;
     private MenuUI ui;
 
-
+    private final Font menuFont = Font.font ("Verdana", FontWeight.BOLD, 18);
 
     private Color backgroundColor;
     public MenuView(Canvas canvas) {
         this.canvas = canvas;
         gc = canvas.getGraphicsContext2D();
-        ui = new MenuUI();
-
+        ui = new MenuUI(canvas);
         itemView = new MenuItemView(canvas);
 
 
@@ -48,7 +49,7 @@ public class MenuView {
     }
 
     private void renderMenu(MenuState state) {
-        
+
         Bound bound;
         for(int i = 0; i < state.getMenuSize(); i++) {
             gc.setFill(Color.GRAY);
@@ -60,14 +61,19 @@ public class MenuView {
                 gc.setFill(Color.RED);
             }
 
-            gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWitdh(), bound.getHeight());
+            gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWidth(), bound.getHeight());
 
             //drawText
+            gc.setFont(menuFont);
             gc.setFill(Color.BLACK);
-            gc.fillText(state.getMenuListName(i), bound.getBoundLeft()+40, bound.getBoundTop()+(bound.getHeight()/2));
+            gc.fillText(state.getMenuListName(i), bound.getBoundLeft()+40, bound.getBoundTop()+(bound.getHeight()/2)+5);
 
-            entryDivisionLine(bound.getBoundLeft(), bound.getBoundBottom(), bound.getWitdh(), 4);
+            entryDivisionLine(bound.getBoundLeft(), bound.getBoundBottom(), bound.getWidth(), 4);
         }
+
+        //Render top division line
+        bound = ui.getMenuBound(0);
+        entryDivisionLine(bound.getBoundLeft(), -2, bound.getWidth(), 6);
 
     }
 
@@ -85,15 +91,19 @@ public class MenuView {
                 gc.setFill(Color.RED);
             }
 
-            gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWitdh(), bound.getHeight());
+            gc.fillRect(bound.getBoundLeft(), bound.getBoundTop(), bound.getWidth(), bound.getHeight());
 
+            gc.setFont(menuFont);
             gc.setFill(Color.BLACK);
-            gc.fillText(state.getSubMenuListName(i), bound.getBoundLeft()+40, bound.getBoundTop()+(bound.getHeight()/2));
+            gc.fillText(state.getSubMenuListName(i), bound.getBoundLeft()+40, bound.getBoundTop()+(bound.getHeight()/2)+5);
 
-            entryDivisionLine(bound.getBoundLeft(), bound.getBoundBottom(), bound.getWitdh(), 4);
+            entryDivisionLine(bound.getBoundLeft(), bound.getBoundBottom(), bound.getWidth(), 4);
         }
 
-
+        if(state.getSubMenuSize() > 0) {//Render top division line
+            bound = ui.getSubMenuBound(0);
+            entryDivisionLine(bound.getBoundLeft(), -2, bound.getWidth(), 6);
+        }
     }
 
     private void renderMenuDivisionLine() {

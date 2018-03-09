@@ -1,20 +1,27 @@
 package Model;
 
 import View.Bound;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
 public abstract class MenuItem {
-    ArrayList<DisplayItem> elements;
-    Bound itemBound;
-    public MenuItem(Bound bound) {
+    private ArrayList<DisplayItem> elements;
+    private Bound itemBound;
+    private Color backGroundColor;
+    public MenuItem(Bound bound, Color color) {
         itemBound = bound;
         elements = new ArrayList<>();
+        backGroundColor = color;
     }
 
     public void addElement(DisplayItem element) {
         if(element == null) { return; }
         elements.add(element);
+    }
+
+    public Color getBackGroundColor() {
+        return backGroundColor;
     }
 
     public DisplayItem getElement(int index) {
@@ -39,5 +46,10 @@ public abstract class MenuItem {
             }
         }
         return false;
+    }
+
+    public void addButton(Bound bound, String text) {
+        DisplayItem item = new DisplayItem(text, bound,Color.BROWN);
+        addElement(item);
     }
 }

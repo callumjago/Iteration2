@@ -23,6 +23,9 @@ public class Inventory {
         }
         return stringList;
     }
+    public Item getItem(int index) {
+        return itemList.get(index);
+    }
 
     public int numOfItems() {
         return itemList.size();

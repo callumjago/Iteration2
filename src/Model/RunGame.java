@@ -31,7 +31,7 @@ public class RunGame extends Application {
         Group root = new Group();
         mainScene = new Scene(root);
         theStage.setScene( mainScene );
-        Canvas canvas = new Canvas(800, 800);
+        Canvas canvas = new Canvas(1000, 800);
         root.getChildren().add(canvas);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -43,6 +43,7 @@ public class RunGame extends Application {
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
             p.addItem(new Ring());
+
         }
         menu.addSubMenu(new InventoryMenu(p.getInventory()));
         menu.addSubMenu(new SaveGameMenu(save));

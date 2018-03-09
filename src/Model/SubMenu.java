@@ -1,5 +1,6 @@
 package Model;
 
+import javafx.scene.canvas.Canvas;
 import java.util.ArrayList;
 
 public abstract class SubMenu {
