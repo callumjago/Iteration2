@@ -15,6 +15,11 @@ public class Mana {
         }
     }
 
+    public Mana(){
+        MagicPoints = 1; // Mana must be set above 0
+        MaxMagicPoints = 1;
+    }
+
     public int getMagicPoints() {
         return MagicPoints;
     }

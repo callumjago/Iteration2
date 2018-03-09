@@ -41,7 +41,7 @@ public class RunGame extends Application {
         }
 
 
-        tileSet.get(2).add(5, new OneShotItem());
+        //tileSet.get(2).add(5, new OneShotItem());
 
         GameState gameState = new GameState();
         gameState.setTileSet(tileSet);

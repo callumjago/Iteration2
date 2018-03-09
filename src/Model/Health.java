@@ -15,6 +15,11 @@ public class Health {
         }
     }
 
+    public Health(){
+        HealthPoints = 1; // Health must be set above 0
+        MaxHealthPoints = 1;
+    }
+
     public int getHealthPoints() {
         return HealthPoints;
     }

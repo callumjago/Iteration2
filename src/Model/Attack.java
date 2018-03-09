@@ -21,12 +21,12 @@ public class Attack {
         else {
             BaseAttackPoints = baseAttackPoints;
         }
-        if (addedAttackPoints <= 0) {
-            AddedAttackPoints = 0; // Attack must be set above 0
-        }
-        else {
-            AddedAttackPoints = addedAttackPoints;
-        }
+        AddedAttackPoints = addedAttackPoints;
+    }
+
+    public Attack(){
+        BaseAttackPoints = 1;
+        AddedAttackPoints = 0;
     }
 
     public int getBaseAttackPoints() {
@@ -47,12 +47,7 @@ public class Attack {
     }
 
     public void setAddedAttackPoints(int addedAttackPoints) {
-        if (addedAttackPoints <= 0) {
-            return;
-        }
-        else {
-            AddedAttackPoints = addedAttackPoints;
-        }
+        AddedAttackPoints = addedAttackPoints;
     }
 
     public int getAttackPoints(){

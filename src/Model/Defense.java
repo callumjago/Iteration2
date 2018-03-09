@@ -21,14 +21,14 @@ public class Defense {
         else {
             BaseDefensePoints = baseDefensePoints;
         }
-        if (addedDefensePoints <= 0) {
-            AddedDefensePoints = 0; // Defense must be set above 0
-        }
-        else {
-            AddedDefensePoints = addedDefensePoints;
-        }
+        AddedDefensePoints = addedDefensePoints;
     }
-
+    
+    public Defense(){
+        BaseDefensePoints = 1;
+        AddedDefensePoints = 0;
+    }
+    
     public int getBaseDefensePoints() {
         return BaseDefensePoints;
     }
@@ -47,12 +47,7 @@ public class Defense {
     }
 
     public void setAddedDefensePoints(int addedDefensePoints) {
-        if (addedDefensePoints <= 0) {
-            return;
-        }
-        else {
-            AddedDefensePoints = addedDefensePoints;
-        }
+        AddedDefensePoints = addedDefensePoints;
     }
 
     public int getDefensePoints(){

@@ -16,6 +16,12 @@ public class Level {
         Experience = 0;
     }
 
+    public Level(){
+        Lvl = 1;
+        ExpToNextLevel = Lvl * 100;
+        Experience = 0;
+    }
+
     public int getLevel() {
         return Lvl;
     }
