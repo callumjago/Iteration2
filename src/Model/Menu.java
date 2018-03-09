@@ -1,9 +1,10 @@
 package Model;
 
 import Controller.MenuController;
-
+import Controller.ScrollController;
 import Controller.MenuMouseController;
 import Controller.MenuClickHandler;
+
 import View.MenuUI;
 import javafx.scene.canvas.Canvas;
 import java.util.ArrayList;
@@ -12,11 +13,16 @@ public class Menu {
     private MenuController controller;
     private MenuMouseController mmc;
     private MenuClickHandler mch;
+    private ScrollController sc;
+
     private MenuUI ui;
     private Canvas canvas;
     private ArrayList<SubMenu> SubMenus;
     private int selectedInd;
+    private int numOfSubMenus;
     private boolean open;
+
+
 
     public Menu(Canvas canvas) {
 
@@ -24,22 +30,28 @@ public class Menu {
         controller = new MenuController(this);
         mmc = new MenuMouseController();
         mch = new MenuClickHandler(this);
+        sc = new ScrollController(this);
+
         ui = new MenuUI();
         SubMenus = new ArrayList<>();
+
 
         canvas.setOnKeyPressed(controller);
         canvas.setOnMouseMoved(mmc);
         canvas.setOnMouseClicked(mch);
+        canvas.setOnScroll(sc);
+
         selectedInd = 0;
+        numOfSubMenus = 0;
         open = false;
     }
 
     public void addSubMenu(SubMenu menu) {
+        menu.setMenuIndex(numOfSubMenus++);
         SubMenus.add(menu);
     }
 
     public void Escape() {
-        System.out.println("Escape");
         open = !open;
     }
     public void Enter() {
@@ -62,6 +74,24 @@ public class Menu {
         //Tell sub menu to check for actions
         SubMenus.get(selectedInd).Enter(mmc.getMouseX(), mmc.getMouseY());
 
+    }
+
+    public void Up() {
+        if(selectedInd > 0) {
+            selectedInd--;
+        }
+    }
+    public void Down() {
+        if(selectedInd < numOfSubMenus -1) {
+            selectedInd++;
+        }
+    }
+
+    public void scrollUp() {
+        SubMenus.get(selectedInd).scrollUp();
+    }
+    public void scrollDown() {
+        SubMenus.get(selectedInd).scrollDown();
     }
 
     public ArrayList<String> getMenuList() {

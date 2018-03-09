@@ -8,8 +8,8 @@ public class SaveGameMenu extends SubMenu {
     private SaveGame save;
     private ConfirmationMenuItem confirmation;
     private final String saveButtonText = "Save";
-    public SaveGameMenu(int index, SaveGame save) {
-        super(index, "Save Game");
+    public SaveGameMenu(SaveGame save) {
+        super("Save Game");
         this.save = save;
 
         confirmation = new ConfirmationMenuItem();

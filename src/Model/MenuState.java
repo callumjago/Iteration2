@@ -9,6 +9,7 @@ public class MenuState {
     private ArrayList<MenuItem> MenuItems;
     private int SelectedInd, SubMenuSelectedInd;
     private int mouseX, mouseY;
+    private int scrollOffset;
 
     public MenuState(ArrayList<String> MenuList, ArrayList<String> SubMenuList, int SelectedInd, int SubMenuSelectedInd, int mouseX, int mouseY) {
         this.MenuList = MenuList;
@@ -16,11 +17,20 @@ public class MenuState {
         this.SelectedInd = SelectedInd;
         this.SubMenuSelectedInd = SubMenuSelectedInd;
         this.mouseX = mouseX; this.mouseY = mouseY;
+        scrollOffset = 0;
         MenuItems = new ArrayList<>();
     }
 
     public void setSubMenuSelectedInd(int ind) {
         SubMenuSelectedInd = ind;
+    }
+
+    public void setScrollOffset(int offset) {
+        scrollOffset = offset;
+    }
+
+    public int getScrollOffset() {
+        return scrollOffset;
     }
 
     public void addMenuItem(MenuItem item) {
@@ -32,8 +42,8 @@ public class MenuState {
         return MenuList.get(index);
     }
     public String getSubMenuListName(int index) {
-        if(index >= SubMenuList.size()) { return ""; }
-        return SubMenuList.get(index);
+        if(index+scrollOffset >= SubMenuList.size()) { return ""; }
+        return SubMenuList.get(index + scrollOffset);
     }
 
     public ArrayList<String> getSubMenuList() {
@@ -62,7 +72,7 @@ public class MenuState {
     }
 
     public int getSubMenuSelectedInd() {
-        return SubMenuSelectedInd;
+        return SubMenuSelectedInd-scrollOffset;
     }
     public int getMouseX() {
         return mouseX;

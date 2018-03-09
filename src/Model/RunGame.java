@@ -40,11 +40,13 @@ public class RunGame extends Application {
         SaveGame save = new SaveGame();
         menu = new Menu(canvas);
         Player p = new Player();
-        p.addItem(new Armor());
-        p.addItem(new Ring());
-        menu.addSubMenu(new InventoryMenu(0, p.getInventory()));
-        menu.addSubMenu(new SaveGameMenu(1, save));
-        menu.addSubMenu(new QuitGameMenu(2));
+        for(int i = 0; i < 7; i++) {
+            p.addItem(new Armor());
+            p.addItem(new Ring());
+        }
+        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new SaveGameMenu(save));
+        menu.addSubMenu(new QuitGameMenu());
 
         menuView = new MenuView(canvas);
 

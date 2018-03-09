@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class InventoryMenu extends SubMenu {
     private Inventory inventory;
-    public InventoryMenu(int index, Inventory inventory) {
-        super(index, "Inventory");
+    public InventoryMenu(Inventory inventory) {
+        super("Inventory");
         this.inventory = inventory;
     }
 
@@ -16,7 +16,7 @@ public class InventoryMenu extends SubMenu {
 
     @Override
     MenuState generateSubMenuState(MenuState menuState) {
-
+        menuState.setScrollOffset(getScrollOffset());
         return menuState;
     }
 
@@ -28,6 +28,18 @@ public class InventoryMenu extends SubMenu {
     @Override
     int subMenuSize() {
         return inventory.numOfItems();
+    }
+
+    public void scrollUp() {
+        if(getScrollOffset() > 0) {
+            setScrollOffset(getScrollOffset()-1);
+        }
+    }
+    public void scrollDown() {
+        if(getScrollOffset() < inventory.numOfItems()-8) {
+            setScrollOffset(getScrollOffset()+1);
+        }
+
     }
 
 

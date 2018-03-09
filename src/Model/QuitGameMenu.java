@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class QuitGameMenu extends SubMenu{
     private ConfirmationMenuItem confirmation;
     private final String quitButtonText = "Quit";
-    public QuitGameMenu(int index) {
-        super(index, "Quit Game");
+    public QuitGameMenu() {
+        super("Quit Game");
         confirmation = new ConfirmationMenuItem();
         Bound itemBound = confirmation.getBound();
         confirmation.addButton(new Bound(itemBound.getBoundLeft()+100, itemBound.getBoundLeft()+300,

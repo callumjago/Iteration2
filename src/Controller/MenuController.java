@@ -12,10 +12,16 @@ public class MenuController implements EventHandler<KeyEvent> {
 
     public void handle(KeyEvent event) {
 
-        System.out.println("Handle");
+
         switch(event.getCode()) {
             case ESCAPE:
                 menu.Escape();
+                break;
+            case UP:
+                menu.Up();
+                break;
+            case DOWN:
+                menu.Down();
                 break;
         }
     }
