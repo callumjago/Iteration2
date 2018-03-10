@@ -31,7 +31,7 @@ public class RunGame extends Application {
         Group root = new Group();
         mainScene = new Scene(root);
         theStage.setScene( mainScene );
-        Canvas canvas = new Canvas(1000, 800);
+        Canvas canvas = new Canvas(800, 800);
         root.getChildren().add(canvas);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -40,6 +40,7 @@ public class RunGame extends Application {
         SaveGame save = new SaveGame();
         menu = new Menu(canvas);
         Player p = new Player();
+        p.setPosition(new Point(6, 4));
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
             p.addItem(new Ring());
@@ -63,6 +64,7 @@ public class RunGame extends Application {
 
 
         GameState gameState = new GameState();
+        gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
 
 

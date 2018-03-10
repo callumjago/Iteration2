@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class GameState {
@@ -14,6 +15,9 @@ public class GameState {
 
     public Player getPlayer() {
         return player;
+    }
+    public Point getPlayerPosition() {
+        return player.getPosition();
     }
 
     public ArrayList<ArrayList<Tile>> getTileSet() {

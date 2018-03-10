@@ -38,6 +38,7 @@ public class MenuUI {
         return new Bound(bound.getBoundLeft()*screenWidth/defaultScreenWidth, bound.getBoundRight()*screenWidth/defaultScreenWidth, bound.getBoundTop()*screenHeight/defaultScreenHeight, bound.getBoundBottom()*screenHeight/defaultScreenHeight);
     }
 
+
     public int resizeXCoord(int x) {
         return x*defaultScreenWidth/screenWidth;
     }

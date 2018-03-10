@@ -72,7 +72,7 @@ public class Menu {
         }
 
         //Tell sub menu to check for actions
-        SubMenus.get(selectedInd).Enter(ui.resizeXCoord(mmc.getMouseX()), ui.resizeYCoord(mmc.getMouseY()));
+        SubMenus.get(selectedInd).Enter(ui.resizeXCoord(mmc.getMouseX()), ui.resizeYCoord(mmc.getMouseY())); //This shit is garbage
 
     }
 
