@@ -34,6 +34,14 @@ public class Sprites {
         playerSprites.add(getImage(workingDir + "/sprites/characterGirl.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterAdventurer.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
+
+        terrainSprites.add(getImage(workingDir + "/sprites/grass.png"));
+        terrainSprites.add(getImage(workingDir + "/sprites/water.png"));
+        terrainSprites.add(getImage(workingDir + "/sprites/mountains.png"));
+    }
+
+    public Image getTerrainSprite(int terrainID) {
+        return terrainSprites.get(terrainID);
     }
 
     public Image getPlayerSprite(int ind) {

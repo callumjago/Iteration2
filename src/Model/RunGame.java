@@ -33,7 +33,7 @@ public class RunGame extends Application {
         theStage.setScene( mainScene );
         Canvas canvas = new Canvas(800, 800);
         root.getChildren().add(canvas);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        
 
         canvas.setFocusTraversable(true);
 
@@ -56,7 +56,7 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<Tile>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new EmptyTile());
+                tileSet.get(i).add(new EmptyTile(0));
             }
         }
 

@@ -23,6 +23,9 @@ public class GameState {
     public ArrayList<ArrayList<Tile>> getTileSet() {
         return tileSet;
     }
+    public int getTerrainTypeAt(int x, int y) {
+        return tileSet.get(x).get(y).getTerrainID();
+    }
 
     public ArrayList<Entity> getEntities() {
         return entities;
