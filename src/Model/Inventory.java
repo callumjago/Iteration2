@@ -1,57 +1,47 @@
 package Model;
 
+import java.util.List;
+
 public class Inventory {
-	private Item[] bag;
+	private List<Item> bag;
 	private int MAX_SIZE;
-	private int index;
 	
 	Inventory(int size){
 		MAX_SIZE = size;
-		index = 0;
-		bag = new Item[MAX_SIZE];
 	}
 	
 	public void addItem(Item item) {
-		if(index >= MAX_SIZE) {
+		if(bag.size() >= MAX_SIZE) {
 			System.out.println("Bag is Full!");
 			return;
 		}
 		
-		bag[index] = item;
-		index++;
+		bag.add(item);
 	}
 	
 	public Item getItem(int _index) {
-		return bag[_index];
+		return bag.get(_index);
 	}
 	
 	public void tossItem(int _index) {
-		if(index == 0) {
+		if(_index <= 0) {
 			System.out.println("Bag is Empty!");
 			return;
 		}
 		
-		bag[_index] = null;
-		index--;
+		bag.remove(_index);
 	}
 	
-	public Item[] getBag(){
+	public List<Item> getBag(){
 		return bag;
 	}
 	
 	public void setMAX_SIZE(int max) {
-		if(index >= max) { //Checks if there are too many items in your bag to switch bags.
+		if(bag.size() >= max) { //Checks if there are too many items in your bag to switch bags.
 			System.out.println("This bag is too small to carry all your items, consider dropping some items before switching bags");
 			return;
 		}
 		
 		MAX_SIZE = max;
-		
-		Item[] temp = bag;
-		bag = new Item[MAX_SIZE];
-		
-		for(int i = 0; i < MAX_SIZE; i++) {
-			bag[i] = temp[i];
-		}
 	}
 }
