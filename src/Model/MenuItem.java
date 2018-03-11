@@ -12,6 +12,7 @@ public abstract class MenuItem {
     public MenuItem(Bound bound, Color color) {
         itemBound = bound;
         elements = new ArrayList<>();
+        elements.add(new DisplayItem("", itemBound, Color.GRAY));
         backGroundColor = color;
     }
 

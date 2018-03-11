@@ -32,10 +32,18 @@ public class MenuItemView {
         gc.setFont(item.getFont());
         gc.setFill(Color.BLACK);
         gc.fillText(item.getText(), bound.getBoundLeft()+20, bound.getBoundTop() + (bound.getHeight()/2));
+
+        renderItemBorder(item.getBound());
     }
 
     private void renderItemBorder(Bound bound) {
+        gc.setStroke(Color.BLACK);
+        gc.setLineWidth(2);
 
+        gc.strokeLine(bound.getBoundLeft(), bound.getBoundTop(), bound.getBoundRight(), bound.getBoundTop());
+        gc.strokeLine(bound.getBoundLeft(), bound.getBoundTop(), bound.getBoundLeft(), bound.getBoundBottom());
+        gc.strokeLine(bound.getBoundRight(), bound.getBoundTop(), bound.getBoundRight(), bound.getBoundBottom());
+        gc.strokeLine(bound.getBoundLeft(), bound.getBoundBottom(), bound.getBoundRight(), bound.getBoundBottom());
     }
 
 }
