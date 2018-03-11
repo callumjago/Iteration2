@@ -34,5 +34,8 @@ public class MenuItemView {
         gc.fillText(item.getText(), bound.getBoundLeft()+20, bound.getBoundTop() + (bound.getHeight()/2));
     }
 
+    private void renderItemBorder(Bound bound) {
+
+    }
 
 }

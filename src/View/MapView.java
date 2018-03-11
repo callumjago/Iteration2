@@ -20,6 +20,7 @@ public class MapView {
         gc = canvas.getGraphicsContext2D();
         sprites = new Sprites();
         cameraX = 0; cameraY = 0;
+
     }
 
     public void render(GameState gameState) {
@@ -32,8 +33,10 @@ public class MapView {
                 } else {
                     gc.setFill(Color.BLUE);
                 }
+
+                //Draw tile
                 gc.fillRect(tileWidth*i-(gameState.getPlayerPosition().x*tileWidth)+400, tileHeight*j-(gameState.getPlayerPosition().y*tileHeight)+400, tileWidth, tileHeight);
-                if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {
+                if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
                     gc.setFill(Color.GREEN);
                     gc.drawImage(sprites.getPlayerSprite(0),tileWidth*i-(gameState.getPlayerPosition().x*tileWidth)+400, tileHeight*j-(gameState.getPlayerPosition().y*tileHeight)+400, tileWidth, tileHeight);
                 }
@@ -45,14 +48,13 @@ public class MapView {
     private void renderGrid(Point playerPos, int width, int height) {
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(2);
-        System.out.println((width/2)+playerPos.x);
 
-        for(int i = Math.max(0, (width/2)-playerPos.x+3); i < 2*width-playerPos.x-1; i++) {//Verticle lines
+        for(int i = Math.max(0, (width/2)-playerPos.x+3); i < 2*width-playerPos.x-1; i++) {//Verticle Lines
             //System.out.println(i);
             gc.strokeLine(i*tileWidth, ((height/2)-playerPos.y+3)*tileHeight, i*tileWidth, (2*height-playerPos.y-2)*tileHeight);
         }
 
-        for(int j = Math.max(0, (height/2)-playerPos.y+3); j < 2*height-playerPos.y-1; j++) {
+        for(int j = Math.max(0, (height/2)-playerPos.y+3); j < 2*height-playerPos.y-1; j++) {//Horizontal Lines
             gc.strokeLine(((width/2)-playerPos.x+3)*tileWidth, j*tileHeight, (2*width-playerPos.x-2)*tileWidth, j*tileHeight);
         }
     }
