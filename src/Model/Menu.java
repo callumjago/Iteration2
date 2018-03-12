@@ -10,7 +10,7 @@ import javafx.scene.canvas.Canvas;
 import java.util.ArrayList;
 
 public class Menu {
-    private MenuController controller;
+
     private MenuMouseController mmc;
     private MenuClickHandler mch;
     private ScrollController sc;
@@ -27,7 +27,7 @@ public class Menu {
     public Menu(Canvas canvas) {
 
         this.canvas = canvas;
-        controller = new MenuController(this);
+
         mmc = new MenuMouseController();
         mch = new MenuClickHandler(this);
         sc = new ScrollController(this);
@@ -36,7 +36,7 @@ public class Menu {
         SubMenus = new ArrayList<>();
 
 
-        canvas.setOnKeyPressed(controller);
+
         canvas.setOnMouseMoved(mmc);
         canvas.setOnMouseClicked(mch);
         canvas.setOnScroll(sc);

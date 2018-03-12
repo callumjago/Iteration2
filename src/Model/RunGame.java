@@ -2,6 +2,8 @@ package Model;
 
 import View.MapView;
 import View.MenuView;
+import Controller.KeyController;
+import Controller.MenuController;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -21,6 +23,8 @@ public class RunGame extends Application {
     private Menu menu;
     private MenuView menuView;
 
+    private KeyController keyController;
+
     private final long ticksPerSecond = 2;
 
     @Override
@@ -37,10 +41,18 @@ public class RunGame extends Application {
 
         canvas.setFocusTraversable(true);
 
+        keyController = new KeyController();
+        canvas.setOnKeyPressed(keyController);
+
         SaveGame save = new SaveGame();
+
         menu = new Menu(canvas);
+        MenuController mc = new MenuController(menu);
+        keyController.addController(mc);
+
         Player p = new Player();
         p.setPosition(new Point(6, 4));
+        keyController.addController(p.getPc());
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
