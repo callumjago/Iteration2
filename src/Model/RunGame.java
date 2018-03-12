@@ -65,9 +65,9 @@ public class RunGame extends Application {
 
         menuView = new MenuView(canvas);
 
-        ArrayList<ArrayList<Tile>> tileSet = new ArrayList<ArrayList<Tile>>();
+        ArrayList<ArrayList<Tile>> tileSet = new ArrayList<>();
         for(int i = 0; i < 10; i++) {
-            tileSet.add(new ArrayList<Tile>());
+            tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
                 tileSet.get(i).add(new EmptyTile(0));
             }
