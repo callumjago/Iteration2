@@ -3,9 +3,9 @@ package Model;
 import java.awt.Point;
 
 public class Tile {
-	private Point position;
-	private int terrainID;
-	private boolean passable;
+	protected Point position;
+	protected int terrainID;
+	protected boolean passable;
 	
 	Tile(Point _pos, int _terrainID){
 		position = _pos;
@@ -35,12 +35,19 @@ public class Tile {
 		switch(terrainID) {
 		case 0:
 			passable = true;
+			break;
 			
 		case 1:
 			passable = false;
+			break;
 			
 		case 2:
 			passable = false;
+			break;
 		}
+	}
+	
+	public void setPassable(boolean _passable) {
+		passable = _passable;
 	}
 }
