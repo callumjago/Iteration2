@@ -9,13 +9,16 @@ public class Inventory {
 	Inventory(int size){
 		MAX_SIZE = size;
 	}
-	
+
+	Inventory(){
+		MAX_SIZE = 100;
+	}
+
 	public void addItem(Item item) {
 		if(bag.size() >= MAX_SIZE) {
 			System.out.println("Bag is Full!");
 			return;
 		}
-		
 		bag.add(item);
 	}
 	
@@ -28,7 +31,6 @@ public class Inventory {
 			System.out.println("Bag is Empty!");
 			return;
 		}
-		
 		bag.remove(_index);
 	}
 	

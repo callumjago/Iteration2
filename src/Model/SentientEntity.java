@@ -44,23 +44,23 @@ public abstract class SentientEntity extends Entity {
     }
 
     public void modifyHP(int delta){
-        HP.modifyHealth(delta);
+        HP.modify(delta);
     }
 
     public void modifyMP(int delta){
-        MP.modifyMana(delta);
+        MP.modify(delta);
     }
 
     public void modifyMoney(int delta){
         Coffer.modifyMoney(delta);
     }
 
-    public void modifyAttack(int delta){
-        Atk.modifyAttack(delta);
+    public void modifyAtk(int delta){
+        Atk.modify(delta);
     }
 
-    public void modifyDefense(int delta){
-        Def.modifyDefense(delta);
+    public void modifyDef(int delta){
+        Def.modify(delta);
     }
 
     public int getHP(){
@@ -122,10 +122,10 @@ public abstract class SentientEntity extends Entity {
     public void gainExp(int expAmt){
         int check = Lvl.gainExp(expAmt);
         if (check > 0){ // This means a level up has occurred.
-            HP.raiseMaxHealthPoints((int)Math.log10((1.247*(Lvl.getLevel() * 100))));
-            MP.raiseMaxMagicPoints((int)Math.log10((1.247*(Lvl.getLevel() * 100)))-2);
-            Atk.raiseBaseAttack((int)(Math.log10((Lvl.getLevel()))*5));
-            Def.raiseBaseDefense((int)(Math.log10((Lvl.getLevel()))*3));
+            HP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100))));
+            MP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100)))-2);
+            Atk.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*5));
+            Def.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*3));
             gainExp(expAmt);
         }
     }

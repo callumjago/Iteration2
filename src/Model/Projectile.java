@@ -2,17 +2,12 @@ package Model;
 
 import java.awt.Point;
 
-public class Projectile {
+public class Projectile extends Entity{
 	private int damage;
-	private Point direction;
-	
-	Projectile(int _damage, Point _direction){
+	// Direction comes from Angle's Entity
+
+	Projectile(int _damage){
 		damage = _damage;
-		direction = _direction;
-	}
-	
-	public Point getDirection() {
-		return direction;
 	}
 	
 	public int getDamage() {

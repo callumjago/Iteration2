@@ -1,6 +1,6 @@
 package Model;
 
-public class Mana {
+public class Mana implements Stat{
     private int MagicPoints;
     private int MaxMagicPoints;
 
@@ -46,7 +46,7 @@ public class Mana {
         }
     }
 
-    public void modifyMana(int delta){
+    public void modify(int delta){
         if (delta > 0){
             recover(delta);
         }
@@ -76,7 +76,7 @@ public class Mana {
         }
     }
 
-    public void raiseMaxMagicPoints(int boost){ // Max MP can only be raised upon level up!
+    public void raiseBaseStat(int boost){ // Max MP can only be raised upon level up!
         if (boost <= 0){
             return;
         }
@@ -84,5 +84,10 @@ public class Mana {
             MaxMagicPoints += boost;
             MagicPoints = MaxMagicPoints;
         }
+    }
+
+    @Override
+    public void clearModifier() {
+        return;
     }
 }

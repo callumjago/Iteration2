@@ -1,6 +1,6 @@
 package Model;
 
-public class Health {
+public class Health implements Stat{
     private int HealthPoints;
     private int MaxHealthPoints;
 
@@ -46,7 +46,7 @@ public class Health {
         }
     }
 
-    public void modifyHealth(int delta){
+    public void modify(int delta){
         if (delta > 0){
             heal(delta);
         }
@@ -76,7 +76,7 @@ public class Health {
         }
     }
 
-    public void raiseMaxHealthPoints(int boost){ // Max HP can only be raised upon level up!
+    public void raiseBaseStat(int boost){ // Max HP can only be raised upon level up!
         if (boost <= 0){
             return;
         }
@@ -84,6 +84,11 @@ public class Health {
             MaxHealthPoints += boost;
             HealthPoints = MaxHealthPoints;
         }
+    }
+
+    @Override
+    public void clearModifier() {
+        return;
     }
 
     public Boolean isDead(){

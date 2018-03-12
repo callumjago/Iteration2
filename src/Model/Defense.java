@@ -1,6 +1,6 @@
 package Model;
 
-public class Defense {
+public class Defense implements Stat{
     private int BaseDefensePoints;
     private int AddedDefensePoints;
 
@@ -59,11 +59,11 @@ public class Defense {
         }
     }
 
-    public void clearDefenseModifiers(){
+    public void clearModifier(){
         AddedDefensePoints = 0;
     }
 
-    public void raiseBaseDefense(int boost){ // Base defense can only be raised upon level up!
+    public void raiseBaseStat(int boost){ // Base defense can only be raised upon level up!
         if (boost <= 0){
             return;
         }
@@ -72,7 +72,8 @@ public class Defense {
         }
     }
 
-    public void modifyDefense(int delta) {
+    public void modify(int delta) {
         AddedDefensePoints += delta;
     }
+
 }

@@ -1,6 +1,6 @@
 package Model;
 
-public class Attack {
+public class Attack implements Stat{
     private int BaseAttackPoints;
     private int AddedAttackPoints;
 
@@ -59,11 +59,11 @@ public class Attack {
         }
     }
 
-    public void clearAttackModifiers(){
+    public void clearModifier(){
         AddedAttackPoints = 0;
     }
 
-    public void raiseBaseAttack(int boost){ // Base attack can only be raised upon level up!
+    public void raiseBaseStat(int boost){ // Base attack can only be raised upon level up!
         if (boost <= 0){
             return;
         }
@@ -72,7 +72,8 @@ public class Attack {
         }
     }
 
-    public void modifyAttack(int delta) {
+    public void modify(int delta) {
         AddedAttackPoints += delta;
     }
+
 }
