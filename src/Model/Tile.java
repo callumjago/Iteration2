@@ -3,17 +3,17 @@ package Model;
 import java.awt.Point;
 
 public class Tile {
-	protected Point position;
-	protected int terrainID;
-	protected boolean passable;
+	private Point position;
+	private int terrainID;
+	private boolean passable;
 	
-	Tile(Point _pos, int _terrainID){
+	public Tile(Point _pos, int _terrainID){
 		position = _pos;
 		terrainID = _terrainID;
 		setPassable();
 	}
 	
-	Tile(){
+	public Tile(){
 		terrainID = 0;
 		position = new Point(0, 0);
 		setPassable();

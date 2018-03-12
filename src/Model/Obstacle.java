@@ -1,9 +1,13 @@
 package Model;
 
+import java.awt.Image;
+
 public class Obstacle extends GameObject{
-	private int itemId;
+	public Obstacle(int  _obstacleID, Image sprite){
+		super(_obstacleID, sprite);
+	}
 	
-	Obstacle(){
-		itemId = 1;
+	public Obstacle() {
+		super();
 	}
 }

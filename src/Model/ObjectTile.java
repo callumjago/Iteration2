@@ -5,21 +5,19 @@ import java.awt.Point;
 public class ObjectTile extends Tile {
 	private GameObject go;
 	
-	ObjectTile(GameObject _go, Point _position, int _terrainID){
+	public ObjectTile(GameObject _go, Point _position, int _terrainID){
+		super(_position, _terrainID);
 		go = _go;
-		this.setPassable();
-		terrainID = _terrainID;
-		position = _position;
-	}
-	
-	ObjectTile(GameObject _go){
-		go = _go;
-		position = new Point(0, 0);
-		terrainID = 0;
 		this.setPassable();
 	}
 	
-	public GameObject getGameObject() {
+	public ObjectTile(GameObject _go){
+		super();
+		go = _go;
+		this.setPassable();
+	}
+	
+	public GameObject getObjectType() {
 		return go;
 	}
 	
@@ -27,12 +25,15 @@ public class ObjectTile extends Tile {
 		switch(getID()) {
 		case 0:
 			setPassable(true);
+			break;
 			
 		case 1:
 			setPassable(false);
+			break;
 			
 		case 2:
 			setPassable(false);
+			break;
 		}
 		
 		if(go instanceof Obstacle) {
