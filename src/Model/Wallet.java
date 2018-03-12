@@ -14,6 +14,11 @@ public class Wallet {
         Money = 0;
     }
 
+    public Wallet() {
+        MaxMoney = 100;
+        Money = 0;
+    }
+
     public int getMaxMoney() {
         return MaxMoney;
     }

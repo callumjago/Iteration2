@@ -5,8 +5,8 @@ import java.awt.*;
 public class Player extends SentientEntity {
     //private PlayerClass Class;
 
-    Player(Point pos, Angle theta, Image img, String name, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
-        super(pos,theta,img,name,initHP,initMP,initAtk,initDef,initLvl,initMoney);
+    Player(Point pos, Angle theta, Image img, String name, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
+        super(pos,theta,img,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
         //Class = new PlayerClass();
     }
 

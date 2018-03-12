@@ -5,7 +5,9 @@ import java.awt.*;
 public abstract class SentientEntity extends Entity {
     private String Name;
     private Inventory inventory;
-    //private Equipment[] equipment[];
+    private Armor EquipArmor;
+    private Weapon EquipWeapon;
+    private Ring EquipRing;
     private Health HP;
     private Mana MP;
     private Attack Atk;
@@ -13,30 +15,32 @@ public abstract class SentientEntity extends Entity {
     private Level Lvl;
     private Wallet Coffer;
 
-    SentientEntity(Point pos, Angle theta, Image img, String name, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
+    SentientEntity(Point pos, Angle theta, Image img, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,img);
         Name = name;
+        EquipArmor = armor;
+        EquipWeapon = weapon;
+        EquipRing = ring;
         HP = new Health(initHP);
         MP = new Mana(initMP);
         Atk = new Attack(initAtk);
         Def = new Defense(initDef);
         Lvl = new Level(initLvl);
         Coffer = new Wallet(initMoney);
-        //equipment = new Equipment()[3];
         inventory = new Inventory();
     }
 
     SentientEntity(){ // Attribute classes fill with default values
         super();
         Name = "H Y P E B O Y";
-        HP = new Health(0);
-        MP = new Mana(0);
-        Atk = new Attack(0);
-        Def = new Defense(0);
-        Lvl = new Level(0);
-        Coffer = new Wallet(0);
-        //equipment = new Equipment()[3];
+        HP = new Health();
+        MP = new Mana();
+        Atk = new Attack();
+        Def = new Defense();
+        Lvl = new Level();
+        Coffer = new Wallet();
         inventory = new Inventory();
+        // Add starting equipment here
     }
 
     public void modifyHP(int delta){
@@ -87,13 +91,29 @@ public abstract class SentientEntity extends Entity {
         return inventory;
     }
 
-   /* public Equipment[] getEquipment() {
-        return equipment;
+    public Armor getEquipArmor() {
+        return EquipArmor;
     }
 
-    public void setEquipment(Equipment[] e) {
-        equipment = e;
-    }*/
+    public void setEquipArmor(Armor equipArmor) {
+        EquipArmor = equipArmor;
+    }
+
+    public Weapon getEquipWeapon() {
+        return EquipWeapon;
+    }
+
+    public void setEquipWeapon(Weapon equipWeapon) {
+        EquipWeapon = equipWeapon;
+    }
+
+    public Ring getEquipRing() {
+        return EquipRing;
+    }
+
+    public void setEquipRing(Ring equipRing) {
+        EquipRing = equipRing;
+    }
 
     public Boolean isDead(){
         return HP.isDead();
@@ -101,12 +121,55 @@ public abstract class SentientEntity extends Entity {
 
     public void gainExp(int expAmt){
         int check = Lvl.gainExp(expAmt);
-        if (check > 0){ // This means a level up has occured.
+        if (check > 0){ // This means a level up has occurred.
             HP.raiseMaxHealthPoints((int)Math.log10((1.247*(Lvl.getLevel() * 100))));
             MP.raiseMaxMagicPoints((int)Math.log10((1.247*(Lvl.getLevel() * 100)))-2);
             Atk.raiseBaseAttack((int)(Math.log10((Lvl.getLevel()))*5));
             Def.raiseBaseDefense((int)(Math.log10((Lvl.getLevel()))*3));
             gainExp(expAmt);
+        }
+    }
+
+    public void unequipArmor(){
+        if (EquipArmor != null) {
+            //inventory.addItem(EquipArmor);
+            // Remove Modifier
+        } else {
+            return;
+        }
+    }
+    public void unequipWeapon(){
+        if (EquipWeapon != null) {
+            //inventory.addItem(EquipWeapon);
+            // Remove Modifier
+        } else {
+            return;
+        }
+    }
+    public void unequipRing(){
+        if (EquipRing != null) {
+            //inventory.addItem(EquipRing);
+            // Remove Modifier
+        } else {
+            return;
+        }
+    }
+    
+    public void equipGear(Equipment e) {
+        if (e instanceof Armor) { 
+            unequipArmor();
+            EquipArmor = (Armor) e;
+        } 
+        else if (e instanceof Weapon) {
+            unequipWeapon();
+            EquipWeapon = (Weapon) e;
+        } 
+        else if (e instanceof Ring) {
+            unequipRing();
+            EquipRing = (Ring) e;
+        } 
+        else {
+            return;
         }
     }
 
