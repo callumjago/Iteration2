@@ -987,7 +987,7 @@ PlayerClass
 +getSkill(int:SkillIndex):Skill
 +addSkill(Skill)
 +getTotalSkills():ArrayList&lt;Skill&gt;
-+unlockSkill(int)
++LevelUp(int:newLvl)
 --
 Responsibilities
 -- Hold the classes skillz</panel_attributes>
@@ -2147,17 +2147,19 @@ Responsibilities
     <coordinates>
       <x>3222</x>
       <y>1692</y>
-      <w>225</w>
-      <h>189</h>
+      <w>243</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 Skill
 --
--String Name
--String Description
+-String:Name
+-String:Description
+-Level:ReqLvl
 --
-+getName():Name
-+getDescription():Description
++getName():String
++getDescription():String
++checkRequirement(Level:testLvl):Bool
 {abstract}+ApplySkill()
 {abstract}+RemoveSkill()
 --
@@ -2177,7 +2179,7 @@ Responsibilities
     <panel_attributes>Passive Skill
 --
 -Stat:Misc
--int:ModifyAmt
+-int:Modifier
 --
 Responsibilities
 -- Contains the information to use
@@ -2268,24 +2270,24 @@ Responsibilities
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3438</x>
+      <x>3456</x>
       <y>1665</y>
-      <w>234</w>
+      <w>216</w>
       <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;90.0;240.0;90.0;240.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;220.0;90.0;220.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3438</x>
+      <x>3456</x>
       <y>1782</y>
-      <w>234</w>
+      <w>216</w>
       <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;240.0;10.0;240.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;220.0;10.0;220.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
