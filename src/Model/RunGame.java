@@ -33,7 +33,7 @@ public class RunGame extends Application {
         theStage.setScene( mainScene );
         Canvas canvas = new Canvas(800, 800);
         root.getChildren().add(canvas);
-        
+
 
         canvas.setFocusTraversable(true);
 
@@ -41,6 +41,7 @@ public class RunGame extends Application {
         menu = new Menu(canvas);
         Player p = new Player();
         p.setPosition(new Point(6, 4));
+        //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
             p.addItem(new Ring());
@@ -60,6 +61,9 @@ public class RunGame extends Application {
             }
         }
 
+        ObjectTile objt = new ObjectTile(0);
+        objt.setObject(new MapTransition());
+        tileSet.get(4).set(4, objt);
 
 
 
@@ -78,18 +82,23 @@ public class RunGame extends Application {
             int tick = 0;
             public void handle(long currentNanoTime) {
                 //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
+
+
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
                     if (System.nanoTime() / delta != nanoTime) {
                         mv.render(gameState);
-                        System.out.println("FPS: " + tick);
+                        //System.out.println("FPS: " + tick);
                         nanoTime = System.nanoTime() / delta;
                         tick = 0;
+
                     } else {
                         tick++;
                     }
                 }
+
+
 
 
 

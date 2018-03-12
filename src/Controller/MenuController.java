@@ -16,6 +16,7 @@ public class MenuController implements EventHandler<KeyEvent> {
         switch(event.getCode()) {
             case ESCAPE:
                 menu.Escape();
+                System.out.println("JFEIOJFWOJ");
                 break;
             case UP:
                 menu.Up();
