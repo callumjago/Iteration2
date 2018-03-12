@@ -2,6 +2,8 @@ package Model;
 
 import View.MapView;
 import View.MenuView;
+import Controller.KeyController;
+import Controller.MenuController;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -21,6 +23,8 @@ public class RunGame extends Application {
     private Menu menu;
     private MenuView menuView;
 
+    private KeyController keyController;
+
     private final long ticksPerSecond = 2;
 
     @Override
@@ -33,14 +37,23 @@ public class RunGame extends Application {
         theStage.setScene( mainScene );
         Canvas canvas = new Canvas(800, 800);
         root.getChildren().add(canvas);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+
 
         canvas.setFocusTraversable(true);
 
+        keyController = new KeyController();
+        canvas.setOnKeyPressed(keyController);
+
         SaveGame save = new SaveGame();
+
         menu = new Menu(canvas);
+        MenuController mc = new MenuController(menu);
+        keyController.addController(mc);
+
         Player p = new Player();
         p.setPosition(new Point(6, 4));
+        keyController.addController(p.getPc());
+        //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
             p.addItem(new Ring());
@@ -52,13 +65,19 @@ public class RunGame extends Application {
 
         menuView = new MenuView(canvas);
 
-        ArrayList<ArrayList<Tile>> tileSet = new ArrayList<ArrayList<Tile>>();
+        ArrayList<ArrayList<Tile>> tileSet = new ArrayList<>();
         for(int i = 0; i < 10; i++) {
-            tileSet.add(new ArrayList<Tile>());
+            tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new EmptyTile());
+                tileSet.get(i).add(new EmptyTile(0));
             }
         }
+
+        ObjectTile objt = new ObjectTile(0);
+        objt.setObject(new MapTransition());
+        tileSet.get(4).set(4, objt);
+
+
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);
@@ -75,18 +94,23 @@ public class RunGame extends Application {
             int tick = 0;
             public void handle(long currentNanoTime) {
                 //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
+
+
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
                     if (System.nanoTime() / delta != nanoTime) {
                         mv.render(gameState);
-                        System.out.println("FPS: " + tick);
+                        //System.out.println("FPS: " + tick);
                         nanoTime = System.nanoTime() / delta;
                         tick = 0;
+
                     } else {
                         tick++;
                     }
                 }
+
+
 
 
 

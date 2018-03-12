@@ -27,7 +27,12 @@ public class GameState {
     public ArrayList<Entity> getEntities() {
         return entities;
     }
-
+    public int getTerrainTypeAt(int x, int y) {
+        return tileSet.get(x).get(y).getTerrainID();
+    }
+    public int getObjectID(int x, int y) {
+        return tileSet.get(x).get(y).getTileObjectID();
+    }
     public void setPlayer(Player player) {
         this.player = player;
     }

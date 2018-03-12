@@ -26,24 +26,32 @@ public class MapView {
     public void render(GameState gameState) {
         gc.setFill(Color.WHITE);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        int x, y;
+
         for(int i = 0; i < gameState.getWidth(); i++) {
             for(int j = 0; j < gameState.getHeight(); j++) {
-                if(gameState.getTileAt(i, j) instanceof EmptyTile) {
-                    gc.setFill(Color.GRAY);
-                } else {
-                    gc.setFill(Color.BLUE);
-                }
 
+                x = tileWidth*i-(gameState.getPlayerPosition().x*tileWidth)+400;
+                y = tileHeight*j-(gameState.getPlayerPosition().y*tileHeight)+400;
                 //Draw tile
-                gc.fillRect(tileWidth*i-(gameState.getPlayerPosition().x*tileWidth)+400, tileHeight*j-(gameState.getPlayerPosition().y*tileHeight)+400, tileWidth, tileHeight);
+
+                gc.drawImage(sprites.getTerrainSprite(gameState.getTerrainTypeAt(i, j)), x, y, tileWidth, tileHeight);
+
                 if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
                     gc.setFill(Color.GREEN);
-                    gc.drawImage(sprites.getPlayerSprite(0),tileWidth*i-(gameState.getPlayerPosition().x*tileWidth)+400, tileHeight*j-(gameState.getPlayerPosition().y*tileHeight)+400, tileWidth, tileHeight);
+                    gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
+                }
+
+                if(gameState.getObjectID(i, j) > 0) {//Draw tile object
+                    gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)),x, y, tileWidth, tileHeight);
                 }
             }
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
     }
+
+
+
 
     private void renderGrid(Point playerPos, int width, int height) {
         gc.setStroke(Color.BLACK);

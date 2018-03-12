@@ -4,15 +4,14 @@ import java.awt.Image;
 
 public abstract class GameObject {
     private int ObjectID;
-    private Image Sprite;
 
-    public GameObject(int objectID, Image sprite) {
+
+    public GameObject(int objectID) {
         ObjectID = objectID;
-        Sprite = sprite;
     }
 
     public GameObject(){
-        ObjectID = 000; // Default ID
+        ObjectID = 0; // Default ID
         // Default Sprite goes here.
     }
 
@@ -22,9 +21,7 @@ public abstract class GameObject {
     }
 
     // Returns the object's sprite
-    Image getSprite(){
-        return Sprite;
-    }
+
 
     // Sets an Object's ID
     public void setObjectID(int objectID) {
@@ -32,7 +29,5 @@ public abstract class GameObject {
     }
 
     // Sets an Object's Sprite
-    public void setSprite(Image sprite) {
-        Sprite = sprite;
-    }
+
 }
