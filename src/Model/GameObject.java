@@ -34,6 +34,5 @@ public abstract class GameObject {
     // Sets an Object's Sprite
     public void setSprite(Image sprite) {
         Sprite = sprite;
->>>>>>> Player
     }
 }

@@ -12,6 +12,7 @@ public class Ring extends Equipment {
 
     public Ring() {
         super();
+		this.setName("Ring");
     }
 
     public Skill getEffect() {

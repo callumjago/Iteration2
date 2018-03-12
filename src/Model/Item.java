@@ -16,6 +16,8 @@ public abstract class Item extends GameObject{
         ItemID = 000;
     }
 
+    public String getName() {return "Item";}
+
     // Returns an item's ID
     public int getItemID(){
         return ItemID;

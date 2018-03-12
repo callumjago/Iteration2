@@ -60,7 +60,6 @@ public class RunGame extends Application {
             }
         }
 
-
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);

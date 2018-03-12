@@ -23,6 +23,5 @@ public class Armor extends Equipment{
 
     public void setDefensePoints(int defensePoints) {
         DefensePoints = defensePoints;
->>>>>>> Player
     }
 }

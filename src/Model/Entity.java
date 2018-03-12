@@ -92,5 +92,4 @@ public abstract class Entity {
         orientation.changeTrajectory(180);
         position.setLocation(position.getX()-1,position.getY()+0);
     }
->>>>>>> Player
 }

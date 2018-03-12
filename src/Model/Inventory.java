@@ -1,17 +1,19 @@
 package Model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Inventory {
-	private List<Item> bag;
+	private ArrayList<Item> bag;
 	private int MAX_SIZE;
 	
 	Inventory(int size){
 		MAX_SIZE = size;
+		bag = new ArrayList<Item>();
 	}
 
 	Inventory(){
 		MAX_SIZE = 100;
+		bag = new ArrayList<Item>();
 	}
 
     public void addItem(Item item) {
@@ -54,7 +56,7 @@ public class Inventory {
 		bag.remove(_index);
 	}
 	
-	public List<Item> getBag(){
+	public ArrayList<Item> getBag(){
 		return bag;
 	}
 	
@@ -66,5 +68,4 @@ public class Inventory {
 		
 		MAX_SIZE = max;
 	}
->>>>>>> Player
 }
