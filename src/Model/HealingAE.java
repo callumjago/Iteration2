@@ -1,6 +1,6 @@
 package Model;
 
-public class HealingAE implements AOE {
+public class HealingAE extends AOE {
     private int healBoost;
     private int duration;
     public HealingAE(dur, Am){
