@@ -7,14 +7,40 @@ import javafx.scene.input.KeyEvent;
 
 import javax.swing.text.Position;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+
+//Player Controlls: 0 = up, 1 = right, 2 = down, 3 = left
 
 public class PlayerController extends SubKeyController {
     private Player player;
     private boolean inputRegistered;
+    private boolean isListeningforRebind;
+    private int rebindIndex;
+
+    private ArrayList<KeyCode> playerControls;
+    private ArrayList<String> controlFunctions; //Represents control functions (i.e. moveUp, attack, etc.)
     public PlayerController(Player player){
         super();
         this.player = player;
         inputRegistered = false;
+
+
+        //Initialize default controls
+        playerControls = new ArrayList<>();
+        playerControls.add(KeyCode.UP);
+        playerControls.add(KeyCode.RIGHT);
+        playerControls.add(KeyCode.DOWN);
+        playerControls.add(KeyCode.LEFT);
+
+        controlFunctions = new ArrayList<>();
+        controlFunctions.add("Up");
+        controlFunctions.add("Right");
+        controlFunctions.add("Down");
+        controlFunctions.add("Left");
+
+
+        isListeningforRebind = false;
+        rebindIndex = 0;
     }
 
 
@@ -32,19 +58,38 @@ public class PlayerController extends SubKeyController {
     @Override
     void keyInput(KeyCode code) {
         inputRegistered = true;
-        switch(code) {
-            case UP:
-                player.moveUp();
-                break;
-            case DOWN:
-                player.moveDown();
-                break;
-            case LEFT:
-                player.moveLeft();
-                break;
-            case RIGHT:
-                player.moveRight();
-                break;
+
+        if(isListeningforRebind) {
+            playerControls.set(rebindIndex, code);
+            isListeningforRebind = false;
         }
+
+        if(code == playerControls.get(0)) {//MoveUp
+            player.moveUp();
+        } else if(code == playerControls.get(1)) {//MoveRight
+            player.moveRight();
+        } else if(code == playerControls.get(2)) {//MoveDown
+            player.moveDown();
+        } else if(code == playerControls.get(3)) {//MoveLeft
+            player.moveLeft();
+        }
+    }
+
+
+    public ArrayList<String> generateControlsList() {
+        ArrayList<String> controlsList = new ArrayList<>();
+        for(int i = 0; i < playerControls.size(); i++) {
+            controlsList.add(controlFunctions.get(i) + ": " + playerControls.get(i).toString());
+        }
+        return controlsList;
+    }
+
+    public int getNumOfControls() {
+        return playerControls.size();
+    }
+
+    public void startListenForRebind(int controlIndex) {
+        isListeningforRebind = true;
+        rebindIndex = controlIndex;
     }
 }
