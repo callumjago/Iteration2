@@ -41,6 +41,10 @@ public abstract class Entity {
         return interaction;
     }
 
+    public void clearInteracton(){
+        interaction = null;
+    }
+
     public void setInteraction(Interaction interaction) {
         this.interaction = interaction;
     }
@@ -51,6 +55,10 @@ public abstract class Entity {
 
     public void setSprite(Image sprite) {
         this.sprite = sprite;
+    }
+
+    public Boolean checkInteraction(){
+        return interaction != null;
     }
 
     public void moveNorth() {
