@@ -11,6 +11,10 @@ public class ObjectTile extends Tile {
 		this.setPassable();
 	}
 	
+	public ObjectTile(int _terrain) {
+		super(_terrain);
+	}
+	
 	public ObjectTile(GameObject _go){
 		super();
 		go = _go;
@@ -22,7 +26,7 @@ public class ObjectTile extends Tile {
 	}
 	
 	public void setPassable() {
-		switch(getID()) {
+		switch(getTerrainID()) {
 		case 0:
 			setPassable(true);
 			break;
@@ -41,4 +45,18 @@ public class ObjectTile extends Tile {
 		}
 	}
 	
+	public int getTileObjectID() {
+		return go.getObjectID();
+	}
+	
+	public boolean isPassable() {
+		if(getPassable()) return true;
+		
+		else return false;
+	}
+	
+	public void setObject(GameObject _go) {
+		go = _go;
+		this.setPassable();
+	}
 }

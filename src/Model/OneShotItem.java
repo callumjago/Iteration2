@@ -5,8 +5,8 @@ import java.awt.Image;
 public abstract class OneShotItem extends GameObject {
 	private int OneShotID;
 	
-    public OneShotItem(int _objectID, int _oneShotID, Image _sprite) {
-        super(_objectID, _sprite);
+    public OneShotItem(int _objectID, int _oneShotID) {
+        super(_objectID);
         
         OneShotID = _oneShotID;
     }

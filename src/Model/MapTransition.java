@@ -3,9 +3,9 @@ package Model;
 import java.awt.Image;
 
 public class MapTransition extends GameObject {
-    public MapTransition() {
+  /*  public MapTransition() {
         super(2);
-    }
+    }*/
     
     public MapTransition() {
     	super();

@@ -5,6 +5,6 @@ public class InteractiveItem extends Item {
         super();
     }
     public boolean passedRequirement(){
-
+    	return false; //temporary
     }
 }

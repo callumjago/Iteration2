@@ -1,4 +1,4 @@
 package Model;
 
-public class InstantDeath implements AOE {
+public class InstantDeath {
 }

@@ -19,6 +19,11 @@ public class Tile {
 		setPassable();
 	}
 	
+	public Tile(int _terrain) {
+		terrainID = _terrain;
+		position = new Point(0, 0);
+	}
+	
 	public Point getPosition() {
 		return position;
 	}
@@ -27,7 +32,7 @@ public class Tile {
 		return passable;
 	}
 	
-	public int getID() {
+	public int getTerrainID() {
 		return terrainID;
 	}
 	
@@ -49,5 +54,17 @@ public class Tile {
 	
 	public void setPassable(boolean _passable) {
 		passable = _passable;
+	}
+	
+	public int getTileObjectID() {
+		return 0;
+	}
+	
+	public boolean isPassable() {
+		if(passable) {
+			return true;
+		}
+		
+		else return false;
 	}
 }

@@ -71,7 +71,7 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new EmptyTile(0));
+                tileSet.get(i).add(new Tile(0));
             }
         }
 
