@@ -201,7 +201,7 @@ public abstract class SentientEntity extends Entity {
         statsList.add("Defense: " + Integer.toString(Def.getDefensePoints()));
         statsList.add("Level: " + Lvl.getLevel());
         statsList.add("Experience: " + Lvl.getExperience());
-        statsList.add("Exp Remaining: " + Lvl.getExpToNextLevel());
+        statsList.add("Next Lvl: " + Lvl.getExpToNextLevel());
         statsList.add("Gold: " + Coffer.getMoney());
 
         return statsList;
