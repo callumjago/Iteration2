@@ -1,4 +1,5 @@
 package Model;
 
-public interface AOE extends GameObject {
+public abstract AOE extends GameObject {
+    public ()
 }
