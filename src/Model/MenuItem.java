@@ -53,4 +53,9 @@ public abstract class MenuItem {
         DisplayItem item = new DisplayItem(text, bound,Color.BROWN);
         addElement(item);
     }
+
+    public void updateElement(int index, String newName) {
+        if(index >= elements.size()) { return; }
+        elements.get(index).setText(newName);
+    }
 }

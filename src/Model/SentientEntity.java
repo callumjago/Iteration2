@@ -41,6 +41,7 @@ public abstract class SentientEntity extends Entity {
         Lvl = new Level();
         Coffer = new Wallet();
         inventory = new Inventory();
+        EquipWeapon = new Weapon();
         // Add starting equipment here
     }
 
@@ -204,5 +205,14 @@ public abstract class SentientEntity extends Entity {
         statsList.add("Gold: " + Coffer.getMoney());
 
         return statsList;
+    }
+    public Armor getArmor() {
+        return EquipArmor;
+    }
+    public Weapon getWeapon() {
+        return EquipWeapon;
+    }
+    public Ring getRing() {
+        return EquipRing;
     }
 }

@@ -24,7 +24,9 @@ public class DisplayItem {
     public String getText() {
         return text;
     }
-
+    public void setText(String newText) {
+        text = newText;
+    }
     public Bound getBound() {
         return bound;
     }
