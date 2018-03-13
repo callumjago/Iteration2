@@ -130,6 +130,7 @@ public class RunGame extends Application {
         //TESTING PURPOSES REOMOVEIMF U WOANT LOL
 
         EquipmentCodex c = new EquipmentCodex();
+        ItemCodex i = new ItemCodex();
 
         //REMOVE THI SLOL
 

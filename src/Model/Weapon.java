@@ -10,7 +10,9 @@ public class Weapon extends Equipment {
     private Accuracy Acy;
     private int Range;
 
-    public Weapon(int ObjID, Image Sprite, int ItemID, int EQID, Level reqLvl, String name, String description, int attackPoints, int attackOrientation, int attackSpeed, Accuracy accuracy, int range) {
+    public Weapon(int ObjID, Image Sprite, int ItemID, int EQID, Level reqLvl, String name, String description, int attackPoints,
+                  int attackOrientation, int attackSpeed, Accuracy accuracy, int range)
+    {
         super(ObjID, Sprite, ItemID, EQID, reqLvl, name, description);
         AttackPoints = attackPoints;
         AttackOrientation = attackOrientation;

@@ -4,19 +4,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
-public class EquipmentCodex implements Codex{
+public class ItemCodex implements Codex {
 
-
-    //HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
-
-    EquipmentCodex() {
+    ItemCodex(){
         try {
 
-            File EquipmentFile = new File(System.getProperty("user.dir") + "/Codex/EquipmentCodex/EquipmentCodex.csv");
+            File EquipmentFile = new File(System.getProperty("user.dir") + "/Codex/ItemCodex/ItemCodex.csv");
             BufferedReader br = new BufferedReader(new FileReader(EquipmentFile));
             String s;
             br.readLine();
@@ -53,7 +49,7 @@ public class EquipmentCodex implements Codex{
                     }
                 }*/
             }
-            System.out.println("The test for the info is:ssssssssssssssss " + map.get(26).get(2));
+            System.out.println("The test for the info is:ssssssssssssssss " + map.get(8).get(3));
 
 
         } catch (Exception e) {
@@ -61,49 +57,25 @@ public class EquipmentCodex implements Codex{
         }
     }
 
-
     public String getTag(int ID){
-
-        return map.get(ID).get(0);
-
-    }
-    public int getLevelReq(int ID){
-
-        return Integer.parseInt(map.get(ID).get(1));
-
+        return (map.get(ID).get(0));
     }
     public int getStatPoints(int ID){
+        return Integer.parseInt(map.get(ID).get(1));
+    }
 
+    public int getLevelReq(int ID){
         return Integer.parseInt(map.get(ID).get(2));
-
-    }
-
-    public int getAttackSpeed(int ID){
-
-        return Integer.parseInt(map.get(ID).get(3));
-
-    }
-
-    public int getRange(int ID){
-
-        return Integer.parseInt(map.get(ID).get(4));
-
-    }
-
-    public int getAccuracy(int ID){
-
-        return Integer.parseInt(map.get(ID).get(5));
-
     }
 
     public String getDescription(int ID){
 
-        return (map.get(ID).get(6));
+        return (map.get(ID).get(3));
 
     }
     public String getName(int ID){
 
-        return (map.get(ID).get(7));
+        return (map.get(ID).get(4));
 
     }
 
