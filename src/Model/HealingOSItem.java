@@ -11,8 +11,8 @@ public class HealingOSItem extends OneShotItem{
 		healing = 10;
 	}
 	
-	public HealingOSItem(int  _objectID, int _oneShotID, int _healing, Point _position){
-		super(_objectID, _oneShotID);
+	public HealingOSItem(int  _objectID, int _oneShotID, int _healing, Point _position, Image _sprite){
+		super(_objectID, _oneShotID, _sprite);
 		healing = _healing;
 	}
 	

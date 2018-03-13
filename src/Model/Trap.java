@@ -13,8 +13,8 @@ public class Trap extends OneShotItem {
 		requirement = 0;
 	}
 	
-	public Trap(int  _objectID, int _oneShotID, int _damage, int _requirement){
-		super(_objectID, _oneShotID);
+	public Trap(int  _objectID, int _oneShotID, int _damage, int _requirement, Image _sprite){
+		super(_objectID, _oneShotID, _sprite);
 		damage = _damage;
 		requirement = _requirement;
 	}
