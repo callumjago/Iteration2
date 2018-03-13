@@ -29,5 +29,8 @@ public abstract class GameObject {
     }
 
     // Sets an Object's Sprite
+    
+    //Gives back a value based off of the object's type
+    public abstract int getValue();
 
 }

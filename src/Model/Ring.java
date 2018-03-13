@@ -22,4 +22,8 @@ public class Ring extends Equipment {
     public void setEffect(Skill effect) {
         Effect = effect;
     }
+    
+    public int getValue() { //temporary implementation
+    	return 0;
+    }
 }

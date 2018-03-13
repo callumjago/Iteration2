@@ -68,5 +68,9 @@ public class Weapon extends Equipment {
     public void setRange(int range) {
         Range = range;
     }
+    
+    public int getValue() {
+    	return AttackPoints;
+    }
 
 }
