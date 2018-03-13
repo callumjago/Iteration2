@@ -17,6 +17,9 @@ public class ObjectTile extends Tile {
         }
         go = obj;
     }
-
+    
+    public GameObject getObject() {
+    	return go;
+    }
 
 }
