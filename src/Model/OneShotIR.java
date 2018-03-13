@@ -4,8 +4,9 @@ public class OneShotIR implements Interaction{
 	private ObjectTile tile;
 	private SentientEntity entity;
 	private int value;
+	private GameState state;
 	
-	public OneShotIR(ObjectTile _tile, SentientEntity _entity, int _value) {
+	public OneShotIR(ObjectTile _tile, SentientEntity _entity, int _value, GameState _state) {
 		entity = _entity;
 		
 		if(_tile.getObject() instanceof OneShotItem) {
@@ -18,6 +19,8 @@ public class OneShotIR implements Interaction{
 		}
 		
 		value = _value;
+		
+		state = _state;
 	}
 	
 	public void applyEffect() {
@@ -28,6 +31,6 @@ public class OneShotIR implements Interaction{
 		
 		entity.modifyHP(value);
 		
-		
+		state.setTileAt(new Tile(tile.getPosition(), tile.getTerrainID()), tile.getPosition());
 	}
 }
