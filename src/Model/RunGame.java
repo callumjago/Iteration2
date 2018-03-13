@@ -85,10 +85,13 @@ public class RunGame extends Application {
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
 
+        LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
 
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
+
+        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
         new AnimationTimer() {
 
