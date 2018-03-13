@@ -6,4 +6,8 @@ public class MapTransition extends GameObject {
     public MapTransition() {
         super(2);
     }
+    
+    public MapTransition() {
+    	super();
+    }
 }
