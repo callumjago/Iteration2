@@ -67,8 +67,10 @@ public class MenuView {
             gc.setFont(menuFont);
             gc.setFill(Color.BLACK);
             gc.fillText(state.getMenuListName(i), bound.getBoundLeft()+40, bound.getBoundTop()+(bound.getHeight()/2)+5);
+            gc.fillRect(0, bound.getBoundTop(), 4, bound.getBoundBottom());
 
             entryDivisionLine(bound.getBoundLeft(), bound.getBoundBottom(), bound.getWidth(), 4);
+
         }
 
         //Render top division line
