@@ -126,6 +126,13 @@ public class RunGame extends Application {
 
 
     public static void main(String[] args) {
+
+        //TESTING PURPOSES REOMOVEIMF U WOANT LOL
+
+        EquipmentCodex c = new EquipmentCodex();
+
+        //REMOVE THI SLOL
+
         launch(args);
     }
 }
