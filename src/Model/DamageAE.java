@@ -1,11 +1,10 @@
 package Model;
 
-public class DamageAE extends ContAE {
+public class DamageAE extends AOE {
     private int DamageAm;
     private int duration;
 
     public DamageAE(dur, Am) {
-        super(dur, Am);
         setDamageAm(Am);
         setDuration(dur);
     }

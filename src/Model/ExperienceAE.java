@@ -3,8 +3,8 @@ package Model;
 public class ExperienceAE extends AOE {
     private int Experience;
     private int Duration;
+
     public ExperienceAE(dur, Am) {
-        super(dur, Am);
         setExperience(Am);
         setDuration(dur);
     }
