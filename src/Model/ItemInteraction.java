@@ -4,6 +4,7 @@ public class ItemInteraction extends TileInteraction {
     private ObjectTile tile;
     private SentientEntity entity;
     private Item value;
+    private GameState state;
 
     public ItemInteraction(ObjectTile _tile, SentientEntity _entity, Item _value) {
         entity = _entity;
@@ -27,7 +28,7 @@ public class ItemInteraction extends TileInteraction {
         }
 
         entity.addToInventory(value);
-
+        state.setTileAt(new Tile(tile.getPosition(), tile.getTerrainID()), tile.getPosition());
 
     }
 }
