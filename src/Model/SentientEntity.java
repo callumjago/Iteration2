@@ -180,4 +180,14 @@ public abstract class SentientEntity extends Entity {
     public void setName(String name) {
         Name = name;
     }
+
+    public String[] getStatNames(){
+        String[] s = {"Health", "Mana", "Attack", "Defense", "Level", "Experience","Experience to Next Level","Money"};
+        return s;
+    }
+
+    public int[] getStats(){
+        int[] i = {HP.getHealthPoints(),MP.getMagicPoints(),Atk.getAttackPoints(),Def.getDefensePoints(),Lvl.getLevel(),Lvl.getExperience(),Lvl.getExpToNextLevel(),Coffer.getMoney()};
+        return i;
+    }
 }

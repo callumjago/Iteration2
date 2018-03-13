@@ -17,10 +17,6 @@ public class PlayerController extends SubKeyController {
         inputRegistered = false;
     }
 
-
-
-
-
     public boolean isInputRegistered() {
         return inputRegistered;
     }

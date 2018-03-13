@@ -61,5 +61,22 @@ public class Level {
         return other.getLevel() == Lvl;
     }
 
+    public int getExperience() {
+        return Experience;
+    }
+
+    public void setExperience(int experience) {
+        Experience = experience;
+    }
+
+    public int getExpToNextLevel() {
+        return ExpToNextLevel;
+    }
+
+    public void setExpToNextLevel(int expToNextLevel) {
+        ExpToNextLevel = expToNextLevel;
+    }
+
+
 
 }
