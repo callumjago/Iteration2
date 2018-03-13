@@ -19,20 +19,6 @@ public class Player extends SentientEntity {
     public void addItem(Item item) {
         getInventory().addItem(item);
 	}
-    public void moveUp() {
-        System.out.println("TEST");
-        setPosition(new Point(getPosition().x, --getPosition().y));
-    }
-    public void moveDown() {
-        setPosition(new Point(getPosition().x, ++getPosition().y));
-    }
-    public void moveLeft() {
-        setPosition(new Point(--getPosition().x, getPosition().y));
-    }
-    public void moveRight() {
-        setPosition(new Point(++getPosition().x, getPosition().y));
-    }
-
 
     public PlayerController getPc() {
         return pc;

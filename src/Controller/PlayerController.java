@@ -34,16 +34,16 @@ public class PlayerController extends SubKeyController {
         inputRegistered = true;
         switch(code) {
             case UP:
-                player.moveUp();
+                player.moveNorth();
                 break;
             case DOWN:
-                player.moveDown();
+                player.moveSouth();
                 break;
             case LEFT:
-                player.moveLeft();
+                player.moveWest();
                 break;
             case RIGHT:
-                player.moveRight();
+                player.moveEast();
                 break;
         }
     }

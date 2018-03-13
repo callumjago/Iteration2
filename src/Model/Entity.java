@@ -55,32 +55,32 @@ public abstract class Entity {
 
     public void moveNorth() {
         orientation.changeTrajectory(90);
-        position.setLocation(position.getX()+0,position.getY()+1);
+        position.setLocation(position.getX()+0,position.getY()-1);
     }
 
     public void moveNorthEast() {
         orientation.changeTrajectory(45);
-        position.setLocation(position.getX()+1,position.getY()+1);
+        position.setLocation(position.getX()+1,position.getY()-1);
     }
 
     public void moveNorthWest() {
         orientation.changeTrajectory(135);
-        position.setLocation(position.getX()-1,position.getY()+1);
+        position.setLocation(position.getX()-1,position.getY()-1);
     }
 
     public void moveSouth() {
         orientation.changeTrajectory(270);
-        position.setLocation(position.getX()+0,position.getY()-1);
+        position.setLocation(position.getX()+0,position.getY()+1);
     }
 
     public void moveSouthEast() {
         orientation.changeTrajectory(315);
-        position.setLocation(position.getX()+1,position.getY()-1);
+        position.setLocation(position.getX()+1,position.getY()+1);
     }
 
     public void moveSouthWest() {
         orientation.changeTrajectory(225);
-        position.setLocation(position.getX()-1,position.getY()-1);
+        position.setLocation(position.getX()-1,position.getY()+1);
     }
 
     public void moveEast() {
