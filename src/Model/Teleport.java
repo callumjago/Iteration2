@@ -10,7 +10,7 @@ public class Teleport implements AOE {
         this.location = location;
         this.mapID = mapID;
     }
-
+	
     public void setMapID(int mapID){
         this.mapID = mapID;
     }
