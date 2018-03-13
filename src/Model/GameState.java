@@ -58,6 +58,11 @@ public class GameState {
         }
         return tileSet.get((int) p.getX()).get((int) p.getY());
     }
+    
+    public void setTileAt(Tile _tile, Point _point) {
+    	tileSet.get((int) _point.getX()).get((int) _point.getY());
+    	tileSet.get((int) _point.getX()).set((int) _point.getY(), _tile);
+    }
 
     public int getWidth() {
         return tileSet.size();
