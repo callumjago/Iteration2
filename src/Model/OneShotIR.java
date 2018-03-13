@@ -3,8 +3,9 @@ package Model;
 public class OneShotIR implements Interaction{
 	private ObjectTile tile;
 	private SentientEntity entity;
+	private int value;
 	
-	public OneShotIR(ObjectTile _tile, SentientEntity _entity) {
+	public OneShotIR(ObjectTile _tile, SentientEntity _entity, int _value) {
 		entity = _entity;
 		
 		if(_tile.getObject() instanceof OneShotItem) {
@@ -15,6 +16,8 @@ public class OneShotIR implements Interaction{
 			System.out.println("The passed Tile does not have an Oneshot item in it");
 			tile = null;
 		}
+		
+		value = _value;
 	}
 	
 	public void applyEffect() {
