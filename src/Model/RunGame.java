@@ -71,12 +71,12 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new Tile(0));
+                tileSet.get(i).add(new Tile(new Point(i, j), 0));
             }
         }
 
         ObjectTile objt = new ObjectTile(0);
-        objt.setObject(new MapTransition());
+        objt.setObject(new Obstacle());
         tileSet.get(4).set(4, objt);
 
 
@@ -105,12 +105,14 @@ public class RunGame extends Application {
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
                     if (System.nanoTime() / delta != nanoTime) {
+
                         mv.render(gameState);
                         //System.out.println("FPS: " + tick);
                         nanoTime = System.nanoTime() / delta;
                         tick = 0;
 
                     } else {
+                        gameState.tick();
                         tick++;
                     }
                 }

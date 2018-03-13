@@ -7,6 +7,6 @@ public class Obstacle extends GameObject{
 	}
 	
 	public Obstacle() {
-		super();
+		super(1);
 	}
 }
