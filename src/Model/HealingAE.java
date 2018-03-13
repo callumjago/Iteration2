@@ -3,7 +3,7 @@ package Model;
 public class HealingAE extends AOE {
     private int healBoost;
     private int duration;
-    public HealingAE(dur, Am){
+    public HealingAE(int dur,int Am){
         setDuration(dur);
         setHealBoost(Am);
     }

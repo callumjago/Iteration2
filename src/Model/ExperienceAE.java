@@ -4,7 +4,7 @@ public class ExperienceAE extends AOE {
     private int Experience;
     private int Duration;
 
-    public ExperienceAE(dur, Am) {
+    public ExperienceAE(int dur, int Am) {
         setExperience(Am);
         setDuration(dur);
     }

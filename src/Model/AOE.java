@@ -1,11 +1,10 @@
 package Model;
 
-public abstract AOE extends GameObject {
+public abstract class AOE extends GameObject {
     private int ID;
-    private Image sprite;
 
-    public AOE(int objectID, Image sprite){
-            super(int objectID, Image sprite);
+    public AOE(int objectID){
+            super(objectID);
 
     }
 
@@ -15,11 +14,11 @@ public abstract AOE extends GameObject {
     }
     public int getID()
     {
-        return this.ID
+        return this.ID;
     }
-    public setID(int id)
+    public void setID(int id)
     {
-        this.ID = id
+        this.ID = id;
     }
 
 }

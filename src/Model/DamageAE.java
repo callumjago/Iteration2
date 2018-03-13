@@ -4,7 +4,7 @@ public class DamageAE extends AOE {
     private int DamageAm;
     private int duration;
 
-    public DamageAE(dur, Am) {
+    public DamageAE(int dur, int Am) {
         setDamageAm(Am);
         setDuration(dur);
     }
