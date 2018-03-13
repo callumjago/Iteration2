@@ -53,10 +53,15 @@ public class GameState {
     public int getWidth() {
         return tileSet.size();
     }
+
     public int getHeight() {
         if(getWidth() == 0) {
             return -1;
         }
         return tileSet.get(0).size();
+    }
+
+    public boolean checkMove(int x, int y){ // Returns true if move is good
+        return getTileAt(x,y).isPassable();
     }
 }

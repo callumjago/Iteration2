@@ -17,4 +17,9 @@ public abstract class Tile {
     }
 
     abstract int getTileObjectID();
+
+
+    public boolean isPassable() {
+        return passable;
+    }
 }
