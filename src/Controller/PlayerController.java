@@ -92,4 +92,11 @@ public class PlayerController extends SubKeyController {
         isListeningforRebind = true;
         rebindIndex = controlIndex;
     }
+
+    public String getKeyBindingAsString(int index) {
+        if(index >= playerControls.size()) {
+            return "";
+        }
+        return playerControls.get(index).toString();
+    }
 }
