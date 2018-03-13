@@ -1,21 +1,33 @@
 package Model;
 
-public abstract class GameObject{
-    private String name;
-    private int id;
-    public GameObject(String name, int id) {
-        this.name = name;
-        this.id = id;
+import java.awt.Image;
+
+public abstract class GameObject {
+    private int ObjectID;
+
+
+    public GameObject(int objectID) {
+        ObjectID = objectID;
     }
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
+    public GameObject(){
+        ObjectID = 0; // Default ID
+        // Default Sprite goes here.
     }
 
-    public int getObjectID() {
-        return id;
+    // Returns the object's ID
+    int getObjectID() {
+        return ObjectID;
     }
+
+    // Returns the object's sprite
+
+
+    // Sets an Object's ID
+    public void setObjectID(int objectID) {
+        ObjectID = objectID;
+    }
+
+    // Sets an Object's Sprite
+
 }

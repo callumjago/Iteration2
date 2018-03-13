@@ -1,8 +1,9 @@
 package Model;
 
-public class MapTransition extends GameObject {
+import java.awt.Image;
 
+public class MapTransition extends GameObject {
     public MapTransition() {
-        super("MapTransition", 2);
+        super(2);
     }
 }

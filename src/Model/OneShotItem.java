@@ -1,4 +1,7 @@
 package Model;
 
-public class OneShotItem extends Item {
+public class OneShotItem extends GameObject {
+    public OneShotItem() {
+        super();
+    }
 }
