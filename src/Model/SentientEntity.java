@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class SentientEntity extends Entity {
     private String Name;
@@ -40,6 +41,7 @@ public abstract class SentientEntity extends Entity {
         Lvl = new Level();
         Coffer = new Wallet();
         inventory = new Inventory();
+        EquipWeapon = new Weapon();
         // Add starting equipment here
     }
 
@@ -189,5 +191,19 @@ public abstract class SentientEntity extends Entity {
     public int[] getStats(){
         int[] i = {HP.getHealthPoints(),MP.getMagicPoints(),Atk.getAttackPoints(),Def.getDefensePoints(),Lvl.getLevel(),Lvl.getExperience(),Lvl.getExpToNextLevel(),Coffer.getMoney()};
         return i;
+    }
+
+    public ArrayList<String> getStatsAsStringList() {
+        ArrayList<String> statsList = new ArrayList<>();
+        statsList.add("Health: " + Integer.toString(HP.getHealthPoints()));
+        statsList.add("MP: " + Integer.toString(MP.getMagicPoints()));
+        statsList.add("Attack: " + Integer.toString(Atk.getAttackPoints()));
+        statsList.add("Defense: " + Integer.toString(Def.getDefensePoints()));
+        statsList.add("Level: " + Lvl.getLevel());
+        statsList.add("Experience: " + Lvl.getExperience());
+        statsList.add("Next Lvl: " + Lvl.getExpToNextLevel());
+        statsList.add("Gold: " + Coffer.getMoney());
+
+        return statsList;
     }
 }
