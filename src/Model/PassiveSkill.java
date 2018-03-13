@@ -9,7 +9,8 @@ public class PassiveSkill extends Skill{
         Modifier = 0;
     }
 
-    public PassiveSkill(Stat misc, int modifier) {
+    public PassiveSkill(String name, String description, Level reqLvl, Stat misc, int modifier) {
+        super(name,description,reqLvl);
         Misc = misc;
         Modifier = modifier;
     }

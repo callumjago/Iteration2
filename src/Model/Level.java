@@ -56,4 +56,10 @@ public class Level {
         }
     }
 
+    // Possible LoD violation
+    public Boolean isEquals(Level other){
+        return other.getLevel() == Lvl;
+    }
+
+
 }
