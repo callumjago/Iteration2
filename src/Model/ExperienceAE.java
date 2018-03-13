@@ -1,7 +1,13 @@
 package Model;
 
-public class ExperienceAE implements AOE {
+public class ExperienceAE extends AOE {
     private int Experience;
+    private int Duration;
+    public ExperienceAE(dur, Am) {
+        super(dur, Am);
+        setExperience(Am);
+        setDuration(dur);
+    }
 
     public int getExperience() {
         return Experience;
@@ -9,5 +15,9 @@ public class ExperienceAE implements AOE {
 
     public void setExperience(int experience) {
         Experience = experience;
+    }
+
+    public void setDuration(int duration) {
+        Duration = duration;
     }
 }
