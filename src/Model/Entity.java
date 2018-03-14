@@ -57,36 +57,36 @@ public abstract class Entity {
     }
 
     public void moveNorth() {
-        orientation.changeTrajectory(90);
+        orientation.changeTrajectory(270);
         //position.setLocation(position.getX()+0,position.getY()-1);
         attemptMove = true;
     }
 
     public void moveNorthEast() {
-        orientation.changeTrajectory(45);
+        orientation.changeTrajectory(315);
         //position.setLocation(position.getX()+1,position.getY()-1);
         attemptMove = true;
     }
 
     public void moveNorthWest() {
-        orientation.changeTrajectory(135);
-        position.setLocation(position.getX()-1,position.getY()-1);
+        orientation.changeTrajectory(225);
+        attemptMove = true;
     }
 
     public void moveSouth() {
-        orientation.changeTrajectory(270);
+        orientation.changeTrajectory(90);
         //position.setLocation(position.getX()+0,position.getY()+1);
         attemptMove = true;
     }
 
     public void moveSouthEast() {
-        orientation.changeTrajectory(315);
-        position.setLocation(position.getX()+1,position.getY()+1);
+        orientation.changeTrajectory(45);
+        attemptMove = true;
     }
 
     public void moveSouthWest() {
-        orientation.changeTrajectory(225);
-        position.setLocation(position.getX()-1,position.getY()+1);
+        orientation.changeTrajectory(135);
+        attemptMove = true;
     }
 
     public void moveEast() {

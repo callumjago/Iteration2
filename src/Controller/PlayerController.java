@@ -31,12 +31,20 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.RIGHT);
         playerControls.add(KeyCode.DOWN);
         playerControls.add(KeyCode.LEFT);
+        playerControls.add(KeyCode.NUMPAD9);
+        playerControls.add(KeyCode.NUMPAD3);
+        playerControls.add(KeyCode.NUMPAD1);
+        playerControls.add(KeyCode.NUMPAD7);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
         controlFunctions.add("Right");
         controlFunctions.add("Down");
         controlFunctions.add("Left");
+        controlFunctions.add("NE");
+        controlFunctions.add("SE");
+        controlFunctions.add("SW");
+        controlFunctions.add("NW");
 
 
         isListeningforRebind = false;
@@ -72,6 +80,14 @@ public class PlayerController extends SubKeyController {
             player.moveSouth();
         } else if(code == playerControls.get(3)) {//MoveLeft
             player.moveWest();
+        } else if(code == playerControls.get(4)) {//MoveNE
+            player.moveNorthEast();
+        } else if(code == playerControls.get(5)) {//MoveSE
+            player.moveSouthEast();
+        } else if(code == playerControls.get(6)) {//MoveSW
+            player.moveSouthWest();
+        } else if(code == playerControls.get(7)) {//MoveNW
+            player.moveNorthWest();
         }
     }
 

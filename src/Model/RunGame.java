@@ -93,12 +93,14 @@ public class RunGame extends Application {
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
-
+        System.out.println(System.nanoTime()/delta);
         MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
+        mv.render(gameState);
         new AnimationTimer() {
 
             long nanoTime = System.nanoTime()/delta;
+
             int tick = 0;
             public void handle(long currentNanoTime) {
                 //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
@@ -107,17 +109,13 @@ public class RunGame extends Application {
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if (System.nanoTime() / delta != nanoTime) {
-
-                        mv.render(gameState);
-                        //System.out.println("FPS: " + tick);
-                        nanoTime = System.nanoTime() / delta;
-                        tick = 0;
-
-                    } else {
+                    if(keyController.getKeyPressed() && tick > 15) {
                         gameState.tick();
-                        tick++;
+                        mv.render(gameState);
+                        keyController.resetKeyPressed();
+                        tick = 0;
                     }
+                    tick++;
                 }
 
 

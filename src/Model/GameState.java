@@ -65,6 +65,7 @@ public class GameState {
     }
 
     public boolean checkMove(int x, int y){ // Returns true if move is good
+        System.out.println("Checking: " + x + ", " + y);
         Tile t =  getTileAt(x,y);
         if (t == null){
             return false;

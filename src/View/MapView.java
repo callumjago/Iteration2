@@ -4,9 +4,11 @@ package View;
 import Model.GameState;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
+import java.awt.Point;
 
-import java.awt.*;
 
 public class MapView {
     private GraphicsContext gc;
@@ -38,8 +40,9 @@ public class MapView {
                 gc.drawImage(sprites.getTerrainSprite(gameState.getTerrainTypeAt(i, j)), x, y, tileWidth, tileHeight);
 
                 if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
-                    gc.setFill(Color.GREEN);
-                    gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
+
+                    //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
+                    drawRotatedImage(sprites.getPlayerSprite(0), gameState.getPlayer().getOrientation().getDegree(), x, y);
                 }
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
@@ -48,6 +51,7 @@ public class MapView {
             }
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
+
     }
 
 
@@ -65,5 +69,19 @@ public class MapView {
         for(int j = Math.max(0, (height/2)-playerPos.y+3); j < 2*height-playerPos.y-1; j++) {//Horizontal Lines
             gc.strokeLine(((width/2)-playerPos.x+3)*tileWidth, j*tileHeight, (2*width-playerPos.x-2)*tileWidth, j*tileHeight);
         }
+    }
+
+
+
+    private void drawRotatedImage(Image image, double angle, double tlpx, double tlpy) {
+        gc.save(); // saves the current state on stack, including the current transform
+        rotate(gc, angle, tlpx + tileWidth / 2, tlpy + tileHeight / 2);
+        gc.drawImage(image, tlpx, tlpy, tileWidth, tileHeight);
+        gc.restore(); // back to original state (before rotation)
+    }
+
+    private void rotate(GraphicsContext gc, double angle, double px, double py) {
+        Rotate r = new Rotate(angle, px, py);
+        gc.setTransform(r.getMxx(), r.getMyx(), r.getMxy(), r.getMyy(), r.getTx(), r.getTy());
     }
 }
