@@ -4,6 +4,7 @@ import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
 import Controller.MenuController;
+import View.Sprites;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -22,6 +23,7 @@ public class RunGame extends Application {
 
     private Menu menu;
     private MenuView menuView;
+    private Sprites sprites;
 
     private KeyController keyController;
 
@@ -49,6 +51,7 @@ public class RunGame extends Application {
         menu = new Menu(canvas);
         MenuController mc = new MenuController(menu);
         keyController.addController(mc);
+        sprites = new Sprites();
 
         Player p = new Player();
         p.setPosition(new Point(6, 4));
@@ -86,6 +89,7 @@ public class RunGame extends Application {
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);
+        gameState.addEntity(new NPC());
         gameState.setTileSet(tileSet);
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
@@ -94,7 +98,7 @@ public class RunGame extends Application {
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
-        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
+        //MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
         mv.render(gameState);
         new AnimationTimer() {
@@ -102,15 +106,25 @@ public class RunGame extends Application {
             long nanoTime = System.nanoTime()/delta;
 
             int tick = 0;
+            int ticksSincePlayerInput;
             public void handle(long currentNanoTime) {
 
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && tick > 15) {
-                        gameState.tick();
+                    //Player is moved immediately if input registered to avoid delay in response
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 15) {
+                        gameState.playerTick();
                         mv.render(gameState);
                         keyController.resetKeyPressed();
+                        ticksSincePlayerInput = 0;
+                    }
+                    ticksSincePlayerInput++;
+
+                    //Npcs are allowed to move periodically
+                    if(tick > 15) {
+                        gameState.tick();
+                        mv.render(gameState);
                         tick = 0;
                     }
                     tick++;

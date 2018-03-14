@@ -104,7 +104,9 @@ public abstract class Entity {
     public boolean getAttemptMove() {
         return attemptMove;
     }
-
+    public void setAttemptMove(boolean attemptMove) {
+        this.attemptMove = attemptMove;
+    }
     public void resetAttemptMove() {
         attemptMove = false;
     }

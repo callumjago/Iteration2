@@ -36,4 +36,11 @@ public class NPC extends Entity {
 	public void setExpUponDeath(int exp) {
 		ExpUponDeath = exp;
 	}
+
+	public void tick() {
+		if(ai == null) {
+			return;
+		}
+		ai.tick();
+	}
 }

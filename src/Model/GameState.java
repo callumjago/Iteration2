@@ -29,6 +29,15 @@ public class GameState {
     public ArrayList<Entity> getEntities() {
         return entities;
     }
+    public void addEntity(Entity entity) {
+        if(entity == null) {
+            return;
+        }
+        ((NPC)entity).setAI(new HostileAI(entity, this));
+        entities.add(entity);
+
+    }
+
     public int getTerrainTypeAt(int x, int y) {
         return tileSet.get(x).get(y).getTerrainID();
     }
@@ -75,11 +84,24 @@ public class GameState {
     }
 
     public void tick() {
-        for(int i = 0; i < entities.size(); i++) {
+
+        for(int i = 1; i < entities.size(); i++) {
+            if(entities.get(i) instanceof NPC) {
+                ((NPC) entities.get(i)).tick();
+            }
             if(entities.get(i).getAttemptMove()) {
                 moveHandler.checkMove(entities.get(i), entities.get(i).getOrientation());
                 entities.get(i).resetAttemptMove();
             }
+        }
+    }
+
+
+
+    public void playerTick() {
+        if(player.getAttemptMove()) {
+            moveHandler.checkMove(player, player.getOrientation());
+            player.resetAttemptMove();
         }
     }
 }

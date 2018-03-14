@@ -1,6 +1,7 @@
 package View;
 
 
+import Model.Entity;
 import Model.GameState;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -8,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import java.awt.Point;
+import java.util.ArrayList;
 
 
 public class MapView {
@@ -51,7 +53,7 @@ public class MapView {
             }
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
-
+        drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
     }
 
 
@@ -68,6 +70,15 @@ public class MapView {
 
         for(int j = Math.max(0, (height/2)-playerPos.y+3); j < 2*height-playerPos.y-1; j++) {//Horizontal Lines
             gc.strokeLine(((width/2)-playerPos.x+3)*tileWidth, j*tileHeight, (2*width-playerPos.x-2)*tileWidth, j*tileHeight);
+        }
+    }
+
+    private void drawNPCs(ArrayList<Entity> npcs, Point playerPos) {
+
+        for(int i = 1; i < npcs.size(); i++) {
+            int x = tileWidth*npcs.get(i).getPosition().x-(playerPos.x*tileWidth)+400;
+            int y = tileHeight*npcs.get(i).getPosition().y-(playerPos.y*tileHeight)+400;
+            drawRotatedImage(sprites.getPlayerSprite(1), npcs.get(i).getOrientation().getDegree(), x, y);
         }
     }
 
