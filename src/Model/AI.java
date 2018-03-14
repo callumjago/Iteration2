@@ -54,7 +54,14 @@ public abstract class AI {
             Point next;
             while(!adj.isEmpty()) {
                 next = adj.remove();
-                if(!gs.getTileAt(next.x, next.y).isPassable()) {//Tile not passable
+
+                //If goal tile is not passable (i.e. player is goal) then it will never be added, so it must be manually checked for here
+                if(next.x == goal.x && next.y == goal.y) {
+                    nodeList.put(next, vert);
+                    queue.add(next);
+                    continue;
+                }
+                if(!gs.checkMove(next.x, next.y)) {//Tile not passable
                     continue;
                 }
                 if(visited.contains(next)) {//Already visited

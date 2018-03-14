@@ -90,6 +90,9 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.addEntity(new NPC());
+        NPC npc = new NPC();
+        npc.setPosition(new Point(6, 1));
+        gameState.addEntity(npc);
         gameState.setTileSet(tileSet);
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing

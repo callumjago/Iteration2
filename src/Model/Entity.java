@@ -9,6 +9,7 @@ public abstract class Entity {
     private Angle orientation;
     private Image sprite;
     private boolean attemptMove;
+    private boolean attemptAttack;
 
     Entity(){
         position = new Point(0,0);
@@ -107,7 +108,15 @@ public abstract class Entity {
     public void setAttemptMove(boolean attemptMove) {
         this.attemptMove = attemptMove;
     }
-    public void resetAttemptMove() {
+    public boolean getAttemptAttack() {
+        return attemptAttack;
+    }
+    public void setAttemptAttack(boolean attemptAttack) {
+        this.attemptAttack = attemptAttack;
+    }
+
+    public void resetAttempt() {
         attemptMove = false;
+        attemptAttack = false;
     }
 }

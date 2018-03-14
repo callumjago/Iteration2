@@ -78,9 +78,13 @@ public class GameState {
         if (t == null){
             return false;
         }
-        else{
-            return t.isPassable();
+        for(int i = 0; i < entities.size(); i++) {//If entity on tile
+            if(entities.get(i).getPosition().x == x && entities.get(i).getPosition().y == y) {
+                return false;
+            }
         }
+        return t.isPassable();
+
     }
 
     public void tick() {
@@ -91,7 +95,10 @@ public class GameState {
             }
             if(entities.get(i).getAttemptMove()) {
                 moveHandler.checkMove(entities.get(i), entities.get(i).getOrientation());
-                entities.get(i).resetAttemptMove();
+                entities.get(i).resetAttempt();
+            }
+            if(entities.get(i).getAttemptAttack()) {
+                System.out.println("Attack");
             }
         }
     }
@@ -101,7 +108,7 @@ public class GameState {
     public void playerTick() {
         if(player.getAttemptMove()) {
             moveHandler.checkMove(player, player.getOrientation());
-            player.resetAttemptMove();
+            player.resetAttempt();
         }
     }
 }

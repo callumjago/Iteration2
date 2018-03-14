@@ -17,10 +17,15 @@ public class HostileAI extends AI{
 //        }
 
 
-        if(path.size() >= 1) {
+        if(path.size() >= 2) {//Move along path to player
             Angle moveAngle = getDirection(getEntity().getPosition(), path.get(path.size()-1));
             getEntity().setOrientation(moveAngle);
             getEntity().setAttemptMove(true);
         }
+        if(path.size() == 1) {
+            getEntity().setAttemptAttack(true);
+        }
+
+
     }
 }
