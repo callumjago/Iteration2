@@ -65,7 +65,13 @@ public class GameState {
     }
 
     public boolean checkMove(int x, int y){ // Returns true if move is good
-        return getTileAt(x,y).isPassable();
+        Tile t =  getTileAt(x,y);
+        if (t == null){
+            return false;
+        }
+        else{
+            return t.isPassable();
+        }
     }
 
     public void tick() {
