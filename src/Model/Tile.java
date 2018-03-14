@@ -1,8 +1,9 @@
 package Model;
 
-import java.awt.Point;
+import java.awt.*;
 
 public class Tile {
+	private GameObject go;
 	private Point position;
 	private int terrainID;
 	private boolean passable;
@@ -13,18 +14,32 @@ public class Tile {
 		setPassable();
 	}
 	
+	public Tile(Point _pos, int _terrainID, GameObject _go) {
+		position = _pos;
+		terrainID = _terrainID;
+		go = _go;
+		setPassable();
+	}
+	
 	public Tile(){
 		terrainID = 0;
 		position = new Point(0, 0);
 		setPassable();
 	}
 	
-	public Point getPosition() {
-		return position;
+	public Tile(GameObject _go) {
+		go = _go;
+		setPassable();
 	}
 	
-	public boolean getPassable() {
-		return passable;
+	public Tile(int _terrain) {
+		terrainID = _terrain;
+		position = new Point(0, 0);
+		setPassable();
+	}
+	
+	public Point getPosition() {
+		return position;
 	}
 	
 	public int getTerrainID() {
@@ -45,13 +60,32 @@ public class Tile {
 			passable = false;
 			break;
 		}
+		
+		if(go instanceof Obstacle) {
+			passable = false;
+		}
 	}
 	
 	public void setPassable(boolean _passable) {
 		passable = _passable;
 	}
 	
-	public int getTileObjectID() { //Temporary implementation
-		return 0;
+	public int getTileObjectID() {
+		if(go == null) return 0;
+		
+		else return go.getObjectID();
+	}
+	
+	public boolean isPassable() {
+		return passable;
+	}
+	
+	public void setObject(GameObject _go) {
+		go = _go;
+		setPassable();
+	}
+	
+	public GameObject getObject() {
+		return go;
 	}
 }

@@ -69,11 +69,11 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new EmptyTile(0));
+                tileSet.get(i).add(new Tile(0));
             }
         }
 
-        ObjectTile objt = new ObjectTile(0);
+        Tile objt = new Tile(0);
         objt.setObject(new MapTransition());
         tileSet.get(4).set(4, objt);
 

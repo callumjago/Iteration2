@@ -1,11 +1,11 @@
 package Model;
 
-public class ItemInteraction extends TileInteraction {
-    private ObjectTile tile;
+public class ItemInteraction implements Interaction {
+    private Tile tile;
     private SentientEntity entity;
     private Item value;
 
-    public ItemInteraction(ObjectTile _tile, SentientEntity _entity, Item _value) {
+    public ItemInteraction(Tile _tile, SentientEntity _entity, Item _value) {
         entity = _entity;
 
         if(_tile.getObject() instanceof Item) {
@@ -27,7 +27,5 @@ public class ItemInteraction extends TileInteraction {
         }
 
         entity.addToInventory(value);
-
-
     }
 }

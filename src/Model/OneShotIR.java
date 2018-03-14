@@ -1,12 +1,12 @@
 package Model;
 
 public class OneShotIR implements Interaction{
-	private ObjectTile tile;
+	private Tile tile;
 	private SentientEntity entity;
 	private int value;
 	private GameState state;
 	
-	public OneShotIR(ObjectTile _tile, SentientEntity _entity, int _value, GameState _state) {
+	public OneShotIR(Tile _tile, SentientEntity _entity, int _value, GameState _state) {
 		entity = _entity;
 		
 		if(_tile.getObject() instanceof OneShotItem) {

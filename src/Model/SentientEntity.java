@@ -91,7 +91,7 @@ public abstract class SentientEntity extends Entity {
         return inventory;
     }
 
-    public addToInventory(Item x) { inventory.addItem(x); }
+    public void addToInventory(Item x) { inventory.addItem(x); }
 
     public Armor getEquipArmor() {
         return EquipArmor;

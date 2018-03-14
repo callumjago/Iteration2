@@ -1,5 +1,7 @@
 package Model;
 
+//Need to add Timer
+
 public class DamageIR implements Interaction{
 	SentientEntity entity;
 	int dmgAmt;
@@ -7,7 +9,7 @@ public class DamageIR implements Interaction{
 	public DamageIR(SentientEntity _entity, int _dmgAmt) {
 		entity = _entity;
 		
-		if(_dmgAmt > 0) { //can't hve positive damage
+		if(_dmgAmt > 0) { //can't have positive damage
 			_dmgAmt = _dmgAmt*(-1);
 		}
 		
