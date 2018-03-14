@@ -1,4 +1,4 @@
 package Model;
 
-public class TransitionInteraction extends TileInteraction {
+public class TransitionInteraction implements Interaction {
 }

@@ -1,4 +1,4 @@
 package Model;
 
-public class AOEInteraction extends TileInteraction {
+public class AOEInteraction implements Interaction {
 }

@@ -78,11 +78,9 @@ public class RunGame extends Application {
             }
         }
 
-        ObjectTile objt = new ObjectTile(0);
+        Tile objt = new Tile(0);
         objt.setObject(new Obstacle());
         tileSet.get(4).set(4, objt);
-
-
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);
