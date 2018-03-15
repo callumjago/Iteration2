@@ -11,11 +11,10 @@ import java.util.Set;
 
 public class ItemCodex extends Codex {
 
-    File itemCodex = new File (System.getProperty("user.dir") + "/GameFiles/Codex/EquipmentCodex/EquipmentCodex.csv");
+    private static final File itemCodex = new File (System.getProperty("user.dir") + "/GameFiles/Codex/ItemCodex/ItemCodex.csv");
 
-    ItemCodex(File itemCodex){
+    ItemCodex(){
         super(itemCodex);
-        //File itemCodex = new File (System.getProperty("user.dir") + "/GameFiles/Codex/EquipmentCodex/EquipmentCodex.csv");
     }
 
     public String getTag(int ID){

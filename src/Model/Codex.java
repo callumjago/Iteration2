@@ -10,13 +10,11 @@ import java.util.Set;
 
 abstract class Codex {
 
-    private File codexFile;
     HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
 
 
-    Codex(File codexFile){
+    Codex(File templateCodexFile){
     try {
-        File templateCodexFile = codexFile;
             BufferedReader br = new BufferedReader(new FileReader(templateCodexFile));
             String s;
             br.readLine();

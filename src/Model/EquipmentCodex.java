@@ -10,55 +10,10 @@ import java.util.Set;
 
 public class EquipmentCodex  extends Codex{
 
-
-    //HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
+   private static final File EquipmentCodex = new File (System.getProperty("user.dir") + "/GameFiles/Codex/EquipmentCodex/EquipmentCodex.csv");
 
     EquipmentCodex() {
-        try {
-
-            File EquipmentFile = new File(System.getProperty("user.dir") + "/GameFiles/Codex/EquipmentCodex/EquipmentCodex.csv");
-            BufferedReader br = new BufferedReader(new FileReader(EquipmentFile));
-            String s;
-            br.readLine();
-            while ((s = br.readLine()) != null) {
-                Scanner sc = new Scanner(s);
-                sc.useDelimiter(",");
-                int id = Integer.parseInt(sc.next());
-                System.out.println("The first id that is parsed is: " + id);
-                ArrayList<String> values = new ArrayList<String>();
-
-                map.put(id, values);
-
-                for (int i = 0; sc.hasNext(); i++){
-                    String x = sc.next();
-                    //System.out.print(" " +x);
-
-                    if(x.equals("")){
-                        continue;
-                    }
-                    else{
-                        map.get(id).add(x);
-                    }
-
-                    //System.out.print( " " +map.get(id).get(i));
-                }
-
-                System.out.println("");
-                Set<Integer> setofKeySet = map.keySet();
-
-               /* for(Integer key : setofKeySet){
-                    System.out.println("ID - First Column: " + key);
-                    for(String test : map.get(key)){
-                        System.out.print(" " +test);
-                    }
-                }*/
-            }
-            System.out.println("The test for the info is:ssssssssssssssss " + map.get(26).get(2));
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        super(EquipmentCodex);
     }
 
 
