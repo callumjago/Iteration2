@@ -38,10 +38,6 @@ public class DialogueTree {
                 // throw error, incorrect type assigned to text
             }
         }
-
-
-
-
     }
 
     public String getRootText() {
