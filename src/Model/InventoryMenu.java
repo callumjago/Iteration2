@@ -56,7 +56,7 @@ public class InventoryMenu extends SubMenu {
     }
 
     private InventoryMenuItem generateInventoryMenuItem() {
-        InventoryMenuItem temp = new InventoryMenuItem();
+        InventoryMenuItem temp = new InventoryMenuItem(new ArrayList<>());
         if(inventory.getItem(getSubMenuSelectedIndex()) instanceof Equipment) {
             temp.addButton(new Bound(450, 750, 575, 650), "Equip Item");
         } else {

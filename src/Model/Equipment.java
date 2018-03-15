@@ -2,6 +2,7 @@ package Model;
 
 
 import java.awt.Image;
+import java.util.ArrayList;
 
 public abstract class Equipment extends Item{
 
@@ -65,4 +66,7 @@ public abstract class Equipment extends Item{
     public void setDescription(String description){
         Description = description;
     }
+
+    abstract ArrayList<String> getStats();
+
 }

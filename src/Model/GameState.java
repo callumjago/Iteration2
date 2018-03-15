@@ -8,9 +8,11 @@ public class GameState {
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
     private ArrayList<Projectile> projectiles;
+    private MovementHandler moveHandler;
 
     public GameState() {
-
+        entities = new ArrayList<>();
+        moveHandler = new MovementHandler(this);
     }
 
     public Player getPlayer() {
@@ -34,6 +36,7 @@ public class GameState {
         return tileSet.get(x).get(y).getTileObjectID();
     }
     public void setPlayer(Player player) {
+        entities.add(player);
         this.player = player;
         if (entities == null){
             entities = new ArrayList<Entity>();
@@ -71,10 +74,30 @@ public class GameState {
     public int getWidth() {
         return tileSet.size();
     }
+
     public int getHeight() {
         if(getWidth() == 0) {
             return -1;
         }
         return tileSet.get(0).size();
+    }
+
+    public boolean checkMove(int x, int y){ // Returns true if move is good
+        Tile t =  getTileAt(x,y);
+        if (t == null){
+            return false;
+        }
+        else{
+            return t.isPassable();
+        }
+    }
+
+    public void tick() {
+        for(int i = 0; i < entities.size(); i++) {
+            if(entities.get(i).getAttemptMove()) {
+                moveHandler.checkMove(entities.get(i), entities.get(i).getOrientation());
+                entities.get(i).resetAttemptMove();
+            }
+        }
     }
 }

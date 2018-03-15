@@ -88,6 +88,7 @@ public class Tile {
 	public GameObject getObject() {
 		return go;
 	}
+<<<<<<< HEAD
 
 	public int getValue(){
 		return go.getValue();
@@ -97,3 +98,6 @@ public class Tile {
 		go = null;
 	}
 }
+=======
+}
+>>>>>>> master
