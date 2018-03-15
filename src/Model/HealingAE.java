@@ -2,20 +2,10 @@ package Model;
 
 public class HealingAE extends AOE {
     private int healBoost;
-
-    public HealingAE(int AmtPerTick){
-        super(5);
-        healBoost = AmtPerTick;
-    }
-
-    public HealingAE(){
-        super(5);
-        healBoost = 0;
-    }
-
-    @Override
-    public int getValue() {
-        return healBoost;
+    private int duration;
+    public HealingAE(int dur,int Am){
+        setDuration(dur);
+        setHealBoost(Am);
     }
 
     public int getHealBoost() {
@@ -24,5 +14,13 @@ public class HealingAE extends AOE {
 
     public void setHealBoost(int healBoost) {
         this.healBoost = healBoost;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }

@@ -8,10 +8,12 @@ public abstract class Entity {
     private Interaction interaction;
     private Angle orientation;
     private Image sprite;
+    private boolean attemptMove;
 
     Entity(){
         position = new Point(0,0);
         orientation = new Angle(90);
+        attemptMove = false;
         // Default image here
     }
 
@@ -19,6 +21,7 @@ public abstract class Entity {
         position = pos;
         orientation = theta;
         sprite = img;
+        attemptMove = false;
     }
 
     public Angle getOrientation() {
@@ -41,10 +44,6 @@ public abstract class Entity {
         return interaction;
     }
 
-    public void clearInteracton(){
-        interaction = null;
-    }
-
     public void setInteraction(Interaction interaction) {
         this.interaction = interaction;
     }
@@ -57,47 +56,56 @@ public abstract class Entity {
         this.sprite = sprite;
     }
 
-    public Boolean checkInteraction(){
-        return interaction != null;
-    }
-
     public void moveNorth() {
-        orientation.changeTrajectory(90);
-        position.setLocation(position.getX()+0,position.getY()-1);
+        orientation.changeTrajectory(270);
+        //position.setLocation(position.getX()+0,position.getY()-1);
+        attemptMove = true;
     }
 
     public void moveNorthEast() {
-        orientation.changeTrajectory(45);
-        position.setLocation(position.getX()+1,position.getY()-1);
+        orientation.changeTrajectory(315);
+        //position.setLocation(position.getX()+1,position.getY()-1);
+        attemptMove = true;
     }
 
     public void moveNorthWest() {
-        orientation.changeTrajectory(135);
-        position.setLocation(position.getX()-1,position.getY()-1);
+        orientation.changeTrajectory(225);
+        attemptMove = true;
     }
 
     public void moveSouth() {
-        orientation.changeTrajectory(270);
-        position.setLocation(position.getX()+0,position.getY()+1);
+        orientation.changeTrajectory(90);
+        //position.setLocation(position.getX()+0,position.getY()+1);
+        attemptMove = true;
     }
 
     public void moveSouthEast() {
-        orientation.changeTrajectory(315);
-        position.setLocation(position.getX()+1,position.getY()+1);
+        orientation.changeTrajectory(45);
+        attemptMove = true;
     }
 
     public void moveSouthWest() {
-        orientation.changeTrajectory(225);
-        position.setLocation(position.getX()-1,position.getY()+1);
+        orientation.changeTrajectory(135);
+        attemptMove = true;
     }
 
     public void moveEast() {
         orientation.changeTrajectory(0);
-        position.setLocation(position.getX()+1,position.getY()+0);
+        //position.setLocation(position.getX()+1,position.getY()+0);
+        attemptMove = true;
     }
 
     public void moveWest() {
         orientation.changeTrajectory(180);
-        position.setLocation(position.getX()-1,position.getY()+0);
+        //position.setLocation(position.getX()-1,position.getY()+0);
+        attemptMove = true;
+    }
+
+    public boolean getAttemptMove() {
+        return attemptMove;
+    }
+
+    public void resetAttemptMove() {
+        attemptMove = false;
     }
 }
