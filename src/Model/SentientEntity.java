@@ -1,7 +1,6 @@
 package Model;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public abstract class SentientEntity extends Entity {
     private String Name;
@@ -41,7 +40,6 @@ public abstract class SentientEntity extends Entity {
         Lvl = new Level();
         Coffer = new Wallet();
         inventory = new Inventory();
-        EquipWeapon = new Weapon();
         // Add starting equipment here
     }
 
@@ -85,6 +83,10 @@ public abstract class SentientEntity extends Entity {
         return Lvl.getLevel();
     }
 
+    public int getExp() { return Lvl.getExperience();}
+
+    public int getExpToNextLevel() { return Lvl.getExpToNextLevel();}
+
     public int getMoney(){
         return Coffer.getMoney();
     }
@@ -92,6 +94,8 @@ public abstract class SentientEntity extends Entity {
     public Inventory getInventory(){
         return inventory;
     }
+
+    public void addToInventory(Item x) { inventory.addItem(x); }
 
     public Armor getEquipArmor() {
         return EquipArmor;
@@ -123,7 +127,8 @@ public abstract class SentientEntity extends Entity {
 
     public void gainExp(int expAmt){
         int check = Lvl.gainExp(expAmt);
-        if (check > 0){ // This means a level up has occurred.
+        if (check >= 0){ // This means a level up has occurred.
+            System.out.println("********Level UP!!!!!********");
             HP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100))));
             MP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100)))-2);
             Atk.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*5));
@@ -191,19 +196,5 @@ public abstract class SentientEntity extends Entity {
     public int[] getStats(){
         int[] i = {HP.getHealthPoints(),MP.getMagicPoints(),Atk.getAttackPoints(),Def.getDefensePoints(),Lvl.getLevel(),Lvl.getExperience(),Lvl.getExpToNextLevel(),Coffer.getMoney()};
         return i;
-    }
-
-    public ArrayList<String> getStatsAsStringList() {
-        ArrayList<String> statsList = new ArrayList<>();
-        statsList.add("Health: " + Integer.toString(HP.getHealthPoints()));
-        statsList.add("MP: " + Integer.toString(MP.getMagicPoints()));
-        statsList.add("Attack: " + Integer.toString(Atk.getAttackPoints()));
-        statsList.add("Defense: " + Integer.toString(Def.getDefensePoints()));
-        statsList.add("Level: " + Lvl.getLevel());
-        statsList.add("Experience: " + Lvl.getExperience());
-        statsList.add("Next Lvl: " + Lvl.getExpToNextLevel());
-        statsList.add("Gold: " + Coffer.getMoney());
-
-        return statsList;
     }
 }

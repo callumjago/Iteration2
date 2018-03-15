@@ -2,7 +2,6 @@ package Model;
 
 
 import java.awt.Image;
-import java.util.ArrayList;
 
 public abstract class Equipment extends Item{
 
@@ -11,8 +10,8 @@ public abstract class Equipment extends Item{
     private String Name;
     private String Description;
 
-    public Equipment(int ObjID, Image Sprite, int ItemID, int EQID, Level reqLvl, String name, String description) {
-        super(ObjID,Sprite,ItemID);
+    public Equipment(int ItemID, int EQID, Level reqLvl, String name, String description) {
+        super(ItemID);
         this.EQID = EQID;
         this.reqLvl = reqLvl;
         Name = name;
@@ -38,8 +37,8 @@ public abstract class Equipment extends Item{
     }
 
     // Returns an equipment's required level
-    public Level getLevelRequirement(){
-        return reqLvl;
+    public int getLevelRequirement(){
+        return reqLvl.getLevel();
     }
 
     // Sets an equipment's required level
@@ -66,7 +65,4 @@ public abstract class Equipment extends Item{
     public void setDescription(String description){
         Description = description;
     }
-
-    abstract ArrayList<String> getStats();
-
 }

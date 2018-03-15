@@ -88,4 +88,12 @@ public class Tile {
 	public GameObject getObject() {
 		return go;
 	}
+
+	public int getValue(){
+		return go.getValue();
+	}
+
+	public void removeObject(){
+		go = null;
+	}
 }

@@ -8,11 +8,9 @@ public class GameState {
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
     private ArrayList<Projectile> projectiles;
-    private MovementHandler moveHandler;
 
     public GameState() {
-        entities = new ArrayList<>();
-        moveHandler = new MovementHandler(this);
+
     }
 
     public Player getPlayer() {
@@ -36,8 +34,11 @@ public class GameState {
         return tileSet.get(x).get(y).getTileObjectID();
     }
     public void setPlayer(Player player) {
-        entities.add(player);
         this.player = player;
+        if (entities == null){
+            entities = new ArrayList<Entity>();
+        }
+        entities.add(player);
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
@@ -53,33 +54,27 @@ public class GameState {
         return tileSet.get(x).get(y);
     }
 
+    public Tile getTile(Point p){
+        if (p.getX() < 0 || p.getX() > tileSet.size() - 1) {
+            return null;
+        } else if (p.getY() < 0 || p.getY() > tileSet.get(0).size() - 1) {
+            return null;
+        }
+        return tileSet.get((int) p.getX()).get((int) p.getY());
+    }
+    
+    public void setTileAt(Tile _tile, Point _point) {
+    	tileSet.get((int) _point.getX()).get((int) _point.getY());
+    	tileSet.get((int) _point.getX()).set((int) _point.getY(), _tile);
+    }
+
     public int getWidth() {
         return tileSet.size();
     }
-
     public int getHeight() {
         if(getWidth() == 0) {
             return -1;
         }
         return tileSet.get(0).size();
-    }
-
-    public boolean checkMove(int x, int y){ // Returns true if move is good
-        Tile t =  getTileAt(x,y);
-        if (t == null){
-            return false;
-        }
-        else{
-            return t.isPassable();
-        }
-    }
-
-    public void tick() {
-        for(int i = 0; i < entities.size(); i++) {
-            if(entities.get(i).getAttemptMove()) {
-                moveHandler.checkMove(entities.get(i), entities.get(i).getOrientation());
-                entities.get(i).resetAttemptMove();
-            }
-        }
     }
 }

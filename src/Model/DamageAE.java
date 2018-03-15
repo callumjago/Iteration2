@@ -1,28 +1,28 @@
 package Model;
 
 public class DamageAE extends AOE {
-    private int DamageAm;
-    private int duration;
+    private int damage;
 
-    public DamageAE(int dur, int Am) {
-        setDamageAm(Am);
-        setDuration(dur);
+    public DamageAE(int AmtPerTick){
+        super(6);
+        damage = AmtPerTick;
     }
 
-    public int getDamageAm() {
-        return DamageAm;
+    public DamageAE(){
+        super(6);
+        damage = 0;
     }
 
-    public void setDamageAm(int damageAm) {
-        DamageAm = damageAm;
+    @Override
+    public int getValue() {
+        return damage;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }
-

@@ -1,26 +1,39 @@
 package Model;
 
-import java.awt.Image;
+    public class OneShotItem extends GameObject {
+        private int OneShotID;
+        private int Modifier;
 
-public abstract class OneShotItem extends GameObject {
-	private int OneShotID;
-	
-    public OneShotItem(int _objectID, int _oneShotID, Image _sprite) {
-        super(_objectID, _sprite);
-        
-        OneShotID = _oneShotID;
+        public OneShotItem(int _oneShotID, int modifier) {
+            super(9);
+            OneShotID = _oneShotID;
+            Modifier = modifier;
+        }
+
+        public OneShotItem() {
+            super(9);
+            Modifier = 0;
+            OneShotID = 0;
+        }
+
+        @Override
+        public int getValue() {
+            return Modifier;
+        }
+
+        public int getOneShotID() {
+            return OneShotID;
+        }
+
+        public void setOneShotID(int _oneShotID) {
+            OneShotID = _oneShotID;
+        }
+
+        public int getModifier() {
+            return Modifier;
+        }
+
+        public void setModifier(int modifier) {
+            Modifier = modifier;
+        }
     }
-    
-    public OneShotItem() {
-    	super();
-    	OneShotID = 0;
-    }
-    
-    public int getOneShotID() {
-    	return OneShotID;
-    }
-    
-    public void setOneShotID(int _oneShotID) {
-    	OneShotID = _oneShotID;
-    }
-}
