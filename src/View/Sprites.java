@@ -46,7 +46,7 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
-        objectSprites.add(getImage(workingDir + "/sprites/sword.png"));//Weapon
+        objectSprites.add(getImage(workingDir + "/sprites/sword.png"));//Weapon, Sword Sprite
         
         defaultObjectSprite = getImage(workingDir + "/sprites/star.png");
 

@@ -6,8 +6,8 @@ public class Ring extends Equipment {
 
     private Skill Effect;
 
-    public Ring(int ObjID, Image Sprite, int ItemID, int EQID, Level reqLvl, String name, String description, Skill effect) {
-        super(ObjID, Sprite, ItemID, EQID, reqLvl, name, description);
+    public Ring(int ObjID, int ItemID, int EQID, Level reqLvl, String name, String description, Skill effect) {
+        super(ObjID, ItemID, EQID, reqLvl, name, description);
     }
 
     public Ring() {
