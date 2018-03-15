@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
-public class EquipmentCodex implements Codex{
+public class EquipmentCodex  extends Codex{
 
 
     //HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
@@ -16,7 +16,7 @@ public class EquipmentCodex implements Codex{
     EquipmentCodex() {
         try {
 
-            File EquipmentFile = new File(System.getProperty("user.dir") + "/Codex/EquipmentCodex/EquipmentCodex.csv");
+            File EquipmentFile = new File(System.getProperty("user.dir") + "/GameFiles/Codex/EquipmentCodex/EquipmentCodex.csv");
             BufferedReader br = new BufferedReader(new FileReader(EquipmentFile));
             String s;
             br.readLine();
