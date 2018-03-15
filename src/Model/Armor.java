@@ -1,7 +1,5 @@
 package Model;
 
-import java.awt.*;
-
 public class Armor extends Equipment{
 
     private int DefensePoints;
