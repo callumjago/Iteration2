@@ -12,7 +12,9 @@ public class DamageIR implements Interaction{
 		if(_dmgAmt > 0) { //can't have positive damage
 			_dmgAmt = _dmgAmt*(-1);
 		}
-		
+		else if (_dmgAmt == 0) {
+			_dmgAmt = -1;
+		}
 		dmgAmt = _dmgAmt;
 	}
 	
