@@ -1,8 +1,6 @@
 package Model;
 
 public class ItemInteraction implements Interaction {
-<<<<<<< HEAD
-=======
     private Tile tile;
     private SentientEntity entity;
     private Item value;
@@ -32,7 +30,7 @@ public class ItemInteraction implements Interaction {
         }
 
         if(value instanceof Equipment) {
-        	if(entity.getLvl() < ((Equipment)value).getLevelRequirement())
+        	if(entity.getLvl() < (((Equipment)value).getLevelReq()))
         		return;
         }
 
@@ -44,5 +42,4 @@ public class ItemInteraction implements Interaction {
         entity.addToInventory(value);
         tile.removeObject();
     }
->>>>>>> Interaction
 }

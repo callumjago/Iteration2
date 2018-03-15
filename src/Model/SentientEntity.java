@@ -208,4 +208,8 @@ public abstract class SentientEntity extends Entity {
 
         return statsList;
     }
+
+    public void addToInventory(Item i){
+        inventory.addItem(i);
+    }
 }

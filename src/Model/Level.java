@@ -61,6 +61,10 @@ public class Level {
         return other.getLevel() == Lvl;
     }
 
+    public Boolean isLess(Level other){
+        return other.getLevel() < Lvl;
+    }
+
     public int getExperience() {
         return Experience;
     }

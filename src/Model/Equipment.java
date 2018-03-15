@@ -38,6 +38,11 @@ public abstract class Equipment extends Item{
     }
 
     // Returns an equipment's required level
+    public int getLevelReq(){
+        return reqLvl.getLevel();
+    }
+
+    // Returns an equipment's required level
     public Level getLevelRequirement(){
         return reqLvl;
     }
