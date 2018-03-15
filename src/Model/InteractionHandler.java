@@ -12,7 +12,7 @@ public class InteractionHandler {
         for (int e = 0; e < entities.size(); ++e){
             Entity ent = entities.get(e);
             Tile tile = GS.getTile(ent.getPosition());
-            if (tile.getObject() != null){ // Means a generation needs to be implemented
+            if (tile.getObject() != null && ent instanceof SentientEntity){ // Means a generation needs to be implemented
                 if (tile.getTileObjectID() == 2) { // Map Transition
                     //ent.setInteraction(new HealingIR(ent,tile.getObjectType())
                 }
@@ -35,7 +35,7 @@ public class InteractionHandler {
 
                 }
                 else if (tile.getTileObjectID() == 9) {  // OneShot
-
+                    ent.setInteraction(new OneShotIR(tile, (SentientEntity) ent, tile.getValue(), GS));
                 }
             }
             else{

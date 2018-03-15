@@ -74,7 +74,7 @@ public class RunGame extends Application {
         }
 
         Tile objt = new Tile(0);
-        objt.setObject(new MapTransition());
+        objt.setObject(new OneShotItem(9,1,-12));
         tileSet.get(4).set(4, objt);
 
 

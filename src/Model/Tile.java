@@ -88,4 +88,8 @@ public class Tile {
 	public GameObject getObject() {
 		return go;
 	}
+
+	public int getValue(){
+		return go.getValue();
+	}
 }
