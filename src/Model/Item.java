@@ -4,8 +4,8 @@ public abstract class Item extends GameObject{
 
     private int ItemID;
 
-    public Item(int ObjectID, int itemID) {
-        super(ObjectID); // Object ID doesn't need to be taken in later once default ObjID is finalized.
+    public Item(int itemID) {
+        super(8); // Object ID doesn't need to be taken in later once default ObjID is finalized.
         ItemID = itemID;
     }
 

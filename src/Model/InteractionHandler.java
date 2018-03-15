@@ -54,6 +54,8 @@ public class InteractionHandler {
                 	ItemInteraction item = new ItemInteraction(tile, (SentientEntity) ent, (Item) tile.getObject(), GS);
                 	ent.setInteraction(item);
                 	item.applyEffect();
+                    ent.clearInteracton();
+                    System.out.println("Item Interaction");
                 }
                 else if (tile.getTileObjectID() == 9) {  // OneShot
                     OneShotIR OneShot = new OneShotIR(tile, (SentientEntity) ent, tile.getValue());
