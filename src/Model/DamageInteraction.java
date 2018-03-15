@@ -9,7 +9,6 @@ public class DamageInteraction implements Interaction {
     }
     @Override
     public void applyEffect() {
-        System.out.println("Applying" + damageAmount);
         entity.modifyHP(-damageAmount);
     }
 }

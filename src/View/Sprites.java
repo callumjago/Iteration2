@@ -32,6 +32,7 @@ public class Sprites {
         playerSprites.add(getImage(workingDir + "/sprites/characterGirl.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterAdventurer.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
+        playerSprites.add(getImage(workingDir + "/sprites/zombie.png"));
 
         terrainSprites.add(getImage(workingDir + "/sprites/grass.png"));
         terrainSprites.add(getImage(workingDir + "/sprites/water.png"));
@@ -45,7 +46,6 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
-
     }
 
     public Image getTerrainSprite(int terrainID) {

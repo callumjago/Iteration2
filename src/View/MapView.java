@@ -78,7 +78,7 @@ public class MapView {
         for(int i = 1; i < npcs.size(); i++) {
             int x = tileWidth*npcs.get(i).getPosition().x-(playerPos.x*tileWidth)+400;
             int y = tileHeight*npcs.get(i).getPosition().y-(playerPos.y*tileHeight)+400;
-            drawRotatedImage(sprites.getPlayerSprite(1), npcs.get(i).getOrientation().getDegree(), x, y);
+            drawRotatedImage(sprites.getPlayerSprite(4), npcs.get(i).getOrientation().getDegree(), x, y);
         }
     }
 
