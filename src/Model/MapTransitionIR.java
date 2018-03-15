@@ -3,13 +3,13 @@ package Model;
 import java.util.ArrayList;
 
 public class MapTransitionIR implements Interaction {
-	private int mapID;
+	private GameObject obj;
 	private SentientEntity e;
 	private GameState state;
 	
-	public MapTransitionIR(SentientEntity _e, int _mapID, GameState _state) {
+	public MapTransitionIR(SentientEntity _e, GameObject _obj, GameState _state) {
 		e = _e;
-		mapID = _mapID;
+		obj = _obj;
 		state = _state;
 	}
 	
