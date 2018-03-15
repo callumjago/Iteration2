@@ -9,10 +9,12 @@ public class GameState {
     private ArrayList<Entity> entities;
     private ArrayList<Projectile> projectiles;
     private MovementHandler moveHandler;
+    private InteractionHandler interactionHandler;
 
     public GameState() {
         entities = new ArrayList<>();
         moveHandler = new MovementHandler(this);
+        interactionHandler = new InteractionHandler();
     }
 
     public Player getPlayer() {
@@ -61,6 +63,14 @@ public class GameState {
         }
         return tileSet.get(x).get(y);
     }
+    public Entity getEntityAt(Point point) {
+        for(int i = 0; i < entities.size(); i++) {
+            if(entities.get(i).getPosition().x == point.x && entities.get(i).getPosition().y == point.y) {
+                return entities.get(i);
+            }
+        }
+        return null;
+    }
 
     public int getWidth() {
         return tileSet.size();
@@ -95,11 +105,21 @@ public class GameState {
             }
             if(entities.get(i).getAttemptMove()) {
                 moveHandler.checkMove(entities.get(i), entities.get(i).getOrientation());
-                entities.get(i).resetAttempt();
+
             }
             if(entities.get(i).getAttemptAttack()) {
-                System.out.println("Attack");
+
             }
+        }
+
+        ArrayList<Interaction> interactions = interactionHandler.generateInteractions(this);
+
+        for(int i = 0; i < interactions.size(); i++) {
+            interactions.get(i).applyEffect();
+        }
+
+        for(int i = 0; i < entities.size(); i++) {
+            entities.get(i).resetAttempt();
         }
     }
 

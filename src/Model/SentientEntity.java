@@ -35,6 +35,7 @@ public abstract class SentientEntity extends Entity {
         super();
         Name = "H Y P E B O Y";
         HP = new Health();
+        HP.setHealthPoints(100);
         MP = new Mana();
         Atk = new Attack();
         Def = new Defense();
@@ -42,6 +43,8 @@ public abstract class SentientEntity extends Entity {
         Coffer = new Wallet();
         inventory = new Inventory();
         EquipWeapon = new Weapon();
+        EquipWeapon.setRange(1);
+        EquipWeapon.setAttackPoints(1);
         // Add starting equipment here
     }
 

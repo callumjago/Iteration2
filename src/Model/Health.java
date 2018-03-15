@@ -72,7 +72,7 @@ public class Health implements Stat{
             HealthPoints = 0;
         }
         else{
-            HealthPoints = HealthPoints - dmgAmt;
+            HealthPoints = HealthPoints + dmgAmt;
         }
     }
 
