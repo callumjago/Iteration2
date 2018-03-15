@@ -69,6 +69,8 @@ public abstract class SentientEntity extends Entity {
         return HP.getHealthPoints();
     }
 
+    public void setHP(int x) { HP.setHealthPoints(x); }
+
     public int getMP(){
         return MP.getMagicPoints();
     }
