@@ -6,10 +6,12 @@ import java.util.ArrayList;
 
 public class InventoryMenu extends SubMenu {
     private Inventory inventory;
+    private Player player;
     private InventoryMenuItem currentItem;
-    public InventoryMenu(Inventory inventory) {
+    public InventoryMenu(Player player) {
         super("Inventory");
-        this.inventory = inventory;
+        this.inventory = player.getInventory();
+        this.player = player;
 
         currentItem = generateInventoryMenuItem();
     }
@@ -30,10 +32,13 @@ public class InventoryMenu extends SubMenu {
     @Override
     void Enter(int mouseX, int mouseY) {
         if(currentItem.collisionCheckByName("Equip Item", mouseX, mouseY)) {
+            player.equipGear((Equipment)inventory.getItem(getSubMenuSelectedIndex()));
+            inventory.tossItem(getSubMenuSelectedIndex());
             System.out.println("Equiping");
         } else if(currentItem.collisionCheckByName("Use Item", mouseX, mouseY)) {
             System.out.println("Using");
         } else if(currentItem.collisionCheckByName("Drop Item", mouseX, mouseY)) {
+            inventory.tossItem(getSubMenuSelectedIndex());
             System.out.println("Dropping");
         }
     }

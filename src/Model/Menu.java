@@ -78,22 +78,26 @@ public class Menu {
     }
 
     public void Up() {
+        if(!open) { return; }
         if(selectedInd > 0) {
             selectedInd--;
         }
     }
     public void Down() {
+        if(!open) { return; }
         if(selectedInd < numOfSubMenus -1) {
             selectedInd++;
         }
     }
 
     public void scrollUp() {
+        if(!open) { return; }
         if(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
             SubMenus.get(selectedInd).scrollUp();
         }
     }
     public void scrollDown() {
+        if(!open) { return; }
         if(ui.subMenuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {
             SubMenus.get(selectedInd).scrollDown();
         }

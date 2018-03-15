@@ -3,6 +3,7 @@ package View;
 
 import Model.Entity;
 import Model.GameState;
+import Model.SentientEntity;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -38,8 +39,8 @@ public class MapView {
         for(int i = 0; i < gameState.getWidth(); i++) {
             for(int j = 0; j < gameState.getHeight(); j++) {
 
-                x = tileWidth*i-(gameState.getPlayerPosition().x*tileWidth)+400;
-                y = tileHeight*j-(gameState.getPlayerPosition().y*tileHeight)+400;
+                x = tileWidth*i-(gameState.getPlayerPosition().x*tileWidth)+(int)(canvas.getWidth()/2);
+                y = tileHeight*j-(gameState.getPlayerPosition().y*tileHeight)+(int)(canvas.getHeight()/2);
                 //Draw tile
 
                 gc.drawImage(sprites.getTerrainSprite(gameState.getTerrainTypeAt(i, j)), x, y, tileWidth, tileHeight);
@@ -57,6 +58,8 @@ public class MapView {
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
         drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
+        renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition());
+        renderEntityAttacks(gameState.getEntities(), gameState.getPlayerPosition());
 
         hudView.render(gameState.getPlayer());
     }
@@ -81,12 +84,41 @@ public class MapView {
     private void drawNPCs(ArrayList<Entity> npcs, Point playerPos) {
 
         for(int i = 1; i < npcs.size(); i++) {
-            int x = tileWidth*npcs.get(i).getPosition().x-(playerPos.x*tileWidth)+400;
-            int y = tileHeight*npcs.get(i).getPosition().y-(playerPos.y*tileHeight)+400;
+            int x = tileWidth*npcs.get(i).getPosition().x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2);
+            int y = tileHeight*npcs.get(i).getPosition().y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2);
             drawRotatedImage(sprites.getPlayerSprite(4), npcs.get(i).getOrientation().getDegree(), x, y);
         }
     }
 
+    private void renderEntityAttacks(ArrayList<Entity> entities, Point playerPos) {
+        int x, y;
+        Point attackPoint;
+        for(int i = 0; i < entities.size(); i++) {
+            if(entities.get(i) instanceof SentientEntity) {
+                if(entities.get(i).getAttemptAttack()) {
+                    attackPoint = getAttackPoint((SentientEntity)entities.get(i));
+                    x = tileWidth*attackPoint.x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2);
+                    y = tileHeight*attackPoint.y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2);
+                    drawRotatedImage(sprites.getObjectSprite(8), entities.get(i).getOrientation().getDegree()+90, x, y);
+                }
+            }
+        }
+    }
+
+    private void renderEnemyHealthBars(ArrayList<Entity> entities, Point playerPos) {
+        int x, y;
+        for(int i = 1; i < entities.size(); i++) {
+            if(entities.get(i) instanceof SentientEntity) {
+                x = tileWidth*entities.get(i).getPosition().x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2)+5;
+                y = tileHeight*entities.get(i).getPosition().y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2)+5;
+                float healthPercentage = (float)((SentientEntity) entities.get(i)).getHP()/(float)((SentientEntity) entities.get(i)).getMaxHP();
+                gc.setFill(Color.GRAY);
+                gc.fillRect(x, y, tileWidth-10, 5);
+                gc.setFill(Color.RED);
+                gc.fillRect(x, y, (tileWidth-10)*healthPercentage, 5);
+            }
+        }
+    }
 
 
     private void drawRotatedImage(Image image, double angle, double tlpx, double tlpy) {
@@ -99,5 +131,20 @@ public class MapView {
     private void rotate(GraphicsContext gc, double angle, double px, double py) {
         Rotate r = new Rotate(angle, px, py);
         gc.setTransform(r.getMxx(), r.getMyx(), r.getMxy(), r.getMyy(), r.getTx(), r.getTy());
+    }
+
+    private Point getAttackPoint(SentientEntity entity) {
+        int range = entity.getEquipWeapon().getRange();
+
+        Point pos = entity.getPosition();
+        if(entity.getOrientation().getDegree() == 0) {
+            return new Point(pos.x+range, pos.y);
+        } else if(entity.getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y + range);
+        } else if(entity.getOrientation().getDegree() == 180) {
+            return new Point(pos.x-range, pos.y);
+        } else {
+            return new Point(pos.x, pos.y-range);
+        }
     }
 }

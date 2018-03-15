@@ -65,7 +65,7 @@ public class RunGame extends Application {
             p.addItem(new Ring());
 
         }
-        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new InventoryMenu(p));
         menu.addSubMenu(new EquipmentMenu(p));
         menu.addSubMenu(new StatsMenu(p));
         menu.addSubMenu(new ControlsMenu(p.getPc()));

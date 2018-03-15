@@ -46,6 +46,7 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
+        objectSprites.add(getImage(workingDir + "/sprites/sword.png"));
     }
 
     public Image getTerrainSprite(int terrainID) {
