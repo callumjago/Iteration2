@@ -1,7 +1,5 @@
 package Model;
 
-import java.awt.Image;
-
 public abstract class GameObject {
     private int ObjectID;
 
@@ -20,15 +18,10 @@ public abstract class GameObject {
         return ObjectID;
     }
 
-    // Returns the object's sprite
-
-
     // Sets an Object's ID
     public void setObjectID(int objectID) {
         ObjectID = objectID;
     }
-
-    // Sets an Object's Sprite
     
     //Gives back a value based off of the object's type
     public abstract int getValue();

@@ -1802,9 +1802,9 @@ and removes item from the tile}</panel_attributes>
       <w>243</w>
       <h>99</h>
     </coordinates>
-    <panel_attributes>HealingIR
+    <panel_attributes>MapTransitionIR
 --
-HealingIR(SentientEntity e, int healAmt)
+MapTransitionIR(SentientEntity e, int mapID)
 --
 applyEffect() 
 {heals entity the set amount per tick}</panel_attributes>

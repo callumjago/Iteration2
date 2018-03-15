@@ -69,21 +69,44 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new EmptyTile(0));
+                tileSet.get(i).add(new Tile(0));
             }
         }
 
-        ObjectTile objt = new ObjectTile(0);
-        objt.setObject(new MapTransition());
+        // OneShot Test Item
+        Tile objt = new Tile(0);
+        objt.setObject(new OneShotItem(1,-12));
         tileSet.get(4).set(4, objt);
 
+        // HealingAE Test Item
+        Tile objt2 = new Tile(0);
+        objt2.setObject(new HealingAE(1));
+        tileSet.get(4).set(5, objt2);
 
+        // DamageAE Test Item
+        Tile objt3 = new Tile(0);
+        objt3.setObject(new DamageAE(1));
+        tileSet.get(4).set(6, objt3);
+
+        // ExperienceAE Test Item
+        Tile objt4 = new Tile(0);
+        objt4.setObject(new ExperienceAE(1));
+        tileSet.get(4).set(7, objt4);
+
+        // Item Interaction
+        Tile objh = new Tile(0);
+        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
+        tileSet.get(4).set(3, objh);
+        
+        //Map Transition
+        Tile obj5 = new Tile(0);
+        obj5.setObject(new MapTransition());
+        tileSet.get(4).set(2, obj5);
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
-
-
+        Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
@@ -94,8 +117,8 @@ public class RunGame extends Application {
             int tick = 0;
             public void handle(long currentNanoTime) {
                 //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
-
-
+                map.updateGameState(gameState);
+                map.Tick();
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map

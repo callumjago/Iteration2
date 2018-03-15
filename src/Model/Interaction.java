@@ -1,6 +1,5 @@
 package Model;
 
 public interface Interaction {
-	
-	void applyEffect();
+	public void applyEffect();
 }

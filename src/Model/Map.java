@@ -6,7 +6,7 @@ public class Map {
 
     public Map(GameState state) {
         State = state;
-        //IH = new IH();
+        IH = new InteractionHandler();
     }
 
     public void updateGameState(GameState GS){
@@ -14,7 +14,7 @@ public class Map {
     }
 
     public void Tick(){
-        // IH.generateInteractions(State);
+         IH.generateInteractions(State);
     }
 
     public GameState getState() {
