@@ -60,13 +60,8 @@ public class RunGame extends Application {
 
         }
         menu.addSubMenu(new InventoryMenu(p.getInventory()));
-        menu.addSubMenu(new EquipmentMenu(p));
-        menu.addSubMenu(new StatsMenu(p));
-        menu.addSubMenu(new ControlsMenu(p.getPc()));
         menu.addSubMenu(new SaveGameMenu(save));
         menu.addSubMenu(new QuitGameMenu());
-
-
 
         menuView = new MenuView(canvas);
 
@@ -112,45 +107,36 @@ public class RunGame extends Application {
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
         Map map = new Map(gameState);
-                tileSet.get(i).add(new Tile(new Point(i, j), 0));
-            }
-        }
-
-        Tile objt = new Tile(0);
-        objt.setObject(new Obstacle());
-        tileSet.get(4).set(4, objt);
-
-        GameState gameState = new GameState();
-        gameState.setPlayer(p);
-        gameState.setTileSet(tileSet);
-
-        LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
-        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
-
-        mv.render(gameState);
         new AnimationTimer() {
 
             long nanoTime = System.nanoTime()/delta;
-
             int tick = 0;
             public void handle(long currentNanoTime) {
+                //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
                 map.updateGameState(gameState);
                 map.Tick();
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && tick > 15) {
-                        gameState.tick();
+                    if (System.nanoTime() / delta != nanoTime) {
                         mv.render(gameState);
-                        keyController.resetKeyPressed();
+                        //System.out.println("FPS: " + tick);
+                        nanoTime = System.nanoTime() / delta;
                         tick = 0;
+
+                    } else {
+                        tick++;
                     }
-                    tick++;
                 }
+
+
+
+
+
             }
         }.start();
         theStage.show();

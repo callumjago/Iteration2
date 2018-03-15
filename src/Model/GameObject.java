@@ -3,13 +3,9 @@ package Model;
 public abstract class GameObject {
     private int ObjectID;
 
+
     public GameObject(int objectID) {
         ObjectID = objectID;
-    }
-    
-    public GameObject(int _objectID, Image _sprite) {
-    	ObjectID = _objectID;
-    	sprite = _sprite;
     }
 
     public GameObject(){
@@ -29,4 +25,5 @@ public abstract class GameObject {
     
     //Gives back a value based off of the object's type
     public abstract int getValue();
+
 }

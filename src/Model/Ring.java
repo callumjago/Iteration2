@@ -1,8 +1,5 @@
 package Model;
 
-import java.awt.*;
-import java.util.ArrayList;
-
 public class Ring extends Equipment {
 
     private Skill Effect;
@@ -15,10 +12,7 @@ public class Ring extends Equipment {
         super();
 		this.setName("Ring");
     }
-    @Override
-    ArrayList<String> getStats() {
-        return null;
-    }
+
     public Skill getEffect() {
         return Effect;
     }

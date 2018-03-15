@@ -29,7 +29,7 @@ public class Sprites {
     private void initializeSprites() {
 
 
-        playerSprites.add(getImage(workingDir + "/sprites/testCharacter.png"));
+        playerSprites.add(getImage(workingDir + "/sprites/characterGuy.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterGirl.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterAdventurer.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
