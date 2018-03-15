@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Set;
 
 abstract class Codex {
 
@@ -22,26 +21,26 @@ abstract class Codex {
                 Scanner sc = new Scanner(s);
                 sc.useDelimiter(",");
                 int id = Integer.parseInt(sc.next());
-                System.out.println("The first id that is parsed is: " + id);
+                //System.out.println("The first id that is parsed is: " + id);
                 ArrayList<String> values = new ArrayList<String>();
 
                 map.put(id, values);
 
-            for (int i = 0; sc.hasNext(); i++) {
+            while (sc.hasNext()) {
                 String x = sc.next();
                 //System.out.print(" " +x);
 
                 if (x.equals("")) {
                     continue;
-                } else {
+                }
+                else {
                     map.get(id).add(x);
                 }
 
                 //System.out.print( " " +map.get(id).get(i));
             }
-
-            System.out.println("");
-            Set<Integer> setofKeySet = map.keySet();
+            System.out.println();
+            //Set<Integer> setofKeySet = map.keySet();
 
                /* for(Integer key : setofKeySet){
                     System.out.println("ID - First Column: " + key);
@@ -50,7 +49,7 @@ abstract class Codex {
                     }
                 }*/
         }
-        //System.out.println("The test for the info is:ssssssssssssssss " + map.get(8).get(3));
+        //System.out.println("The test for the info is:ssssssssssssssss " + map.get(2).get(1) + " " + map.get(2).get(2));
 
 
 

@@ -14,7 +14,7 @@ public class TeleportCodex extends Codex {
         return Integer.parseInt(map.get(ID).get(0));
     }
 
-    public Point getDestination(int ID) {
+    public Point getDestinationPosition(int ID) {
         Point destination = new Point(Integer.parseInt(map.get(ID).get(1)), Integer.parseInt(map.get(ID).get(2)));
         return destination;
     }
