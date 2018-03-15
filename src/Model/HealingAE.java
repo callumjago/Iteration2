@@ -1,4 +1,4 @@
 package Model;
 
-public class HealingAE implements AOE {
+public class HealingAE extends AOE {
 }

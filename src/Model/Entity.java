@@ -40,6 +40,10 @@ public abstract class Entity {
     public Interaction getInteraction() {
         return interaction;
     }
+    
+    public void clearInteracton(){
+        interaction = null;
+    }
 
     public void setInteraction(Interaction interaction) {
         this.interaction = interaction;

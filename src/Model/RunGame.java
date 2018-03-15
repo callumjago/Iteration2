@@ -71,12 +71,12 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new EmptyTile(0));
+                tileSet.get(i).add(new Tile(0));
             }
         }
 
-        ObjectTile objt = new ObjectTile(0);
-        objt.setObject(new MapTransition());
+        Tile objt = new Tile(0);
+        objt.setObject(new Teleport(0));
         tileSet.get(4).set(4, objt);
 
 
@@ -90,6 +90,7 @@ public class RunGame extends Application {
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
+        Map map = new Map(gameState);
 
         MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
@@ -99,8 +100,9 @@ public class RunGame extends Application {
             int tick = 0;
             public void handle(long currentNanoTime) {
                 //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
-
-
+            	
+            	map.updateGameState(gameState);
+            	map.Tick();
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map

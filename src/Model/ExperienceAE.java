@@ -1,4 +1,4 @@
 package Model;
 
-public class ExperienceAE implements AOE {
+public class ExperienceAE extends AOE {
 }

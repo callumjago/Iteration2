@@ -1,4 +1,5 @@
 package Model;
 
-public class DamageAE implements AOE {
+public class DamageAE extends AOE {
+
 }

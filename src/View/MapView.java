@@ -1,6 +1,5 @@
 package View;
 
-import Model.EmptyTile;
 import Model.GameState;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;

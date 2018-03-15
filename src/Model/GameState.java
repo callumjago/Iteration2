@@ -35,6 +35,10 @@ public class GameState {
     }
     public void setPlayer(Player player) {
         this.player = player;
+        if (entities == null){
+            entities = new ArrayList<Entity>();
+        }
+        entities.add(player);
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
@@ -48,6 +52,15 @@ public class GameState {
             return null;
         }
         return tileSet.get(x).get(y);
+    }
+    
+    public Tile getTile(Point p){
+        if (p.getX() < 0 || p.getX() > tileSet.size() - 1) {
+            return null;
+        } else if (p.getY() < 0 || p.getY() > tileSet.get(0).size() - 1) {
+            return null;
+        }
+        return tileSet.get((int) p.getX()).get((int) p.getY());
     }
 
     public int getWidth() {
