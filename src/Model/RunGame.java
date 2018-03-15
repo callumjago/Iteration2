@@ -94,6 +94,8 @@ public class RunGame extends Application {
 
         MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
+        PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
+
         mv.render(gameState);
         new AnimationTimer() {
 
@@ -114,6 +116,8 @@ public class RunGame extends Application {
                     tick++;
                 }
 
+                // Checks if players health is <= 0 for gameover screen
+                playerDeath.checkIfDead();
 
 
 
