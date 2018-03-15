@@ -97,6 +97,11 @@ public class RunGame extends Application {
         Tile objh = new Tile(0);
         objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
         tileSet.get(4).set(3, objh);
+        
+        //Map Transition
+        Tile obj5 = new Tile(0);
+        obj5.setObject(new MapTransition());
+        tileSet.get(4).set(2, obj5);
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);

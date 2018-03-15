@@ -18,7 +18,10 @@ public class InteractionHandler {
             Tile tile = GS.getTile(ent.getPosition());
             if (tile.getObject() != null && ent instanceof SentientEntity){ // Means a generation needs to be implemented
                 if (tile.getTileObjectID() == 2) { // Map Transition
-                    //ent.setInteraction(new HealingIR(ent,tile.getObjectType())
+                	MapTransitionIR mapTransition = new MapTransitionIR((SentientEntity) ent, 1, GS);
+                    ent.setInteraction(mapTransition);
+                    mapTransition.applyEffect();
+                    ent.clearInteracton();
                 }
                 else if (tile.getTileObjectID() == 3) { // Instant Death
 
