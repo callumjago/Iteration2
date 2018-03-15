@@ -48,10 +48,12 @@ public class InteractionHandler {
                     ExpIR.applyEffect();
                     ent.clearInteracton();
                     System.out.println("Experience Area Effect Interaction");
-                    System.out.println("Player Lvl : \t" + ((SentientEntity) ent).getLvl() + "Player EXP: \t" + ((SentientEntity) ent).getExp());
+                    System.out.println("Player Lvl : \t" + ((SentientEntity) ent).getLvl() + "\tPlayer EXP: \t" + ((SentientEntity) ent).getExp());
                 }
                 else if (tile.getTileObjectID() == 8) {  // Item
-
+                	ItemInteraction item = new ItemInteraction(tile, (SentientEntity) ent, (Item) tile.getObject(), GS);
+                	ent.setInteraction(item);
+                	item.applyEffect();
                 }
                 else if (tile.getTileObjectID() == 9) {  // OneShot
                     OneShotIR OneShot = new OneShotIR(tile, (SentientEntity) ent, tile.getValue());
