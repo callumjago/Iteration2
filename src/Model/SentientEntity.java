@@ -83,6 +83,10 @@ public abstract class SentientEntity extends Entity {
         return Lvl.getLevel();
     }
 
+    public int getExp() { return Lvl.getExperience();}
+
+    public int getExpToNextLevel() { return Lvl.getExpToNextLevel();}
+
     public int getMoney(){
         return Coffer.getMoney();
     }

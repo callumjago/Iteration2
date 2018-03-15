@@ -4,9 +4,8 @@ public class OneShotIR implements Interaction{
 	private Tile tile;
 	private SentientEntity entity;
 	private int value;
-	private GameState state;
 	
-	public OneShotIR(Tile _tile, SentientEntity _entity, int _value, GameState _state) {
+	public OneShotIR(Tile _tile, SentientEntity _entity, int _value) {
 		entity = _entity;
 		if(_tile.getObject() instanceof OneShotItem) {
 			tile = _tile;
@@ -16,7 +15,6 @@ public class OneShotIR implements Interaction{
 			tile = null;
 		}
 		value = _value;
-		state = _state;
 	}
 	
 	public void applyEffect() {

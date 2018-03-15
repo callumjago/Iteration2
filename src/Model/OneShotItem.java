@@ -4,14 +4,14 @@ package Model;
         private int OneShotID;
         private int Modifier;
 
-        public OneShotItem(int _objectID, int _oneShotID, int modifier) {
-            super(_objectID);
+        public OneShotItem(int _oneShotID, int modifier) {
+            super(9);
             OneShotID = _oneShotID;
             Modifier = modifier;
         }
 
         public OneShotItem() {
-            super();
+            super(9);
             Modifier = 0;
             OneShotID = 0;
         }

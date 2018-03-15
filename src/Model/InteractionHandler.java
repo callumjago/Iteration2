@@ -1,5 +1,6 @@
 package Model;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.ArrayList;
 
 public class InteractionHandler {
@@ -26,22 +27,39 @@ public class InteractionHandler {
 
                 }
                 else if (tile.getTileObjectID() == 5) {  // Healing Effect
-
+                    HealingIR HealIR = new HealingIR((SentientEntity) ent, tile.getValue());
+                    ent.setInteraction(HealIR);
+                    HealIR.applyEffect();
+                    ent.clearInteracton();
+                    System.out.println("Healing Area Effect Interaction");
+                    System.out.println("Player HP: \t" + ((SentientEntity) ent).getHP());
                 }
                 else if (tile.getTileObjectID() == 6) {  // Damage Effect
-
+                    DamageIR DmgIR = new DamageIR((SentientEntity) ent, tile.getValue());
+                    ent.setInteraction(DmgIR);
+                    DmgIR.applyEffect();
+                    ent.clearInteracton();
+                    System.out.println("Damage Area Effect Interaction");
+                    System.out.println("Player HP: \t" + ((SentientEntity) ent).getHP());
                 }
                 else if (tile.getTileObjectID() == 7) {  // Exp Effect
-
+                    ExperienceIR ExpIR = new ExperienceIR((SentientEntity) ent, tile.getValue());
+                    ent.setInteraction(ExpIR);
+                    ExpIR.applyEffect();
+                    ent.clearInteracton();
+                    System.out.println("Experience Area Effect Interaction");
+                    System.out.println("Player Lvl : \t" + ((SentientEntity) ent).getLvl() + "Player EXP: \t" + ((SentientEntity) ent).getExp());
                 }
                 else if (tile.getTileObjectID() == 8) {  // Item
 
                 }
                 else if (tile.getTileObjectID() == 9) {  // OneShot
-                    OneShotIR OneShot = new OneShotIR(tile, (SentientEntity) ent, tile.getValue(), GS);
+                    OneShotIR OneShot = new OneShotIR(tile, (SentientEntity) ent, tile.getValue());
                     ent.setInteraction(OneShot);
                     OneShot.applyEffect();
+                    ent.clearInteracton();
                     System.out.println("One Shot Interaction");
+                    System.out.println("Player HP: \t" + ((SentientEntity) ent).getHP());
                 }
             }
             else{
