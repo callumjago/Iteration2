@@ -10,8 +10,8 @@ public abstract class Equipment extends Item{
     private String Name;
     private String Description;
 
-    public Equipment(int ObjID, int ItemID, int EQID, Level reqLvl, String name, String description) {
-        super(ObjID, ItemID);
+    public Equipment(int ItemID, int EQID, Level reqLvl, String name, String description) {
+        super(ItemID);
         this.EQID = EQID;
         this.reqLvl = reqLvl;
         Name = name;

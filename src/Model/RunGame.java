@@ -73,12 +73,29 @@ public class RunGame extends Application {
             }
         }
 
+        // OneShot Test Item
         Tile objt = new Tile(0);
-        objt.setObject(new OneShotItem(9,1,-12));
+        objt.setObject(new OneShotItem(1,-12));
         tileSet.get(4).set(4, objt);
 
+        // HealingAE Test Item
+        Tile objt2 = new Tile(0);
+        objt2.setObject(new HealingAE(1));
+        tileSet.get(4).set(5, objt2);
+
+        // DamageAE Test Item
+        Tile objt3 = new Tile(0);
+        objt3.setObject(new DamageAE(1));
+        tileSet.get(4).set(6, objt3);
+
+        // ExperienceAE Test Item
+        Tile objt4 = new Tile(0);
+        objt4.setObject(new ExperienceAE(1));
+        tileSet.get(4).set(7, objt4);
+
+        // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(8, 0, 0, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
+        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
         tileSet.get(4).set(3, objh);
 
         GameState gameState = new GameState();

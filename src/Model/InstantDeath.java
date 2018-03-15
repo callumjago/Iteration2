@@ -1,4 +1,8 @@
 package Model;
 
-public class InstantDeath implements AOE {
+public class InstantDeath extends AOE {
+    @Override
+    public int getValue() {
+        return 0;
+    }
 }

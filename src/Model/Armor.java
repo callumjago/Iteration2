@@ -4,8 +4,8 @@ public class Armor extends Equipment{
 
     private int DefensePoints;
 
-    public Armor(int ObjID, int ItemID, int EQID, Level reqLvl, String name, String description, int defensePoints) {
-        super(ObjID, ItemID, EQID, reqLvl, name, description);
+    public Armor(int ItemID, int EQID, Level reqLvl, String name, String description, int defensePoints) {
+        super(ItemID, EQID, reqLvl, name, description);
         DefensePoints = defensePoints;
     }
 

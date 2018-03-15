@@ -1,4 +1,12 @@
 package Model;
 
-public interface AOE {
+public abstract class AOE extends GameObject {
+
+    public AOE(int objectID){
+        super(objectID);
+    }
+
+    public AOE(){
+        super();
+    }
 }
