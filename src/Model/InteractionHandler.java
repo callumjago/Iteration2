@@ -7,8 +7,11 @@ public class InteractionHandler {
     public InteractionHandler(){}
 
     public void generateInteractions(GameState GS){
+        if (GS.getEntities() == null){
+            return;
+        }
         ArrayList<Entity> entities = GS.getEntities();
-         ArrayList<ArrayList<Tile>> tileset = GS.getTileSet();
+        ArrayList<ArrayList<Tile>> tileset = GS.getTileSet();
         for (int e = 0; e < entities.size(); ++e){
             Entity ent = entities.get(e);
             Tile tile = GS.getTile(ent.getPosition());
@@ -35,7 +38,10 @@ public class InteractionHandler {
 
                 }
                 else if (tile.getTileObjectID() == 9) {  // OneShot
-                    ent.setInteraction(new OneShotIR(tile, (SentientEntity) ent, tile.getValue(), GS));
+                    OneShotIR OneShot = new OneShotIR(tile, (SentientEntity) ent, tile.getValue(), GS);
+                    ent.setInteraction(OneShot);
+                    OneShot.applyEffect();
+                    System.out.println("One Shot Interaction");
                 }
             }
             else{

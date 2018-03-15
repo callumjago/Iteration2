@@ -35,6 +35,10 @@ public class GameState {
     }
     public void setPlayer(Player player) {
         this.player = player;
+        if (entities == null){
+            entities = new ArrayList<Entity>();
+        }
+        entities.add(player);
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {

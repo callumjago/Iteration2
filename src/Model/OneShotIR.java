@@ -25,6 +25,6 @@ public class OneShotIR implements Interaction{
 			return;
 		}
 		entity.modifyHP(value);
-		state.setTileAt(new Tile(tile.getPosition(), tile.getTerrainID()), tile.getPosition());
+		tile.removeObject();
 	}
 }
