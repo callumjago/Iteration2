@@ -1,5 +1,6 @@
-/*package Model;
+package Model;
 
+import java.awt.*;
 import java.io.File;
 
 public class TeleportCodex extends Codex{
@@ -13,12 +14,12 @@ public class TeleportCodex extends Codex{
         return Integer.parseInt(map.get(ID).get(0));
     }
 
-    public int getDestinaitonX(int ID){
-
+    public Point getDestination(int ID){
+        Point destination = new Point (Integer.parseInt(map.get(ID).get(1)), Integer.parseInt(map.get(ID).get(2)));
+        return destination;
     }
 
-    p
+
 
 
 }
-*/

@@ -131,6 +131,7 @@ public class RunGame extends Application {
 
         EquipmentCodex c = new EquipmentCodex();
         ItemCodex i = new ItemCodex();
+        TeleportCodex t = new TeleportCodex();
 
         //REMOVE THI SLOL
 
