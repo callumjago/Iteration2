@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Model/Armor.java" afterPath="$PROJECT_DIR$/src/Model/Armor.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Equipment.java" afterPath="$PROJECT_DIR$/src/Model/Equipment.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/InteractionHandler.java" afterPath="$PROJECT_DIR$/src/Model/InteractionHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Item.java" afterPath="$PROJECT_DIR$/src/Model/Item.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Ring.java" afterPath="$PROJECT_DIR$/src/Model/Ring.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/RunGame.java" afterPath="$PROJECT_DIR$/src/Model/RunGame.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Weapon.java" afterPath="$PROJECT_DIR$/src/Model/Weapon.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/DamageIR.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/DamageIR.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Health.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Health.class" />
+      <change beforePath="$PROJECT_DIR$/src/Model/DamageIR.java" afterPath="$PROJECT_DIR$/src/Model/DamageIR.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Health.java" afterPath="$PROJECT_DIR$/src/Model/Health.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="167">
-              <caret line="97" column="34" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+              <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
               <folding>
                 <element signature="e#4135#4136#0" expanded="true" />
                 <element signature="e#4163#4164#0" expanded="true" />
@@ -115,9 +113,49 @@
       <file leaf-file-name="OneShotItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/OneShotItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="168">
+              <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Health.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Health.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DamageAE.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/DamageAE.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#276#277#0" expanded="true" />
+                <element signature="e#305#306#0" expanded="true" />
+                <element signature="e#335#336#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#405#406#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DamageIR.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/DamageIR.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+              <folding>
+                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#411#412#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,8 +163,8 @@
       <file leaf-file-name="SentientEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+            <state relative-caret-position="494">
+              <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
               <folding>
                 <element signature="e#2179#2180#0" expanded="true" />
                 <element signature="e#2219#2220#0" expanded="true" />
@@ -150,23 +188,6 @@
                 <element signature="e#4462#4463#0" expanded="true" />
                 <element signature="e#4502#4503#0" expanded="true" />
                 <element signature="e#4529#4530#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DamageAE.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/DamageAE.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#276#277#0" expanded="true" />
-                <element signature="e#305#306#0" expanded="true" />
-                <element signature="e#335#336#0" expanded="true" />
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#405#406#0" expanded="true" />
-                <element signature="e#441#442#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -222,8 +243,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Model/MenuState.java" />
-        <option value="$PROJECT_DIR$/src/Model/InventoryMenuItem.java" />
         <option value="$PROJECT_DIR$/src/Model/ConfirmationMenuItem.java" />
         <option value="$PROJECT_DIR$/src/Model/InventoryMenu.java" />
         <option value="$PROJECT_DIR$/src/View/Bound.java" />
@@ -273,11 +292,13 @@
         <option value="$PROJECT_DIR$/src/Model/Armor.java" />
         <option value="$PROJECT_DIR$/src/Model/Ring.java" />
         <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
+        <option value="$PROJECT_DIR$/src/Model/DamageIR.java" />
+        <option value="$PROJECT_DIR$/src/Model/Health.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1032" />
@@ -600,8 +621,7 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1032" extended-state="0" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -611,12 +631,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2665066" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26086956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30882353" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17561762" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -881,14 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Health.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="73" column="13" lean-forward="false" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Sprites.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1407">
@@ -997,14 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/DamageIR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/HealingIR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -1065,60 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/DamageAE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="e#2179#2180#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#2257#2258#0" expanded="true" />
-            <element signature="e#2289#2290#0" expanded="true" />
-            <element signature="e#2391#2392#0" expanded="true" />
-            <element signature="e#2424#2425#0" expanded="true" />
-            <element signature="e#2475#2476#0" expanded="true" />
-            <element signature="e#2514#2515#0" expanded="true" />
-            <element signature="e#2552#2553#0" expanded="true" />
-            <element signature="e#2586#2587#0" expanded="true" />
-            <element signature="e#2640#2641#0" expanded="true" />
-            <element signature="e#2681#2682#0" expanded="true" />
-            <element signature="e#2715#2716#0" expanded="true" />
-            <element signature="e#2747#2748#0" expanded="true" />
-            <element signature="e#2795#2796#0" expanded="true" />
-            <element signature="e#2832#2833#0" expanded="true" />
-            <element signature="e#2862#2863#0" expanded="true" />
-            <element signature="e#2896#2897#0" expanded="true" />
-            <element signature="e#4435#4436#0" expanded="true" />
-            <element signature="e#4462#4463#0" expanded="true" />
-            <element signature="e#4502#4503#0" expanded="true" />
-            <element signature="e#4529#4530#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/OneShotItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/InteractionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1172,12 +1122,85 @@
     <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
-          <caret line="97" column="34" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+          <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
           <folding>
             <element signature="e#4135#4136#0" expanded="true" />
             <element signature="e#4163#4164#0" expanded="true" />
             <marker date="1521085236955" expanded="true" signature="4022:4039" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/OneShotItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <element signature="e#2179#2180#0" expanded="true" />
+            <element signature="e#2219#2220#0" expanded="true" />
+            <element signature="e#2257#2258#0" expanded="true" />
+            <element signature="e#2289#2290#0" expanded="true" />
+            <element signature="e#2391#2392#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
+            <element signature="e#2475#2476#0" expanded="true" />
+            <element signature="e#2514#2515#0" expanded="true" />
+            <element signature="e#2552#2553#0" expanded="true" />
+            <element signature="e#2586#2587#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="true" />
+            <element signature="e#2715#2716#0" expanded="true" />
+            <element signature="e#2747#2748#0" expanded="true" />
+            <element signature="e#2795#2796#0" expanded="true" />
+            <element signature="e#2832#2833#0" expanded="true" />
+            <element signature="e#2862#2863#0" expanded="true" />
+            <element signature="e#2896#2897#0" expanded="true" />
+            <element signature="e#4435#4436#0" expanded="true" />
+            <element signature="e#4462#4463#0" expanded="true" />
+            <element signature="e#4502#4503#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/DamageAE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/DamageIR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding>
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Health.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
