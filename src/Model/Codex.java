@@ -50,7 +50,7 @@ abstract class Codex {
                     }
                 }*/
         }
-        System.out.println("The test for the info is:ssssssssssssssss " + map.get(8).get(3));
+        //System.out.println("The test for the info is:ssssssssssssssss " + map.get(8).get(3));
 
 
 
