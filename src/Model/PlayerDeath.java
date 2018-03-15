@@ -13,7 +13,7 @@ public class PlayerDeath {
     }
 
     public void checkIfDead() {
-        if (player.getHP() <= 1000 && !isDead) {
+        if (player.getHP() <= 0 && !isDead) {
             mainMenu.changeMenu(4);
             isDead = true;
         }
