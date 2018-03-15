@@ -77,7 +77,9 @@ public class RunGame extends Application {
         objt.setObject(new OneShotItem(9,1,-12));
         tileSet.get(4).set(4, objt);
 
-
+        Tile objh = new Tile(0);
+        objh.setObject(new Weapon(8, 0, 0, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
+        tileSet.get(4).set(3, objh);
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);

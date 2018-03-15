@@ -46,7 +46,8 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
-
+        objectSprites.add(getImage(workingDir + "/sprites/sword.png"));//Weapon
+        
         defaultObjectSprite = getImage(workingDir + "/sprites/star.png");
 
     }
@@ -60,7 +61,7 @@ public class Sprites {
     }
 
     public Image getObjectSprite(int ind) {
-        if(ind >= objectSprites.size()) {
+        if(ind > objectSprites.size()) {
             return defaultObjectSprite;
         }
         return objectSprites.get(ind-1);

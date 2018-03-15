@@ -35,7 +35,9 @@ public class InteractionHandler {
 
                 }
                 else if (tile.getTileObjectID() == 8) {  // Item
-
+                	ItemInteraction item = new ItemInteraction(tile, (SentientEntity) ent, (Item) tile.getObject(), GS);
+                	ent.setInteraction(item);
+                	item.applyEffect();
                 }
                 else if (tile.getTileObjectID() == 9) {  // OneShot
                     OneShotIR OneShot = new OneShotIR(tile, (SentientEntity) ent, tile.getValue(), GS);
