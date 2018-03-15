@@ -127,7 +127,8 @@ public abstract class SentientEntity extends Entity {
 
     public void gainExp(int expAmt){
         int check = Lvl.gainExp(expAmt);
-        if (check > 0){ // This means a level up has occurred.
+        if (check >= 0){ // This means a level up has occurred.
+            System.out.println("********Level UP!!!!!********");
             HP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100))));
             MP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100)))-2);
             Atk.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*5));

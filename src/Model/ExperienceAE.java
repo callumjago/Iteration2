@@ -18,11 +18,11 @@ public class ExperienceAE extends AOE {
         return exp;
     }
 
-    public int getHealBoost() {
+    public int getEXP() {
         return exp;
     }
 
-    public void setHealBoost(int exp) {
+    public void setEXP(int exp) {
         this.exp = exp;
     }
 }
