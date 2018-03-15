@@ -13,6 +13,8 @@ public class Player extends SentientEntity {
     Player() {
         super(); // Attribute classes fill with default values
         //Class = new PlayerClass();
+        setMaxHP(100);
+        modifyHP(100);
         pc = new PlayerController(this);
     }
 	

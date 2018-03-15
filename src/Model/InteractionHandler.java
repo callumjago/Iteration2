@@ -16,7 +16,7 @@ public class InteractionHandler {
             if(gs.getEntities().get(i) instanceof SentientEntity) {
                 if (gs.getEntities().get(i).getAttemptAttack()) {//Entity is attacking
                     //System.out.println(getAttackPoint((SentientEntity) gs.getEntities().get(i)).toString());
-                    if (gs.getEntityAt(getAttackPoint((SentientEntity) gs.getEntities().get(i))) != null) {
+                    if (gs.getEntityAt(getAttackPoint((SentientEntity) gs.getEntities().get(i))) != null) {//Entity on tile being attacked
                         interactions.add(new DamageInteraction((SentientEntity) gs.getEntityAt(getAttackPoint((SentientEntity) gs.getEntities().get(i))), ((SentientEntity) gs.getEntities().get(i)).getEquipWeapon().getAttackPoints()));
                     }
                 }

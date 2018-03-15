@@ -5,16 +5,17 @@ import java.util.ArrayList;
 
 public class HostileAI extends AI{
 
-    public HostileAI(Entity entity, GameState gameState) {
+    public HostileAI(NPC entity, GameState gameState) {
         super(entity, gameState);
     }
 
     @Override
     void tick() {
+
         ArrayList<Point> path = getPath(getGameState().getPlayerPosition());
-//        for(int i = 0; i < path.size(); i++) {
-//            System.out.println(path.get(i).toString());
-//        }
+        if(path.size() >= getEntity().getDetectionRange()) {
+            return;
+        }
 
 
         if(path.size() >= 2) {//Move along path to player

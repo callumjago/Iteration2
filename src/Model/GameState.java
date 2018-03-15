@@ -35,7 +35,7 @@ public class GameState {
         if(entity == null) {
             return;
         }
-        ((NPC)entity).setAI(new HostileAI(entity, this));
+        ((NPC)entity).setAI(new HostileAI((NPC)entity, this));
         entities.add(entity);
 
     }
@@ -111,15 +111,24 @@ public class GameState {
 
             }
         }
+        handleInteractions();
 
+
+
+    }
+
+    public void handleInteractions() {
         ArrayList<Interaction> interactions = interactionHandler.generateInteractions(this);
-
         for(int i = 0; i < interactions.size(); i++) {
             interactions.get(i).applyEffect();
         }
 
-        for(int i = 0; i < entities.size(); i++) {
-            entities.get(i).resetAttempt();
+
+
+        for(int i = 1; i < entities.size(); i++) {
+            if(((SentientEntity) entities.get(i)).isDead()) {
+                entities.remove(i);
+            }
         }
     }
 
@@ -128,7 +137,14 @@ public class GameState {
     public void playerTick() {
         if(player.getAttemptMove()) {
             moveHandler.checkMove(player, player.getOrientation());
-            player.resetAttempt();
+
+        }
+        handleInteractions();
+    }
+
+    public void resetEntities() {
+        for(int i = 0; i < entities.size(); i++) {
+            entities.get(i).resetAttempt();
         }
     }
 }

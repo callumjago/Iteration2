@@ -16,6 +16,7 @@ public class MapView {
     private GraphicsContext gc;
     private Canvas canvas;
     private Sprites sprites;
+    private HUDView hudView;
     private int cameraX, cameraY;
     private final int tileWidth = 50;
     private final int tileHeight = 50;
@@ -24,6 +25,8 @@ public class MapView {
         gc = canvas.getGraphicsContext2D();
         sprites = new Sprites();
         cameraX = 0; cameraY = 0;
+
+        hudView = new HUDView(canvas);
 
     }
 
@@ -54,6 +57,8 @@ public class MapView {
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
         drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
+
+        hudView.render(gameState.getPlayer());
     }
 
 

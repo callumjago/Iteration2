@@ -35,7 +35,7 @@ public abstract class SentientEntity extends Entity {
         super();
         Name = "H Y P E B O Y";
         HP = new Health();
-        HP.setHealthPoints(100);
+        HP.setHealthPoints(1);
         MP = new Mana();
         Atk = new Attack();
         Def = new Defense();
@@ -51,6 +51,8 @@ public abstract class SentientEntity extends Entity {
     public void modifyHP(int delta){
         HP.modify(delta);
     }
+
+    public void setMaxHP(int health) { HP.setMaxHealthPoints(health);}
 
     public void modifyMP(int delta){
         MP.modify(delta);
@@ -72,6 +74,8 @@ public abstract class SentientEntity extends Entity {
         return HP.getHealthPoints();
     }
 
+    public int getMaxHP() { return HP.getMaxHealthPoints(); }
+
     public int getMP(){
         return MP.getMagicPoints();
     }
@@ -87,6 +91,10 @@ public abstract class SentientEntity extends Entity {
     public int getLvl(){
         return Lvl.getLevel();
     }
+
+    public int getEXP() { return Lvl.getExperience(); }
+
+    public int getEXPRemaining() { return Lvl.getExpToNextLevel(); }
 
     public int getMoney(){
         return Coffer.getMoney();

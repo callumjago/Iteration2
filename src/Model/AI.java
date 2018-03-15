@@ -10,15 +10,15 @@ import java.util.Queue;
 
 public abstract class AI {
     private GameState gs;
-    private Entity entity;
-    public AI(Entity entity, GameState gs) {
+    private NPC entity;
+    public AI(NPC entity, GameState gs) {
         this.entity = entity;
         this.gs = gs;
     }
 
     abstract void tick(); //Tells AI to generate a move and call it on entity
 
-    public Entity getEntity() {
+    public NPC getEntity() {
         return entity;
     }
 

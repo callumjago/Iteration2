@@ -1,5 +1,6 @@
 package Model;
 
+import View.HUDView;
 import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
@@ -24,6 +25,7 @@ public class RunGame extends Application {
     private Menu menu;
     private MenuView menuView;
     private Sprites sprites;
+
 
     private KeyController keyController;
 
@@ -52,6 +54,7 @@ public class RunGame extends Application {
         MenuController mc = new MenuController(menu);
         keyController.addController(mc);
         sprites = new Sprites();
+
 
         Player p = new Player();
         p.setPosition(new Point(6, 4));
@@ -119,6 +122,7 @@ public class RunGame extends Application {
                     if(keyController.getKeyPressed() && ticksSincePlayerInput > 15) {
                         gameState.playerTick();
                         mv.render(gameState);
+                        gameState.resetEntities();
                         keyController.resetKeyPressed();
                         ticksSincePlayerInput = 0;
                     }
@@ -128,9 +132,12 @@ public class RunGame extends Application {
                     if(tick > 15) {
                         gameState.tick();
                         mv.render(gameState);
+                        gameState.resetEntities();
                         tick = 0;
                     }
                     tick++;
+
+                    //gameState.resetEntities();
                 }
 
 
