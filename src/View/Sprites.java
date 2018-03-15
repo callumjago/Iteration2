@@ -12,6 +12,7 @@ public class Sprites {
     private ArrayList<Image> playerSprites;
     private Image mapTransitionSprite;
     private Image obsticleItem;
+    private Image defaultObjectSprite;
 
 
     private String workingDir;
@@ -46,6 +47,8 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
 
+        defaultObjectSprite = getImage(workingDir + "/sprites/star.png");
+
     }
 
     public Image getTerrainSprite(int terrainID) {
@@ -57,6 +60,9 @@ public class Sprites {
     }
 
     public Image getObjectSprite(int ind) {
+        if(ind >= objectSprites.size()) {
+            return defaultObjectSprite;
+        }
         return objectSprites.get(ind-1);
     }
 
