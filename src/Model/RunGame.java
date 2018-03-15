@@ -96,6 +96,10 @@ public class RunGame extends Application {
 
         PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
+        //Testing
+        Dialogue dialogue = new Dialogue(canvas);
+
+
         mv.render(gameState);
         new AnimationTimer() {
 
@@ -114,6 +118,7 @@ public class RunGame extends Application {
                         tick = 0;
                     }
                     tick++;
+                    dialogue.displayDialogue();
                 }
 
                 // Checks if players health is <= 0 for gameover screen

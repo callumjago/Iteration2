@@ -35,6 +35,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.NUMPAD3);
         playerControls.add(KeyCode.NUMPAD1);
         playerControls.add(KeyCode.NUMPAD7);
+        playerControls.add(KeyCode.F);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -45,7 +46,7 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("SE");
         controlFunctions.add("SW");
         controlFunctions.add("NW");
-
+        controlFunctions.add("Interact");
 
         isListeningforRebind = false;
         rebindIndex = 0;
@@ -88,6 +89,8 @@ public class PlayerController extends SubKeyController {
             player.moveSouthWest();
         } else if(code == playerControls.get(7)) {//MoveNW
             player.moveNorthWest();
+        } else if(code == playerControls.get(8)) {//Interact
+            //player.checkForNPC;
         }
     }
 

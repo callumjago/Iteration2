@@ -2,7 +2,7 @@ package Model;
 
 public class NPC extends Entity {
 	private AI ai;
-	private String dialogue;
+	private Dialogue dialogue;
 	private int ExpUponDeath;
 	
 	NPC(int exp){
@@ -21,11 +21,11 @@ public class NPC extends Entity {
 		return ai.getMove(); //getMove from ai should return an angle 
 	}*/
 	
-	public String getDialogue() {
+	public Dialogue getDialogue() {
 		return dialogue;
 	}
 	
-	public void setDialogue(String _dialogue) {
+	public void setDialogue(Dialogue _dialogue) {
 		dialogue = _dialogue;
 	}
 	
