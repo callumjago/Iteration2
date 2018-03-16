@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.PlayerController;
 import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
@@ -52,19 +53,14 @@ public class RunGame extends Application {
 
         Player p = new Player();
         p.setPosition(new Point(6, 4));
-        keyController.addController(p.getPc());
+
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
             p.addItem(new Ring());
 
         }
-        menu.addSubMenu(new InventoryMenu(p.getInventory()));
-        menu.addSubMenu(new EquipmentMenu(p));
-        menu.addSubMenu(new StatsMenu(p));
-        menu.addSubMenu(new ControlsMenu(p.getPc()));
-        menu.addSubMenu(new SaveGameMenu(save));
-        menu.addSubMenu(new QuitGameMenu());
+
 
 
 
@@ -109,11 +105,23 @@ public class RunGame extends Application {
         tileSet.get(4).set(2, obj5);
 
         GameState gameState = new GameState();
+
         gameState.setPlayer(p);
+        PlayerController pc = new PlayerController(gameState);
+        keyController.addController(pc);
         gameState.setTileSet(tileSet);
+        gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+
+
+        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new EquipmentMenu(p));
+        menu.addSubMenu(new StatsMenu(p));
+        menu.addSubMenu(new ControlsMenu(pc));
+        menu.addSubMenu(new SaveGameMenu(save));
+        menu.addSubMenu(new QuitGameMenu());
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
-        Map map = new Map(gameState);
+        //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
@@ -128,16 +136,27 @@ public class RunGame extends Application {
             long nanoTime = System.nanoTime()/delta;
 
             int tick = 0;
+            int ticksSincePlayerInput = 0;
             public void handle(long currentNanoTime) {
-                map.updateGameState(gameState);
-                map.Tick();
+                //map.updateGameState(gameState);
+                // map.Tick();
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && tick > 15) {
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 15) {//Immediately responds if player input registered
+                        gameState.playerTick();
+                        mv.render(gameState);
+                        gameState.resetEntityAttempts();
+                        keyController.resetKeyPressed();
+                        ticksSincePlayerInput = 0;
+                    }
+                    ticksSincePlayerInput++;
+
+                    //Npcs are allowed to move periodically
+                    if(tick > 45) {
                         gameState.tick();
                         mv.render(gameState);
-                        keyController.resetKeyPressed();
+                        gameState.resetEntityAttempts();
                         tick = 0;
                     }
                     tick++;

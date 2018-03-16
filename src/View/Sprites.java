@@ -13,6 +13,7 @@ public class Sprites {
     private Image mapTransitionSprite;
     private Image obsticleItem;
     private Image defaultObjectSprite;
+    private Image arrowSprite;
 
 
     private String workingDir;
@@ -47,6 +48,8 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
         defaultObjectSprite = getImage(workingDir + "/sprites/star.png");
+
+        arrowSprite = getImage(workingDir + "/sprites/arrow.png");
     }
 
     public Image getTerrainSprite(int terrainID) {
@@ -62,6 +65,10 @@ public class Sprites {
             return defaultObjectSprite;
         }
         return objectSprites.get(ind-1);
+    }
+
+    public Image getArrowSprite() {
+        return arrowSprite;
     }
 
     private Image getImage(String fp) {

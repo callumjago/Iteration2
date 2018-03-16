@@ -4,13 +4,36 @@ import java.awt.Point;
 
 public class Projectile extends Entity{
 	private int damage;
-	// Direction comes from Angle's Entity
+	private int range;
+	// Direction comes from Entity's Angle
 
-	Projectile(int _damage){
+	public Projectile(Point origin, int direction, int _damage, int _range){
+		super(origin, new Angle(direction));
 		damage = _damage;
+		range = _range;
 	}
 	
 	public int getDamage() {
 		return damage;
+	}
+
+	public Boolean Tick(){
+		System.out.println(getPosition().x + ", " + getPosition().y);
+		if (range > 0) {
+			moveForward();
+			range--;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public int getRange() {
+		return range;
+	}
+
+	public void setRange(int range) {
+		this.range = range;
 	}
 }

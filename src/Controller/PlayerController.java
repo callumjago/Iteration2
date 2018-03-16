@@ -1,11 +1,14 @@
 package Controller;
 
+import Model.GameState;
 import Model.Player;
+import Model.Projectile;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import javax.swing.text.Position;
+import java.awt.*;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
@@ -13,15 +16,17 @@ import java.util.ArrayList;
 
 public class PlayerController extends SubKeyController {
     private Player player;
+    private GameState gs;
     private boolean inputRegistered;
     private boolean isListeningforRebind;
     private int rebindIndex;
 
     private ArrayList<KeyCode> playerControls;
     private ArrayList<String> controlFunctions; //Represents control functions (i.e. moveUp, attack, etc.)
-    public PlayerController(Player player){
+    public PlayerController(GameState gs){
         super();
-        this.player = player;
+        this.gs = gs;
+        this.player = gs.getPlayer();
         inputRegistered = false;
 
 
@@ -35,6 +40,8 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.NUMPAD3);
         playerControls.add(KeyCode.NUMPAD1);
         playerControls.add(KeyCode.NUMPAD7);
+        playerControls.add(KeyCode.SPACE);
+        playerControls.add(KeyCode.ENTER);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -45,6 +52,8 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("SE");
         controlFunctions.add("SW");
         controlFunctions.add("NW");
+        controlFunctions.add("Attack");
+        controlFunctions.add("Projectile");
 
 
         isListeningforRebind = false;
@@ -88,6 +97,10 @@ public class PlayerController extends SubKeyController {
             player.moveSouthWest();
         } else if(code == playerControls.get(7)) {//MoveNW
             player.moveNorthWest();
+        } else if(code == playerControls.get(8)) {//Attack
+            player.setAttemptAttack(true);
+        } else if(code == playerControls.get(9)) {//Attack
+            gs.addEntity(new Projectile(getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
         }
     }
 
@@ -114,5 +127,20 @@ public class PlayerController extends SubKeyController {
             return "";
         }
         return playerControls.get(index).toString();
+    }
+
+    private Point getProjectileStartPoint() {
+
+
+        Point pos = player.getPosition();
+        if(player.getOrientation().getDegree() == 0) {
+            return new Point(pos.x+1, pos.y);
+        } else if(player.getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y + 1);
+        } else if(player.getOrientation().getDegree() == 180) {
+            return new Point(pos.x-1, pos.y);
+        } else {
+            return new Point(pos.x, pos.y-1);
+        }
     }
 }

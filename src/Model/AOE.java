@@ -4,13 +4,11 @@ public abstract class AOE extends GameObject {
     private int ID;
 
     public AOE(int objectID){
-            super(objectID);
-
+        super(objectID);
     }
 
     public AOE(){
-            super();
-
+        super();
     }
     public int getID()
     {
