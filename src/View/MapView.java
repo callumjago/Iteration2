@@ -71,12 +71,12 @@ public class MapView {
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(2);
 
-        for(int i = Math.max(0, (width/2)-playerPos.x+3); i < 2*width-playerPos.x-1; i++) {//Verticle Lines
+        for(int i = Math.max(0, width-playerPos.x-2); i < 2*width-playerPos.x-1; i++) {//Verticle Lines
             //System.out.println(i);
             gc.strokeLine(i*tileWidth, ((height/2)-playerPos.y+3)*tileHeight, i*tileWidth, (2*height-playerPos.y-2)*tileHeight);
         }
 
-        for(int j = Math.max(0, (height/2)-playerPos.y+3); j < 2*height-playerPos.y-1; j++) {//Horizontal Lines
+        for(int j = Math.max(0, height-playerPos.y-2); j < 2*height-playerPos.y-1; j++) {//Horizontal Lines
             gc.strokeLine(((width/2)-playerPos.x+3)*tileWidth, j*tileHeight, (2*width-playerPos.x-2)*tileWidth, j*tileHeight);
         }
     }
