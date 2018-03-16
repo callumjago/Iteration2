@@ -81,8 +81,8 @@ public class MapView {
             if(projectiles.get(i) instanceof Projectile) {
                 x = tileWidth * projectiles.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) canvas.getWidth() / 2;
                 y = tileHeight * projectiles.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) canvas.getHeight() / 2;
-                System.out.println("rending");
-                drawRotatedImage(sprites.getObjectSprite(2), projectiles.get(i).getOrientation().getDegree(), x, y);
+
+                drawRotatedImage(sprites.getArrowSprite(), projectiles.get(i).getOrientation().getDegree(), x, y);
             }
         }
 

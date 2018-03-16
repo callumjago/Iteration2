@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.PlayerController;
 import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
@@ -52,19 +53,14 @@ public class RunGame extends Application {
 
         Player p = new Player();
         p.setPosition(new Point(6, 4));
-        keyController.addController(p.getPc());
+
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
             p.addItem(new Ring());
 
         }
-        menu.addSubMenu(new InventoryMenu(p.getInventory()));
-        menu.addSubMenu(new EquipmentMenu(p));
-        menu.addSubMenu(new StatsMenu(p));
-        menu.addSubMenu(new ControlsMenu(p.getPc()));
-        menu.addSubMenu(new SaveGameMenu(save));
-        menu.addSubMenu(new QuitGameMenu());
+
 
 
 
@@ -109,9 +105,20 @@ public class RunGame extends Application {
         tileSet.get(4).set(2, obj5);
 
         GameState gameState = new GameState();
+
         gameState.setPlayer(p);
+        PlayerController pc = new PlayerController(gameState);
+        keyController.addController(pc);
         gameState.setTileSet(tileSet);
-        gameState.addEntity(new Projectile(new Point(1,1),new Angle(0),5, 7000));
+        gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+
+
+        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new EquipmentMenu(p));
+        menu.addSubMenu(new StatsMenu(p));
+        menu.addSubMenu(new ControlsMenu(pc));
+        menu.addSubMenu(new SaveGameMenu(save));
+        menu.addSubMenu(new QuitGameMenu());
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
         //Map map = new Map(gameState);

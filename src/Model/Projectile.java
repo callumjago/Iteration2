@@ -7,8 +7,8 @@ public class Projectile extends Entity{
 	private int range;
 	// Direction comes from Entity's Angle
 
-	Projectile(Point origin, Angle direction, int _damage, int _range){
-		super(origin, direction);
+	public Projectile(Point origin, int direction, int _damage, int _range){
+		super(origin, new Angle(direction));
 		damage = _damage;
 		range = _range;
 	}

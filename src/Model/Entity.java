@@ -106,13 +106,13 @@ public abstract class Entity {
         int dir = orientation.getDegree();
         attemptMove = true;
         if (dir == 0){ moveEast(); }
-        else if (dir == 45){ moveNorthEast(); }
-        else if (dir == 90){ moveNorth(); }
-        else if (dir == 135){ moveNorthWest(); }
+        else if (dir == 45){ moveSouthEast(); }
+        else if (dir == 90){ moveSouth(); }
+        else if (dir == 135){ moveSouthWest(); }
         else if (dir == 180){ moveWest(); }
-        else if (dir == 225){ moveSouthWest(); }
-        else if (dir == 270){ moveSouthWest(); }
-        else if (dir == 315){ moveSouthEast(); }
+        else if (dir == 225){ moveNorthWest(); }
+        else if (dir == 270){ moveNorth(); }
+        else if (dir == 315){ moveNorthEast(); }
         else if (dir == 360){ moveEast();}
         else { moveNorth();}
     }
