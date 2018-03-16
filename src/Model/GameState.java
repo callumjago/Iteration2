@@ -2,6 +2,7 @@ package Model;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GameState {
     private Player player;
@@ -111,9 +112,13 @@ public class GameState {
     }
 
     public void tick() {
-        for (Entity ent : entities) {
+        Iterator<Entity> it = entities.iterator();
+        while (it.hasNext()) {
+            Entity ent = it.next();
             if (ent instanceof Projectile) {
-                ((Projectile) ent).Tick();
+               if (!((Projectile) ent).Tick()){
+                    it.remove();
+                }
             }
             if (ent.getAttemptMove()) {
                 moveHandler.checkMove(ent, ent.getOrientation());

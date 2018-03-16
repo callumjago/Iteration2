@@ -111,6 +111,7 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
+        gameState.addProjectile(new Projectile(new Point(3,1),new Angle(0),-5, 7000));
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
         //Map map = new Map(gameState);
