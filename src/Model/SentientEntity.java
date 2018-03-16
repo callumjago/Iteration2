@@ -15,6 +15,7 @@ public abstract class SentientEntity extends Entity {
     private Defense Def;
     private Level Lvl;
     private Wallet Coffer;
+    private boolean attemptAttack;
 
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
@@ -29,6 +30,7 @@ public abstract class SentientEntity extends Entity {
         Lvl = new Level(initLvl);
         Coffer = new Wallet(initMoney);
         inventory = new Inventory();
+        attemptAttack = false;
     }
 
     SentientEntity(){ // Attribute classes fill with default values
@@ -42,6 +44,7 @@ public abstract class SentientEntity extends Entity {
         Coffer = new Wallet();
         inventory = new Inventory();
         EquipWeapon = new Weapon();
+        attemptAttack = false;
         // Add starting equipment here
     }
 
@@ -215,5 +218,13 @@ public abstract class SentientEntity extends Entity {
 
     public void addToInventory(Item i){
         inventory.addItem(i);
+    }
+
+    public boolean isAttemptAttack() {
+        return attemptAttack;
+    }
+
+    public void setAttemptAttack(boolean attemptAttack) {
+        this.attemptAttack = attemptAttack;
     }
 }

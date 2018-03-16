@@ -7,11 +7,15 @@ public class GameState {
     private Player player;
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
+    private ArrayList<Interaction> interactions;
     private MovementHandler moveHandler;
+    private InteractionHandler interactionHandler;
 
     public GameState() {
-        entities = new ArrayList<>();
+        interactions = new ArrayList<Interaction>();
+        entities = new ArrayList<Entity>();
         moveHandler = new MovementHandler(this);
+        interactionHandler = new InteractionHandler();
     }
 
     public Player getPlayer() {
@@ -72,13 +76,33 @@ public class GameState {
         return tileSet.get(0).size();
     }
 
-    public boolean checkMove(int x, int y){ // Returns true if move is good
+    public boolean checkMove(Entity src, int x, int y){ // Returns true if move is good
         Tile t =  getTileAt(x,y);
         if (t == null){
             return false;
         }
-        else{
-            return t.isPassable();
+        else if (!entityCollision(src,x,y)) {
+            return false;
+        }
+        return t.isPassable();
+    }
+
+    public Boolean entityCollision(Entity src, int x, int y){
+        for (Entity entity : entities)
+            if (entity.getPosition().x == x && entity.getPosition().y == y) {
+                if (entity instanceof Projectile && src instanceof SentientEntity){
+                    interactions.add(new DamageInteraction((SentientEntity) src, ((Projectile) entity).getDamage()));
+                }
+                return false;
+            }
+        return true;
+    }
+
+    public void handleInteractions() {
+        interactionHandler.generateInteractions(this, interactions);
+        for (int i = 0; i < interactions.size(); i++) {
+            interactions.get(i).applyEffect();
+            interactions.clear();
         }
     }
 
@@ -95,6 +119,7 @@ public class GameState {
                 moveHandler.checkMove(ent, ent.getOrientation());
                 ent.resetAttemptMove();
             }
+            handleInteractions();
         }
     }
 }

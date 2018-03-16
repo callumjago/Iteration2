@@ -113,7 +113,7 @@ public class RunGame extends Application {
         gameState.setTileSet(tileSet);
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
-        Map map = new Map(gameState);
+        //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
@@ -129,8 +129,9 @@ public class RunGame extends Application {
 
             int tick = 0;
             public void handle(long currentNanoTime) {
-                map.updateGameState(gameState);
-                map.Tick();
+                //map.updateGameState(gameState);
+                // map.Tick();
+                gameState.tick();
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
