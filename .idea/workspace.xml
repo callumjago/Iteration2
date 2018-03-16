@@ -118,6 +118,7 @@
       <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="919">
               <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
               <folding>
@@ -126,10 +127,16 @@
                 <marker date="1521234715667" expanded="true" signature="4353:4642" ph="{...}" />
 >>>>>>> temp
               </folding>
+=======
+            <state relative-caret-position="358">
+              <caret line="111" column="31" lean-forward="false" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+              <folding />
+>>>>>>> temp
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="SaveGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/SaveGame.java">
@@ -142,47 +149,59 @@
 =======
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
+=======
+      <file leaf-file-name="HostileAI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/HostileAI.java">
+>>>>>>> temp
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+            <state relative-caret-position="495">
+              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Inventory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Inventory.java">
+      <file leaf-file-name="NPC.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/NPC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+            <state relative-caret-position="891">
+              <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/View/MapView.java">
+      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Projectile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            <state relative-caret-position="237">
+              <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
               <folding>
+                <element signature="e#3005#3006#0" expanded="true" />
+                <element signature="e#3039#3040#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sprites.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Sprites.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="996">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+<<<<<<< HEAD
                 <element signature="e#237#238#0" expanded="true" />
+>>>>>>> temp
+=======
+                <element signature="e#2308#2309#0" expanded="true" />
 >>>>>>> temp
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="LoadGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/LoadGame.java">
@@ -196,11 +215,19 @@
             <state relative-caret-position="1650">
               <caret line="100" column="37" lean-forward="false" selection-start-line="100" selection-start-column="37" selection-end-line="100" selection-end-column="37" />
 >>>>>>> temp
+=======
+      <file leaf-file-name="MapView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/MapView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="596">
+              <caret line="106" column="54" lean-forward="false" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
+>>>>>>> temp
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="EquipmentCodex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/EquipmentCodex.java">
@@ -220,10 +247,29 @@
                 <marker date="1521234715613" expanded="true" signature="2419:2435" ph="{...}" />
 >>>>>>> temp
               </folding>
+=======
+      <file leaf-file-name="HUDView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/HUDView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SentientEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="749">
+              <caret line="80" column="68" lean-forward="false" selection-start-line="80" selection-start-column="68" selection-end-line="80" selection-end-column="68" />
+              <folding />
+>>>>>>> temp
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
@@ -256,6 +302,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="534">
               <caret line="90" column="9" lean-forward="false" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+>>>>>>> temp
+=======
+      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="693">
+              <caret line="139" column="13" lean-forward="true" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
 >>>>>>> temp
               <folding />
             </state>
@@ -304,6 +357,7 @@
     <option name="CHANGED_PATHS">
       <list>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Model/SaveGameMenu.java" />
         <option value="$PROJECT_DIR$/src/Controller/MenuController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ViewScrollController.java" />
@@ -312,6 +366,8 @@
         <option value="$PROJECT_DIR$/src/Model/Rogue.java" />
         <option value="$PROJECT_DIR$/src/Model/Mage.java" />
         <option value="$PROJECT_DIR$/src/Model/Warrior.java" />
+=======
+>>>>>>> temp
         <option value="$PROJECT_DIR$/src/Model/StatsMenu.java" />
         <option value="$PROJECT_DIR$/src/View/MenuView.java" />
 >>>>>>> temp
@@ -329,7 +385,6 @@
         <option value="$PROJECT_DIR$/src/Model/PlayerDeath.java" />
         <option value="$PROJECT_DIR$/src/Model/ItemInteraction.java" />
         <option value="$PROJECT_DIR$/src/Model/InteractionHandler.java" />
-        <option value="$PROJECT_DIR$/src/Model/GameState.java" />
         <option value="$PROJECT_DIR$/src/Model/Entity.java" />
         <option value="$PROJECT_DIR$/src/Model/HealingIR.java" />
         <option value="$PROJECT_DIR$/src/Model/DamageIR.java" />
@@ -349,7 +404,6 @@
         <option value="$PROJECT_DIR$/src/Model/ExperienceAE.java" />
         <option value="$PROJECT_DIR$/src/Model/OneShotItem.java" />
         <option value="$PROJECT_DIR$/src/Model/Map.java" />
-        <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
         <option value="$PROJECT_DIR$/src/Model/Item.java" />
         <option value="$PROJECT_DIR$/src/Model/Equipment.java" />
         <option value="$PROJECT_DIR$/src/Model/Weapon.java" />
@@ -359,6 +413,7 @@
         <option value="$PROJECT_DIR$/src/View/Sprites.java" />
         <option value="$PROJECT_DIR$/src/Model/Health.java" />
         <option value="$PROJECT_DIR$/src/Model/Level.java" />
+        <option value="$PROJECT_DIR$/src/Model/AI.java" />
         <option value="$PROJECT_DIR$/src/Model/SentientEntity.java" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Controller/PlayerController.java" />
@@ -377,11 +432,19 @@
         <option value="$PROJECT_DIR$/src/Model/LoadGame.java" />
 =======
         <option value="$PROJECT_DIR$/src/View/MapView.java" />
+<<<<<<< HEAD
+>>>>>>> temp
+=======
+        <option value="$PROJECT_DIR$/src/Model/GameState.java" />
+        <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
+        <option value="$PROJECT_DIR$/src/Model/HostileAI.java" />
+        <option value="$PROJECT_DIR$/src/Model/NPC.java" />
 >>>>>>> temp
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
 <<<<<<< HEAD
     <option name="x" value="676" />
@@ -391,6 +454,13 @@
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1032" />
+>>>>>>> temp
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1612" />
+    <option name="height" value="876" />
 >>>>>>> temp
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -756,6 +826,7 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Model/QuitGameMenu.java" />
     <entry file="file://$PROJECT_DIR$/src/View/Sprites.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/ItemInteraction.java">
@@ -801,18 +872,20 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> temp
     <entry file="file://$PROJECT_DIR$/src/Model/InventoryMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="58" column="74" lean-forward="false" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+        <state relative-caret-position="627">
+          <caret line="33" column="81" lean-forward="false" selection-start-line="33" selection-start-column="81" selection-end-line="33" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="90" column="9" lean-forward="false" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+        <state relative-caret-position="831">
+          <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -832,7 +905,10 @@
 =======
         <state relative-caret-position="180">
           <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="29" />
+<<<<<<< HEAD
           <folding />
+>>>>>>> temp
+=======
 >>>>>>> temp
         </state>
       </provider>
@@ -841,9 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -851,10 +924,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-          <folding>
-            <element signature="e#543#544#0" expanded="false" />
-            <element signature="e#579#580#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -866,6 +936,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Model/Obstacle.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/Item.java">
@@ -880,6 +951,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> temp
     <entry file="file://$PROJECT_DIR$/src/Model/ItemInteraction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -901,14 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="100" column="37" lean-forward="false" selection-start-line="100" selection-start-column="37" selection-end-line="100" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -939,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,24 +1086,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/HealingAE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#432#433#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="false" />
+            <element signature="e#353#354#0" expanded="false" />
+            <element signature="e#385#386#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#474#475#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1049,8 +1105,8 @@
         <state relative-caret-position="-125">
           <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding>
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1120,12 +1176,12 @@
         <state relative-caret-position="357">
           <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
           <folding>
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="false" />
+            <element signature="e#307#308#0" expanded="false" />
+            <element signature="e#334#335#0" expanded="false" />
+            <element signature="e#360#361#0" expanded="false" />
+            <element signature="e#395#396#0" expanded="false" />
+            <element signature="e#425#426#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1135,6 +1191,7 @@
         <state relative-caret-position="147">
           <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#248#249#0" expanded="true" />
             <element signature="e#274#275#0" expanded="true" />
             <element signature="e#299#300#0" expanded="true" />
@@ -1178,6 +1235,12 @@
             <marker date="1521234715667" expanded="true" signature="4353:4592" ph="{...}" />
             <marker date="1521234715667" expanded="true" signature="4353:4602" ph="{...}" />
             <marker date="1521234715667" expanded="true" signature="4353:4642" ph="{...}" />
+=======
+            <element signature="e#248#249#0" expanded="false" />
+            <element signature="e#274#275#0" expanded="false" />
+            <element signature="e#299#300#0" expanded="false" />
+            <element signature="e#380#381#0" expanded="false" />
+>>>>>>> temp
           </folding>
         </state>
       </provider>
@@ -1188,16 +1251,16 @@
         <state relative-caret-position="294">
           <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding>
-            <element signature="e#394#395#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#458#459#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
-            <element signature="e#639#640#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="false" />
+            <element signature="e#425#426#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#538#539#0" expanded="false" />
+            <element signature="e#576#577#0" expanded="false" />
+            <element signature="e#608#609#0" expanded="false" />
+            <element signature="e#639#640#0" expanded="false" />
+            <element signature="e#684#685#0" expanded="false" />
+            <element signature="e#719#720#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1261,8 +1324,13 @@
         <state relative-caret-position="273">
           <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#914#915#0" expanded="true" />
             <element signature="e#949#950#0" expanded="true" />
+>>>>>>> temp
+=======
+            <element signature="e#914#915#0" expanded="false" />
+            <element signature="e#949#950#0" expanded="false" />
 >>>>>>> temp
           </folding>
         </state>
@@ -1324,8 +1392,13 @@
         <state relative-caret-position="189">
           <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#481#482#0" expanded="true" />
             <element signature="e#517#518#0" expanded="true" />
+>>>>>>> temp
+=======
+            <element signature="e#481#482#0" expanded="false" />
+            <element signature="e#517#518#0" expanded="false" />
 >>>>>>> temp
           </folding>
         </state>
@@ -1348,27 +1421,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/MapView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Sprites.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Health.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
           <folding>
+            <element signature="e#1998#1999#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+          <folding>
+            <element signature="e#1188#1189#0" expanded="false" />
+            <element signature="e#1234#1235#0" expanded="false" />
+            <element signature="e#1268#1269#0" expanded="false" />
+            <element signature="e#1301#1302#0" expanded="false" />
+            <element signature="e#1350#1351#0" expanded="false" />
+            <element signature="e#1389#1390#0" expanded="false" />
+            <element signature="e#1427#1428#0" expanded="false" />
+            <element signature="e#1464#1465#0" expanded="false" />
+            <element signature="e#1521#1522#0" expanded="false" />
+            <element signature="e#1568#1569#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Projectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Inventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/KeyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+<<<<<<< HEAD
             <element signature="e#554#555#0" expanded="true" />
             <element signature="e#589#590#0" expanded="true" />
             <element signature="e#816#817#0" expanded="true" />
@@ -1378,10 +1505,15 @@
             <element signature="e#2050#2051#0" expanded="true" />
             <element signature="e#2090#2091#0" expanded="true" />
 >>>>>>> temp
+=======
+            <element signature="e#3005#3006#0" expanded="true" />
+            <element signature="e#3039#3040#0" expanded="true" />
+>>>>>>> temp
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Model/Codex.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1393,10 +1525,38 @@
             <element signature="e#794#802#0" expanded="true" />
 =======
     <entry file="file://$PROJECT_DIR$/src/Model/Level.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/View/HUDView.java">
+>>>>>>> temp
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        <state relative-caret-position="373">
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="80" column="68" lean-forward="false" selection-start-line="80" selection-start-column="68" selection-end-line="80" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/MapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="106" column="54" lean-forward="false" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Sprites.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="996">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#1188#1189#0" expanded="true" />
             <element signature="e#1234#1235#0" expanded="true" />
             <element signature="e#1268#1269#0" expanded="true" />
@@ -1408,10 +1568,14 @@
             <element signature="e#1521#1522#0" expanded="true" />
             <element signature="e#1568#1569#0" expanded="true" />
 >>>>>>> temp
+=======
+            <element signature="e#2308#2309#0" expanded="true" />
+>>>>>>> temp
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Model/SaveGame.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1433,6 +1597,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
           <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+>>>>>>> temp
+=======
+    <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="139" column="13" lean-forward="true" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="111" column="31" lean-forward="false" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/HostileAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/NPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
 >>>>>>> temp
           <folding />
         </state>
