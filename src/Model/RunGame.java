@@ -34,7 +34,7 @@ public class RunGame extends Application {
 
         Group root = new Group();
         mainScene = new Scene(root);
-        theStage.setScene( mainScene );
+        //theStage.setScene( mainScene );
         Canvas canvas = new Canvas(800, 800);
         root.getChildren().add(canvas);
 
@@ -97,7 +97,7 @@ public class RunGame extends Application {
         PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
         //Testing
-        Dialogue dialogue = new Dialogue(canvas);
+        //Dialogue dialogue = new Dialogue(canvas);
 
 
         mv.render(gameState);
@@ -118,7 +118,7 @@ public class RunGame extends Application {
                         tick = 0;
                     }
                     tick++;
-                    dialogue.displayDialogue();
+                    //dialogue.displayNextDialogue();
                 }
 
                 // Checks if players health is <= 0 for gameover screen

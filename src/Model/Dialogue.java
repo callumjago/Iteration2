@@ -8,24 +8,59 @@ import java.util.ArrayList;
 
 public class Dialogue {
 
-    DialogueUI dialogueUI;
+    private DialogueUI dialogueUI;
+    private DialogueTree dialogueTree;
+    private String startingDialogue;
+    private TextNode currentTextNode;
+    private String currentDialogue;
+    private ArrayList<String> testString = new ArrayList<>();
+    private ArrayList<String> testTypes = new ArrayList<>();
 
-    DialogueTree dialogueTree;
-    String startingDialogue;
-    String currentDialogue;
-    ArrayList<String> testString;
-    ArrayList<String> testTypes;
+    private boolean dialogueOpen = false;
 
     public Dialogue(Canvas canvas) {
         dialogueUI = new DialogueUI(this,canvas);
-        testString.add("Hello");
-        testTypes.add("S");
+        testString.add("How are you?");
+        testString.add("Good");
+        testString.add("Bad");
+        testTypes.add("Q");
+        testTypes.add("A");
+        testTypes.add("A");
         dialogueTree = new DialogueTree(testString, testTypes);
-        startingDialogue = dialogueTree.getRootText();
+        currentTextNode = dialogueTree.getRoot();
+        currentDialogue = dialogueTree.getRootText();
     }
 
-    public void displayDialogue(){
+    public void startDialogue() {
+        dialogueOpen = true;
         dialogueUI.display();
+        displayNextDialogue();
+    }
+
+    public void displayNextDialogue(){
+
+        dialogueUI.display();
+        //System.out.println(currentTextNode.getTextType());
+        if(currentTextNode.getTextType() == "S") { // displays statement
+            dialogueUI.displayStatement();
+        }
+        else if(currentTextNode.getTextType() == "Q") { // displays question and its answers
+            //System.out.println("made it here");
+            dialogueUI.displayQuestion();
+            ArrayList<String> answers = new ArrayList<>();
+            ArrayList<TextNode> answerNodes = currentTextNode.getChildren();
+            for(TextNode textNode: answerNodes) {
+                answers.add(textNode.getText());
+            }
+            dialogueUI.displayAnswers(answers);
+        }
+        /*
+        else if(currentTextNode.getTextType() == "A") {
+            ArrayList<String> answers = new ArrayList<>();
+            TextNode curr = currentTextNode;
+
+            //dialogueUI.displayAnswers();
+        }*/
     }
 
     public String getStartingDialogue() {
@@ -33,6 +68,6 @@ public class Dialogue {
     }
 
     public String getCurrentDialogue() {
-        return "Hello there!";//Default dialogue text goes here";
+        return currentDialogue;//Default dialogue text goes here";
     }
 }

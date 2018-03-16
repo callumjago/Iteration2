@@ -11,6 +11,7 @@ public class TextNode {
     public TextNode(String text, String textType) {
         this.children = new ArrayList<>();
         this.text = text;
+        this.textType = textType;
     }
 
     public void addChild(TextNode textNode) {
@@ -25,4 +26,11 @@ public class TextNode {
         return text;
     }
 
+    public String getTextType() {
+        return textType;
+    }
+
+    public ArrayList<TextNode> getChildren() {
+        return children;
+    }
 }

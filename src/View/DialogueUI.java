@@ -9,6 +9,7 @@ import javafx.geometry.VPos;
 import Model.Dialogue;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class DialogueUI {
 
@@ -34,10 +35,27 @@ public class DialogueUI {
                 Math.round(canvas.getWidth()  / 2),
                 Math.round(canvas.getHeight() / 2)
         ); */
+
+    }
+
+    public void displayStatement() {
         gc.setFill(Color.BLACK);
         gc.fillText(dialogue.getCurrentDialogue(),375,650);
-        //Text text = new Text(200,200,dialogue.getCurrentDialogue()); // TODO change to getCurrentDialogue from starting later
+    }
 
+    public void displayQuestion() {
+        gc.setFill(Color.BLACK);
+        gc.fillText(dialogue.getCurrentDialogue(),375,625);
+        //System.out.println("displaying question");
+    }
+
+    public void displayAnswers(ArrayList<String> answers) {
+        int amountOfAnswers = answers.size();
+        for(int i = 1; i <= amountOfAnswers; i++) {
+            gc.setFill(Color.BLACK);
+            gc.fillText(answers.get(i-1),350+50*(i/amountOfAnswers),650);
+            //System.out.println("displaying answer");
+        }
     }
 
 

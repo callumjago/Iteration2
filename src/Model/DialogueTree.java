@@ -1,10 +1,11 @@
 package Model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DialogueTree {
 
-    TextNode root = null;
+    TextNode root;
     TextNode current;
 
     public DialogueTree(ArrayList<String> textList, ArrayList<String> textTypes) {
@@ -24,12 +25,13 @@ public class DialogueTree {
                 prevTextType = textTypes.get(i);
             } else if (prevTextType == "Q") {
                 answerCount = 0;
-                while(textTypes.get(i) == "A" && i < textList.size()) {
+                while(i < textList.size() && textTypes.get(i) == "A") {
                     current.addChild(new TextNode(textList.get(i),"A"));
                     answerCount++;
                     i++;
                 }
-            } else if (prevTextType == "A") {
+            } else if (prevTextType == "A") { // TODO might need to fix (with for each answer)
+
                 for(int j = 0; j < answerCount; j++) {
                     current.addChild(new TextNode(textList.get(i),textTypes.get(i)));
                     i++;
@@ -40,7 +42,20 @@ public class DialogueTree {
         }
     }
 
+
+    public TextNode getRoot() {
+        return root;
+    }
+
     public String getRootText() {
         return root.getText();
+    }
+
+    public String getRootType() {
+        return root.getTextType();
+    }
+
+    public ArrayList<TextNode> getChildren() {
+        return current.getChildren();
     }
 }
