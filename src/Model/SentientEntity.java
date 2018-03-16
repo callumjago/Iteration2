@@ -126,8 +126,14 @@ public abstract class SentientEntity extends Entity {
         EquipRing = equipRing;
     }
 
-    public Boolean isDead(){
-        return HP.isDead();
+    public Boolean isDead() {
+        if (HP.isDead()){
+            HP.refillHP();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public void gainExp(int expAmt){

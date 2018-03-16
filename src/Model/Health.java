@@ -6,8 +6,8 @@ public class Health implements Stat{
 
     public Health(int healthPoints) {
         if (healthPoints <= 0) {
-            HealthPoints = 1; // Health must be set above 0
-            MaxHealthPoints = 1;
+            HealthPoints = 100; // Health must be set above 0
+            MaxHealthPoints = 100;
         }
         else {
             HealthPoints = healthPoints;
@@ -16,8 +16,8 @@ public class Health implements Stat{
     }
 
     public Health(){
-        HealthPoints = 1; // Health must be set above 0
-        MaxHealthPoints = 1;
+        HealthPoints = 100; // Health must be set above 0
+        MaxHealthPoints = 100;
     }
 
     public int getHealthPoints() {
@@ -74,6 +74,10 @@ public class Health implements Stat{
         else{
             HealthPoints = HealthPoints + dmgAmt;
         }
+    }
+
+    public void refillHP(){
+        HealthPoints = MaxHealthPoints;
     }
 
     public void raiseBaseStat(int boost){ // Max HP can only be raised upon level up!
