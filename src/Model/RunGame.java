@@ -34,7 +34,7 @@ public class RunGame extends Application {
 
         Group root = new Group();
         mainScene = new Scene(root);
-        //theStage.setScene( mainScene );
+        theStage.setScene( mainScene );
         Canvas canvas = new Canvas(800, 800);
         root.getChildren().add(canvas);
 
