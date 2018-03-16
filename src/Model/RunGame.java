@@ -57,7 +57,7 @@ public class RunGame extends Application {
 
 
         Player p = new Player();
-        p.setPosition(new Point(6, 4));
+        p.setPosition(new Point(6, 6));
         keyController.addController(p.getPc());
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {

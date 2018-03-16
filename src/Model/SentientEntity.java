@@ -35,8 +35,8 @@ public abstract class SentientEntity extends Entity {
         super();
         Name = "H Y P E B O Y";
         HP = new Health();
-        HP.setMaxHealthPoints(2);
-        HP.setHealthPoints(2);
+        HP.setMaxHealthPoints(3);
+        HP.setHealthPoints(3);
 
         MP = new Mana();
         Atk = new Attack();

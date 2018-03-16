@@ -41,8 +41,9 @@ public abstract class AI {
 
         queue.add(entity.getPosition());
         Point vert = new Point(-1, -1);
-
+        int count = 0;
         while(!queue.isEmpty()) {
+            count++;
             vert = queue.remove();
             visited.add(vert);
             if(vert.x == goal.x && vert.y == goal.y) {
@@ -52,6 +53,7 @@ public abstract class AI {
 
             adj = getAdjacent(vert);
             Point next;
+
             while(!adj.isEmpty()) {
                 next = adj.remove();
 
