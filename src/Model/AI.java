@@ -41,13 +41,18 @@ public abstract class AI {
 
         queue.add(entity.getPosition());
         Point vert = new Point(-1, -1);
-        int count = 0;
+        boolean found = false;
+
+
+
         while(!queue.isEmpty()) {
-            count++;
+
             vert = queue.remove();
+            if(listContainsPoint(visited, vert)) {
+                continue;
+            }
             visited.add(vert);
             if(vert.x == goal.x && vert.y == goal.y) {
-                goal = vert;
                 break;
             }
 
@@ -55,24 +60,29 @@ public abstract class AI {
             Point next;
 
             while(!adj.isEmpty()) {
+
                 next = adj.remove();
 
                 //If goal tile is not passable (i.e. player is goal) then it will never be added, so it must be manually checked for here
                 if(next.x == goal.x && next.y == goal.y) {
                     nodeList.put(next, vert);
                     queue.add(next);
-                    continue;
+                    found = true;
+                    break;
                 }
                 if(!gs.checkMove(next.x, next.y)) {//Tile not passable
                     continue;
                 }
-                if(visited.contains(next)) {//Already visited
-                    continue;
+                if(!listContainsPoint(visited, next)) {//Not Already visited
+                    nodeList.put(next, vert);
+                    queue.add(next);
                 }
 
                 //actions.put()
-                nodeList.put(next, vert);
-                queue.add(next);
+
+            }
+            if(found) {
+                break;
             }
         }
         Point current = goal;
@@ -113,5 +123,25 @@ public abstract class AI {
         } else {
             return new Angle(270);
         }
+    }
+
+    public boolean listContainsPoint(ArrayList<Point> pointList, Point point) {
+        for(int i = 0; i < pointList.size(); i++) {
+            if(pointList.get(i).x == point.x && pointList.get(i).y == point.y) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsDuplicates(Object[] p) {
+        for(int i = 0; i < p.length; i++) {
+            for(int j = 0; j < p.length; j++) {
+                if(i != j && p[i].equals(p[j])) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

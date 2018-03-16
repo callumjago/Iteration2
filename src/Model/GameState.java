@@ -15,6 +15,7 @@ public class GameState {
         entities = new ArrayList<>();
         moveHandler = new MovementHandler(this);
         interactionHandler = new InteractionHandler();
+        tileSet = new ArrayList<>();
     }
 
     public Player getPlayer() {

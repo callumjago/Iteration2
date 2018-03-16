@@ -2,11 +2,16 @@ package Model;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Queue;
+
 
 public class HostileAI extends AI{
 
     public HostileAI(NPC entity, GameState gameState) {
         super(entity, gameState);
+
+
+
     }
 
     @Override
