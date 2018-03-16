@@ -53,6 +53,10 @@ public abstract class Entity {
         this.interaction = interaction;
     }
 
+    public void setAttemptMove(boolean attemptMove) {
+        this.attemptMove = attemptMove;
+    }
+
     public void moveNorth() {
         orientation.changeTrajectory(270);
         //position.setLocation(position.getX()+0,position.getY()-1);
@@ -96,6 +100,21 @@ public abstract class Entity {
         orientation.changeTrajectory(180);
         //position.setLocation(position.getX()-1,position.getY()+0);
         attemptMove = true;
+    }
+
+    public void moveForward(){
+        int dir = orientation.getDegree();
+        attemptMove = true;
+        if (dir == 0){ moveEast(); }
+        else if (dir == 45){ moveNorthEast(); }
+        else if (dir == 90){ moveNorth(); }
+        else if (dir == 135){ moveNorthWest(); }
+        else if (dir == 180){ moveWest(); }
+        else if (dir == 225){ moveSouthWest(); }
+        else if (dir == 270){ moveSouthWest(); }
+        else if (dir == 315){ moveSouthEast(); }
+        else if (dir == 360){ moveEast();}
+        else { moveNorth();}
     }
 
     public boolean getAttemptMove() {

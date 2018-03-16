@@ -7,7 +7,6 @@ public class GameState {
     private Player player;
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
-    private ArrayList<Projectile> projectiles;
     private MovementHandler moveHandler;
 
     public GameState() {
@@ -83,11 +82,18 @@ public class GameState {
         }
     }
 
+    public void addProjectile(Projectile p){
+        entities.add(p);
+    }
+
     public void tick() {
-        for(int i = 0; i < entities.size(); i++) {
-            if(entities.get(i).getAttemptMove()) {
-                moveHandler.checkMove(entities.get(i), entities.get(i).getOrientation());
-                entities.get(i).resetAttemptMove();
+        for (Entity ent : entities) {
+            if (ent instanceof Projectile) {
+                ((Projectile) ent).Tick();
+            }
+            if (ent.getAttemptMove()) {
+                moveHandler.checkMove(ent, ent.getOrientation());
+                ent.resetAttemptMove();
             }
         }
     }

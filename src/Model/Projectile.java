@@ -4,13 +4,18 @@ import java.awt.Point;
 
 public class Projectile extends Entity{
 	private int damage;
-	// Direction comes from Angle's Entity
+	// Direction comes from Entity's Angle
 
-	Projectile(int _damage){
+	Projectile(Point origin, Angle direction, int _damage){
+		super(origin, direction);
 		damage = _damage;
 	}
 	
 	public int getDamage() {
 		return damage;
+	}
+
+	public void Tick(){
+		moveForward();
 	}
 }
