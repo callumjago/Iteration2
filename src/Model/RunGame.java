@@ -71,12 +71,12 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new EmptyTile(0));
+                tileSet.get(i).add(new Tile(0));
             }
         }
 
-        ObjectTile objt = new ObjectTile(0);
-        objt.setObject(new MapTransition());
+        Tile objt = new Tile(0);
+        objt.setObject(new Teleport(1));
         tileSet.get(4).set(4, objt);
 
 
@@ -84,8 +84,10 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
+        Map map = new Map(gameState);
 
-        LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
+        //This lovely load game code is only temporary, don't freak about LOD :(
+        LoadGame load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
 
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
@@ -99,8 +101,9 @@ public class RunGame extends Application {
             int tick = 0;
             public void handle(long currentNanoTime) {
                 //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
-
-
+            	
+            	map.updateGameState(gameState);
+            	map.Tick();
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map

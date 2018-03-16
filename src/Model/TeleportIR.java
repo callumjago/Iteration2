@@ -7,30 +7,28 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LoadGame {
-    private GameState state;
-    private Player player;
-    private Inventory inventory;
-    private int mapID;
-    private String path;
-
-
-    public LoadGame(GameState _state, Player _player, Inventory _inventory){
-    	state = _state;
-    	player = _player;
-    	inventory = _inventory;
-    	path = System.getProperty("user.dir");
-    }
-    
-    public void loadGame() {
-    	loadPlayer();
-    	loadMap();
-    	loadInventory();
-    }
-
-    public void loadMap(){
-    	try {
-			File mapFile = new File(path + "/GameFiles/Maps/Map" + mapID + ".txt");
+public class TeleportIR implements Interaction{
+	private GameObject obj;
+	private GameState state;
+	private SentientEntity entity;
+	private String path;
+	
+	public TeleportIR(SentientEntity _entity, GameState _state, GameObject _obj) {
+		entity = _entity;
+		state = _state;
+		obj = _obj;
+		path = System.getProperty("user.dir");
+	}
+	
+	public void applyEffect() {
+		try {
+			TeleportCodex tcodex = new TeleportCodex();
+			int mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
+			Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
+		
+			entity.setPosition(destination);
+		
+			File mapFile = new File(System.getProperty("user.dir") + "/GameFiles/Maps/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
 			
@@ -110,7 +108,7 @@ public class LoadGame {
 							String tag = codex.getTag(x);
 							
 							if(tag == "Weapon")
-								tile.setObject(new Weapon(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x), 0, codex.getAttackSpeed(x), new Accuracy(codex.getAccuracy(x)), codex.getRange(x)));
+								tile.setObject(new Weapon(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x), 0, codex.getAttackSpeed(x),  new Accuracy(codex.getAccuracy(x)), codex.getRange(x)));
 							
 							else if(tag == "Armor")
 								tile.setObject(new Armor(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x)));
@@ -135,21 +133,5 @@ public class LoadGame {
 			e.printStackTrace();
 		}
 	}
-    
-    public void loadPlayer() {
-    	try {
-    		File file = new File(path + "/GameFiles/Player.txt");
-			BufferedReader br_map = new BufferedReader(new FileReader(file));
-			Scanner s_map = new Scanner(br_map.readLine());
-    		
-    	}
-    	catch(Exception e) {
-    		e.printStackTrace();
-    	}
-    }
-    
-    public void loadInventory() {
-    	
-    }
 
 }
