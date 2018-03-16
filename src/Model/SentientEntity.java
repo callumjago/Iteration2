@@ -74,6 +74,12 @@ public abstract class SentientEntity extends Entity {
 
     public void setHP(int x) { HP.setHealthPoints(x); }
 
+    public int getMaxHP() { return HP.getMaxHealthPoints(); }
+
+    public int getEXP() { return Lvl.getExperience(); }
+
+    public int getEXPRemaining() { return Lvl.getExpToNextLevel(); }
+
     public int getMP(){
         return MP.getMagicPoints();
     }
