@@ -62,13 +62,17 @@ public class MapView {
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(2);
 
-        for(int i = Math.max(0, (width/2)-playerPos.x+3); i < 2*width-playerPos.x-1; i++) {//Verticle Lines
-            //System.out.println(i);
-            gc.strokeLine(i*tileWidth, ((height/2)-playerPos.y+3)*tileHeight, i*tileWidth, (2*height-playerPos.y-2)*tileHeight);
+        int x, y;
+        for(int i = 0; i < width+1; i++) {
+            x = tileWidth * i - (playerPos.x * tileWidth) + (int) canvas.getWidth() / 2;
+            y = ((int) canvas.getHeight() / 2) - (playerPos.y * tileHeight);
+            gc.strokeLine(x, y, x, y+(height*tileHeight));
         }
 
-        for(int j = Math.max(0, (height/2)-playerPos.y+3); j < 2*height-playerPos.y-1; j++) {//Horizontal Lines
-            gc.strokeLine(((width/2)-playerPos.x+3)*tileWidth, j*tileHeight, (2*width-playerPos.x-2)*tileWidth, j*tileHeight);
+        for(int i = 0; i < height+1; i++) {
+            x = ((int) canvas.getWidth() / 2) - (playerPos.x * tileWidth);
+            y = tileHeight * i - (playerPos.y * tileHeight) + (int) canvas.getHeight() / 2;
+            gc.strokeLine(x, y, x+(width*tileWidth), y);
         }
     }
 
