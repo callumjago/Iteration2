@@ -18,8 +18,8 @@ public class Projectile extends Entity{
 	}
 
 	public Boolean Tick(){
+		System.out.println(getPosition().x + ", " + getPosition().y);
 		if (range > 0) {
-			System.out.println("Projectile Tick");
 			moveForward();
 			range--;
 			return true;

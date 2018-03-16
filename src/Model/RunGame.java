@@ -111,7 +111,7 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
-        gameState.addProjectile(new Projectile(new Point(3,1),new Angle(0),-5, 7000));
+        gameState.addProjectile(new Projectile(new Point(1,1),new Angle(0),-5, 7000));
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
         //Map map = new Map(gameState);
@@ -129,17 +129,27 @@ public class RunGame extends Application {
             long nanoTime = System.nanoTime()/delta;
 
             int tick = 0;
+            int ticksSincePlayerInput = 0;
             public void handle(long currentNanoTime) {
                 //map.updateGameState(gameState);
                 // map.Tick();
-                gameState.tick();
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && tick > 15) {
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 15) {//Immediately responds if player input registered
+                        gameState.playerTick();
+                        mv.render(gameState);
+                        gameState.resetEntityAttempts();
+                        keyController.resetKeyPressed();
+                        ticksSincePlayerInput = 0;
+                    }
+                    ticksSincePlayerInput++;
+
+                    //Npcs are allowed to move periodically
+                    if(tick > 15) {
                         gameState.tick();
                         mv.render(gameState);
-                        keyController.resetKeyPressed();
+                        gameState.resetEntityAttempts();
                         tick = 0;
                     }
                     tick++;

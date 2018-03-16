@@ -111,20 +111,35 @@ public class GameState {
         entities.add(p);
     }
 
+
     public void tick() {
-        Iterator<Entity> it = entities.iterator();
-        while (it.hasNext()) {
-            Entity ent = it.next();
+        
+        for(int i = 1; i < entities.size(); i++) {
+            Entity ent = entities.get(i);
             if (ent instanceof Projectile) {
                if (!((Projectile) ent).Tick()){
-                    it.remove();
+                    entities.remove(i);
                 }
             }
             if (ent.getAttemptMove()) {
                 moveHandler.checkMove(ent, ent.getOrientation());
-                ent.resetAttemptMove();
+
             }
             handleInteractions();
+        }
+    }
+
+    public void playerTick() {
+        if(player.getAttemptMove()) {
+            moveHandler.checkMove(player, player.getOrientation());
+
+        }
+        handleInteractions();
+    }
+
+    public void resetEntityAttempts() {
+        for(int i = 0; i < entities.size(); i++) {
+            entities.get(i).resetAttemptMove();
         }
     }
 }

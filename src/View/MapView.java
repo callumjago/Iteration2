@@ -1,13 +1,16 @@
 package View;
 
 
+import Model.Entity;
 import Model.GameState;
+import Model.Projectile;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import java.awt.Point;
+import java.util.ArrayList;
 
 
 public class MapView {
@@ -52,7 +55,7 @@ public class MapView {
             }
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
-
+        renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
     }
 
 
@@ -72,6 +75,18 @@ public class MapView {
         }
     }
 
+    private void renderProjectiles(ArrayList<Entity> projectiles, Point playerPos) {
+        int x, y;
+        for(int i = 0; i < projectiles.size(); i++) {
+            if(projectiles.get(i) instanceof Projectile) {
+                x = tileWidth * projectiles.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) canvas.getWidth() / 2;
+                y = tileHeight * projectiles.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) canvas.getHeight() / 2;
+                System.out.println("rending");
+                drawRotatedImage(sprites.getObjectSprite(2), projectiles.get(i).getOrientation().getDegree(), x, y);
+            }
+        }
+
+    }
 
 
     private void drawRotatedImage(Image image, double angle, double tlpx, double tlpy) {
