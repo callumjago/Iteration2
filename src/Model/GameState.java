@@ -80,6 +80,9 @@ public class GameState {
     public boolean checkMove(Entity src, int x, int y){ // Returns true if move is good
         Tile t =  getTileAt(x,y);
         if (t == null){
+            if (src instanceof Projectile){
+                removeEntity(src);
+            }
             return false;
         }
         else if (!entityCollision(src,x,y)) {
@@ -88,14 +91,19 @@ public class GameState {
         return t.isPassable();
     }
 
-    public Boolean entityCollision(Entity src, int x, int y){
-        for (Entity entity : entities)
+    public Boolean entityCollision(Entity src, int x, int y) {
+        Iterator<Entity> it = entities.iterator();
+        Entity entity = null;
+        while (it.hasNext()) {
+            entity = it.next();
             if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if (entity instanceof Projectile && src instanceof SentientEntity){
-                    interactions.add(new DamageInteraction((SentientEntity) src, ((Projectile) entity).getDamage()));
+                if (entity instanceof Projectile && src instanceof SentientEntity) {
+                    interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
+                    System.out.println("Damage Interaction");
                 }
                 return false;
             }
+        }
         return true;
     }
 
@@ -107,8 +115,12 @@ public class GameState {
         }
     }
 
-    public void addProjectile(Projectile p){
-        entities.add(p);
+    public void addEntity(Entity e){
+        entities.add(e);
+    }
+
+    public  void removeEntity(Entity e){
+        entities.remove(e);
     }
 
 

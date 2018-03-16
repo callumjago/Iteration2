@@ -111,7 +111,7 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
-        gameState.addProjectile(new Projectile(new Point(1,1),new Angle(0),-5, 7000));
+        gameState.addEntity(new Projectile(new Point(1,1),new Angle(0),5, 7000));
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
         //Map map = new Map(gameState);
@@ -146,7 +146,7 @@ public class RunGame extends Application {
                     ticksSincePlayerInput++;
 
                     //Npcs are allowed to move periodically
-                    if(tick > 15) {
+                    if(tick > 45) {
                         gameState.tick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
