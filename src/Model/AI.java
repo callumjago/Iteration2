@@ -134,14 +134,5 @@ public abstract class AI {
         return false;
     }
 
-    public boolean containsDuplicates(Object[] p) {
-        for(int i = 0; i < p.length; i++) {
-            for(int j = 0; j < p.length; j++) {
-                if(i != j && p[i].equals(p[j])) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    
 }
