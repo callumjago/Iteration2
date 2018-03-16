@@ -22,6 +22,10 @@ public class TeleportIR implements Interaction{
 	
 	public void applyEffect() {
 		try {
+			for(int i = 0; i < state.getEntities().size(); i++) {
+				state.removeEntity(state.getEntities().get(i));
+			}
+			
 			TeleportCodex tcodex = new TeleportCodex();
 			int mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
 			Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
