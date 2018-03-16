@@ -2,15 +2,21 @@ package Model;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GameState {
     private Player player;
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
-    private ArrayList<Projectile> projectiles;
+    private ArrayList<Interaction> interactions;
+    private MovementHandler moveHandler;
+    private InteractionHandler interactionHandler;
 
     public GameState() {
-
+        interactions = new ArrayList<Interaction>();
+        entities = new ArrayList<Entity>();
+        moveHandler = new MovementHandler(this);
+        interactionHandler = new InteractionHandler();
     }
 
     public Player getPlayer() {
@@ -34,6 +40,7 @@ public class GameState {
         return tileSet.get(x).get(y).getTileObjectID();
     }
     public void setPlayer(Player player) {
+        entities.add(player);
         this.player = player;
         if (entities == null){
             entities = new ArrayList<Entity>();
@@ -74,7 +81,85 @@ public class GameState {
         return tileSet.get(0).size();
     }
 
-    public boolean checkMove(int x, int y){ // Returns true if move is good
-        return getTileAt(x,y).isPassable();
+    public boolean checkMove(Entity src, int x, int y){ // Returns true if move is good
+        Tile t =  getTileAt(x,y);
+        if (t == null){
+            if (src instanceof Projectile){
+                removeEntity(src);
+            }
+            return false;
+        }
+        else if (!entityCollision(src,x,y)) {
+            return false;
+        }
+        return t.isPassable();
+    }
+
+    public Boolean entityCollision(Entity src, int x, int y) {
+        Iterator<Entity> it = entities.iterator();
+        Entity entity = null;
+        while (it.hasNext()) {
+            entity = it.next();
+            if (entity.getPosition().x == x && entity.getPosition().y == y) {
+                if (entity instanceof Projectile && src instanceof SentientEntity) {
+                    interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
+                    System.out.println("Damage Interaction");
+                }
+                else if (src instanceof Projectile && entity instanceof SentientEntity) {
+                    interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
+                    System.out.println("Damage Interaction");
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void handleInteractions() {
+        interactionHandler.generateInteractions(this, interactions);
+        for (int i = 0; i < interactions.size(); i++) {
+            interactions.get(i).applyEffect();
+            interactions.clear();
+        }
+    }
+
+    public void addEntity(Entity e){
+        entities.add(e);
+    }
+
+    public  void removeEntity(Entity e){
+        entities.remove(e);
+    }
+
+
+    public void tick() {
+        
+        for(int i = 1; i < entities.size(); i++) {
+            Entity ent = entities.get(i);
+            if (ent instanceof Projectile) {
+               if (!((Projectile) ent).Tick()){
+                    entities.remove(i);
+                }
+            }
+            if (ent.getAttemptMove()) {
+                moveHandler.checkMove(ent, ent.getOrientation());
+
+            }
+            handleInteractions();
+        }
+    }
+
+    public void playerTick() {
+        if(player.getAttemptMove()) {
+            moveHandler.checkMove(player, player.getOrientation());
+
+        }
+        handleInteractions();
+    }
+
+    public void resetEntityAttempts() {
+        for(int i = 0; i < entities.size(); i++) {
+            entities.get(i).resetAttemptMove();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.PlayerController;
 import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
@@ -44,25 +45,21 @@ public class RunGame extends Application {
         keyController = new KeyController();
         canvas.setOnKeyPressed(keyController);
 
-        SaveGame save = new SaveGame();
-
         menu = new Menu(canvas);
         MenuController mc = new MenuController(menu);
         keyController.addController(mc);
 
         Player p = new Player();
         p.setPosition(new Point(6, 4));
-        keyController.addController(p.getPc());
+
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
             p.addItem(new Armor());
             p.addItem(new Ring());
 
         }
-        menu.addSubMenu(new InventoryMenu(p.getInventory()));
-        menu.addSubMenu(new ControlsMenu(p.getPc()));
-        menu.addSubMenu(new SaveGameMenu(save));
-        menu.addSubMenu(new QuitGameMenu());
+
+
 
 
         menuView = new MenuView(canvas);
@@ -71,53 +68,108 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new Tile(0));
+            	tileSet.get(i).add(new Tile(new Point(i, j), 0));
             }
         }
 
+        // OneShot Test Item
         Tile objt = new Tile(0);
-        objt.setObject(new Teleport(1));
+        objt.setObject(new OneShotItem(1,-12));
         tileSet.get(4).set(4, objt);
 
+        // HealingAE Test Item
+        Tile objt2 = new Tile(0);
+        objt2.setObject(new HealingAE(1));
+        tileSet.get(4).set(5, objt2);
 
+        // DamageAE Test Item
+        Tile objt3 = new Tile(0);
+        objt3.setObject(new DamageAE(1));
+        tileSet.get(4).set(6, objt3);
+
+        // ExperienceAE Test Item
+        Tile objt4 = new Tile(0);
+        objt4.setObject(new ExperienceAE(1));
+        tileSet.get(4).set(7, objt4);
+
+        // Item Interaction
+        Tile objh = new Tile(0);
+        objh.setObject(new Weapon(0, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
+        tileSet.get(4).set(3, objh);
+
+        //Map Transition
+        Tile obj5 = new Tile(0);
+        obj5.setObject(new Teleport(1));
+        tileSet.get(4).set(2, obj5);
 
         GameState gameState = new GameState();
+
         gameState.setPlayer(p);
+        PlayerController pc = new PlayerController(gameState);
+        keyController.addController(pc);
         gameState.setTileSet(tileSet);
         Map map = new Map(gameState);
 
+        gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+        
+        SaveGame save = new SaveGame(map.getState());
+
+        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new EquipmentMenu(p));
+        menu.addSubMenu(new StatsMenu(p));
+        menu.addSubMenu(new ControlsMenu(pc));
+        menu.addSubMenu(new SaveGameMenu(save));
+        menu.addSubMenu(new QuitGameMenu());
+        
         //This lovely load game code is only temporary, don't freak about LOD :(
         LoadGame load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
-
+        
+        //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
         MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
+        PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
+
+        mv.render(gameState);
         new AnimationTimer() {
 
             long nanoTime = System.nanoTime()/delta;
+
             int tick = 0;
+            int ticksSincePlayerInput = 0;
             public void handle(long currentNanoTime) {
                 //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
             	
-            	map.updateGameState(gameState);
-            	map.Tick();
+            	//map.updateGameState(gameState);
+            	//map.Tick();
+
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if (System.nanoTime() / delta != nanoTime) {
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 15) {//Immediately responds if player input registered
+                        gameState.playerTick();
                         mv.render(gameState);
-                        //System.out.println("FPS: " + tick);
-                        nanoTime = System.nanoTime() / delta;
-                        tick = 0;
-
-                    } else {
-                        tick++;
+                        gameState.resetEntityAttempts();
+                        keyController.resetKeyPressed();
+                        ticksSincePlayerInput = 0;
                     }
+                    ticksSincePlayerInput++;
+
+                    //Npcs are allowed to move periodically
+                    if(tick > 45) {
+                        gameState.tick();
+                        mv.render(gameState);
+                        gameState.resetEntityAttempts();
+                        tick = 0;
+                    }
+                    tick++;
                 }
 
+                // Checks if players health is <= 0 for gameover screen
+                playerDeath.checkIfDead();
 
 
 

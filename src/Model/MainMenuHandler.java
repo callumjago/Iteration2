@@ -1,15 +1,18 @@
 package Model;
 
+import View.GameOverMenu;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import View.StartingMenu;
 import View.CharacterCreationMenu;
+import View.GameOverMenu;
 
 public class MainMenuHandler {
 
     StartingMenu startingMenu;
     CharacterCreationMenu characterCreationMenu;
+    GameOverMenu gameOverMenu;
     //LoadGameMenu loadGameMenu;
     //SettingsMenu settingsMenu;
     //ExitGame exitGame;
@@ -22,8 +25,11 @@ public class MainMenuHandler {
     {
         this.mainStage = mainStage;
         this.mainScene = mainScene;
+
         startingMenu = new StartingMenu(this);
         characterCreationMenu = new CharacterCreationMenu(this, player);
+        gameOverMenu = new GameOverMenu(this);
+
         changeMenu(0); // Sets scene to starting scene
     }
 
@@ -37,6 +43,8 @@ public class MainMenuHandler {
             mainStage.setScene(characterCreationMenu.generateScene());
         else if(menuNumber == 3) // Exits Game
             mainStage.close();
+        else if(menuNumber == 4) // GameOver Screen
+            mainStage.setScene(gameOverMenu.generateScene());
     }
 
 }

@@ -16,6 +16,7 @@ public class OneShotItem extends GameObject {
         OneShotID = 0;
     }
 
+    @Override
     public int getValue() {
         return Modifier;
     }

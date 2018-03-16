@@ -1,11 +1,16 @@
 package View;
 
+import Model.Entity;
 import Model.GameState;
+import Model.Projectile;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
+import java.awt.Point;
+import java.util.ArrayList;
 
-import java.awt.*;
 
 public class MapView {
     private GraphicsContext gc;
@@ -37,16 +42,19 @@ public class MapView {
                 gc.drawImage(sprites.getTerrainSprite(gameState.getTerrainTypeAt(i, j)), x, y, tileWidth, tileHeight);
 
                 if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
-                    gc.setFill(Color.GREEN);
-                    gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
+
+                    //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
+                    drawRotatedImage(sprites.getPlayerSprite(0), gameState.getPlayer().getOrientation().getDegree(), x, y);
                 }
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
+                    System.out.println(gameState.getObjectID(i, j));
                     gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)),x, y, tileWidth, tileHeight);
                 }
             }
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
+        renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
     }
 
 
@@ -55,14 +63,43 @@ public class MapView {
     private void renderGrid(Point playerPos, int width, int height) {
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(2);
-
-        for(int i = Math.max(0, (width/2)-playerPos.x+3); i < 2*width-playerPos.x-1; i++) {//Verticle Lines
-            //System.out.println(i);
-            gc.strokeLine(i*tileWidth, ((height/2)-playerPos.y+3)*tileHeight, i*tileWidth, (2*height-playerPos.y-2)*tileHeight);
+        int x, y;
+        for(int i = 0; i < width+1; i++) {
+            x = tileWidth * i - (playerPos.x * tileWidth) + (int) canvas.getWidth() / 2;
+            y = ((int) canvas.getHeight() / 2) - (playerPos.y * tileHeight);
+            gc.strokeLine(x, y, x, y+(height*tileHeight));
         }
 
-        for(int j = Math.max(0, (height/2)-playerPos.y+3); j < 2*height-playerPos.y-1; j++) {//Horizontal Lines
-            gc.strokeLine(((width/2)-playerPos.x+3)*tileWidth, j*tileHeight, (2*width-playerPos.x-2)*tileWidth, j*tileHeight);
+        for(int i = 0; i < height+1; i++) {
+            x = ((int) canvas.getWidth() / 2) - (playerPos.x * tileWidth);
+            y = tileHeight * i - (playerPos.y * tileHeight) + (int) canvas.getHeight() / 2;
+            gc.strokeLine(x, y, x+(width*tileWidth), y);
         }
+    }
+
+    private void renderProjectiles(ArrayList<Entity> projectiles, Point playerPos) {
+        int x, y;
+        for(int i = 0; i < projectiles.size(); i++) {
+            if(projectiles.get(i) instanceof Projectile) {
+                x = tileWidth * projectiles.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) canvas.getWidth() / 2;
+                y = tileHeight * projectiles.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) canvas.getHeight() / 2;
+
+                drawRotatedImage(sprites.getArrowSprite(), projectiles.get(i).getOrientation().getDegree(), x, y);
+            }
+        }
+
+    }
+
+
+    private void drawRotatedImage(Image image, double angle, double tlpx, double tlpy) {
+        gc.save(); // saves the current state on stack, including the current transform
+        rotate(gc, angle, tlpx + tileWidth / 2, tlpy + tileHeight / 2);
+        gc.drawImage(image, tlpx, tlpy, tileWidth, tileHeight);
+        gc.restore(); // back to original state (before rotation)
+    }
+
+    private void rotate(GraphicsContext gc, double angle, double px, double py) {
+        Rotate r = new Rotate(angle, px, py);
+        gc.setTransform(r.getMxx(), r.getMyx(), r.getMxy(), r.getMyy(), r.getTx(), r.getTy());
     }
 }

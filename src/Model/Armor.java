@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Armor extends Equipment{
 
@@ -17,6 +18,15 @@ public class Armor extends Equipment{
 		this.setName("Armor");
     }
 
+    @Override
+    public int getValue() {
+        return DefensePoints;
+    }
+
+    @Override
+    ArrayList<String> getStats() {
+        return null;
+    }
     public int getDefensePoints() {
         return DefensePoints;
     }

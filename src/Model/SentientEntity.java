@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class SentientEntity extends Entity {
     private String Name;
@@ -14,9 +15,10 @@ public abstract class SentientEntity extends Entity {
     private Defense Def;
     private Level Lvl;
     private Wallet Coffer;
+    private boolean attemptAttack;
 
-    SentientEntity(Point pos, Angle theta, Image img, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
-        super(pos,theta,img);
+    SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
+        super(pos,theta);
         Name = name;
         EquipArmor = armor;
         EquipWeapon = weapon;
@@ -28,6 +30,7 @@ public abstract class SentientEntity extends Entity {
         Lvl = new Level(initLvl);
         Coffer = new Wallet(initMoney);
         inventory = new Inventory();
+        attemptAttack = false;
     }
 
     SentientEntity(){ // Attribute classes fill with default values
@@ -40,6 +43,8 @@ public abstract class SentientEntity extends Entity {
         Lvl = new Level();
         Coffer = new Wallet();
         inventory = new Inventory();
+        EquipWeapon = new Weapon();
+        attemptAttack = false;
         // Add starting equipment here
     }
 
@@ -67,6 +72,8 @@ public abstract class SentientEntity extends Entity {
         return HP.getHealthPoints();
     }
 
+    public void setHP(int x) { HP.setHealthPoints(x); }
+
     public int getMP(){
         return MP.getMagicPoints();
     }
@@ -82,6 +89,10 @@ public abstract class SentientEntity extends Entity {
     public int getLvl(){
         return Lvl.getLevel();
     }
+
+    public int getExp() { return Lvl.getExperience();}
+
+    public int getExpToNextLevel() { return Lvl.getExpToNextLevel();}
 
     public int getMoney(){
         return Coffer.getMoney();
@@ -115,15 +126,21 @@ public abstract class SentientEntity extends Entity {
         EquipRing = equipRing;
     }
 
-    public Boolean isDead(){
-        return HP.isDead();
+    public Boolean isDead() {
+        if (HP.isDead()){
+            HP.refillHP();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public void gainExp(int expAmt){
         int check = Lvl.gainExp(expAmt);
-        if (check > 0){ // This means a level up has occurred.
+        if (check > -1){ // This means a level up has occurred.
             HP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100))));
-            MP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100)))-2);
+            MP.raiseBaseStat((int)Math.log10((1.1578*(Lvl.getLevel() * 100))));
             Atk.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*5));
             Def.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*3));
             gainExp(expAmt);
@@ -189,5 +206,31 @@ public abstract class SentientEntity extends Entity {
     public int[] getStats(){
         int[] i = {HP.getHealthPoints(),MP.getMagicPoints(),Atk.getAttackPoints(),Def.getDefensePoints(),Lvl.getLevel(),Lvl.getExperience(),Lvl.getExpToNextLevel(),Coffer.getMoney()};
         return i;
+    }
+
+    public ArrayList<String> getStatsAsStringList() {
+        ArrayList<String> statsList = new ArrayList<>();
+        statsList.add("Health: " + Integer.toString(HP.getHealthPoints()));
+        statsList.add("MP: " + Integer.toString(MP.getMagicPoints()));
+        statsList.add("Attack: " + Integer.toString(Atk.getAttackPoints()));
+        statsList.add("Defense: " + Integer.toString(Def.getDefensePoints()));
+        statsList.add("Level: " + Lvl.getLevel());
+        statsList.add("Experience: " + Lvl.getExperience());
+        statsList.add("Next Lvl: " + Lvl.getExpToNextLevel());
+        statsList.add("Gold: " + Coffer.getMoney());
+
+        return statsList;
+    }
+
+    public void addToInventory(Item i){
+        inventory.addItem(i);
+    }
+
+    public boolean isAttemptAttack() {
+        return attemptAttack;
+    }
+
+    public void setAttemptAttack(boolean attemptAttack) {
+        this.attemptAttack = attemptAttack;
     }
 }

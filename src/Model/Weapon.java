@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Weapon extends Equipment {
 
@@ -29,6 +30,11 @@ public class Weapon extends Equipment {
         AttackSpeed = 0;
         Acy = new Accuracy();
         Range = 0;
+    }
+
+    @Override
+    public int getValue() {
+        return AttackPoints;
     }
 
     public int getAttackPoints() {
@@ -69,6 +75,17 @@ public class Weapon extends Equipment {
 
     public void setRange(int range) {
         Range = range;
+    }
+
+    @Override
+    ArrayList<String> getStats() {
+        ArrayList<String> stats = new ArrayList<>();
+        stats.add("Name: " + getName());
+        stats.add("Attack: " + Integer.toString(AttackPoints));
+        stats.add("Speed: " + Integer.toString(AttackSpeed));
+        stats.add("Accuracy: " + Integer.toString(Acy.getAccuracy()));
+        stats.add("Range: " + Integer.toString(Range));
+        return stats;
     }
 
 }

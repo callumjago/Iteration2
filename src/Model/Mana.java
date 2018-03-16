@@ -6,8 +6,8 @@ public class Mana implements Stat{
 
     public Mana(int magicPoints) {
         if (magicPoints <= 0) {
-            MagicPoints = 1; // Magic must be set above 0
-            MaxMagicPoints = 1;
+            MagicPoints = 100; // Magic must be set above 0
+            MaxMagicPoints = 100;
         }
         else {
             MagicPoints = magicPoints;
@@ -16,8 +16,8 @@ public class Mana implements Stat{
     }
 
     public Mana(){
-        MagicPoints = 1; // Mana must be set above 0
-        MaxMagicPoints = 1;
+        MagicPoints = 100; // Mana must be set above 0
+        MaxMagicPoints = 100;
     }
 
     public int getMagicPoints() {

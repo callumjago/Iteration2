@@ -44,15 +44,15 @@ public class Level {
     }
 
     public int gainExp(int expAmt){
-        if (Experience + expAmt >= ExpToNextLevel) {
+        if (expAmt >= ExpToNextLevel) {
             expAmt -= ExpToNextLevel;
             raiseLvl();
             return expAmt;
         }
         else{
             Experience += expAmt;
-            ExpToNextLevel -= Experience;
-            return 0;
+            ExpToNextLevel -= expAmt;
+            return -1;
         }
     }
 
@@ -76,7 +76,4 @@ public class Level {
     public void setExpToNextLevel(int expToNextLevel) {
         ExpToNextLevel = expToNextLevel;
     }
-
-
-
 }

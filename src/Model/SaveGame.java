@@ -39,7 +39,7 @@ public class SaveGame {
             pw.write("Class: ");
             // do this
 
-            pw.write("Sprite: " + gs.getPlayer().getSprite());
+           // pw.write("Sprite: " + gs.getPlayer().getSprite());
             pw.write("Name: " + gs.getPlayer().getName());
 
 

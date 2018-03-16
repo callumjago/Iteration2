@@ -12,6 +12,8 @@ public class Sprites {
     private ArrayList<Image> playerSprites;
     private Image mapTransitionSprite;
     private Image obsticleItem;
+    private Image defaultObjectSprite;
+    private Image arrowSprite;
 
 
     private String workingDir;
@@ -28,7 +30,7 @@ public class Sprites {
     private void initializeSprites() {
 
 
-        playerSprites.add(getImage(workingDir + "/sprites/characterGuy.png"));
+        playerSprites.add(getImage(workingDir + "/sprites/testCharacter.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterGirl.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterAdventurer.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
@@ -45,7 +47,9 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
+        defaultObjectSprite = getImage(workingDir + "/sprites/star.png");
 
+        arrowSprite = getImage(workingDir + "/sprites/arrow.png");
     }
 
     public Image getTerrainSprite(int terrainID) {
@@ -57,7 +61,14 @@ public class Sprites {
     }
 
     public Image getObjectSprite(int ind) {
+        if(ind >= objectSprites.size()) {
+            return defaultObjectSprite;
+        }
         return objectSprites.get(ind-1);
+    }
+
+    public Image getArrowSprite() {
+        return arrowSprite;
     }
 
     private Image getImage(String fp) {

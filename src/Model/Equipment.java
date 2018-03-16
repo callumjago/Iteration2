@@ -2,6 +2,7 @@ package Model;
 
 
 import java.awt.Image;
+import java.util.ArrayList;
 
 public abstract class Equipment extends Item{
 
@@ -37,6 +38,11 @@ public abstract class Equipment extends Item{
     }
 
     // Returns an equipment's required level
+    public int getLevelReq(){
+        return reqLvl.getLevel();
+    }
+
+    // Returns an equipment's required level
     public Level getLevelRequirement(){
         return reqLvl;
     }
@@ -65,4 +71,7 @@ public abstract class Equipment extends Item{
     public void setDescription(String description){
         Description = description;
     }
+
+    abstract ArrayList<String> getStats();
+
 }
