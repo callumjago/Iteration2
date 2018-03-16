@@ -84,13 +84,14 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         gameState.setTileSet(tileSet);
+        Map map = new Map(gameState);
 
-        LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
+        //This lovely load game code is only temporary, don't freak about LOD :(
+        LoadGame load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
 
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
-        Map map = new Map(gameState);
 
         MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 

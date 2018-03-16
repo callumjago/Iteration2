@@ -96,11 +96,7 @@ public class TeleportIR implements Interaction{
 							break;
 						case 'I':
 							x = (int)temp.charAt(3)-48;
-							if(x == 0)
-								tile.setObject(new Trap(0, 10, 5));
-							
-							else if(x == 1)
-								tile.setObject(new HealingOSItem(1, 5));
+							tile.setObject(new OneShotItem(x, 10));
 							break;
 						case 'J':
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
@@ -112,13 +108,13 @@ public class TeleportIR implements Interaction{
 							String tag = codex.getTag(x);
 							
 							if(tag == "Weapon")
-								tile.setObject(new Weapon(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x), codex.getAttackSpeed(x), new Accuracy(codex.getAccuracy(x)), codex.getRange(x)));
+								tile.setObject(new Weapon(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x), 0, codex.getAttackSpeed(x),  new Accuracy(codex.getAccuracy(x)), codex.getRange(x)));
 							
 							else if(tag == "Armor")
 								tile.setObject(new Armor(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x)));
 							
 							else if(tag == "Ring")
-								tile.setObject(new Ring(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x)));
+								tile.setObject(new Ring(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x)));
 							
 							break;
 						}

@@ -6,7 +6,7 @@ public class Ring extends Equipment {
 
     private Skill Effect;
 
-    public Ring(int EQID, Level reqLvl, String name, String description, Skill effect) {
+    public Ring(int EQID, Level reqLvl, String name, String description) {
         super(EQID, reqLvl, name, description);
     }
 

@@ -10,4 +10,6 @@ public abstract class AOE extends GameObject{
 	public AOE() {
 		super();
 	}
+	
+	public abstract int getValue();
 }
