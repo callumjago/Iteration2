@@ -30,6 +30,7 @@ public class GameState {
         return tileSet;
     }
 
+
     public ArrayList<Entity> getEntities() {
         return entities;
     }
@@ -129,13 +130,16 @@ public class GameState {
 
 
     public void tick() {
-        
+
         for(int i = 1; i < entities.size(); i++) {
             Entity ent = entities.get(i);
             if (ent instanceof Projectile) {
                if (!((Projectile) ent).Tick()){
                     entities.remove(i);
                 }
+            }
+            if (ent instanceof NPC) {
+                ((NPC)ent).tick();
             }
             if (ent.getAttemptMove()) {
                 moveHandler.checkMove(ent, ent.getOrientation());
