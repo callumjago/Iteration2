@@ -44,25 +44,21 @@ public class Level {
     }
 
     public int gainExp(int expAmt){
-        if (Experience + expAmt >= ExpToNextLevel) {
+        if (expAmt >= ExpToNextLevel) {
             expAmt -= ExpToNextLevel;
             raiseLvl();
             return expAmt;
         }
         else{
             Experience += expAmt;
-            ExpToNextLevel -= Experience;
-            return 0;
+            ExpToNextLevel -= expAmt;
+            return -1;
         }
     }
 
     // Possible LoD violation
     public Boolean isEquals(Level other){
         return other.getLevel() == Lvl;
-    }
-
-    public Boolean isLess(Level other){
-        return other.getLevel() < Lvl;
     }
 
     public int getExperience() {
@@ -80,7 +76,4 @@ public class Level {
     public void setExpToNextLevel(int expToNextLevel) {
         ExpToNextLevel = expToNextLevel;
     }
-
-
-
 }

@@ -1,23 +1,28 @@
 package Model;
 
 public class ExperienceAE extends AOE {
-    private int Experience;
-    private int Duration;
+    private int exp;
 
-    public ExperienceAE(int dur, int Am) {
-        setExperience(Am);
-        setDuration(dur);
+    public ExperienceAE(int AmtPerTick) {
+        super(7);
+        exp = AmtPerTick;
     }
 
-    public int getExperience() {
-        return Experience;
+    public ExperienceAE() {
+        super(7);
+        exp = 0;
     }
 
-    public void setExperience(int experience) {
-        Experience = experience;
+    @Override
+    public int getValue() {
+        return exp;
     }
 
-    public void setDuration(int duration) {
-        Duration = duration;
+    public int getEXP() {
+        return exp;
+    }
+
+    public void setEXP(int exp) {
+        this.exp = exp;
     }
 }

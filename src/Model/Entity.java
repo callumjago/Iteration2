@@ -7,20 +7,17 @@ public abstract class Entity {
     private Point position;
     private Interaction interaction;
     private Angle orientation;
-    private Image sprite;
     private boolean attemptMove;
 
     Entity(){
         position = new Point(0,0);
         orientation = new Angle(90);
         attemptMove = false;
-        // Default image here
     }
 
-    Entity(Point pos, Angle theta, Image img){
+    Entity(Point pos, Angle theta){
         position = pos;
         orientation = theta;
-        sprite = img;
         attemptMove = false;
     }
 
@@ -44,16 +41,16 @@ public abstract class Entity {
         return interaction;
     }
 
+    public void clearInteraction(){
+        interaction = null;
+    }
+
+    public Boolean checkInteraction(){
+        return interaction != null;
+    }
+
     public void setInteraction(Interaction interaction) {
         this.interaction = interaction;
-    }
-
-    public Image getSprite() {
-        return sprite;
-    }
-
-    public void setSprite(Image sprite) {
-        this.sprite = sprite;
     }
 
     public void moveNorth() {

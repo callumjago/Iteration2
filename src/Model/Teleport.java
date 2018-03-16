@@ -24,5 +24,10 @@ public class Teleport extends AOE {
 
     public Point getLocation(){
         return location;
+	}
+	
+	@Override
+    public int getValue() {
+        return 0;
     }
 }

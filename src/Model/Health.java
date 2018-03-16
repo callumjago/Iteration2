@@ -68,11 +68,11 @@ public class Health implements Stat{
     }
 
     public void takeDamage(int dmgAmt){
-        if (HealthPoints - dmgAmt <= 0){
+        if (HealthPoints + dmgAmt <= 0){
             HealthPoints = 0;
         }
         else{
-            HealthPoints = HealthPoints - dmgAmt;
+            HealthPoints = HealthPoints + dmgAmt;
         }
     }
 

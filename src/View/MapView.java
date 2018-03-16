@@ -46,6 +46,7 @@ public class MapView {
                 }
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
+                    System.out.println(gameState.getObjectID(i, j));
                     gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)),x, y, tileWidth, tileHeight);
                 }
             }

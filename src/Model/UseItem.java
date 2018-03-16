@@ -1,7 +1,5 @@
 package Model;
 
-import java.awt.Image;
-
 public class UseItem extends Item {
 	private int effect;
 	private int value;
@@ -16,8 +14,8 @@ public class UseItem extends Item {
 		setValue();
 	}
 	
-	public UseItem(int _itemID, Image _sprite, int _objectID, int _effect, String _name, String _description) {
-		super(_objectID, _sprite, _itemID);
+	public UseItem(int _itemID, int _effect, String _name, String _description) {
+		super(_itemID);
 		effect = _effect;
 		name = _name;
 		description = _description;

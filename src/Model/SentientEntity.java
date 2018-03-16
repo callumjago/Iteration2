@@ -16,8 +16,8 @@ public abstract class SentientEntity extends Entity {
     private Level Lvl;
     private Wallet Coffer;
 
-    SentientEntity(Point pos, Angle theta, Image img, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
-        super(pos,theta,img);
+    SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
+        super(pos,theta);
         Name = name;
         EquipArmor = armor;
         EquipWeapon = weapon;
@@ -87,6 +87,10 @@ public abstract class SentientEntity extends Entity {
         return Lvl.getLevel();
     }
 
+    public int getExp() { return Lvl.getExperience();}
+
+    public int getExpToNextLevel() { return Lvl.getExpToNextLevel();}
+
     public int getMoney(){
         return Coffer.getMoney();
     }
@@ -125,9 +129,9 @@ public abstract class SentientEntity extends Entity {
 
     public void gainExp(int expAmt){
         int check = Lvl.gainExp(expAmt);
-        if (check > 0){ // This means a level up has occurred.
+        if (check > -1){ // This means a level up has occurred.
             HP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100))));
-            MP.raiseBaseStat((int)Math.log10((1.247*(Lvl.getLevel() * 100)))-2);
+            MP.raiseBaseStat((int)Math.log10((1.1578*(Lvl.getLevel() * 100))));
             Atk.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*5));
             Def.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*3));
             gainExp(expAmt);

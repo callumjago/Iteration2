@@ -89,6 +89,10 @@ public class Tile {
 		return go;
 	}
 
+	public int getValue(){
+		return go.getValue();
+	}
+
     public void removeObject() {
 		go = null;
     }
