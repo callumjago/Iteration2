@@ -56,6 +56,8 @@ public class TeleportIR implements Interaction{
 						tile.setObject(null);
 					}
 					else {
+						int x;
+						
 						switch(temp.charAt(1)) {
 						case 'B':
 							tile.setObject(new Obstacle());
@@ -64,29 +66,60 @@ public class TeleportIR implements Interaction{
 							tile.setObject(new InstantDeath());
 							break;
 						case 'D':
-							int x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							tile.setObject(new Teleport(x));
 							break;
 						case 'E':
-							tile.setObject(new HealingAE());
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							tile.setObject(new HealingAE(x));
 							break;
 						case 'F':
-							tile.setObject(new DamageAE());
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							tile.setObject(new DamageAE(x));
 							break;
 						case 'G':
-							tile.setObject(new ExperienceAE());
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							tile.setObject(new ExperienceAE(x));
 							break;
 						case 'H':
-							tile.setObject(new InteractiveItem());
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							ItemCodex icodex = new ItemCodex();
+							String itag = icodex.getTag(x);
+							
+							if(itag == "InteractiveItem") {
+								tile.setObject(new KeyItem(icodex.getLevelReq(x)));
+							}
+							
+							else if(itag == "UseItem") {
+								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
+							}
 							break;
 						case 'I':
-							tile.setObject(new OneShotItem());
+							x = (int)temp.charAt(3)-48;
+							if(x == 0)
+								tile.setObject(new Trap(0, 10, 5));
+							
+							else if(x == 1)
+								tile.setObject(new HealingOSItem(1, 5));
 							break;
 						case 'J':
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							NPC npc = new NPC();
 							break;
 						case 'K':
-							tile.setObject(new Weapon());
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							EquipmentCodex codex = new EquipmentCodex();
+							String tag = codex.getTag(x);
+							
+							if(tag == "Weapon")
+								tile.setObject(new Weapon(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x), codex.getAttackSpeed(x), new Accuracy(codex.getAccuracy(x)), codex.getRange(x)));
+							
+							else if(tag == "Armor")
+								tile.setObject(new Armor(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x)));
+							
+							else if(tag == "Ring")
+								tile.setObject(new Ring(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x)));
+							
 							break;
 						}
 					}
