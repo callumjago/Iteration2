@@ -24,7 +24,7 @@ public class TeleportIR implements Interaction{
 		try {
 			TeleportCodex tcodex = new TeleportCodex();
 			int mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
-			Point destination = tcodex.getDestination(((Teleport)((AOE)obj)).getValue());
+			Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
 		
 			entity.setPosition(destination);
 		
@@ -37,7 +37,7 @@ public class TeleportIR implements Interaction{
 			int mapY = Integer.parseInt(s_map.next());
 			int mapX = Integer.parseInt(s_map.next());
 			
-			for(int i = 0; i < mapY; i++) {
+			for(int i = 0; i < mapX; i++) {
 				tileSet.add(new ArrayList<>());
 			}
 			
@@ -46,15 +46,17 @@ public class TeleportIR implements Interaction{
 				Scanner input = new Scanner(st);
 				
 				for(int j = 0; j < mapX; j++) {
-					String temp = input.next();
+					String temp = null;
 					
-					Tile tile = new Tile((int)temp.charAt(0));
+					temp = input.next();
+					
+					Tile tile = new Tile((int)temp.charAt(0)-48);
 					
 					if(temp.charAt(1) == 'A') {
 						tile.setObject(null);
 					}
 					else {
-						switch(temp.charAt(0)) {
+						switch(temp.charAt(1)) {
 						case 'B':
 							tile.setObject(new Obstacle());
 							break;
@@ -62,7 +64,7 @@ public class TeleportIR implements Interaction{
 							tile.setObject(new InstantDeath());
 							break;
 						case 'D':
-							int x = ((int)temp.charAt(2))*10 + (int)temp.charAt(3);
+							int x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							tile.setObject(new Teleport(x));
 							break;
 						case 'E':
@@ -89,11 +91,14 @@ public class TeleportIR implements Interaction{
 						}
 					}
 					
-					tileSet.get(i).add(tile);
+					tileSet.get(j).add(tile);
 				}
+				
+				input.close();
 			}
-			
 			state.setTileSet(tileSet);
+			System.out.println(tileSet.size());
+			System.out.println(tileSet.get(0).size());
 		}
 		catch(Exception e) {
 			e.printStackTrace();
