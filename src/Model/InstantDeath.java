@@ -1,6 +1,9 @@
 package Model;
 
 public class InstantDeath extends AOE {
+	public InstantDeath() {
+		super(3);
+	}
 
 	@Override
 	public int getValue() {

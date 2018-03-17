@@ -25,6 +25,8 @@ public class RunGame extends Application {
     private MenuView menuView;
 
     private KeyController keyController;
+    
+    private LoadGame load;
 
     private final long ticksPerSecond = 2;
 
@@ -124,16 +126,15 @@ public class RunGame extends Application {
         menu.addSubMenu(new SaveGameMenu(save));
         menu.addSubMenu(new QuitGameMenu());
         
-        //This lovely load game code is only temporary, don't freak about LOD :(
-        LoadGame load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
-        load.loadGame();
+        load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
+        
         
         //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
-        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
+        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene, this);
 
         PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
@@ -195,5 +196,9 @@ public class RunGame extends Application {
         //REMOVE THI SLOL
 
         launch(args);
+    }
+    
+    public void loadGame() {
+    	load.loadGame();
     }
 }

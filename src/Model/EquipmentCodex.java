@@ -44,14 +44,36 @@ public class EquipmentCodex  extends Codex{
 
     }
 
-    public String getDescription(int ID){
+    public String getWeaponDescription(int ID){
 
         return (map.get(ID).get(6));
 
     }
-    public String getName(int ID){
+    public String getWeaponName(int ID){
 
         return (map.get(ID).get(7));
+
+    }
+    
+    public String getArmorDescription(int ID){
+
+        return (map.get(ID).get(3));
+
+    }
+    public String getArmorName(int ID){
+
+        return (map.get(ID).get(4));
+
+    }
+    
+    public String getRingDescription(int ID){
+
+        return (map.get(ID).get(3));
+
+    }
+    public String getRingName(int ID){
+
+        return (map.get(ID).get(4));
 
     }
 
