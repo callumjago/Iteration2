@@ -17,9 +17,10 @@ public class SaveGame {
         saveMap();
         saveInventory();
         saveNPC();
+        saveNPCInv();
 
     }
-    public void savePlayer() {
+    private void savePlayer() {
 
         try {
             PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
@@ -35,7 +36,7 @@ public class SaveGame {
             pw.println("Defense: " + gs.getPlayer().getDef());
             pw.println("Level: " + gs.getPlayer().getLvl());
             pw.println("Exp: " + gs.getPlayer().getExp());
-            //pw.println("ExpToLvl: " + gs.getPlayer().getExpToNextLevel());
+            pw.println("Wallet: " + gs.getPlayer().getWallet().getMoney());
             pw.println("Class: " + gs.getPlayer().getClass());
             //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
             pw.println("Name: " + gs.getPlayer().getName());
@@ -46,10 +47,10 @@ public class SaveGame {
 
 
     }
-    public void saveMap(){
+    private void saveMap(){
         try{
             PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
-                    + gs.getPlayer().getName() + "/Maps/Map3.txt");
+                    + gs.getPlayer().getName() + "/Maps/Map3/Map3.txt");
 
             ArrayList<ArrayList<Tile>> tiles = gs.getTileSet();
             for(int i = 0; i < tiles.size(); i++){
@@ -58,7 +59,6 @@ public class SaveGame {
                     pw.print(tiles.get(j).get(i).getTileObjectID() + " ");
 
                     //if(tiles.get(i).get(j).getTileObjectID() == );
-
                 }
                 pw.println();
             }
@@ -68,11 +68,8 @@ public class SaveGame {
             e.printStackTrace();
         }
 
-
-
-
     }
-    public void saveInventory(){
+    private void saveInventory(){
        try {
            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
                                             + gs.getPlayer().getName() + "/Player/Inventory.txt");
@@ -80,7 +77,7 @@ public class SaveGame {
             ArrayList<Item> itemList = gs.getPlayer().getInventory().getBag();
 
             for(int i = 0; i < itemList.size(); i++){
-                pw.write(itemList.get(i).getObjectID() + itemList.get(i).getItemID() + ",");
+                pw.write(itemList.get(i).getObjectID() + "" + itemList.get(i).getItemID() + ",");
             }
            pw.close();
        }catch(Exception e){
@@ -88,23 +85,25 @@ public class SaveGame {
        }
     }
 
-    public void saveNPC(){
+    private void saveNPC(){
         ArrayList<Entity> npc = gs.getEntities();
+
+
+        //System.out.println("THE NUMBER OF NENEITES: " + npc.size());
 
         try{
             PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
-                    + gs.getPlayer().getName() + "/Maps/NPC1.txt");
+                    + gs.getPlayer().getName() + "/Maps/Map3/NPC3.txt");
 
 
-            //Name Sprite Position Armor Weapon Ring HP MP Def Atk Lvl Exp Angle
+            //Name Sprite Position Armor Weapon Ring HP MP Def Atk Lvl Exp Angle Wallet
             //Projectile Sprite Position damage range Angle
                 for(int i = 2; i < npc.size();i++){
                     if(npc.get(i) instanceof SentientEntity){
                         pw.print(((SentientEntity) npc.get(i)).getName() + " ");
                         //TODO sprite field for entity
                        // pw.print(((SentientEntity) npc.get(i)).getSprite() + " ");
-                        pw.print((int)((SentientEntity) npc.get(i)).getPosition().getX() + " " +
-                                (int)((SentientEntity) npc.get(i)).getPosition().getY() + " ");
+                        pw.print((int)((SentientEntity) npc.get(i)).getPosition().getX() + " "+ (int)((SentientEntity) npc.get(i)).getPosition().getY() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getEquipArmor() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getEquipWeapon() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getEquipRing() + " ");
@@ -115,6 +114,7 @@ public class SaveGame {
                         pw.print(((SentientEntity) npc.get(i)).getLvl() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getExp() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getOrientation() + " ");
+                        pw.print(((SentientEntity) npc.get(i)).getWallet().getMoney());
                     }
                     else{
                         pw.print("Projectile ");
@@ -126,15 +126,9 @@ public class SaveGame {
                         pw.print(((Projectile) npc.get(i)).getRange() + " ");
                         pw.print(((Projectile) npc.get(i)).getOrientation() + " ");
 
-
                     }
                     pw.println();
-
             }
-
-
-
-
         pw.close();
         }catch(Exception e){
             e.printStackTrace();
@@ -142,4 +136,35 @@ public class SaveGame {
 
 
     }
+   private void saveNPCInv(){
+       ArrayList<Entity> npc = gs.getEntities();
+       try {
+           PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
+                   + gs.getPlayer().getName() + "/Maps/Map3/Inventory3.txt");
+
+           for (int i = 2; i < npc.size(); i++) {
+               if (npc.get(i) instanceof SentientEntity) {
+                   ArrayList<Item> itemList = ((SentientEntity) npc.get(i)).getInventory().getBag();
+
+                   //TODO REMOVE THIS
+                   System.out.println("ITEM LIST SIZE: " + itemList.size());
+
+                   for(int j = 0; j < itemList.size(); j++) {
+                       //TODO REMOVE THIS
+                       System.out.println("OBJECT ID: " + itemList.get(j).getObjectID());
+                       System.out.println("ITEM ID: " + itemList.get(j).getItemID());
+                       pw.write(itemList.get(j).getObjectID() + "" + itemList.get(j).getItemID() + ",");
+                   }
+                    pw.println();
+               }
+
+               else{
+                   continue;
+               }
+           }
+          pw.close();
+       }catch(Exception e){
+           e.printStackTrace();
+       }
+   }
 }

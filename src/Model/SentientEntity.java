@@ -243,4 +243,8 @@ public abstract class SentientEntity extends Entity {
     public void setLvl(Level _Lvl) {
     	Lvl = _Lvl;
     }
+
+    public Wallet getWallet(){
+        return Coffer;
+    }
 }
