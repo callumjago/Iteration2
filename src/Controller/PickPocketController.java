@@ -30,25 +30,32 @@ public class PickPocketController extends SubKeyController {
                 }
                 break;
             case UP:
-                System.out.println("TEST");
                 if(selectedIndex > 0) {
                     selectedIndex--;
                 }
                 break;
         }
-        //System.out.println(selectedIndex);
+
+    }
+
+    @Override
+    boolean isActive() {
+        if(ppi != null) {
+            return true;
+        }
+        return false;
     }
 
     public void setPickPocketInteraction(PickPocketInteraction ppi) {
         this.ppi = ppi;
-        selectedIndex = 0;
     }
 
     public void handlePickPocket(GameState gs) {
         if(confirmPickPocket) {
-            System.out.println(selectedIndex);
             gs.pickPocket(selectedIndex);
             selectedIndex = 0;
+            confirmPickPocket = false;
+            ppi = null;
         }
     }
 
@@ -56,6 +63,8 @@ public class PickPocketController extends SubKeyController {
 
         return selectedIndex;
     }
+
+
 
 
 

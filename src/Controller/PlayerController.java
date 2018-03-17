@@ -111,6 +111,11 @@ public class PlayerController extends SubKeyController {
         }
     }
 
+    @Override
+    boolean isActive() {
+        return true;
+    }
+
 
     public ArrayList<String> generateControlsList() {
         ArrayList<String> controlsList = new ArrayList<>();

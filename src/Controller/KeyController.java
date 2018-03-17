@@ -14,6 +14,23 @@ public class KeyController implements EventHandler<KeyEvent> {
     }
 
     public void handle(KeyEvent event) {
+
+        for(int i = 0; i < controllers.size(); i++) {
+            if(controllers.get(i) instanceof PickPocketController) {
+                if(controllers.get(i).isActive()) {
+                    controllers.get(i).keyInput(event.getCode());
+                    return;
+                }
+            }
+        }
+        for(int i = 0; i < controllers.size(); i++) {
+            if(controllers.get(i) instanceof MenuController) {
+                if(controllers.get(i).isActive()) {
+                    controllers.get(i).keyInput(event.getCode());
+                    return;
+                }
+            }
+        }
         for(int i = 0; i < controllers.size(); i++) {
             controllers.get(i).keyInput(event.getCode());
         }

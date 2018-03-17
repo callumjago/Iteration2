@@ -14,17 +14,30 @@ public class MenuController extends SubKeyController {
 
     @Override
     void keyInput(KeyCode code) {
+
         switch(code) {
             case P:
                 menu.Escape();
                 break;
             case UP:
-                menu.Up();
+                if(menu.isOpen()) {
+                    menu.Up();
+                }
                 break;
             case DOWN:
-                menu.Down();
+                if(menu.isOpen()) {
+                    menu.Down();
+                }
                 break;
         }
+    }
+
+    @Override
+    boolean isActive() {
+        if (menu.isOpen()) {
+            return true;
+        }
+        return false;
     }
 
 
