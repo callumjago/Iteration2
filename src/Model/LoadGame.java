@@ -159,8 +159,6 @@ public class LoadGame {
 				input.close();
 			}
 			state.setTileSet(tileSet);
-			System.out.println(tileSet.size());
-			System.out.println(tileSet.get(0).size());
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -240,16 +238,20 @@ public class LoadGame {
 				case 10: //setting EXP
 					input.next();
 					player.gainExp(Integer.parseInt(input.next()));
-					break;		
-				case 11: //setting player class
+					break;	
+				case 11:
 					input.next();
 					input.next();
 					break;
-				case 12: //setting player sprite
+				case 12: //setting player class
+					input.next();
+					input.next();
+					break;
+				case 13: //setting player sprite
 					input.next();
 					player.setSprite(Integer.parseInt(input.next()));
 					break;
-				case 13: //setting player Name
+				case 14: //setting player Name
 					input.next();
 					player.setName(input.next());
 					System.out.println(player.getName());
@@ -259,7 +261,7 @@ public class LoadGame {
 				++i;
 		
 				
-				if(i > 13) break;
+				if(i > 14) break;
 			}
     		
     	}

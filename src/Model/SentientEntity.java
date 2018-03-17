@@ -35,7 +35,7 @@ public abstract class SentientEntity extends Entity {
 
     SentientEntity(){ // Attribute classes fill with default values
         super();
-        Name = "H Y P E B O Y";
+        Name = "BOB";
         HP = new Health();
         MP = new Mana();
         Atk = new Attack();
@@ -109,6 +109,9 @@ public abstract class SentientEntity extends Entity {
     }
 
     public Armor getEquipArmor() {
+    	if(EquipArmor == null) {
+    		EquipArmor = new Armor();
+    	}
         return EquipArmor;
     }
 
@@ -117,6 +120,10 @@ public abstract class SentientEntity extends Entity {
     }
 
     public Weapon getEquipWeapon() {
+    	if(EquipWeapon == null) {
+    		EquipWeapon = new Weapon();
+    	}
+    	
         return EquipWeapon;
     }
 
@@ -125,6 +132,10 @@ public abstract class SentientEntity extends Entity {
     }
 
     public Ring getEquipRing() {
+    	if(EquipRing == null) {
+    		EquipRing = new Ring();
+    	}
+    	
         return EquipRing;
     }
 

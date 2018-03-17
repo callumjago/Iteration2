@@ -21,7 +21,7 @@ public abstract class Equipment extends Item{
 
     public Equipment(){
         super();
-        EQID = 000;
+        EQID = 1;
         reqLvl = new Level(1);
         Name = "Swag";
         Description = "Dank Memes";

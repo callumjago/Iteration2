@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class ItemCodex extends Codex {
 
-    private static final File itemCodex = new File (System.getProperty("user.dir") + "/SavedGames/H Y P E B O Y/Codex/ItemCodex/ItemCodex.csv");
+    private static final File itemCodex = new File (System.getProperty("user.dir") + "/SavedGames/PlayerName/Codex/ItemCodex/ItemCodex.csv");
 
     ItemCodex(){
         super(itemCodex);

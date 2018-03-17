@@ -29,10 +29,10 @@ public class SaveGame {
 
 
             pw.println("Location: " + (int)gs.getPlayer().getPosition().getX() + " " + (int)gs.getPlayer().getPosition().getY());
-            pw.println("Map ID: " + gs.getPlayer().getMapID());
-            pw.println("Armor: " + gs.getPlayer().getEquipArmor());
-            pw.println("Weapon: " + gs.getPlayer().getEquipWeapon());
-            pw.println("Ring: " + gs.getPlayer().getEquipRing());
+            pw.println("MapID: " + gs.getPlayer().getMapID());
+            pw.println("Armor: " + gs.getPlayer().getEquipArmor().getEQID());
+            pw.println("Weapon: " + gs.getPlayer().getEquipWeapon().getEQID());
+            pw.println("Ring: " + gs.getPlayer().getEquipRing().getEQID());
             pw.println("HP: " + gs.getPlayer().getHP());
             pw.println("MP: " + gs.getPlayer().getMP());
             pw.println("Attack: " + gs.getPlayer().getAtk());
@@ -40,7 +40,7 @@ public class SaveGame {
             pw.println("Level: " + gs.getPlayer().getLvl());
             pw.println("Exp: " + gs.getPlayer().getExp());
             pw.println("Wallet: " + gs.getPlayer().getWallet().getMoney());
-            pw.println("Class: " + gs.getPlayer().getClass());
+            pw.println("Class: " + "0");//gs.getPlayer().getClass());
             //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
             pw.println("Sprite: " + 1);
             //TODO sprite
@@ -82,7 +82,10 @@ public class SaveGame {
             ArrayList<Item> itemList = gs.getPlayer().getInventory().getBag();
 
             for(int i = 0; i < itemList.size(); i++){
-                pw.write(itemList.get(i).getObjectID() + "" + itemList.get(i).getItemID() + " ");
+            	if(itemList.get(i).getItemID() > 9)
+            		pw.write(itemList.get(i).getObjectID() + "" + itemList.get(i).getItemID() + " ");
+            	else
+            		pw.write(itemList.get(i).getObjectID() + "" + "0" + "1" + " ");
             }
            pw.close();
        }catch(Exception e){

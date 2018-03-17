@@ -16,6 +16,7 @@ public class Player extends SentientEntity {
     Player() {
         super(); // Attribute classes fill with default values
         //Class = new PlayerClass();
+        mapID= 1;
 
     }
 	

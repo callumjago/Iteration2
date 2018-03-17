@@ -4,7 +4,7 @@ import java.io.File;
 
 public class OneShotCodex extends Codex {
 
-    private static final File oneShotCodex = new File (System.getProperty("user.dir") + "/SavedGames/H Y P E B O Y/Codex/OneShotCodex/OneShotCodex.csv");
+    private static final File oneShotCodex = new File (System.getProperty("user.dir") + "/SavedGames/PlayerName/Codex/OneShotCodex/OneShotCodex.csv");
 
     OneShotCodex(){
         super(oneShotCodex);

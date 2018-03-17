@@ -3,7 +3,7 @@ import java.io.File;
 
 public class EquipmentCodex  extends Codex{
 
-   private static final File EquipmentCodex = new File (System.getProperty("user.dir") + "/SavedGames/H Y P E B O Y/Codex/EquipmentCodex/EquipmentCodex.csv");
+   private static final File EquipmentCodex = new File (System.getProperty("user.dir") + "/SavedGames/PlayerName/Codex/EquipmentCodex/EquipmentCodex.csv");
 
     EquipmentCodex() {
         super(EquipmentCodex);
