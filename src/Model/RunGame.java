@@ -5,6 +5,8 @@ import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
 import Controller.MenuController;
+import Controller.PickPocketController;
+import View.NPCInventoryView;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -112,6 +114,8 @@ public class RunGame extends Application {
         gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
+        PickPocketController ppc = new PickPocketController();
+        keyController.addController(ppc);
         gameState.setTileSet(tileSet);
        // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
 
@@ -166,6 +170,15 @@ public class RunGame extends Application {
                         tick = 0;
                     }
                     tick++;
+
+                    if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing
+                        ppc.setPickPocketInteraction(gameState.getPickPocketInteraction());
+                        NPCInventoryView inventoryView = new NPCInventoryView(canvas);
+
+                        inventoryView.render(gameState.getPickPocketInteraction().getNpc());
+                        ppc.handlePickPocket(gameState);
+
+                    }
                 }
 
                 //dialogue.startDialogue();

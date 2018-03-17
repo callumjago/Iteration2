@@ -63,7 +63,7 @@ public class MapView {
         hudView.render(gameState.getPlayer());
         renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
 
-        renderPickPocketMenu(gameState.getPickPocketInteraction());
+        //renderPickPocketMenu(gameState.getPickPocketInteraction());
     }
 
 
