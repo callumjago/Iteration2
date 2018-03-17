@@ -67,50 +67,53 @@ public class TeleportIR implements Interaction{
 						int x;
 						
 						switch(temp.charAt(1)) {
-						case 'B':
+						case 'B': //obstacle
 							tile.setObject(new Obstacle());
 							break;
-						case 'C':
+						case 'C': //instant death
 							tile.setObject(new InstantDeath());
 							break;
-						case 'D':
+						case 'D': //teleport
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							tile.setObject(new Teleport(x));
 							break;
-						case 'E':
+						case 'E': //healing aoe
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							tile.setObject(new HealingAE(x));
 							break;
-						case 'F':
+						case 'F': //damage aoe
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							tile.setObject(new DamageAE(x));
 							break;
-						case 'G':
+						case 'G': //experience aoe
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							tile.setObject(new ExperienceAE(x));
 							break;
-						case 'H':
+						case 'H': //item
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							ItemCodex icodex = new ItemCodex();
 							String itag = icodex.getTag(x);
 							
-							if(itag == "InteractiveItem") {
+							if(itag == "InteractiveItem") { //temporary
 								tile.setObject(new KeyItem(icodex.getLevelReq(x)));
 							}
 							
-							else if(itag == "UseItem") {
+							else if(itag.compareToIgnoreCase("health") == 0) {
+								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
+							}
+							else if(itag.compareToIgnoreCase("mana") == 0) {
 								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
 							}
 							break;
-						case 'I':
+						case 'I': //one shot item
 							x = (int)temp.charAt(3)-48;
 							tile.setObject(new OneShotItem(x, 10));
 							break;
-						case 'J':
+						case 'J': //npc
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							NPC npc = new NPC();
 							break;
-						case 'K':
+						case 'K': //equipment
 							int id = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							EquipmentCodex ecodex = new EquipmentCodex();
 							String tag = ecodex.getTag(id);
@@ -122,31 +125,32 @@ public class TeleportIR implements Interaction{
 								case "staff":
 								case "two-handed":
 								case "one-handed":
+									System.out.println(tag);
 									int lvl = ecodex.getLevelReq(id);
 									int damage = ecodex.getStatPoints(id);
 									int attackSpeed = ecodex.getAttackSpeed(id);
 									Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
-									Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getName(id), ecodex.getDescription(id), 
+									Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
 											damage, 0, attackSpeed, accuracy, ecodex.getRange(id) );
 								
-									inventory.addItem(weapon);
+									tile.setObject(weapon);
 									break;
 								
 								case "leather":
 								case "cloth":
 								case "plate":
 									Level level = new Level(ecodex.getLevelReq(id));
-									Armor armor = new Armor(id, level, ecodex.getName(id), ecodex.getDescription(id), 
+									Armor armor = new Armor(id, level, ecodex.getArmorName(id), ecodex.getArmorDescription(id), 
 											ecodex.getStatPoints(id));
 								
-									inventory.addItem(armor);
+									tile.setObject(armor);
 									break;
 								
 								case "ring":
 									level = new Level(ecodex.getLevelReq(id));
-									Ring ring = new Ring(id, level, ecodex.getName(id), ecodex.getDescription(id));
+									Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
 								
-									inventory.addItem(ring);
+									tile.setObject(ring);
 									break;
 								}
 							

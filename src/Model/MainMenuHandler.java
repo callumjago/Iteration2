@@ -21,12 +21,12 @@ public class MainMenuHandler {
     Scene mainScene;
     Stage mainStage;
 
-    public MainMenuHandler(Player player, SaveGame saveGame, LoadGame loadGame,Stage mainStage,Scene mainScene)
+    public MainMenuHandler(Player player, SaveGame saveGame, LoadGame loadGame,Stage mainStage,Scene mainScene, RunGame _run)
     {
         this.mainStage = mainStage;
         this.mainScene = mainScene;
 
-        startingMenu = new StartingMenu(this);
+        startingMenu = new StartingMenu(this, _run);
         characterCreationMenu = new CharacterCreationMenu(this, player);
         gameOverMenu = new GameOverMenu(this);
 

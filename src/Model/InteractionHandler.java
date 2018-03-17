@@ -16,7 +16,7 @@ public class InteractionHandler {
                         interactions.add(new TeleportIR((SentientEntity) ent, GS, tile.getObject(), ((SentientEntity) ent).getInventory()));
                     }
                     else if (tile.getTileObjectID() == 3) { // Instant Death
-
+                    	interactions.add(new InstantDeathIR((SentientEntity) ent));
                     }
                     else if (tile.getTileObjectID() == 4) { // Teleport
                     	interactions.add(new TeleportIR((SentientEntity) ent, GS, tile.getObject(), ((SentientEntity) ent).getInventory()));

@@ -1,5 +1,7 @@
 package Model;
 
+import java.awt.Point;
+
 public class PlayerDeath {
 
     private Player player;
@@ -15,6 +17,7 @@ public class PlayerDeath {
     public void checkIfDead() {
         if (player.isDead()) {
             mainMenu.changeMenu(4);
+            player.setPosition(new Point(1, 1)); //temporary
         }
     }
 
