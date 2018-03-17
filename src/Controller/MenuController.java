@@ -15,7 +15,7 @@ public class MenuController extends SubKeyController {
     @Override
     void keyInput(KeyCode code) {
         switch(code) {
-            case ESCAPE:
+            case P:
                 menu.Escape();
                 break;
             case UP:

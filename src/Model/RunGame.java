@@ -31,12 +31,14 @@ public class RunGame extends Application {
     @Override
     public void start(Stage theStage) {
         mainStage = theStage;
+        mainStage.setFullScreen(true);
+
         mainStage.setTitle("The H Y P E");
 
         Group root = new Group();
         mainScene = new Scene(root);
         theStage.setScene( mainScene );
-        Canvas canvas = new Canvas(800, 800);
+        Canvas canvas = new Canvas(1920, 1080);
         root.getChildren().add(canvas);
 
 
@@ -73,7 +75,7 @@ public class RunGame extends Application {
 
         // OneShot Test Item
         Tile objt = new Tile(0);
-        objt.setObject(new OneShotItem(1,-12));
+        objt.setObject(new Obstacle());
         tileSet.get(4).set(4, objt);
 
         // HealingAE Test Item

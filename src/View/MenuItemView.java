@@ -39,7 +39,7 @@ public class MenuItemView {
     private void renderItemBorder(Bound bound) {
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(2);
-
+        bound = ui.resizeBound(bound);
         gc.strokeLine(bound.getBoundLeft(), bound.getBoundTop(), bound.getBoundRight(), bound.getBoundTop());
         gc.strokeLine(bound.getBoundLeft(), bound.getBoundTop(), bound.getBoundLeft(), bound.getBoundBottom());
         gc.strokeLine(bound.getBoundRight(), bound.getBoundTop(), bound.getBoundRight(), bound.getBoundBottom());

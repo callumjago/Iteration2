@@ -42,10 +42,10 @@ public class Sprites {
         terrainSprites.add(getImage(workingDir + "/sprites/mountains.png"));
 
         //TODO get sprite for teleport, currently just door
-        objectSprites.add(getImage(workingDir + "/sprites/rock.png"));//Obstacle
+        objectSprites.add(getImage(workingDir + "/sprites/boulder.png"));//Obstacle
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//MapTransition:2
         objectSprites.add(getImage(workingDir + "/sprites/skull.png"));//InstantDeath
-        objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
+        objectSprites.add(getImage(workingDir + "/sprites/portal.png"));//Teleport
         objectSprites.add(getImage(workingDir + "/sprites/health2.png"));//HealingAE:5
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE:6
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
