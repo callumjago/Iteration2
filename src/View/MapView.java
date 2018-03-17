@@ -1,10 +1,7 @@
 package View;
 
 
-import Model.Entity;
-import Model.GameState;
-import Model.Projectile;
-import Model.SentientEntity;
+import Model.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -37,6 +34,7 @@ public class MapView {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         int x, y;
 
+
         for(int i = 0; i < gameState.getWidth(); i++) {
             for(int j = 0; j < gameState.getHeight(); j++) {
 
@@ -64,6 +62,8 @@ public class MapView {
 
         hudView.render(gameState.getPlayer());
         renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
+
+        renderPickPocketMenu(gameState.getPickPocketInteraction());
     }
 
 
@@ -166,5 +166,13 @@ public class MapView {
         } else {
             return new Point(pos.x, pos.y-range);
         }
+    }
+
+    private void renderPickPocketMenu(PickPocketInteraction ppi) {
+        if(ppi == null) {
+            return;
+        }
+        NPCInventoryView inventoryView = new NPCInventoryView(canvas);
+        inventoryView.render(ppi.getNpc());
     }
 }

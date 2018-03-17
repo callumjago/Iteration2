@@ -13,6 +13,7 @@ public class NPC extends SentientEntity {
 	NPC(){
 		ExpUponDeath = 10;
 		detectionRange = 4;
+		addToInventory(new Ring());
 
 	}
 	

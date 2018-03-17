@@ -43,6 +43,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.M);
         playerControls.add(KeyCode.SPACE);
         playerControls.add(KeyCode.ENTER);
+        playerControls.add(KeyCode.N);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -56,6 +57,7 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("Aim");
         controlFunctions.add("Attack");
         controlFunctions.add("Projectile");
+        controlFunctions.add("PickPocket");
 
 
         isListeningforRebind = false;
@@ -104,7 +106,9 @@ public class PlayerController extends SubKeyController {
         } else if(code == playerControls.get(10)) {//Attack
             System.out.println("arrow");
 			gs.addEntity(new Projectile(player.getForewardPosition(), player.getOrientation().getDegree(), 100, 10,0));
-		}
+		} else if(code == playerControls.get(11)) {//Attack
+            player.setPickpocketing(true);
+        }
     }
 
 

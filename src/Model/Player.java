@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Player extends SentientEntity {
     private Boolean Sneaking;
     private PlayerClass Class;
+    private boolean isPickpocketing;
 
     Player(Point pos, Angle theta, String name, PlayerClass PC, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
@@ -72,5 +73,12 @@ public class Player extends SentientEntity {
             return new ArrayList<>();
         }
         return Class.getSkill(skillIndex).getStats();
+    }
+
+    public boolean isPickpocketing() {
+        return isPickpocketing;
+    }
+    public void setPickpocketing(boolean bool) {
+        isPickpocketing = bool;
     }
 }
