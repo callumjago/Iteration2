@@ -31,14 +31,14 @@ public class RunGame extends Application {
     @Override
     public void start(Stage theStage) {
         mainStage = theStage;
-        mainStage.setFullScreen(true);
+        //mainStage.setFullScreen(true);
 
         mainStage.setTitle("The H Y P E");
 
         Group root = new Group();
         mainScene = new Scene(root);
         theStage.setScene( mainScene );
-        Canvas canvas = new Canvas(1920, 1080);
+        Canvas canvas = new Canvas(800, 800);
         root.getChildren().add(canvas);
 
 

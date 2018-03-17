@@ -10,12 +10,14 @@ public class GameState {
     private ArrayList<Interaction> interactions;
     private MovementHandler moveHandler;
     private InteractionHandler interactionHandler;
+    private PickPocketInteraction pickPocketInteraction;
 
     public GameState() {
         interactions = new ArrayList<Interaction>();
         entities = new ArrayList<Entity>();
         moveHandler = new MovementHandler(this);
         interactionHandler = new InteractionHandler();
+        pickPocketInteraction = null;
     }
 
     public Player getPlayer() {
@@ -40,6 +42,17 @@ public class GameState {
     }
     public void setPlayer(Player player) {
         entities.add(0,player);
+    }
+
+    public PickPocketInteraction getPickPocketInteraction() {
+        return pickPocketInteraction;
+    }
+    public void pickPocket(int index) {
+        if(pickPocketInteraction == null) {
+            return;
+        }
+        pickPocketInteraction.applyEffect(index);
+        pickPocketInteraction = null;
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
@@ -91,7 +104,7 @@ public class GameState {
 
     public Entity getEntity(Point p){
         for (Entity ent:entities) {
-            if (ent.getPosition() == p) return ent;
+            if (ent.getPosition().equals(p)) return ent;
         }
         return null;
     }
@@ -134,9 +147,14 @@ public class GameState {
     public void handleInteractions() {
         interactionHandler.generateInteractions(this, interactions);
         for (int i = 0; i < interactions.size(); i++) {
+            if(interactions.get(i) instanceof PickPocketInteraction) {
+                pickPocketInteraction = (PickPocketInteraction) interactions.get(i);
+                continue;
+            }
             interactions.get(i).applyEffect();
-            interactions.clear();
+
         }
+        interactions.clear();
     }
 
     public void addEntity(Entity e){
