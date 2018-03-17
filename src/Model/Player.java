@@ -31,4 +31,6 @@ public class Player extends SentientEntity {
     public void reset() {
         pc.resetInputRegistered();
     }
+
+    public void speakToNPC() {}
 }

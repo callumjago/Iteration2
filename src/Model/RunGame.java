@@ -118,7 +118,7 @@ public class RunGame extends Application {
                         tick = 0;
                     }
                     tick++;
-                    //dialogue.displayNextDialogue();
+                    //dialogue.startDialogue();
                 }
 
                 // Checks if players health is <= 0 for gameover screen

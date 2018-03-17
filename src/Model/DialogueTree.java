@@ -30,12 +30,12 @@ public class DialogueTree {
                     answerCount++;
                     i++;
                 }
-            } else if (prevTextType == "A") { // TODO might need to fix (with for each answer)
-
-                for(int j = 0; j < answerCount; j++) {
-                    current.addChild(new TextNode(textList.get(i),textTypes.get(i)));
+                for(TextNode answer : current.getChildren()){
+                    answer.addChild(new TextNode(textList.get(i),textTypes.get(i)));
                     i++;
                 }
+            } else if (prevTextType == "A") { // TODO might need to fix (with for each answer)
+                // does nothing now
             } else {
                 // throw error, incorrect type assigned to text
             }
