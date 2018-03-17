@@ -52,7 +52,6 @@ public class Menu {
     }
 
     public void Escape() {
-        System.out.println("OPENING");
         open = !open;
     }
     public void Enter() {

@@ -10,6 +10,7 @@ public abstract class Equipment extends Item{
     private Level reqLvl;
     private String Name;
     private String Description;
+    private ArrayList<String> statsList;
 
     public Equipment(int ItemID, int EQID, Level reqLvl, String name, String description) {
         super(ItemID);
@@ -23,6 +24,7 @@ public abstract class Equipment extends Item{
         super();
         EQID = 000;
         reqLvl = new Level(1);
+        statsList = new ArrayList<>();
         Name = "Swag";
         Description = "Dank Memes";
     }

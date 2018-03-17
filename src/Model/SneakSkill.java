@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class SneakSkill extends Skill {
     private Player player;
 
@@ -16,5 +18,9 @@ public class SneakSkill extends Skill {
     @Override
     public void RemoveSkill() {
         player.stopSneaking();
+    }
+
+    void getSpecificStats(ArrayList<String> stats) {
+
     }
 }

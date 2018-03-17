@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Fireball extends Skill {
     private Player player;
     private GameState GS;
@@ -21,5 +23,10 @@ public class Fireball extends Skill {
     @Override
     public void RemoveSkill() {
         return;
+    }
+
+    @Override
+    void getSpecificStats(ArrayList<String> stats) {
+
     }
 }

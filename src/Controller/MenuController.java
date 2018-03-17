@@ -17,7 +17,6 @@ public class MenuController extends SubKeyController {
         switch(code) {
             case ESCAPE:
                 menu.Escape();
-                System.out.println("JFEIOJFWOJ");
                 break;
             case UP:
                 menu.Up();

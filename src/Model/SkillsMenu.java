@@ -1,12 +1,16 @@
 package Model;
 
+import View.Bound;
+
 import java.util.ArrayList;
 
 public class SkillsMenu extends SubMenu {
+    private SkillMenuItem smi;
     private Player player;
     public SkillsMenu(Player player) {
         super("Skills");
         this.player = player;
+        smi = new SkillMenuItem();
     }
 
     @Override
@@ -16,16 +20,25 @@ public class SkillsMenu extends SubMenu {
 
     @Override
     MenuState generateSubMenuState(MenuState menuState) {
+        updateSkillMenuItem();
+        menuState.addMenuItem(smi);
         return menuState;
     }
 
     @Override
     void Enter(int mouseX, int mouseY) {
-
+        if(smi.collisionCheckByName("Activate Skill", mouseX, mouseY)) {
+            player.applySkill(getSubMenuSelectedIndex());
+        }
     }
 
     @Override
     int subMenuSize() {
         return player.getNumSkills();
+    }
+
+    private void updateSkillMenuItem() {
+        smi.setStats(player.getSkillStats(getSubMenuSelectedIndex()));
+        smi.addButton(new Bound(450, 750, 675, 750), "Activate Skill");
     }
 }

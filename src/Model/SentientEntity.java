@@ -46,6 +46,8 @@ public abstract class SentientEntity extends Entity {
         EquipWeapon = new Weapon();
         attemptAttack = false;
         // Add starting equipment here
+        EquipArmor = new Armor();
+        EquipRing = new Ring();
     }
 
     public void modifyHP(int delta){
@@ -77,6 +79,8 @@ public abstract class SentientEntity extends Entity {
     public int getMaxHP() { return HP.getMaxHealthPoints(); }
 
     public int getEXP() { return Lvl.getExperience(); }
+
+    public void setMaxHP(int x) { HP.setMaxHealthPoints(x);}
 
     public int getEXPRemaining() { return Lvl.getExpToNextLevel(); }
 

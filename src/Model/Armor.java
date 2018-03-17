@@ -25,7 +25,10 @@ public class Armor extends Equipment{
 
     @Override
     ArrayList<String> getStats() {
-        return null;
+        ArrayList<String> stats = new ArrayList<>();
+        stats.add("Name: " + getName());
+        stats.add("Defense: " +DefensePoints);
+        return stats;
     }
     public int getDefensePoints() {
         return DefensePoints;

@@ -95,4 +95,9 @@ public class Mana implements Stat{
         return (mpCost <= MagicPoints);
     }
 
+    @Override
+    public String getName() {
+        return "Mana";
+    }
+
 }

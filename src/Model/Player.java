@@ -17,7 +17,7 @@ public class Player extends SentientEntity {
         super(); // Attribute classes fill with default values
         Class = new Rogue();
         Sneaking = false;
-        Class.addSkill(new PassiveSkill());
+        Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
     }
 	
     public void addItem(Item item) {
@@ -52,5 +52,20 @@ public class Player extends SentientEntity {
         else{
             return 0;
         }
+
+    }
+
+    public void applySkill(int skillIndex) {
+        if(skillIndex >= Class.getTotalSkills().size()) {
+            return;
+        }
+        Class.getSkill(skillIndex).ApplySkill();
+    }
+
+    public ArrayList<String> getSkillStats(int skillIndex) {
+        if(skillIndex >= Class.getTotalSkills().size()) {
+            return new ArrayList<>();
+        }
+        return Class.getSkill(skillIndex).getStats();
     }
 }
