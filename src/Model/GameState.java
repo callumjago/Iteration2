@@ -107,6 +107,19 @@ public class GameState {
         return true;
     }
 
+    public Boolean AttackCollision(int x, int y, int damage) {
+        Iterator<Entity> it = entities.iterator();
+        Entity entity = null;
+        while (it.hasNext()) {
+            entity = it.next();
+            if (entity.getPosition().x == x && entity.getPosition().y == y) {
+                interactions.add(new DamageIR((SentientEntity) entity, damage));
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void handleInteractions() {
         interactionHandler.generateInteractions(this, interactions);
         for (int i = 0; i < interactions.size(); i++) {

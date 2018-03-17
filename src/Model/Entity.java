@@ -117,6 +117,61 @@ public abstract class Entity {
         else { moveNorth();}
     }
 
+    //direction
+    //tiles 1 - 2 away
+    //y-1 = north
+    //y+1 = south
+    //x-1 = west
+    //x+1 = east
+
+    public Point getNearbyLoc()
+    {
+        Point adj = new Point();
+        switch (orientation.getDegree()) {
+            case 0:
+                adj.x = getPosition().x + 1;
+                adj.y = getPosition().y;
+                //East
+                break;
+            case 45:
+                adj.x = getPosition().x - 1;
+                adj.y =getPosition().y + 1;
+                //SouthEast
+                break;
+            case 90:
+                adj.x = getPosition().x;
+                adj.y =getPosition().y + 1;
+                //South
+                break;
+            case 180:
+                adj.x = getPosition().x - 1;
+                adj.y =getPosition().y;
+                //West
+                break;
+            case 225:
+                adj.x = getPosition().x - 1;
+                adj.y =getPosition().y + 1;
+                //SouthWest
+                break;
+            case 270:
+                adj.x = getPosition().x;
+                adj.y =getPosition().y - 1;
+                //NorthWest
+                break;
+            case 315:
+                adj.x = getPosition().x - 1;
+                adj.y =getPosition().y + 1;
+                //NorthEast
+                break;
+            case 360:
+                adj.x = getPosition().x + 1;
+                adj.y = getPosition().y;
+                //East
+                break;
+        }
+        return adj;
+    }
+
     public boolean getAttemptMove() {
         return attemptMove;
     }
