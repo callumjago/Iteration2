@@ -4,6 +4,7 @@ import java.awt.*;
 
 public class Player extends SentientEntity {
     //private PlayerClass Class;
+   private int mapID;
 
     Player(Point pos, Angle theta, String name, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
@@ -20,7 +21,13 @@ public class Player extends SentientEntity {
         getInventory().addItem(item);
 	}
 
+    public int getMapID(){
+        return mapID;
+    }
 
+    public void setMapID(int mapID){
+        this.mapID = mapID;
+    }
 
 
 }
