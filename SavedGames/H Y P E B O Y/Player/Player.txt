@@ -1,0 +1,12 @@
+Location: 6, 4
+Armor: null
+Weapon: Model.Weapon@7eb13b4c
+Ring: null
+HP: 100
+MP: 100
+Attack: 1
+Defense: 1
+Level: 1
+Exp: 0
+Class: class Model.Player
+Name: H Y P E B O Y
