@@ -12,18 +12,22 @@ public class TeleportIR implements Interaction{
 	private GameState state;
 	private SentientEntity entity;
 	private String path;
+	private Inventory inventory;
 	
-	public TeleportIR(SentientEntity _entity, GameState _state, GameObject _obj) {
+	public TeleportIR(SentientEntity _entity, GameState _state, GameObject _obj, Inventory _inventory) {
 		entity = _entity;
 		state = _state;
 		obj = _obj;
 		path = System.getProperty("user.dir");
+		inventory = _inventory;
 	}
 	
 	public void applyEffect() {
 		try {
-			for(int i = 0; i < state.getEntities().size(); i++) {
-				state.removeEntity(state.getEntities().get(i));
+			int size = state.getEntities().size();
+			
+			for(int i = 1; i < size; i++) {
+				state.removeEntity(state.getEntities().get(1));
 			}
 			
 			TeleportCodex tcodex = new TeleportCodex();
@@ -32,7 +36,7 @@ public class TeleportIR implements Interaction{
 		
 			entity.setPosition(destination);
 		
-			File mapFile = new File(System.getProperty("user.dir") + "/GameFiles/Maps/Map" + mapID + ".txt");
+			File mapFile = new File(path + "/GameFiles/Maps/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
 			
@@ -107,21 +111,47 @@ public class TeleportIR implements Interaction{
 							NPC npc = new NPC();
 							break;
 						case 'K':
-							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
-							EquipmentCodex codex = new EquipmentCodex();
-							String tag = codex.getTag(x);
+							int id = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							EquipmentCodex ecodex = new EquipmentCodex();
+							String tag = ecodex.getTag(id);
 							
-							if(tag == "Weapon")
-								tile.setObject(new Weapon(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x), 0, codex.getAttackSpeed(x),  new Accuracy(codex.getAccuracy(x)), codex.getRange(x)));
+							switch(tag) {
 							
-							else if(tag == "Armor")
-								tile.setObject(new Armor(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x), codex.getStatPoints(x)));
+								case "fist":
+								case "ranged":
+								case "staff":
+								case "two-handed":
+								case "one-handed":
+									int lvl = ecodex.getLevelReq(id);
+									int damage = ecodex.getStatPoints(id);
+									int attackSpeed = ecodex.getAttackSpeed(id);
+									Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
+									Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getName(id), ecodex.getDescription(id), 
+											damage, 0, attackSpeed, accuracy, ecodex.getRange(id) );
+								
+									inventory.addItem(weapon);
+									break;
+								
+								case "leather":
+								case "cloth":
+								case "plate":
+									Level level = new Level(ecodex.getLevelReq(id));
+									Armor armor = new Armor(id, level, ecodex.getName(id), ecodex.getDescription(id), 
+											ecodex.getStatPoints(id));
+								
+									inventory.addItem(armor);
+									break;
+								
+								case "ring":
+									level = new Level(ecodex.getLevelReq(id));
+									Ring ring = new Ring(id, level, ecodex.getName(id), ecodex.getDescription(id));
+								
+									inventory.addItem(ring);
+									break;
+								}
 							
-							else if(tag == "Ring")
-								tile.setObject(new Ring(x, new Level(codex.getLevelReq(x)), codex.getName(x), codex.getDescription(x)));
-							
-							break;
-						}
+								break;
+							}
 					}
 					
 					tileSet.get(j).add(tile);
@@ -137,5 +167,4 @@ public class TeleportIR implements Interaction{
 			e.printStackTrace();
 		}
 	}
-
 }

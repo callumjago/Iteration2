@@ -239,4 +239,8 @@ public abstract class SentientEntity extends Entity {
     public void setAttemptAttack(boolean attemptAttack) {
         this.attemptAttack = attemptAttack;
     }
+    
+    public void setLvl(Level _Lvl) {
+    	Lvl = _Lvl;
+    }
 }
