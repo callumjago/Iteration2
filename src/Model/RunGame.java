@@ -119,6 +119,7 @@ public class RunGame extends Application {
         menu.addSubMenu(new InventoryMenu(p.getInventory()));
         menu.addSubMenu(new EquipmentMenu(p));
         menu.addSubMenu(new StatsMenu(p));
+        menu.addSubMenu(new SkillsMenu(p));
         menu.addSubMenu(new ControlsMenu(pc));
         menu.addSubMenu(new SaveGameMenu(save));
         menu.addSubMenu(new QuitGameMenu());
