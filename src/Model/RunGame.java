@@ -130,13 +130,20 @@ public class RunGame extends Application {
 
         //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
-        //Dialogue dialogue = new Dialogue(canvas);
+        //Disabled because enabling breaks ingame menus clicking
+        /*
+        Dialogue dialogue = new Dialogue(canvas);
 
-        //NPC shopKeeper = new ShopKeeper(dialogue);
-        //gameState.addEntity(shopKeeper);
-        //shopKeeper.setPosition(new Point(8,0));
-        //shopKeeper.setOrientation(new Angle(240));
-        //shopKeeper.talk();
+        NPC shopKeeper = new ShopKeeper(dialogue);
+        gameState.addEntity(shopKeeper);
+        shopKeeper.setPosition(new Point(8,0));
+        shopKeeper.setOrientation(new Angle(90));
+
+        NPC villager1 = new Villager(dialogue);
+        gameState.addEntity(villager1);
+        villager1.setPosition(new Point(8,8));
+        villager1.setOrientation(new Angle(270));
+        */
 
         mv.render(gameState);
         new AnimationTimer() {

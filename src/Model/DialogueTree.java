@@ -23,6 +23,7 @@ public class DialogueTree {
             if (prevTextType == "S") {
                 current.addChild(new TextNode(textList.get(i),textTypes.get(i)));
                 prevTextType = textTypes.get(i);
+                current = current.getChild(0);
             } else if (prevTextType == "Q") {
                 answerCount = 0;
                 while(i < textList.size() && textTypes.get(i) == "A") {
