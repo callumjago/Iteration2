@@ -61,9 +61,6 @@ public class RunGame extends Application {
 
         }
 
-
-
-
         menuView = new MenuView(canvas);
 
         ArrayList<ArrayList<Tile>> tileSet = new ArrayList<>();
@@ -113,7 +110,7 @@ public class RunGame extends Application {
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         gameState.setTileSet(tileSet);
-        gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+       // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
 
 
         menu.addSubMenu(new InventoryMenu(p.getInventory()));

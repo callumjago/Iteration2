@@ -70,7 +70,7 @@ public abstract class AI {
                     found = true;
                     break;
                 }
-                if(!gs.checkMove(getEntity(), next.x, next.y)) {//Tile not passable
+                if(!gs.checkMove(getEntity(), next.x, next.y,false)) {//Tile not passable
                     continue;
                 }
                 if(!listContainsPoint(visited, next)) {//Not Already visited

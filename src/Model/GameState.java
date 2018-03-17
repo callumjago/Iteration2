@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class GameState {
-    private Player player;
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
     private ArrayList<Interaction> interactions;
@@ -20,16 +19,15 @@ public class GameState {
     }
 
     public Player getPlayer() {
-        return player;
+        return (Player) entities.get(0);
     }
     public Point getPlayerPosition() {
-        return player.getPosition();
+        return entities.get(0).getPosition();
     }
 
     public ArrayList<ArrayList<Tile>> getTileSet() {
         return tileSet;
     }
-
 
     public ArrayList<Entity> getEntities() {
         return entities;
@@ -41,8 +39,7 @@ public class GameState {
         return tileSet.get(x).get(y).getTileObjectID();
     }
     public void setPlayer(Player player) {
-        entities.add(player);
-        this.player = player;
+        entities.add(0,player);
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
@@ -78,7 +75,7 @@ public class GameState {
         return tileSet.get(0).size();
     }
 
-    public boolean checkMove(Entity src, int x, int y){ // Returns true if move is good
+    public boolean checkMove(Entity src, int x, int y, boolean realMove){ // Returns true if move is good
         Tile t =  getTileAt(x,y);
         if (t == null){
             if (src instanceof Projectile){
@@ -86,28 +83,35 @@ public class GameState {
             }
             return false;
         }
-
-        else if (!entityCollision(src,x,y)) {
+        else if (!entityCollision(src,x,y,realMove)) {
             return false;
         }
         return t.isPassable();
     }
 
-    private boolean entityCollision(Entity src, int x, int y) {
+    public void checkEntityInteractions(){
 
+    }
+
+    private boolean entityCollision(Entity src, int x, int y, boolean realMove) {
+        // X and Y are the prospective coordinates the src wants to move to.
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
         while (it.hasNext()) {
             entity = it.next();
-            if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if(entity.getPosition().y != src.getPosition().y || entity.getPosition().x != src.getPosition().x) {
+            if (entity.getX() == x && entity.getY() == y && (!entity.equals(src))) {
+                /*System.out.println("Entity: " + entity.getX() + ", " + entity.getY());
+                System.out.println("Move Requester: " + src.getX() + ", " + src.getY());
+                System.out.println("X and Y: " + x + ", " + y);
+
+                /*if(entity.getPosition().y != src.getPosition().y || entity.getPosition().x != src.getPosition().x) {
                     return false;
-                }
-                if (entity instanceof Projectile && src instanceof SentientEntity) {
+                }*/
+                if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
                     System.out.println("Damage Interaction: " + x + ", " + y );
                 }
-                else if (src instanceof Projectile && entity instanceof SentientEntity) {
+                else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
                     System.out.println("Damage Interaction");
                 }
@@ -150,7 +154,7 @@ public class GameState {
                 ((NPC)ent).tick();
             }
             if (ent.getAttemptMove()) {
-                System.out.println("Test");
+                //System.out.println("Test");
                 moveHandler.checkMove(ent, ent.getOrientation());
             }
             handleInteractions();
@@ -158,8 +162,8 @@ public class GameState {
     }
 
     public void playerTick() {
-        if(player.getAttemptMove()) {
-            moveHandler.checkMove(player, player.getOrientation());
+        if(getPlayer().getAttemptMove()) {
+            moveHandler.checkMove(getPlayer(), getPlayer().getOrientation());
         }
         handleInteractions();
     }
