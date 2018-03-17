@@ -17,6 +17,7 @@ public class HostileAI extends AI{
     @Override
     void tick() {
         ArrayList<Point> path = getPath(getGameState().getPlayerPosition());
+        if(path.size() == 0) { return; }
         if(path.size() >= getEntity().getDetectionRange()) {
             return;
         }

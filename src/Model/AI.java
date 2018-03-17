@@ -86,9 +86,13 @@ public abstract class AI {
             }
         }
         Point current = goal;
+        if(nodeList.size() == 0) {
+            return path;
+        }
         while(entity.getPosition().x != current.x || entity.getPosition().y != current.y) {
             path.add(current);
             current = nodeList.get(current);
+            if(current == null) { break; }
         }
 
         return path;
