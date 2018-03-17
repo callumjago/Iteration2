@@ -1,0 +1,14 @@
+Location: 3 3
+MapID: 0
+Armor: 0
+Weapon: 0
+Ring: 0
+Hp: 100
+Mp: 100
+Atk: 0
+Def: 0
+Lvl: 0
+Exp: 0
+Sprite: 0
+Money: 0
+Angle: 0

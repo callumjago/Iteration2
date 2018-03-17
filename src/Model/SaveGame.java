@@ -6,10 +6,12 @@ import java.util.ArrayList;
 public class SaveGame {
 
    private GameState gs;
-
+   private int mapID;
 
     public SaveGame(GameState gs) {
         this.gs = gs;
+        mapID = gs.getPlayer().getMapID();
+        saveGame();
     }
 
     public void saveGame(){
@@ -23,10 +25,10 @@ public class SaveGame {
     private void savePlayer() {
 
         try {
-            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
-                    + gs.getPlayer().getName() + "/Player/Player.txt");
+            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Player/Player.txt");
 
-            pw.println("Location: " + (int)gs.getPlayer().getPosition().getX() + ", " + (int)gs.getPlayer().getPosition().getY());
+
+            pw.println("Location: " + (int)gs.getPlayer().getPosition().getX() + " " + (int)gs.getPlayer().getPosition().getY());
             pw.println("Map ID: " + gs.getPlayer().getMapID());
             pw.println("Armor: " + gs.getPlayer().getEquipArmor());
             pw.println("Weapon: " + gs.getPlayer().getEquipWeapon());
@@ -40,6 +42,9 @@ public class SaveGame {
             pw.println("Wallet: " + gs.getPlayer().getWallet().getMoney());
             pw.println("Class: " + gs.getPlayer().getClass());
             //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
+            pw.println("Sprite: " + 1);
+            //TODO sprite
+
             pw.println("Name: " + gs.getPlayer().getName());
             pw.close();
         }catch(Exception e){
@@ -50,8 +55,8 @@ public class SaveGame {
     }
     private void saveMap(){
         try{
-            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
-                    + gs.getPlayer().getName() + "/Maps/Map3/Map3.txt");
+            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Maps/Map"
+                                + mapID + "/Map" + mapID + ".txt");
 
             ArrayList<ArrayList<Tile>> tiles = gs.getTileSet();
             for(int i = 0; i < tiles.size(); i++){
@@ -72,13 +77,12 @@ public class SaveGame {
     }
     private void saveInventory(){
        try {
-           PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
-                                            + gs.getPlayer().getName() + "/Player/Inventory.txt");
+           PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Player/Inventory.txt");
 
             ArrayList<Item> itemList = gs.getPlayer().getInventory().getBag();
 
             for(int i = 0; i < itemList.size(); i++){
-                pw.write(itemList.get(i).getObjectID() + "" + itemList.get(i).getItemID() + ",");
+                pw.write(itemList.get(i).getObjectID() + "" + itemList.get(i).getItemID() + " ");
             }
            pw.close();
        }catch(Exception e){
@@ -93,8 +97,8 @@ public class SaveGame {
         //System.out.println("THE NUMBER OF NENEITES: " + npc.size());
 
         try{
-            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
-                    + gs.getPlayer().getName() + "/Maps/Map3/NPC3.txt");
+            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Maps/Map"
+                    + mapID + "/NPC" + mapID + ".txt");
 
 
             //Name Sprite Position Armor Weapon Ring HP MP Def Atk Lvl Exp Angle Wallet
@@ -140,8 +144,8 @@ public class SaveGame {
    private void saveNPCInv(){
        ArrayList<Entity> npc = gs.getEntities();
        try {
-           PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/"
-                   + gs.getPlayer().getName() + "/Maps/Map3/Inventory3.txt");
+           PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Maps/Map"
+                   + mapID + "/Inventory" + mapID + ".txt");
 
            for (int i = 2; i < npc.size(); i++) {
                if (npc.get(i) instanceof SentientEntity) {
@@ -154,7 +158,7 @@ public class SaveGame {
                        //TODO REMOVE THIS
                        System.out.println("OBJECT ID: " + itemList.get(j).getObjectID());
                        System.out.println("ITEM ID: " + itemList.get(j).getItemID());
-                       pw.write(itemList.get(j).getObjectID() + "" + itemList.get(j).getItemID() + ",");
+                       pw.write(itemList.get(j).getObjectID() + "" + itemList.get(j).getItemID() + " ");
                    }
                     pw.println();
                }
