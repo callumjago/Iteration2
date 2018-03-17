@@ -10,7 +10,7 @@ public class NewGame{
     int sprite;
     int playerClass;
 
-    NewGame (String name, int sprite, int playerClass){
+   public NewGame (String name, int sprite, int playerClass){
         this.name = name;
         this.sprite = sprite;
         this.playerClass = playerClass;
@@ -21,6 +21,13 @@ public class NewGame{
 
     public void newGame(){
 
+
+        File saveFolder = new File(System.getProperty("user.dir") + "/SavedGames");
+
+        //if the SavedGames folder doesn't exist make one
+        if(!saveFolder.exists()){
+            saveFolder.mkdir();
+        }
 
         Path path = Paths.get(System.getProperty("user.dir") + "/SavedGames/PlayerName");
 
