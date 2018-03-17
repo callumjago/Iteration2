@@ -117,6 +117,10 @@ public abstract class Entity {
         else { moveNorth();}
     }
 
+    public int getX(){ return (int) position.getX();}
+
+    public int getY(){ return (int) position.getY();}
+
     public boolean getAttemptMove() {
         return attemptMove;
     }

@@ -61,9 +61,6 @@ public class RunGame extends Application {
 
         }
 
-
-
-
         menuView = new MenuView(canvas);
 
         ArrayList<ArrayList<Tile>> tileSet = new ArrayList<>();
@@ -113,7 +110,7 @@ public class RunGame extends Application {
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         gameState.setTileSet(tileSet);
-        gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+       // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
 
 
         menu.addSubMenu(new InventoryMenu(p.getInventory()));
@@ -133,6 +130,8 @@ public class RunGame extends Application {
        // MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
         //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
+
+        //Dialogue dialogue = new Dialogue(canvas);
 
         mv.render(gameState);
         new AnimationTimer() {
@@ -165,6 +164,8 @@ public class RunGame extends Application {
                     }
                     tick++;
                 }
+
+                //dialogue.startDialogue();
 
                 // Checks if players health is <= 0 for gameover screen
                 //playerDeath.checkIfDead();
