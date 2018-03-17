@@ -30,7 +30,7 @@ public class LoadGame {
 
     public void loadMap(){
     	try {
-			File mapFile = new File(path + "/GameFiles/Maps/Map" + mapID + ".txt");
+			File mapFile = new File(path + "/SavedGames/H Y P E B O Y/Maps/Map1/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
 			
@@ -168,7 +168,7 @@ public class LoadGame {
     
     public void loadPlayer() {
     	try {
-    		File file = new File(path + "/GameFiles/Player/Player.txt");
+    		File file = new File(path + "/SavedGames/H Y P E B O Y/Player/Player.txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(file));
 			
 			EquipmentCodex ecodex = new EquipmentCodex();
@@ -212,6 +212,7 @@ public class LoadGame {
 				case 4: //equiping ring
 					input.next();
 					id = Integer.parseInt(input.next());
+					System.out.println(id);
 					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
 					player.setEquipRing(ring);
 					break;
@@ -268,7 +269,7 @@ public class LoadGame {
     
     public void loadInventory() {
     	try {
-    		File file = new File(path + "/GameFiles/Player/Inventory.txt");
+    		File file = new File(path + "/SavedGames/H Y P E B O Y/Player/Inventory.txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(file));
 			
 			ItemCodex icodex = new ItemCodex();

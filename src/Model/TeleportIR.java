@@ -36,7 +36,7 @@ public class TeleportIR implements Interaction{
 		
 			entity.setPosition(destination);
 		
-			File mapFile = new File(path + "/GameFiles/Maps/Map" + mapID + ".txt");
+			File mapFile = new File(path + "/SavedGames/H Y P E B O Y/Maps/Map" + mapID + "/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
 			
