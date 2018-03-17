@@ -30,20 +30,12 @@ public class SaveGame {
             pw.write("MP: " + gs.getPlayer().getMP());
             pw.write("Attack: " + gs.getPlayer().getAtk());
             pw.write("Defense: " + gs.getPlayer().getDef());
-
-            //finish this
-            pw.write("Level: ");
-            pw.write("Exp: ");
-            pw.write("ExpToLvl: ");
-
-            pw.write("Class: ");
-            // do this
-
-           // pw.write("Sprite: " + gs.getPlayer().getSprite());
+            pw.write("Level: " + gs.getPlayer().getLvl());
+            pw.write("Exp: " + gs.getPlayer().getExp());
+            pw.write("ExpToLvl: " + gs.getPlayer().getExpToNextLevel());
+            pw.write("Class: " + gs.getPlayer().getClass());
+            //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
             pw.write("Name: " + gs.getPlayer().getName());
-
-
-
             pw.close();
         }catch(Exception e){
             e.printStackTrace();
