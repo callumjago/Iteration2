@@ -40,6 +40,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.C);
         playerControls.add(KeyCode.Z);
         playerControls.add(KeyCode.Q);
+        playerControls.add(KeyCode.M);
         playerControls.add(KeyCode.SPACE);
         playerControls.add(KeyCode.ENTER);
 
@@ -52,6 +53,7 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("SE");
         controlFunctions.add("SW");
         controlFunctions.add("NW");
+        controlFunctions.add("Aim");
         controlFunctions.add("Attack");
         controlFunctions.add("Projectile");
 
@@ -97,11 +99,11 @@ public class PlayerController extends SubKeyController {
             player.moveSouthWest();
         } else if(code == playerControls.get(7)) {//MoveNW
             player.moveNorthWest();
-        } else if(code == playerControls.get(8)) {//Attack
-            player.setAttemptAttack(true);
+        } else if(code == playerControls.get(8)) {//Aim Mode
+            player.toggeleMovement();
         } else if(code == playerControls.get(9)) {//Attack
-            gs.addEntity(new Projectile(player.getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10, 0));
-        }
+			gs.addEntity(new Projectile(player.getForewardPosition(), player.getOrientation().getDegree(), 100, 10,0));
+		}
     }
 
 

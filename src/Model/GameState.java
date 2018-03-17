@@ -89,8 +89,18 @@ public class GameState {
         return t.isPassable();
     }
 
-    public void checkEntityInteractions(){
+    public Entity getEntity(Point p){
+        for (Entity ent:entities) {
+            if (ent.getPosition() == p) return ent;
+        }
+        return null;
+    }
 
+    public boolean checkEntity(Point point){
+        for (Entity ent:entities){
+            if (ent.getPosition() == point) return true;
+        }
+        return false;
     }
 
     private boolean entityCollision(Entity src, int x, int y, boolean realMove) {
