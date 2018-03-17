@@ -52,7 +52,7 @@ public class HUDView {
         gc.fillRect(canvas.getWidth()-220, 45, 200, 10);
 
         //Exp bar
-        gc.setFill(Color.BLUE);
+        gc.setFill(Color.PURPLE);
         gc.fillRect(canvas.getWidth()-220, 45, 200*expPercentage, 10);
     }
 

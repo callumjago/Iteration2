@@ -25,7 +25,6 @@ public class PickPocketController extends SubKeyController {
                 confirmPickPocket = true;
                 break;
             case DOWN:
-
                 if(selectedIndex < ppi.getNpc().getInventory().numOfItems()-1) {
                     selectedIndex++;
                 }
@@ -49,6 +48,7 @@ public class PickPocketController extends SubKeyController {
         if(confirmPickPocket) {
             System.out.println(selectedIndex);
             gs.pickPocket(selectedIndex);
+            selectedIndex = 0;
         }
     }
 
