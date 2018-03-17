@@ -107,6 +107,7 @@ public class RunGame extends Application {
         gameState.setPlayer(p);
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
+        p.getPlayerClass().addSkill(new BindWoundsSkill(p));
         NPC npc = new NPC();
         npc.setAI(new HostileAI(npc, gameState));
         gameState.addEntity(npc);

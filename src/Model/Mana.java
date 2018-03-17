@@ -92,7 +92,7 @@ public class Mana implements Stat{
     }
 
     public boolean checkCast(int mpCost){
-        return (mpCost <= MagicPoints);
+        return (mpCost+MagicPoints >= 0);
     }
 
     @Override
