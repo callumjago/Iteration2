@@ -228,7 +228,7 @@ public abstract class SentientEntity extends Entity {
         return statsList;
     }
 
-    public Point getProjectileStartPoint() {
+    public Point getForewardPosition() {
         Point pos = getPosition();
         if(getOrientation().getDegree() == 0) {
             return new Point(pos.x+1, pos.y);

@@ -10,7 +10,7 @@ public class SneakSkill extends Skill {
 
     @Override
     public void ApplySkill() {
-        player.Sneak();
+        player.toggleSneak();
     }
 
     @Override

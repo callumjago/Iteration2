@@ -13,7 +13,7 @@ public class Fireball extends Skill {
     @Override
     public void ApplySkill() {
         if (player.checkCast(10)){
-            GS.addEntity(new Projectile(player.getProjectileStartPoint(),player.getDegree(),50,12));
+            GS.addEntity(new Projectile(player.getForewardPosition(),player.getDegree(),50,12));
             player.modifyMP(-10);
         }
     }
