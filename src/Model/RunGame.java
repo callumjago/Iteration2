@@ -132,6 +132,12 @@ public class RunGame extends Application {
 
         //Dialogue dialogue = new Dialogue(canvas);
 
+        //NPC shopKeeper = new ShopKeeper(dialogue);
+        //gameState.addEntity(shopKeeper);
+        //shopKeeper.setPosition(new Point(8,0));
+        //shopKeeper.setOrientation(new Angle(240));
+        //shopKeeper.talk();
+
         mv.render(gameState);
         new AnimationTimer() {
 

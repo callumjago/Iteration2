@@ -50,4 +50,7 @@ public class NPC extends SentientEntity {
 		}
 		ai.tick();
 	}
+
+	public void checkForAnswerEvent() {}
+	public void talk() {}
 }

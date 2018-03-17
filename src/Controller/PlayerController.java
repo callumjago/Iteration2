@@ -42,6 +42,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.Q);
         playerControls.add(KeyCode.SPACE);
         playerControls.add(KeyCode.ENTER);
+        playerControls.add(KeyCode.F);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -54,6 +55,7 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("NW");
         controlFunctions.add("Attack");
         controlFunctions.add("Projectile");
+        controlFunctions.add("Interact");
 
 
         isListeningforRebind = false;
@@ -101,6 +103,8 @@ public class PlayerController extends SubKeyController {
             player.setAttemptAttack(true);
         } else if(code == playerControls.get(9)) {//Attack
             gs.addEntity(new Projectile(getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
+        } else if(code == playerControls.get(10)) {//Interact
+            //player.setAttemptInteract(true);
         }
     }
 
