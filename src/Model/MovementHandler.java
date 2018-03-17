@@ -35,7 +35,6 @@ public class MovementHandler {
                 e.setPosition(new Point(e.getPosition().x+1, e.getPosition().y+1));
             }
         }
-
         else if (dir.getDegree() == 135) {//SOUTHWEST
             if (State.checkMove(e,(int) e.getPosition().getX()-1,(int) e.getPosition().getY()+1)){
                 e.setPosition(new Point(e.getPosition().x-1, e.getPosition().y+1));

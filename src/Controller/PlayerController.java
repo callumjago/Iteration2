@@ -36,10 +36,10 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.RIGHT);
         playerControls.add(KeyCode.DOWN);
         playerControls.add(KeyCode.LEFT);
-        playerControls.add(KeyCode.NUMPAD9);
-        playerControls.add(KeyCode.NUMPAD3);
-        playerControls.add(KeyCode.NUMPAD1);
-        playerControls.add(KeyCode.NUMPAD7);
+        playerControls.add(KeyCode.E);
+        playerControls.add(KeyCode.C);
+        playerControls.add(KeyCode.Z);
+        playerControls.add(KeyCode.Q);
         playerControls.add(KeyCode.SPACE);
         playerControls.add(KeyCode.ENTER);
 
@@ -135,12 +135,22 @@ public class PlayerController extends SubKeyController {
         Point pos = player.getPosition();
         if(player.getOrientation().getDegree() == 0) {
             return new Point(pos.x+1, pos.y);
+        } else if(player.getOrientation().getDegree() == 45) {
+            return new Point(pos.x+1, pos.y+1);
         } else if(player.getOrientation().getDegree() == 90) {
             return new Point(pos.x, pos.y + 1);
+        } else if(player.getOrientation().getDegree() == 135) {
+            return new Point(pos.x-1, pos.y+1);
         } else if(player.getOrientation().getDegree() == 180) {
             return new Point(pos.x-1, pos.y);
-        } else {
+        } else if(player.getOrientation().getDegree() == 225) {
+            return new Point(pos.x-1, pos.y-1);
+        } else if(player.getOrientation().getDegree() == 270) {
             return new Point(pos.x, pos.y-1);
+        } else if(player.getOrientation().getDegree() == 315) {
+            return new Point(pos.x+1, pos.y-1);
+        } else {
+            return new Point(pos.x+1, pos.y);
         }
     }
 }

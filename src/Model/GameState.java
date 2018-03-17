@@ -86,21 +86,26 @@ public class GameState {
             }
             return false;
         }
+
         else if (!entityCollision(src,x,y)) {
             return false;
         }
         return t.isPassable();
     }
 
-    public Boolean entityCollision(Entity src, int x, int y) {
+    private boolean entityCollision(Entity src, int x, int y) {
+
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
         while (it.hasNext()) {
             entity = it.next();
             if (entity.getPosition().x == x && entity.getPosition().y == y) {
+                if(entity.getPosition().y != src.getPosition().y || entity.getPosition().x != src.getPosition().x) {
+                    return false;
+                }
                 if (entity instanceof Projectile && src instanceof SentientEntity) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
-                    System.out.println("Damage Interaction");
+                    System.out.println("Damage Interaction: " + x + ", " + y );
                 }
                 else if (src instanceof Projectile && entity instanceof SentientEntity) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
@@ -139,11 +144,14 @@ public class GameState {
                 }
             }
             if (ent instanceof NPC) {
+                if(((NPC) ent).isDead()) {
+                    entities.remove(i);
+                }
                 ((NPC)ent).tick();
             }
             if (ent.getAttemptMove()) {
+                System.out.println("Test");
                 moveHandler.checkMove(ent, ent.getOrientation());
-
             }
             handleInteractions();
         }
@@ -152,7 +160,6 @@ public class GameState {
     public void playerTick() {
         if(player.getAttemptMove()) {
             moveHandler.checkMove(player, player.getOrientation());
-
         }
         handleInteractions();
     }

@@ -52,7 +52,7 @@ public class RunGame extends Application {
         keyController.addController(mc);
 
         Player p = new Player();
-        p.setPosition(new Point(6, 4));
+        p.setPosition(new Point(6, 5));
 
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
@@ -129,9 +129,9 @@ public class RunGame extends Application {
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
-        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
+       // MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
 
-        PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
+        //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
         mv.render(gameState);
         new AnimationTimer() {
@@ -166,7 +166,7 @@ public class RunGame extends Application {
                 }
 
                 // Checks if players health is <= 0 for gameover screen
-                playerDeath.checkIfDead();
+                //playerDeath.checkIfDead();
 
 
 
