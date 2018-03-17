@@ -100,7 +100,7 @@ public class PlayerController extends SubKeyController {
         } else if(code == playerControls.get(8)) {//Attack
             player.setAttemptAttack(true);
         } else if(code == playerControls.get(9)) {//Attack
-            gs.addEntity(new Projectile(getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
+            gs.addEntity(new Projectile(player.getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
         }
     }
 
@@ -127,30 +127,5 @@ public class PlayerController extends SubKeyController {
             return "";
         }
         return playerControls.get(index).toString();
-    }
-
-    private Point getProjectileStartPoint() {
-
-
-        Point pos = player.getPosition();
-        if(player.getOrientation().getDegree() == 0) {
-            return new Point(pos.x+1, pos.y);
-        } else if(player.getOrientation().getDegree() == 45) {
-            return new Point(pos.x+1, pos.y+1);
-        } else if(player.getOrientation().getDegree() == 90) {
-            return new Point(pos.x, pos.y + 1);
-        } else if(player.getOrientation().getDegree() == 135) {
-            return new Point(pos.x-1, pos.y+1);
-        } else if(player.getOrientation().getDegree() == 180) {
-            return new Point(pos.x-1, pos.y);
-        } else if(player.getOrientation().getDegree() == 225) {
-            return new Point(pos.x-1, pos.y-1);
-        } else if(player.getOrientation().getDegree() == 270) {
-            return new Point(pos.x, pos.y-1);
-        } else if(player.getOrientation().getDegree() == 315) {
-            return new Point(pos.x+1, pos.y-1);
-        } else {
-            return new Point(pos.x+1, pos.y);
-        }
     }
 }
