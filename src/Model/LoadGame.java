@@ -30,7 +30,7 @@ public class LoadGame {
 
     public void loadMap(){
     	try {
-			File mapFile = new File(path + "/SavedGames/H Y P E B O Y/Maps/Map1/Map" + mapID + ".txt");
+			File mapFile = new File(path + "/SavedGames/H Y P E B O Y/Maps/Map" + mapID + "/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
 			
@@ -328,7 +328,7 @@ public class LoadGame {
 					inventory.addItem(useItem);
 				}
 				
-				else if(temp.charAt(0) == '2') { //cehck if item is an Interactive item
+				else if(temp.charAt(0) == '2') { //check if item is an Interactive item
 					KeyItem key = new KeyItem(icodex.getStatPoints(id));
 					
 					inventory.addItem(key);
