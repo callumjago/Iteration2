@@ -17,8 +17,9 @@ public class Dialogue {
     private ArrayList<TextNode> currentAnswerNodes;
     private ArrayList<String> testString = new ArrayList<>();
     private ArrayList<String> testTypes = new ArrayList<>();
+    private NPC currentNPCTalking;
 
-    private boolean dialogueOpen = true;
+    private boolean dialogueOpen = false;
 
     public Dialogue(Canvas canvas) {
         dialogueUI = new DialogueUI(this,canvas);
@@ -82,7 +83,8 @@ public class Dialogue {
     public void checkForContinue() {
         if (dialogueUI.getStatementShowing()) { // if a statement is currently showing so user can press ENTER
             if (currentTextNode.getChildren().size() == 0) {
-                dialogueUI.exitDialogue();
+                if (dialogueOpen)
+                    dialogueUI.exitDialogue();
                 dialogueOpen = false;
             }
             else {
@@ -96,6 +98,7 @@ public class Dialogue {
         //System.out.println(currentAnswerNodes.size());
         currentTextNode = currentAnswerNodes.get(nodeNumber-1).getChild(0);
         displayNextDialogue();
+        currentNPCTalking.checkForAnswerEvent();
     }
 
     public String getStartingDialogue() {
@@ -109,4 +112,13 @@ public class Dialogue {
     public void setCurrentTextNode(TextNode textNode) {
         currentTextNode = textNode;
     }
+
+    public void setDialogueOpen(boolean bool) { dialogueOpen = bool; }
+
+    public void setDialogueTree(DialogueTree newDialogueTree) {
+        this.dialogueTree = newDialogueTree;
+        this.currentTextNode = newDialogueTree.getRoot();
+    }
+
+    public void setCurrentNPCTalking(NPC npc) { currentNPCTalking = npc; }
 }
