@@ -59,6 +59,8 @@ public class SaveGame {
                                 + mapID + "/Map" + mapID + ".txt");
 
             ArrayList<ArrayList<Tile>> tiles = gs.getTileSet();
+            pw.print(tiles.size() + " " + tiles.get(0).size());
+            pw.println();
             for(int i = 0; i < tiles.size(); i++){
                 for(int j = 0; j < tiles.get(i).size(); j++){
                     pw.print(tiles.get(j).get(i).getTerrainID());
