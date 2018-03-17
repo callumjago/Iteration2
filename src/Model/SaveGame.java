@@ -11,7 +11,6 @@ public class SaveGame {
     public SaveGame(GameState gs) {
         this.gs = gs;
         mapID = gs.getPlayer().getMapID();
-        saveGame();
     }
 
     public void saveGame(){
