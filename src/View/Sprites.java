@@ -10,6 +10,7 @@ public class Sprites {
     private ArrayList<Image> objectSprites;
     private ArrayList<Image> terrainSprites;
     private ArrayList<Image> playerSprites;
+    private ArrayList<Image> projectileSprites;
     private Image mapTransitionSprite;
     private Image obsticleItem;
     private Image defaultObjectSprite;
@@ -23,6 +24,7 @@ public class Sprites {
         objectSprites = new ArrayList<Image>();
         terrainSprites = new ArrayList<Image>();
         playerSprites = new ArrayList<Image>();
+        projectileSprites = new ArrayList<>();
         System.out.println(workingDir);
         initializeSprites();
     }
@@ -41,15 +43,17 @@ public class Sprites {
 
         //TODO get sprite for teleport, currently just door
         objectSprites.add(getImage(workingDir + "/sprites/rock.png"));//Obstacle
-        objectSprites.add(getImage(workingDir + "/sprites/door.png"));//MapTransition
+        objectSprites.add(getImage(workingDir + "/sprites/door.png"));//MapTransition:2
         objectSprites.add(getImage(workingDir + "/sprites/skull.png"));//InstantDeath
-        objectSprites.add(getImage(workingDir + "/sprites/health2.png"));//HealingAE
+
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
-        objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE
+        objectSprites.add(getImage(workingDir + "/sprites/health2.png"));//HealingAE:5
+        objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE:6
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
         defaultObjectSprite = getImage(workingDir + "/sprites/star.png");
 
-        arrowSprite = getImage(workingDir + "/sprites/arrow.png");
+        projectileSprites.add(getImage(workingDir + "/sprites/arrow.png"));
+        projectileSprites.add(getImage(workingDir + "/sprites/fireball.png"));
     }
 
     public Image getTerrainSprite(int terrainID) {
@@ -75,5 +79,12 @@ public class Sprites {
         File file = new File(fp);
         Image image = new Image(file.toURI().toString());
         return image;
+    }
+
+    public Image getProjectileSprite(int index) {
+        if(index >= projectileSprites.size()) {
+            return projectileSprites.get(0);
+        }
+        return projectileSprites.get(index);
     }
 }
