@@ -24,8 +24,10 @@ public class TeleportIR implements Interaction{
 	
 	public void applyEffect() {
 		try {
-			for(int i = 1; i < state.getEntities().size(); i++) {
-				state.removeEntity(state.getEntities().get(i));
+			int size = state.getEntities().size();
+			
+			for(int i = 1; i < size; i++) {
+				state.removeEntity(state.getEntities().get(1));
 			}
 			
 			TeleportCodex tcodex = new TeleportCodex();
