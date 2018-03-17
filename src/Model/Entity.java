@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.*;
+import java.util.*;
 
 public abstract class Entity {
 	
@@ -124,52 +125,80 @@ public abstract class Entity {
     //x-1 = west
     //x+1 = east
 
-    public Point getNearbyLoc()
-    {
-        Point adj = new Point();
-        switch (orientation.getDegree()) {
+    public Queue<Point> getNearbyLoc(AttackOr weapon, int Range) {
+        Queue<Point> que = new LinkedList<Point>();
+        int dir = orientation.getDegree();
+        switch (weapon.getOrientation()) {
             case 0:
-                adj.x = getPosition().x + 1;
-                adj.y = getPosition().y;
-                //East
-                break;
-            case 45:
-                adj.x = getPosition().x - 1;
-                adj.y =getPosition().y + 1;
-                //SouthEast
-                break;
-            case 90:
-                adj.x = getPosition().x;
-                adj.y =getPosition().y + 1;
-                //South
-                break;
-            case 180:
-                adj.x = getPosition().x - 1;
-                adj.y =getPosition().y;
-                //West
-                break;
-            case 225:
-                adj.x = getPosition().x - 1;
-                adj.y =getPosition().y + 1;
-                //SouthWest
-                break;
-            case 270:
-                adj.x = getPosition().x;
-                adj.y =getPosition().y - 1;
-                //NorthWest
-                break;
-            case 315:
-                adj.x = getPosition().x - 1;
-                adj.y =getPosition().y + 1;
-                //NorthEast
-                break;
-            case 360:
-                adj.x = getPosition().x + 1;
-                adj.y = getPosition().y;
-                //East
-                break;
+                switch (orientation.getDegree()) {
+                    case 0:
+                        //East
+                        que = tranAck(que,  Range, 1,  0);
+                        break;
+                    case 45:
+                        //SouthEast
+                        que = tranAck(que,  Range, 1,  1);
+                        break;
+                    case 90:
+                        //South
+                        que = tranAck(que,  Range, 0,  1);
+                        break;
+                    case 135:
+                        //SouthWest
+                        que = tranAck(que,  Range, -1,  1);
+                        break;
+                    case 180:
+                        //West
+                        que = tranAck(que,  Range, -1,  0);
+                        break;
+                    case 225:
+                        //NorthWest
+                        que = tranAck(que,  Range, -1,  -1);
+                        break;
+                    case 270:
+                        //North
+                        que = tranAck(que,  Range, 0,  -1);
+                        break;
+                    case 315:
+                        //NorthEast
+                        que = tranAck(que,  Range, 1,  -1);
+                        break;
+                    case 360:
+                        //East
+                        que = tranAck(que,  Range, 1,  0);
+                        break;
+                }
+                return que;
+            case 1:
+                if(dir>270)
+                {
+                    que = tranAck(que,  Range, 1,  0);
+                }
+                else if(dir > 180 && dir < 270)
+                {
+
+                }
+                else if(dir > 90 && dir < 180)
+                {
+
+                }
+                else {
+
+                }
+
+
         }
-        return adj;
+        return  que;
+    }
+
+    public Queue<Point> tranAck(Queue<Point> que, int Range, int incX, int incY){
+        for(int i = 0; i < Range; i++) {
+            Point adj = new Point();
+            adj.x = getPosition().x + incX;
+            adj.y = getPosition().y + incY;
+            que.add(adj);
+        }
+        return que;
     }
 
     public boolean getAttemptMove() {

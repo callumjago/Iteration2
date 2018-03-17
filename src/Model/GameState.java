@@ -101,6 +101,10 @@ public class GameState {
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
                     System.out.println("Damage Interaction");
                 }
+                else if (src instanceof Projectile && entity instanceof SentientEntity) {
+                    interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
+                    System.out.println("Damage Interaction");
+                }
                 return false;
             }
         }
