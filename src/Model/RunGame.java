@@ -113,7 +113,7 @@ public class RunGame extends Application {
         gameState.setTileSet(tileSet);
         Map map = new Map(gameState);
 
-        gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+        //gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
         
         SaveGame save = new SaveGame(map.getState());
 
@@ -126,6 +126,7 @@ public class RunGame extends Application {
         
         //This lovely load game code is only temporary, don't freak about LOD :(
         LoadGame load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
+        load.loadGame();
         
         //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
