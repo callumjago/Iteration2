@@ -154,7 +154,6 @@ public class GameState {
                 ((NPC)ent).tick();
             }
             if (ent.getAttemptMove()) {
-                //System.out.println("Test");
                 moveHandler.checkMove(ent, ent.getOrientation());
             }
             handleInteractions();
