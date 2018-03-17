@@ -116,7 +116,6 @@ public class RunGame extends Application {
         Map map = new Map(gameState);
 
         //gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
-        NewGame newGame = new NewGame("PlayerName", 1, 1);
         
         SaveGame save = new SaveGame(map.getState());
 

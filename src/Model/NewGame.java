@@ -10,7 +10,7 @@ public class NewGame{
     int sprite;
     int playerClass;
 
-    NewGame (String name, int sprite, int playerClass){
+    public NewGame (String name, int sprite, int playerClass){
         this.name = name;
         this.sprite = sprite;
         this.playerClass = playerClass;

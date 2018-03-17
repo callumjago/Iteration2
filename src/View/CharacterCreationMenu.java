@@ -22,6 +22,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import Model.MainMenuHandler;
+import Model.NewGame;
 import Model.Player;
 
 public class CharacterCreationMenu {
@@ -29,6 +30,8 @@ public class CharacterCreationMenu {
     MainMenuHandler mainMenu;
     Scene characterCreationScene;
     Player player;
+    private int spriteNumber;
+    private int classNumber;
 
     public CharacterCreationMenu(MainMenuHandler mainMenu, Player player)
     {
@@ -57,10 +60,6 @@ public class CharacterCreationMenu {
         Label chooseClass = new Label("Select a class");
         chooseClass.setFont(Font.font("Verdana",14));
 
-        // Character Creation Choices
-        ChoiceBox characterClassChoices = new ChoiceBox(FXCollections.observableArrayList("Warrior","Mage","Rogue"));
-        characterClassChoices.setValue("Warrior"); //Setting a default choice
-
         ChoiceBox characterSprites = new ChoiceBox(FXCollections.observableArrayList("Guy","Girl","Adventurer","Soldier"));
         characterSprites.setValue("Guy"); //Setting a default choice
 
@@ -75,6 +74,29 @@ public class CharacterCreationMenu {
 
         Image[] spriteChoices = {characterSprite1,characterSprite2,characterSprite3,characterSprite4};
 
+        // Character Creation Choices
+        ChoiceBox characterClassChoices = new ChoiceBox(FXCollections.observableArrayList("Warrior","Mage","Rogue"));
+        
+        characterClassChoices.getSelectionModel().selectedIndexProperty().addListener(
+        			new ChangeListener<Number>() {
+                        @Override
+                        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                            classNumber = (newValue.intValue());
+                        }
+                    }
+        		);
+        
+        characterSprites.getSelectionModel().selectedIndexProperty().addListener(
+        			new ChangeListener<Number>() {
+                        @Override
+                        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                            //label.setText(spriteChoices[newValue.intValue()]);
+                            imageView.setImage(spriteChoices[newValue.intValue()]);
+                            spriteNumber = (newValue.intValue());
+                        }
+                    }
+        		);
+        
         // Sets size of sprite choice
         imageView.setFitHeight(75);
         imageView.setFitWidth(75);
@@ -122,6 +144,7 @@ public class CharacterCreationMenu {
                 //System.out.println(player.getName());
                 //System.out.println(player.getPlayerSpriteNumber());
                 //openIntroMenu();
+                NewGame newGame = new NewGame(nameInput.getText(), classNumber, spriteNumber);
                 mainMenu.changeMenu(1); // Main Game Scene
             }
             else {
@@ -144,5 +167,4 @@ public class CharacterCreationMenu {
 
         return characterCreationScene;
     }
-
 }

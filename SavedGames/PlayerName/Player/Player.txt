@@ -1,4 +1,4 @@
-Location: 6 4
+Location: 2 2
 MapID: 1
 Armor: 1
 Weapon: 1

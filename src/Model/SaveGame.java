@@ -62,8 +62,8 @@ public class SaveGame {
             pw.print(tiles.size() + " " + tiles.get(0).size());
             pw.println();
             
-            for(int i = 0; i < tiles.size(); i++){
-                for(int j = 0; j < tiles.get(i).size(); j++){
+            for(int i = 0; i < tiles.get(0).size(); i++){
+                for(int j = 0; j < tiles.size(); j++){
                     pw.print(tiles.get(j).get(i).getTerrainID());
                     
                     int objID = tiles.get(j).get(i).getTileObjectID();
