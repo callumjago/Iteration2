@@ -1,0 +1,3 @@
+ID,Tag,StatPoints,LevelReq,Description,Name
+1,health,10,0,heals,healingOS
+2,trap,-10,5,damages,trapOS
