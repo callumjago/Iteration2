@@ -3,6 +3,7 @@ package Controller;
 import Model.GameState;
 import Model.Player;
 import Model.Projectile;
+import Model.Entity;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -104,7 +105,9 @@ public class PlayerController extends SubKeyController {
         } else if(code == playerControls.get(9)) {//Attack
             gs.addEntity(new Projectile(getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
         } else if(code == playerControls.get(10)) {//Interact
-            //player.setAttemptInteract(true);
+            player.setAttemptInteract(true);
+            if (gs.getEntity(player.getForwardPosition()) instanceof Entity)
+                gs.getEntity(player.getForwardPosition()).talk();
         }
     }
 

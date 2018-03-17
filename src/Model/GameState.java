@@ -75,6 +75,13 @@ public class GameState {
         return tileSet.get(0).size();
     }
 
+    public Entity getEntity(Point p) {
+        for (Entity ent : entities) {
+            if (ent.getPosition().equals(p)) return ent;
+        }
+        return null;
+    }
+
     public boolean checkMove(Entity src, int x, int y, boolean realMove){ // Returns true if move is good
         Tile t =  getTileAt(x,y);
         if (t == null){

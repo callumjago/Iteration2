@@ -16,6 +16,7 @@ public abstract class SentientEntity extends Entity {
     private Level Lvl;
     private Wallet Coffer;
     private boolean attemptAttack;
+    private boolean attemptInteract;
 
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
@@ -31,6 +32,7 @@ public abstract class SentientEntity extends Entity {
         Coffer = new Wallet(initMoney);
         inventory = new Inventory();
         attemptAttack = false;
+        attemptInteract = false;
     }
 
     SentientEntity(){ // Attribute classes fill with default values
@@ -228,6 +230,29 @@ public abstract class SentientEntity extends Entity {
         return statsList;
     }
 
+    public Point getForwardPosition() {
+        Point pos = getPosition();
+        if(getOrientation().getDegree() == 0) {
+            return new Point(pos.x+1, pos.y);
+        } else if(getOrientation().getDegree() == 45) {
+            return new Point(pos.x+1, pos.y+1);
+        } else if(getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y + 1);
+        } else if(getOrientation().getDegree() == 135) {
+            return new Point(pos.x-1, pos.y+1);
+        } else if(getOrientation().getDegree() == 180) {
+            return new Point(pos.x-1, pos.y);
+        } else if(getOrientation().getDegree() == 225) {
+            return new Point(pos.x-1, pos.y-1);
+        } else if(getOrientation().getDegree() == 270) {
+            return new Point(pos.x, pos.y-1);
+        } else if(getOrientation().getDegree() == 315) {
+            return new Point(pos.x+1, pos.y-1);
+        } else {
+            return new Point(pos.x+1, pos.y);
+        }
+    }
+
     public void addToInventory(Item i){
         inventory.addItem(i);
     }
@@ -239,4 +264,10 @@ public abstract class SentientEntity extends Entity {
     public void setAttemptAttack(boolean attemptAttack) {
         this.attemptAttack = attemptAttack;
     }
+
+    public boolean isAttemptInteract() { return attemptInteract; }
+
+    public void setAttemptInteract(boolean attemptInteract) { this.attemptInteract = attemptInteract; }
+
+    public void talk() {}
 }

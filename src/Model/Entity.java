@@ -128,4 +128,6 @@ public abstract class Entity {
     public void resetAttemptMove() {
         attemptMove = false;
     }
+
+    public void talk() {}
 }
