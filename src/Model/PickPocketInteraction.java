@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Random;
+
 public class PickPocketInteraction implements Interaction {
     private NPC npc;
     private Player player;
@@ -7,6 +9,7 @@ public class PickPocketInteraction implements Interaction {
     public PickPocketInteraction(NPC npc, Player player) {
         this.npc = npc;
         this.player = player;
+
     }
 
     @Override
@@ -15,13 +18,14 @@ public class PickPocketInteraction implements Interaction {
     }
 
     public void applyEffect(int index) {
-        System.out.println(index);
-        if(index >= npc.getInventory().numOfItems()) {
-            return;
-        }
+        Random rand = new Random();
+
         Item item = npc.getInventory().getItem(index);
         npc.getInventory().tossItem(index);
         player.addItem(item);
+
+
+
         player.setPickpocketing(false);
     }
 
@@ -31,5 +35,10 @@ public class PickPocketInteraction implements Interaction {
 
     public NPC getNpc() {
         return npc;
+    }
+
+    public boolean getSuccess() {
+        Random rand = new Random();
+        return rand.nextBoolean();
     }
 }

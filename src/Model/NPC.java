@@ -52,4 +52,5 @@ public class NPC extends SentientEntity {
 		}
 		ai.tick();
 	}
+
 }

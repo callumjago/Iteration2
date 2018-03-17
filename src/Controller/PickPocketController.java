@@ -52,7 +52,7 @@ public class PickPocketController extends SubKeyController {
 
     public void handlePickPocket(GameState gs) {
         if(confirmPickPocket) {
-            gs.pickPocket(selectedIndex);
+            gs.pickPocket(selectedIndex, ppi.getSuccess());
             selectedIndex = 0;
             confirmPickPocket = false;
             ppi = null;

@@ -47,12 +47,20 @@ public class GameState {
     public PickPocketInteraction getPickPocketInteraction() {
         return pickPocketInteraction;
     }
-    public void pickPocket(int index) {
+    public void pickPocket(int index, boolean success) {
         if(pickPocketInteraction == null) {
             return;
         }
+        if(!success) {//Pickpocket failed
+            pickPocketInteraction.getNpc().setAI(new HostileAI(pickPocketInteraction.getNpc(), this));
+            ((Player)entities.get(0)).setPickpocketing(false);
+            pickPocketInteraction = null;
+            return;
+        }
+
         pickPocketInteraction.applyEffect(index);
         pickPocketInteraction = null;
+
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
