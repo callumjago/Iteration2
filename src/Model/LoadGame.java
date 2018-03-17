@@ -26,6 +26,7 @@ public class LoadGame {
     	loadPlayer();
     	loadMap();
     	loadInventory();
+    	loadNPC();
     }
 
     public void loadMap(){
@@ -343,6 +344,10 @@ public class LoadGame {
     	catch(Exception e) {
     		e.printStackTrace();
     	}
+    }
+    
+    public void loadNPC() {
+    	
     }
 
 }

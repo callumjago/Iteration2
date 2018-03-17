@@ -61,11 +61,77 @@ public class SaveGame {
             ArrayList<ArrayList<Tile>> tiles = gs.getTileSet();
             pw.print(tiles.size() + " " + tiles.get(0).size());
             pw.println();
+            
             for(int i = 0; i < tiles.size(); i++){
                 for(int j = 0; j < tiles.get(i).size(); j++){
                     pw.print(tiles.get(j).get(i).getTerrainID());
-                    pw.print(tiles.get(j).get(i).getTileObjectID() + " ");
-
+                    
+                    int objID = tiles.get(j).get(i).getTileObjectID();
+                    
+                    switch(objID) {
+                    case 0:
+                    	pw.print("A00");
+                    	break;
+                    case 1:
+                    	pw.print("B00");
+                    	break;
+                    case 2:
+                    	pw.print("C00");
+                    	break;
+                    case 4: 
+                    	pw.print('D');
+                    	if(tiles.get(j).get(i).getObject().getValue() < 9)
+                    		pw.print("0" + tiles.get(j).get(i).getObject().getValue());
+                    	else
+                    		pw.print(tiles.get(j).get(i).getObject().getValue());
+                    	break;
+                    case 5:
+                    	pw.print('E');
+                    	if(tiles.get(j).get(i).getObject().getValue() < 9)
+                    		pw.print("0" + tiles.get(j).get(i).getObject().getValue());
+                    	else
+                    		pw.print(tiles.get(j).get(i).getObject().getValue());
+                    	break;
+                    case 6:
+                    	pw.print('F');
+                    	if(tiles.get(j).get(i).getObject().getValue() < 9)
+                    		pw.print("0" + tiles.get(j).get(i).getObject().getValue());
+                    	else
+                    		pw.print(tiles.get(j).get(i).getObject().getValue());
+                    	break;
+                    case 7:
+                    	pw.print('G');
+                    	if(tiles.get(j).get(i).getObject().getValue() < 9)
+                    		pw.print("0" + tiles.get(j).get(i).getObject().getValue());
+                    	else
+                    		pw.print(tiles.get(j).get(i).getObject().getValue());
+                    	break;
+                    case 8:
+                    	if(tiles.get(j).get(i).getObject() instanceof Equipment) {
+                    		pw.print('K');
+                    		
+                    		if(((Equipment)tiles.get(j).get(i).getObject()).getEQID() < 9)
+                    			pw.print("0" + ((Equipment)tiles.get(j).get(i).getObject()).getEQID());
+                    		else
+                    			pw.print(((Equipment)tiles.get(j).get(i).getObject()).getEQID());
+                    	}
+                    	
+                    	else {
+                    		pw.print('H');
+                    		pw.print(((Item)tiles.get(j).get(i).getObject()).getItemID());
+                    	}
+                    	break;
+                    case 9:
+                    	pw.print('I');
+                    	
+                    	if(((OneShotItem)tiles.get(j).get(i).getObject()).getOneShotID() < 9)
+                    		pw.print("0" + ((OneShotItem)tiles.get(j).get(i).getObject()).getOneShotID());
+                    	else
+                    		pw.print(((OneShotItem)tiles.get(j).get(i).getObject()).getOneShotID());
+                    	break;
+                    }
+                    
+                    pw.print(" ");
                     //if(tiles.get(i).get(j).getTileObjectID() == );
                 }
                 pw.println();

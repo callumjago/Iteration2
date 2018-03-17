@@ -4,7 +4,7 @@ public class Teleport extends AOE {
 	private int teleID;
 	
 	public Teleport(int _teleID) {
-		super(2);
+		super(4);
 		teleID = _teleID;
 	}
 	

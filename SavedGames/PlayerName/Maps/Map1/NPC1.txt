@@ -1,1 +1,1 @@
-BOB 0 0 Model.Armor@19d54907 Model.Weapon@2df01a63 Model.Ring@6c46cdc3 100 100 1 1 1 0 Model.Angle@32cf1820 0
+BOB 0 0 Model.Armor@5c4a0a97 Model.Weapon@4a4b1de5 Model.Ring@4859fba3 100 100 1 1 1 0 Model.Angle@e9f222d 0
