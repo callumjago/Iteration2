@@ -156,7 +156,7 @@ public class RunGame extends Application {
                     ticksSincePlayerInput++;
 
                     //Npcs are allowed to move periodically
-                    if(tick > 45) {
+                    if(tick > 15) {
                         gameState.tick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
