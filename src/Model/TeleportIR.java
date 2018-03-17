@@ -32,8 +32,8 @@ public class TeleportIR implements Interaction{
 			
 			TeleportCodex tcodex = new TeleportCodex();
 			int mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
+			state.getPlayer().setMapID(mapID); //TODO revise this after
 			Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
-		
 			entity.setPosition(destination);
 		
 			File mapFile = new File(path + "/GameFiles/Maps/Map" + mapID + ".txt");
@@ -94,11 +94,11 @@ public class TeleportIR implements Interaction{
 							ItemCodex icodex = new ItemCodex();
 							String itag = icodex.getTag(x);
 							
-							if(itag == "InteractiveItem") {
+							if(itag.equals("InteractiveItem")) {
 								tile.setObject(new KeyItem(icodex.getLevelReq(x)));
 							}
 							
-							else if(itag == "UseItem") {
+							else if(itag.equals("UseItem")) {
 								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
 							}
 							break;

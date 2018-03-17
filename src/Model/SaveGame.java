@@ -27,6 +27,7 @@ public class SaveGame {
                     + gs.getPlayer().getName() + "/Player/Player.txt");
 
             pw.println("Location: " + (int)gs.getPlayer().getPosition().getX() + ", " + (int)gs.getPlayer().getPosition().getY());
+            pw.println("Map ID: " + gs.getPlayer().getMapID());
             pw.println("Armor: " + gs.getPlayer().getEquipArmor());
             pw.println("Weapon: " + gs.getPlayer().getEquipWeapon());
             pw.println("Ring: " + gs.getPlayer().getEquipRing());
