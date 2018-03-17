@@ -113,7 +113,7 @@ public class RunGame extends Application {
        // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
 
 
-        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new InventoryMenu(p));
         menu.addSubMenu(new EquipmentMenu(p));
         menu.addSubMenu(new StatsMenu(p));
         menu.addSubMenu(new SkillsMenu(p));

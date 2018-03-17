@@ -45,7 +45,6 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/rock.png"));//Obstacle
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//MapTransition:2
         objectSprites.add(getImage(workingDir + "/sprites/skull.png"));//InstantDeath
-
         objectSprites.add(getImage(workingDir + "/sprites/door.png"));//Teleport
         objectSprites.add(getImage(workingDir + "/sprites/health2.png"));//HealingAE:5
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE:6

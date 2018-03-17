@@ -46,14 +46,14 @@ public class MapView {
 
                 gc.drawImage(sprites.getTerrainSprite(gameState.getTerrainTypeAt(i, j)), x, y, tileWidth, tileHeight);
 
-                if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
 
-                    //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
-                    drawRotatedImage(sprites.getPlayerSprite(0), gameState.getPlayer().getOrientation().getDegree(), x, y);
-                }
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
                     gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)),x, y, tileWidth, tileHeight);
+                }
+                if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
+                    //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
+                    drawRotatedImage(sprites.getPlayerSprite(0), gameState.getPlayer().getOrientation().getDegree(), x, y);
                 }
             }
         }
