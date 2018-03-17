@@ -100,8 +100,9 @@ public class PlayerController extends SubKeyController {
         } else if(code == playerControls.get(7)) {//MoveNW
             player.moveNorthWest();
         } else if(code == playerControls.get(8)) {//Aim Mode
-            player.toggeleMovement();
-        } else if(code == playerControls.get(9)) {//Attack
+            player.toggleMovement();
+        } else if(code == playerControls.get(10)) {//Attack
+            System.out.println("arrow");
 			gs.addEntity(new Projectile(player.getForewardPosition(), player.getOrientation().getDegree(), 100, 10,0));
 		}
     }

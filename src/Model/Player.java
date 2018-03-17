@@ -18,6 +18,11 @@ public class Player extends SentientEntity {
         Class = new Rogue();
         Sneaking = false;
         Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
+        Class.addSkill(new DefenseBuffSkill(this));
+    }
+
+    public PlayerClass getPlayerClass(){
+        return Class;
     }
 	
     public void addItem(Item item) {

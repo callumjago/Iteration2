@@ -91,7 +91,7 @@ public class GameState {
 
     public Entity getEntity(Point p){
         for (Entity ent:entities) {
-            if (ent.getPosition() == p) return ent;
+            if (ent.getPosition().equals(p)) return ent;
         }
         return null;
     }
@@ -135,8 +135,8 @@ public class GameState {
         interactionHandler.generateInteractions(this, interactions);
         for (int i = 0; i < interactions.size(); i++) {
             interactions.get(i).applyEffect();
-            interactions.clear();
         }
+        interactions.clear();
     }
 
     public void addEntity(Entity e){

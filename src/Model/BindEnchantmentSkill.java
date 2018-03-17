@@ -7,26 +7,36 @@ import java.util.TimerTask;
 public class BindEnchantmentSkill extends Skill {
     private GameState GS;
     private Player player;
+    private SentientEntity target;
     private Timer duration;
+    private boolean CoolDown;
 
     public BindEnchantmentSkill(Player player, GameState GS){
+        super("Bind","Stops foes movement for 20 seconds", new Level(1));
         this.player = player;
         this.GS = GS;
-        duration = new Timer();
+        CoolDown = false;
     }
 
     @Override
     public void ApplySkill(){
+        if (CoolDown) {return;}
+        player.modifyMP(-25);
         Entity ent = GS.getEntity(player.getForewardPosition());
         if (ent != null && ent instanceof SentientEntity){
-            ent.toggeleMovement();
+            System.out.println("Bingo!");
+            target = (SentientEntity) ent;
+            if (duration == null){
+                duration = new Timer();
+            }
+            ent.toggleMovement();
             duration.schedule(new TimerTask(){
                 @Override
                 public void run() {
-                    ent.toggeleMovement();
+                    ent.toggleMovement();
                     RemoveSkill();
                 }
-            },30000);
+            },20000);
         }
         else{
             System.out.println("No target found :( !");
@@ -36,7 +46,9 @@ public class BindEnchantmentSkill extends Skill {
     @Override
     public void RemoveSkill() {
         duration.cancel();
-
+        duration.purge();
+        duration = null;
+        CoolDown = false;
     }
 
     @Override

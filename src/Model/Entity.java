@@ -143,5 +143,11 @@ public abstract class Entity {
 
     public void resetAttemptMove(){ attemptMove = false; }
 
-    public void toggeleMovement(){ moveable = !moveable;}
+    public void toggleMovement() {
+        moveable = !moveable;
+    }
+
+    public boolean isMoveable() {
+        return moveable;
+    }
 }
