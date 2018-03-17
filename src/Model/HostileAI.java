@@ -9,16 +9,13 @@ public class HostileAI extends AI{
 
     public HostileAI(NPC entity, GameState gameState) {
         super(entity, gameState);
-
-
-
     }
 
     @Override
     void tick() {
         ArrayList<Point> path = getPath(getGameState().getPlayerPosition());
         if(path.size() == 0) { return; }
-        if(path.size() >= getEntity().getDetectionRange()) {
+        if(path.size() >= getEntity().getDetectionRange()-getGameState().getPlayer().getSneakAmount()) {
             return;
         }
 
