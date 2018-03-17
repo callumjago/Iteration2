@@ -22,6 +22,13 @@ public class NewGame{
     public void newGame(){
 
 
+        File saveFolder = new File(System.getProperty("user.dir") + "/SavedGames");
+
+        //if the SavedGames folder doesn't exist make one
+        if(!saveFolder.exists()){
+            saveFolder.mkdir();
+        }
+
         Path path = Paths.get(System.getProperty("user.dir") + "/SavedGames/PlayerName");
 
         File sourceMapFolder = new File(System.getProperty("user.dir") + "/DefaultGameFiles");
