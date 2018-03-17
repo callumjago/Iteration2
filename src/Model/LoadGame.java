@@ -221,8 +221,10 @@ public class LoadGame {
 					break;
 				case 7: //setting attack
 					input.next();
+					input.next();
 					break;
 				case 8: //setting Defense
+					input.next();
 					input.next();
 					break;
 				case 9: //setting level
@@ -235,17 +237,21 @@ public class LoadGame {
 					break;		
 				case 11: //setting player class
 					input.next();
+					input.next();
 					break;
 				case 12: //setting player sprite
+					input.next();
 					input.next();
 					break;
 				case 13: //setting player Name
 					input.next();
 					player.setName(input.next());
+					System.out.println(player.getName());
 					break;
 				}
 				
 				++i;
+		
 				
 				if(i > 13) break;
 			}
