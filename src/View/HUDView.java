@@ -18,6 +18,7 @@ public class HUDView {
 
         renderHealthBar(player.getHP(), player.getMaxHP());
         renderExpBar(player.getEXP(), player.getEXPRemaining());
+        renderMPBar(player.getMP(), player.getMaxMP());
     }
 
     private void renderHealthBar(int HP, int maxHP) {
@@ -41,6 +42,18 @@ public class HUDView {
         //Exp bar
         gc.setFill(Color.BLUE);
         gc.fillRect(canvas.getWidth()-220, 35, 200*expPercentage, 10);
+    }
+
+    private void renderMPBar(int MP, int maxMP) {
+        float expPercentage = (float)MP/(float)maxMP;
+
+        //Background
+        gc.setFill(Color.GRAY);
+        gc.fillRect(canvas.getWidth()-220, 45, 200, 10);
+
+        //Exp bar
+        gc.setFill(Color.BLUE);
+        gc.fillRect(canvas.getWidth()-220, 45, 200*expPercentage, 10);
     }
 
 

@@ -168,11 +168,4 @@ public class MapView {
         }
     }
 
-    private void renderPickPocketMenu(PickPocketInteraction ppi) {
-        if(ppi == null) {
-            return;
-        }
-        NPCInventoryView inventoryView = new NPCInventoryView(canvas);
-        inventoryView.render(ppi.getNpc());
-    }
 }

@@ -88,6 +88,8 @@ public abstract class SentientEntity extends Entity {
         return MP.getMagicPoints();
     }
 
+    public int getMaxMP() { return MP.getMaxMagicPoints(); }
+
     public int getAtk(){
         return Atk.getAttackPoints();
     }

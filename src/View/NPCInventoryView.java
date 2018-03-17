@@ -14,6 +14,7 @@ public class NPCInventoryView {
 
     private int entryHeight, entryWidth;
     private Bound viewBound;
+    private int selectedIndex;
 
     public NPCInventoryView(Canvas canvas) {
         this.canvas = canvas;
@@ -22,9 +23,12 @@ public class NPCInventoryView {
         viewBound = new Bound((int)canvas.getWidth()/4, (int)(3*canvas.getWidth()/4), (int)canvas.getHeight()/4, (int)(3*canvas.getHeight()/4));
         entryHeight = (int)canvas.getHeight()/16;
         entryWidth = (int)canvas.getWidth()/2;
+
+        selectedIndex = 0;
     }
 
-    public void render(NPC npc) {
+    public void render(NPC npc, int selectedIndex) {
+        this.selectedIndex = selectedIndex;
         Inventory inventory = npc.getInventory();
 
         gc.setFill(Color.BLACK);
@@ -36,10 +40,14 @@ public class NPCInventoryView {
     }
 
     public void renderItem(Item item, int index) {
-        gc.setFill(Color.GRAY);
-        gc.fillRect(viewBound.getBoundLeft()+5, viewBound.getBoundTop()+5, entryWidth-10, entryHeight-10);
+        if(index == selectedIndex) {
+            gc.setFill(Color.RED);
+        } else {
+            gc.setFill(Color.GRAY);
+        }
+        gc.fillRect(viewBound.getBoundLeft()+5, viewBound.getBoundTop()+5 + entryHeight*index, entryWidth-10, entryHeight-10);
         gc.setFill(Color.BLACK);
-        gc.fillText(item.getName(), viewBound.getBoundLeft()+10, viewBound.getBoundTop()+30);
+        gc.fillText(item.getName(), viewBound.getBoundLeft()+10, viewBound.getBoundTop()+30 + entryHeight*index);
     }
 
 

@@ -175,7 +175,7 @@ public class RunGame extends Application {
                         ppc.setPickPocketInteraction(gameState.getPickPocketInteraction());
                         NPCInventoryView inventoryView = new NPCInventoryView(canvas);
 
-                        inventoryView.render(gameState.getPickPocketInteraction().getNpc());
+                        inventoryView.render(gameState.getPickPocketInteraction().getNpc(), ppc.getSelectedIndex());
                         ppc.handlePickPocket(gameState);
 
                     }

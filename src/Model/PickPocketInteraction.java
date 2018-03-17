@@ -15,12 +15,14 @@ public class PickPocketInteraction implements Interaction {
     }
 
     public void applyEffect(int index) {
+        System.out.println(index);
         if(index >= npc.getInventory().numOfItems()) {
             return;
         }
         Item item = npc.getInventory().getItem(index);
         npc.getInventory().tossItem(index);
         player.addItem(item);
+        player.setPickpocketing(false);
     }
 
     public Player getPlayer() {
