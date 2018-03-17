@@ -26,8 +26,8 @@ public class TeleportIR implements Interaction{
 		try {
 			int size = state.getEntities().size();
 			
-			for(int i = 1; i < size; i++) {
-				state.removeEntity(state.getEntities().get(1));
+			for(int i = 2; i < size; i++) {
+				state.removeEntity(state.getEntities().get(2));
 			}
 			
 			TeleportCodex tcodex = new TeleportCodex();
@@ -36,7 +36,7 @@ public class TeleportIR implements Interaction{
 		
 			entity.setPosition(destination);
 		
-			File mapFile = new File(path + "/GameFiles/Maps/Map" + mapID + ".txt");
+			File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
 			

@@ -39,7 +39,6 @@ abstract class Codex {
 
                 //System.out.print( " " +map.get(id).get(i));
             }
-            System.out.println();
             //Set<Integer> setofKeySet = map.keySet();
 
                /* for(Integer key : setofKeySet){

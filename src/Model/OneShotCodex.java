@@ -1,20 +1,13 @@
 package Model;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Set;
 
+public class OneShotCodex extends Codex {
 
+    private static final File oneShotCodex = new File (System.getProperty("user.dir") + "/SavedGames/H Y P E B O Y/Codex/OneShotCodex/OneShotCodex.csv");
 
-public class ItemCodex extends Codex {
-
-    private static final File itemCodex = new File (System.getProperty("user.dir") + "/SavedGames/H Y P E B O Y/Codex/ItemCodex/ItemCodex.csv");
-
-    ItemCodex(){
-        super(itemCodex);
+    OneShotCodex(){
+        super(oneShotCodex);
     }
 
     public String getTag(int ID){
@@ -38,5 +31,4 @@ public class ItemCodex extends Codex {
         return (map.get(ID).get(4));
 
     }
-
 }

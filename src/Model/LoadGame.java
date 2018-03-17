@@ -30,7 +30,7 @@ public class LoadGame {
 
     public void loadMap(){
     	try {
-			File mapFile = new File(path + "/GameFiles/Maps/Map" + mapID + ".txt");
+			File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
 			
@@ -88,7 +88,7 @@ public class LoadGame {
 							ItemCodex icodex = new ItemCodex();
 							String itag = icodex.getTag(x);
 							
-							if(itag == "InteractiveItem") { //temporary
+							if(itag == "key") { //temporary
 								tile.setObject(new KeyItem(icodex.getLevelReq(x)));
 							}
 							
@@ -100,8 +100,9 @@ public class LoadGame {
 							}
 							break;
 						case 'I': //one shot item
-							x = (int)temp.charAt(3)-48;
-							tile.setObject(new OneShotItem(x, 10));
+							OneShotCodex ocodex = new OneShotCodex();
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							tile.setObject(new OneShotItem(x, ocodex.getStatPoints(x)));
 							break;
 						case 'J': //npc
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
@@ -168,7 +169,7 @@ public class LoadGame {
     
     public void loadPlayer() {
     	try {
-    		File file = new File(path + "/GameFiles/Player/Player.txt");
+    		File file = new File(path + "/SavedGames/PlayerName/Player/Player.txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(file));
 			
 			EquipmentCodex ecodex = new EquipmentCodex();
@@ -212,6 +213,7 @@ public class LoadGame {
 				case 4: //equiping ring
 					input.next();
 					id = Integer.parseInt(input.next());
+					System.out.println(id);
 					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
 					player.setEquipRing(ring);
 					break;
@@ -225,11 +227,11 @@ public class LoadGame {
 					break;
 				case 7: //setting attack
 					input.next();
-					input.next();
+					player.modifyAtk(Integer.parseInt(input.next()) - player.getAtk());
 					break;
 				case 8: //setting Defense
 					input.next();
-					input.next();
+					player.modifyDef(Integer.parseInt(input.next()) - player.getDef());
 					break;
 				case 9: //setting level
 					input.next();
@@ -245,7 +247,7 @@ public class LoadGame {
 					break;
 				case 12: //setting player sprite
 					input.next();
-					input.next();
+					player.setSprite(Integer.parseInt(input.next()));
 					break;
 				case 13: //setting player Name
 					input.next();
@@ -268,7 +270,7 @@ public class LoadGame {
     
     public void loadInventory() {
     	try {
-    		File file = new File(path + "/GameFiles/Player/Inventory.txt");
+    		File file = new File(path + "/SavedGames/PlayerName/Player/Inventory.txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(file));
 			
 			ItemCodex icodex = new ItemCodex();
@@ -327,7 +329,7 @@ public class LoadGame {
 					inventory.addItem(useItem);
 				}
 				
-				else if(temp.charAt(0) == '2') { //cehck if item is an Interactive item
+				else if(temp.charAt(0) == '2') { //check if item is an Interactive item
 					KeyItem key = new KeyItem(icodex.getStatPoints(id));
 					
 					inventory.addItem(key);

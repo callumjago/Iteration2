@@ -4,7 +4,7 @@ import java.awt.*;
 import java.io.File;
 
 public class TeleportCodex extends Codex {
-    private static final File teleportCodex = new File(System.getProperty("user.dir") + "/GameFiles/Codex/TeleportLocations/TeleportLocations.csv");
+    private static final File teleportCodex = new File(System.getProperty("user.dir") + "/SavedGames/H Y P E B O Y/Codex/TeleportLocations/TeleportLocations.csv");
 
     TeleportCodex() {
         super(teleportCodex);
