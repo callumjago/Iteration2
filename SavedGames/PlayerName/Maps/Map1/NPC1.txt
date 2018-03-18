@@ -1,0 +1,8 @@
+
+Name - PointX - PointY - Angle - Armor - Weapon - Ring - Health - Mana - Attack - Defense - Level - Wallet - ExpValue
+Orc      5        5       90       0       0       0      100      100    1           1        1      50         50
+ur mom
+Orc      6        6       90       0       0       0      100      100    1           1        1      50         50
+ur mom
+Vendor   2        2       90       0       0       0      100      100    1           1        1      100        0
+ur dad

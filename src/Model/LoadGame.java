@@ -359,6 +359,8 @@ public class LoadGame {
     	try {
     		File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/NPC" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
+			br_map.readLine();
+			br_map.readLine();
 			Scanner input = new Scanner(br_map.readLine());
 			
 			while(input != null) {
@@ -388,11 +390,12 @@ public class LoadGame {
 				String description = br_map.readLine();
 				
 				
-				NPC npc = new NPC(name, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
-				
+				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
 				input = new Scanner(br_map.readLine());
 			}
 			
+			input.close();
+			br_map.close();
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
