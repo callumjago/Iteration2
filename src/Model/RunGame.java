@@ -207,15 +207,13 @@ public class RunGame extends Application {
 
                     if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing
                         ppc.setPickPocketInteraction(gameState.getPickPocketInteraction());
-
-
                         inventoryView.render(gameState.getPickPocketInteraction().getNpc(), ppc.getSelectedIndex());
                         ppc.handlePickPocket(gameState);
 
                     }
-                    if(gameState.getTransaction() != null) {
+                    if(gameState.getTransaction() != null) {//Player is trading
                         tc.setTransaction(gameState.getTransaction());
-                        inventoryView.render(gameState.getTransaction().getMerchant(), 0);
+                        inventoryView.render(gameState.getTransaction().getMerchant(), tc.getSelectedIndex());
                         tc.handleTransaction(gameState);
                     }
                 }
