@@ -120,9 +120,11 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
+
         p.getPlayerClass().addSkill(new Charm(p, gameState));
         p.getPlayerClass().addSkill(new DetectTrapSkill(p));
         p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
+
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
         p.getPlayerClass().addSkill(new AttackBuffSkill(p));
@@ -132,7 +134,10 @@ public class RunGame extends Application {
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArrowHailSkill(p,gameState));
+        p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
+        p.getPlayerClass().addSkill(new StunStrikeSkill(p,gameState));
         p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
+
 
         NPC npc = new NPC();
         npc.setAI(new HostileAI(npc, gameState));
