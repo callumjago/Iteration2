@@ -143,6 +143,8 @@ public abstract class SentientEntity extends Entity {
         return EquipRing;
     }
 
+    public void setLevel(int lvl) {Lvl.setLevel(lvl); }
+
     public void setEquipRing(Ring equipRing) {
         EquipRing = equipRing;
     }

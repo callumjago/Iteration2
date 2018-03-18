@@ -110,13 +110,13 @@ public class RunGame extends Application {
         obj5.setObject(new MapTransition());
         tileSet.get(4).set(2, obj5);
 
-
+        p.setLevel(5);
         GameState gameState = new GameState();
         gameState.setPlayer(p);
-
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
+        p.getPlayerClass().addSkill(new AttackBuffSkill(p));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
         NPC npc = new NPC();
