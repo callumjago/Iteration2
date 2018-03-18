@@ -34,6 +34,7 @@ public class PickPocketController extends SubKeyController {
                     selectedIndex--;
                 }
                 break;
+
         }
 
     }

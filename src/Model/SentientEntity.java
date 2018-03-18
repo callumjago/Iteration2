@@ -29,6 +29,7 @@ public abstract class SentientEntity extends Entity {
         Def = new Defense(initDef);
         Lvl = new Level(initLvl);
         Coffer = new Wallet(initMoney);
+
         inventory = new Inventory();
         attemptAttack = false;
     }
@@ -42,6 +43,7 @@ public abstract class SentientEntity extends Entity {
         Def = new Defense();
         Lvl = new Level();
         Coffer = new Wallet();
+        Coffer.increaseMoney(50);
         inventory = new Inventory();
         EquipWeapon = new Weapon();
         attemptAttack = false;
