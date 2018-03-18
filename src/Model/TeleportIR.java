@@ -22,17 +22,17 @@ public class TeleportIR implements Interaction{
 		obj = _obj;
 		path = System.getProperty("user.dir");
 		inventory = _inventory;
-		save = new SaveGame(state);
 	}
 	
 	public void applyEffect() {
+		save = new SaveGame(state);
+		save.saveGame();
+		
 		TeleportCodex tcodex = new TeleportCodex();
 		mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
 		Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
 		entity.setMapID(mapID);
 		entity.setPosition(destination);
-		
-		save.saveGame();
 		
 		
 		try {

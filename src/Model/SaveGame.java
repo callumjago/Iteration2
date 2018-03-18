@@ -10,16 +10,15 @@ public class SaveGame {
 
     public SaveGame(GameState gs) {
         this.gs = gs;
-        mapID = gs.getPlayer().getMapID();
     }
 
     public void saveGame(){
+    	mapID = gs.getPlayer().getMapID();
         savePlayer();
         saveMap();
         saveInventory();
         saveNPC();
         saveNPCInv();
-
     }
     private void savePlayer() {
 

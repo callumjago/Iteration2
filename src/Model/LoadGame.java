@@ -193,6 +193,7 @@ public class LoadGame {
 				case 1: //setting mapID
 					input.next();
 					mapID = Integer.parseInt(input.next());
+					player.setMapID(mapID);
 					break;
 				case 2: //equiping armor
 					input.next();
