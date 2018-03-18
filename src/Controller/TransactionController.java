@@ -23,6 +23,16 @@ public class TransactionController extends SubKeyController {
             case ENTER:
                 confirmTransaction = true;
                 break;
+            case DOWN:
+                if(selectedIndex < transaction.getMerchant().getInventory().numOfItems()-1) {
+                    selectedIndex++;
+                }
+                break;
+            case UP:
+                if(selectedIndex > 0) {
+                    selectedIndex--;
+                }
+                break;
 
 
         }
@@ -31,6 +41,9 @@ public class TransactionController extends SubKeyController {
 
     @Override
     boolean isActive() {
+        if(transaction != null) {
+            return true;
+        }
         return false;
     }
 
@@ -45,5 +58,9 @@ public class TransactionController extends SubKeyController {
             selectedIndex = 0;
             confirmTransaction = false;
         }
+    }
+
+    public int getSelectedIndex() {
+        return selectedIndex;
     }
 }
