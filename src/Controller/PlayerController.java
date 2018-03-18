@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.GameState;
+import Model.InfluenceRadius;
 import Model.Player;
 import Model.Projectile;
 import Model.Entity;
@@ -46,7 +47,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.ENTER);
         playerControls.add(KeyCode.F);
         playerControls.add(KeyCode.N);
-
+        playerControls.add(KeyCode.L);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -62,8 +63,7 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("Projectile");
         controlFunctions.add("Interact");
         controlFunctions.add("PickPocket");
-
-
+        controlFunctions.add("AngleProj");
 
         isListeningforRebind = false;
         rebindIndex = 0;
@@ -110,10 +110,13 @@ public class PlayerController extends SubKeyController {
             player.toggleMovement();
         } else if(code == playerControls.get(9)) {//Attack
             player.setAttemptAttack(true);
-        } else if(code == playerControls.get(10)) {//Attack
-            if(player.getArrowCount() > 0) {
-                gs.addEntity(new Projectile(player.getForewardPosition(), player.getOrientation().getDegree(), 100, 10, 0));
-                player.modifyArrowCount(-1);
+        } else if (code == playerControls.get(10)) {
+            InfluenceRadius n = new InfluenceRadius(player.getForewardPosition(1), 5, player.getOrientation());
+            for (int j = 0; j < 5; j++) {
+                for (int i = 0; i < n.getInfluence().size(); i++) {
+                    gs.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), 100, 0,1));
+                }
+                n.extendInfluence();
             }
         } else if(code == playerControls.get(11)) {//Interact
             player.setAttemptInteract(true);
@@ -122,7 +125,13 @@ public class PlayerController extends SubKeyController {
             }
         } else if(code == playerControls.get(12)) {//Attack
             player.setPickpocketing(true);
-
+            InfluenceRadius n = new InfluenceRadius(player.getForewardPosition(4), 2);
+            int j = 0;
+            for (int i = 0; i < n.getInfluence().size(); i++) {
+                gs.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), 100, 0,1));
+            }
+            n.extendInfluence();
+            j++;
         }
     }
 

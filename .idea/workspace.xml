@@ -3,12 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/DefenseBuffSkill$1.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/DefenseBuffSkill$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/DefenseBuffSkill.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/DefenseBuffSkill.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" />
       <change beforePath="$PROJECT_DIR$/src/Model/DefenseBuffSkill.java" afterPath="$PROJECT_DIR$/src/Model/DefenseBuffSkill.java" />
       <change beforePath="$PROJECT_DIR$/src/Model/HeavyStrikeSkill.java" afterPath="$PROJECT_DIR$/src/Model/HeavyStrikeSkill.java" />
       <change beforePath="$PROJECT_DIR$/src/Model/RunGame.java" afterPath="$PROJECT_DIR$/src/Model/RunGame.java" />
+=======
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/PlayerController.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/PlayerController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InfluenceRadius.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InfluenceRadius.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Skill.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Skill.class" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.java" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/InfluenceRadius.java" afterPath="$PROJECT_DIR$/src/Model/InfluenceRadius.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SentientEntity.java" afterPath="$PROJECT_DIR$/src/Model/SentientEntity.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Skill.java" afterPath="$PROJECT_DIR$/src/Model/Skill.java" />
+>>>>>>> master
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,6 +34,7 @@
     <leaf>
       <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
               <caret line="126" column="60" lean-forward="true" selection-start-line="126" selection-start-column="60" selection-end-line="126" selection-end-column="60" />
@@ -40,6 +53,12 @@
                 <element signature="e#1453#1682#0" expanded="true" />
                 <element signature="e#1681#1682#0" expanded="true" />
               </folding>
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="127" column="60" lean-forward="false" selection-start-line="127" selection-start-column="60" selection-end-line="127" selection-end-column="60" />
+              <folding />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -50,8 +69,13 @@
             <state relative-caret-position="84">
               <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
               <folding>
+<<<<<<< HEAD
                 <element signature="e#1239#1385#0" expanded="true" />
                 <element signature="e#1384#1385#0" expanded="true" />
+=======
+                <element signature="e#1239#1423#0" expanded="true" />
+                <element signature="e#1422#1423#0" expanded="true" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -80,8 +104,23 @@
       <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="66">
               <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+=======
+            <state relative-caret-position="171">
+              <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="111" column="42" lean-forward="true" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+>>>>>>> master
               <folding />
             </state>
           </provider>
@@ -98,21 +137,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isatt</find>
-      <find>Fireball</find>
-      <find>damage</find>
-      <find>mpCost</find>
-      <find>Coll</find>
+      <find>ArcaneBashSkill</find>
     </findStrings>
     <replaceStrings>
-      <replace>CastLightningSkill</replace>
-      <replace>ArcaneBashSkill</replace>
-      <replace>modifier</replace>
-      <replace>hpCost</replace>
+      <replace>CrossSlashSkill</replace>
     </replaceStrings>
-    <dirStrings>
-      <dir>C:\Users\Arpan\Documents\GitHub\Iteration2\src</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,6 +155,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Model/BindWoundsSkill.java" />
         <option value="$PROJECT_DIR$/src/Model/ArcaneBurstSkill.java" />
         <option value="$PROJECT_DIR$/src/Model/BindEnchantmentSkill.java" />
@@ -144,14 +174,20 @@
         <option value="$PROJECT_DIR$/src/Model/DefenseBuffSkill.java" />
         <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
         <option value="$PROJECT_DIR$/src/Model/HeavyStrikeSkill.java" />
+=======
+        <option value="$PROJECT_DIR$/src/Model/CrossSlashSkill.java" />
+        <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
+        <option value="$PROJECT_DIR$/src/Model/GameState.java" />
+        <option value="$PROJECT_DIR$/src/Model/AttackAction.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PlayerController.java" />
+>>>>>>> master
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="20" />
-    <option name="y" value="23" />
-    <option name="width" value="1612" />
-    <option name="height" value="736" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="960" />
+    <option name="width" value="960" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -326,22 +362,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="062263ad-0ab9-4edd-b4b4-bcb9ec7fd386" name="Default" comment="" />
-      <created>1521340287925</created>
+      <changelist id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="" />
+      <created>1521404420910</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1521340287925</updated>
+      <updated>1521404420910</updated>
     </task>
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -400,10 +427,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -465,6 +495,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/src/Model/Attack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -698,14 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="111" column="42" lean-forward="false" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/BindEnchantmentSkill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -750,6 +774,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+<<<<<<< HEAD
+=======
           <folding />
         </state>
       </provider>
@@ -766,18 +792,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/DefenseBuffSkill.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Attack.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+=======
         <state relative-caret-position="84">
           <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
           <folding>
-            <element signature="e#1239#1385#0" expanded="true" />
-            <element signature="e#1384#1385#0" expanded="true" />
+            <element signature="e#1239#1423#0" expanded="true" />
+            <element signature="e#1422#1423#0" expanded="true" />
           </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -793,11 +826,105 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBashSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/Model/DefenseBuffSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+          <folding>
+            <element signature="e#1239#1385#0" expanded="true" />
+            <element signature="e#1384#1385#0" expanded="true" />
+          </folding>
+=======
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="938" column="0" lean-forward="false" selection-start-line="938" selection-start-column="0" selection-end-line="938" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+          <folding />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="252">
+          <caret line="126" column="60" lean-forward="true" selection-start-line="126" selection-start-column="60" selection-end-line="126" selection-end-column="60" />
+=======
+        <state relative-caret-position="339">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+>>>>>>> master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/Model/HeavyStrikeSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1453#1682#0" expanded="true" />
             <element signature="e#1681#1682#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/Model/CrossSlashSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="127" column="60" lean-forward="false" selection-start-line="127" selection-start-column="60" selection-end-line="127" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/SleepSpell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="111" column="42" lean-forward="true" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+          <folding />
+>>>>>>> master
         </state>
       </provider>
     </entry>

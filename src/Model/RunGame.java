@@ -99,7 +99,7 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 2));
+        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
         p.setEquipWeapon((Weapon)objh.getObject());
 
 
@@ -120,6 +120,8 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
+        p.getPlayerClass().addSkill(new Charm(p, gameState));
+        p.getPlayerClass().addSkill(new DetectTrapSkill(p));
         p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
@@ -129,9 +131,10 @@ public class RunGame extends Application {
         p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
+        p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
 
         NPC npc = new NPC();
-        npc.setAI(new FriendlyAI(npc, gameState));
+        npc.setAI(new HostileAI(npc, gameState));
         gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
