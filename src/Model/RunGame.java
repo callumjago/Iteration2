@@ -53,6 +53,8 @@ public class RunGame extends Application {
 
         Player p = new Player();
         p.setPosition(new Point(6, 4));
+        NPC npc = new NPC();
+        npc.setPosition(new Point(3,4));
 
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
@@ -96,7 +98,10 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 1));
+        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6));
+        p.setEquipWeapon((Weapon)objh.getObject());
+
+
         tileSet.get(4).set(3, objh);
 
         //Map Transition
@@ -104,9 +109,11 @@ public class RunGame extends Application {
         obj5.setObject(new MapTransition());
         tileSet.get(4).set(2, obj5);
 
+
         GameState gameState = new GameState();
 
         gameState.setPlayer(p);
+        gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         gameState.setTileSet(tileSet);
@@ -159,6 +166,7 @@ public class RunGame extends Application {
                         gameState.resetEntityAttempts();
                         tick = 0;
                     }
+//                    System.out.println((npc.getHP()));
                     tick++;
                 }
 

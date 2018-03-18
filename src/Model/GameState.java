@@ -90,7 +90,6 @@ public class GameState {
         }
         return t.isPassable();
     }
-
     public Boolean entityCollision(Entity src, int x, int y) {
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
@@ -162,6 +161,12 @@ public class GameState {
         if(player.getAttemptMove()) {
             moveHandler.checkMove(player, player.getOrientation());
 
+        }
+        if(player.isAttemptAttack())
+        {
+            player.setAttemptAttack(false);
+            System.out.println("Attempt Attack true");
+            AttackAction a = new AttackAction(player, this);
         }
         handleInteractions();
     }

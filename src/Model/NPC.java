@@ -1,6 +1,6 @@
 package Model;
 
-public class NPC extends Entity {
+public class NPC extends SentientEntity {
 	private AI ai;
 	private String dialogue;
 	private int ExpUponDeath;

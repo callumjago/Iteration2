@@ -99,6 +99,7 @@ public class PlayerController extends SubKeyController {
             player.moveNorthWest();
         } else if(code == playerControls.get(8)) {//Attack
             player.setAttemptAttack(true);
+            System.out.println("play ");
         } else if(code == playerControls.get(9)) {//Attack
             gs.addEntity(new Projectile(getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
         }

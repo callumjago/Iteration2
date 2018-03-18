@@ -10,6 +10,7 @@ public class Sprites {
     private ArrayList<Image> objectSprites;
     private ArrayList<Image> terrainSprites;
     private ArrayList<Image> playerSprites;
+    private ArrayList<Image> NPCSprites;
     private Image mapTransitionSprite;
     private Image obsticleItem;
     private Image defaultObjectSprite;
@@ -23,6 +24,7 @@ public class Sprites {
         objectSprites = new ArrayList<Image>();
         terrainSprites = new ArrayList<Image>();
         playerSprites = new ArrayList<Image>();
+        NPCSprites = new ArrayList<Image>();
         System.out.println(workingDir);
         initializeSprites();
     }
@@ -34,6 +36,7 @@ public class Sprites {
         playerSprites.add(getImage(workingDir + "/sprites/characterGirl.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterAdventurer.png"));
         playerSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
+        NPCSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
 
         terrainSprites.add(getImage(workingDir + "/sprites/grass.png"));
         terrainSprites.add(getImage(workingDir + "/sprites/water.png"));
@@ -58,6 +61,10 @@ public class Sprites {
 
     public Image getPlayerSprite(int ind) {
         return playerSprites.get(ind);
+    }
+
+    public Image getNPCSprite(int ind) {
+        return NPCSprites.get(ind);
     }
 
     public Image getObjectSprite(int ind) {

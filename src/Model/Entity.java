@@ -194,8 +194,8 @@ public abstract class Entity {
     public Queue<Point> tranAck(Queue<Point> que, int Range, int incX, int incY){
         for(int i = 0; i < Range; i++) {
             Point adj = new Point();
-            adj.x = getPosition().x + incX;
-            adj.y = getPosition().y + incY;
+            adj.x = getPosition().x + incX*i;
+            adj.y = getPosition().y + incY*i;
             que.add(adj);
         }
         return que;
