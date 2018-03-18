@@ -19,6 +19,7 @@ public abstract class SentientEntity extends Entity {
     private boolean attemptAttack;
     private int WeaRange;
     private boolean attemptInteract;
+    private Quiver quiver;
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
         Name = name;
@@ -53,6 +54,9 @@ public abstract class SentientEntity extends Entity {
         // Add starting equipment here
         EquipArmor = new Armor();
         EquipRing = new Ring();
+
+        quiver = new Quiver(5);
+        quiver.modifyArrowCount(5);
     }
 
     public void modifyHP(int delta){
@@ -148,6 +152,16 @@ public abstract class SentientEntity extends Entity {
     public void setEquipRing(Ring equipRing) {
         EquipRing = equipRing;
     }
+
+    public int getArrowCount() {
+        return quiver.getArrowCount();
+    }
+
+    public void modifyArrowCount(int delta) {
+        quiver.modifyArrowCount(delta);
+    }
+
+
 
     public Boolean isDead() {
         if (HP.isDead()){
@@ -267,4 +281,6 @@ public abstract class SentientEntity extends Entity {
     public void setAttemptInteract(boolean attemptInteract) { this.attemptInteract = attemptInteract; }
 
     public void talk() {}
+
+
 }

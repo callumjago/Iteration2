@@ -22,6 +22,7 @@ public class SkillsMenu extends SubMenu {
     MenuState generateSubMenuState(MenuState menuState) {
         updateSkillMenuItem();
         menuState.addMenuItem(smi);
+        menuState.setScrollOffset(getScrollOffset());
         return menuState;
     }
 
@@ -40,5 +41,17 @@ public class SkillsMenu extends SubMenu {
     private void updateSkillMenuItem() {
         smi.setStats(player.getSkillStats(getSubMenuSelectedIndex()));
         smi.addButton(new Bound(450, 750, 675, 750), "Activate Skill");
+    }
+
+    public void scrollUp() {
+        if(getScrollOffset() > 0) {
+            setScrollOffset(getScrollOffset()-1);
+        }
+    }
+    public void scrollDown() {
+        if(getScrollOffset() < player.getNumSkills()-8) {
+            setScrollOffset(getScrollOffset()+1);
+        }
+
     }
 }

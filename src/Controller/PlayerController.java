@@ -111,7 +111,10 @@ public class PlayerController extends SubKeyController {
         } else if(code == playerControls.get(9)) {//Attack
             player.setAttemptAttack(true);
         } else if(code == playerControls.get(10)) {//Attack
-            gs.addEntity(new Projectile(player.getForewardPosition(), player.getOrientation().getDegree(), 100, 10, 0));
+            if(player.getArrowCount() > 0) {
+                gs.addEntity(new Projectile(player.getForewardPosition(), player.getOrientation().getDegree(), 100, 10, 0));
+                player.modifyArrowCount(-1);
+            }
         } else if(code == playerControls.get(11)) {//Interact
             player.setAttemptInteract(true);
             if (gs.getEntity(player.getForewardPosition()) != null) {
