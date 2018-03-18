@@ -360,7 +360,6 @@ public class LoadGame {
     		File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/NPC" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			br_map.readLine();
-			br_map.readLine();
 			Scanner input = new Scanner(br_map);
 			
 			while(input.hasNextLine()) {
