@@ -364,7 +364,6 @@ public class LoadGame {
 			
 			while(input.hasNextLine()) {
 				String name = input.next();
-				System.out.println(name);
 				Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
 				Angle angle = new Angle(Integer.parseInt(input.next()));
 				

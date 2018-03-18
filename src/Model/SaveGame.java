@@ -173,23 +173,26 @@ public class SaveGame {
 
             //Name Sprite Position Armor Weapon Ring HP MP Def Atk Lvl Exp Angle Wallet
             //Projectile Sprite Position damage range Angle
+            pw.println("lsls");
                 for(int i = 2; i < npc.size();i++){
                     if(npc.get(i) instanceof SentientEntity){
                         pw.print(((SentientEntity) npc.get(i)).getName() + " ");
                         //TODO sprite field for entity
                        // pw.print(((SentientEntity) npc.get(i)).getSprite() + " ");
                         pw.print((int)((SentientEntity) npc.get(i)).getPosition().getX() + " "+ (int)((SentientEntity) npc.get(i)).getPosition().getY() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getEquipArmor() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getEquipWeapon() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getEquipRing() + " ");
+                        pw.print(((SentientEntity) npc.get(i)).getOrientation().getDegree() + " ");
+                        pw.print(((SentientEntity) npc.get(i)).getEquipArmor().getEQID() + " ");
+                        pw.print(((SentientEntity) npc.get(i)).getEquipWeapon().getEQID() + " ");
+                        pw.print(((SentientEntity) npc.get(i)).getEquipRing().getEQID() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getHP() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getMP() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getDef() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getAtk() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getLvl() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getExp() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getOrientation() + " ");
                         pw.print(((SentientEntity) npc.get(i)).getWallet().getMoney());
+                        pw.println();
+                        pw.print(((NPC)npc.get(i)).getDescription());
                     }
                     else{
                         pw.print("Projectile ");

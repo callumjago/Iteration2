@@ -13,6 +13,8 @@ public class TeleportIR implements Interaction{
 	private SentientEntity entity;
 	private String path;
 	private Inventory inventory;
+	private SaveGame save;
+	private int mapID;
 	
 	public TeleportIR(SentientEntity _entity, GameState _state, GameObject _obj, Inventory _inventory) {
 		entity = _entity;
@@ -20,9 +22,12 @@ public class TeleportIR implements Interaction{
 		obj = _obj;
 		path = System.getProperty("user.dir");
 		inventory = _inventory;
+		save = new SaveGame(state);
 	}
 	
 	public void applyEffect() {
+		save.saveGame();
+		
 		try {
 			int size = state.getEntities().size();
 			
@@ -31,7 +36,7 @@ public class TeleportIR implements Interaction{
 			}
 			
 			TeleportCodex tcodex = new TeleportCodex();
-			int mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
+			mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
 			Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
 		
 			entity.setMapID(mapID);
@@ -171,5 +176,68 @@ public class TeleportIR implements Interaction{
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		loadNPC();
+	}
+	
+	public void loadNPC() {
+		try {
+    		File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/NPC" + mapID + ".txt");
+			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
+			br_map.readLine();
+			Scanner input = new Scanner(br_map);
+			
+			while(input.hasNextLine()) {
+				String name = input.next();
+				Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
+				Angle angle = new Angle(Integer.parseInt(input.next()));
+				
+				int id = Integer.parseInt(input.next());
+				EquipmentCodex ecodex = new EquipmentCodex();
+				Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
+				
+				id = Integer.parseInt(input.next());
+				Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
+						ecodex.getOrientation(id), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id));
+				
+				id = Integer.parseInt(input.next());
+				Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
+				
+				int HP = Integer.parseInt(input.next());
+				int MP = Integer.parseInt(input.next());
+				int Atck = Integer.parseInt(input.next());
+				int Def = Integer.parseInt(input.next());
+				int lvl = Integer.parseInt(input.next());
+				int money = Integer.parseInt(input.next());
+				int exp = Integer.parseInt(input.next());
+				String tag = input.next();
+				
+				String description = input.nextLine();
+				System.out.println(description + "/////////");
+				
+				
+				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
+				
+				switch(tag) {
+				case "Hostile":
+					npc.setAI(new HostileAI(npc, state));
+					break;
+				case "Friendly":
+					//npc.setAI(new FriendlyAI());
+					break;
+				}
+				
+				state.getEntities().add(npc);
+				
+				System.out.println("HELP!!!!");
+				//input = new Scanner(br_map.readLine());
+			}
+			
+			input.close();
+			br_map.close();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
 	}
 }
