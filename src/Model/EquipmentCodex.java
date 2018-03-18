@@ -76,7 +76,12 @@ public class EquipmentCodex  extends Codex{
         return (map.get(ID).get(4));
 
     }
-
+    public int getArmorValue (int ID) {
+        return Integer.parseInt(map.get(ID).get(5));
+    }
+    public int getWeaponValue (int ID) {
+        return Integer.parseInt(map.get(ID).get(9));
+    }
 
 	public int getOrientation(int id) {
 		// TODO Auto-generated method stub
