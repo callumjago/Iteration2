@@ -141,6 +141,29 @@ public abstract class Entity {
     //x-1 = west
     //x+1 = east
 
+    public Point getForewardPosition() {
+        Point pos = getPosition();
+        if(getOrientation().getDegree() == 0) {
+            return new Point(pos.x+1, pos.y);
+        } else if(getOrientation().getDegree() == 45) {
+            return new Point(pos.x+1, pos.y+1);
+        } else if(getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y + 1);
+        } else if(getOrientation().getDegree() == 135) {
+            return new Point(pos.x-1, pos.y+1);
+        } else if(getOrientation().getDegree() == 180) {
+            return new Point(pos.x-1, pos.y);
+        } else if(getOrientation().getDegree() == 225) {
+            return new Point(pos.x-1, pos.y-1);
+        } else if(getOrientation().getDegree() == 270) {
+            return new Point(pos.x, pos.y-1);
+        } else if(getOrientation().getDegree() == 315) {
+            return new Point(pos.x+1, pos.y-1);
+        } else {
+            return new Point(pos.x+1, pos.y);
+        }
+    }
+
     public Queue<Point> getNearbyLoc(AttackOr weapon, int Range) {
         Queue<Point> que = new LinkedList<Point>();
         int dir = orientation.getDegree();

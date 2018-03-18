@@ -31,7 +31,7 @@ public class Fireball extends Skill {
             mpCost = 20;
             range = 8;
         }
-        else if (getLvl() == 2){
+        else if (getLvl() == 4){
             damage = 60;
             mpCost = 25;
             range = 10;
