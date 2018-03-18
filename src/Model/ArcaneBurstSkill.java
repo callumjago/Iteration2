@@ -14,6 +14,10 @@ public class ArcaneBurstSkill extends Skill {
 
     @Override
     public void ApplySkill() {
+        if (!player.checkLvl(getReqLvl())){
+            System.out.println("Level not high enough to use skill!");
+            return;
+        }
         int damage = 75;
         int range = 2;
         int mpCost = 50;
@@ -33,7 +37,7 @@ public class ArcaneBurstSkill extends Skill {
             n.extendInfluence();
             for (int j = 0; j < range; j++){
                 for (int i = 0; i < n.getInfluence().size(); i++) {
-                    GS.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), damage, 0,1));
+                    GS.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), damage, 0,2));
                 }
                 n.extendInfluence();
             }

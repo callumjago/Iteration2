@@ -21,6 +21,10 @@ public class BindEnchantmentSkill extends Skill {
     @Override
     public void ApplySkill(){
         if (CoolDown) {return;}
+        else if (!player.checkLvl(getReqLvl())){
+            System.out.println("Level not high enough to use skill!");
+            return;
+        }
         int time = 10;
         int mpCost = 25;
         if (getLvl() == 2){

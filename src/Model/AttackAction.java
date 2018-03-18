@@ -29,9 +29,21 @@ public class AttackAction implements Interaction {
             }
         }
     }
-//    public void applyEffect() {
-//        entity.modifyHP(dmgAmt);
-//    }
+
+    public AttackAction(SentientEntity _entity,  GameState gs, int modifier) {
+        entity = _entity;
+        orientation = entity.getOrientation();
+        AttackOr weapon = entity.getAtOr();
+        int dir = orientation.getDegree();
+        actAmt = entity.getAtk()*modifier;
+        pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
+        if(pos != null) {
+            for (Point pt : pos) {
+                gs.AttackCollision(pt.x, pt.y, actAmt);
+            }
+        }
+    }
+
     @Override
     public void applyEffect() {}
 }

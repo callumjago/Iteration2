@@ -110,14 +110,25 @@ public class RunGame extends Application {
         obj5.setObject(new MapTransition());
         tileSet.get(4).set(2, obj5);
 
+        // Trap test
+        Tile obj6 = new Tile(0);
+        obj6.setObject(new Trap(-50,0));
+        tileSet.get(4).set(8, obj6);
+
+        p.setLevel(5);
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);
-
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
+        p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
+        p.getPlayerClass().addSkill(new AttackBuffSkill(p));
+        p.getPlayerClass().addSkill(new HealthBuffSkill(p));
+        p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
+        p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
+
         NPC npc = new NPC();
         npc.setAI(new FriendlyAI(npc, gameState));
         gameState.addEntity(npc);

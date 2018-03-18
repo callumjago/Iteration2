@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DefenseBuffSkill extends Skill{
+public class AttackBuffSkill extends Skill{
     private Player player;
     private Timer duration;
     private boolean CoolDown;
 
-    public DefenseBuffSkill(Player player){
-        super("Iron Flesh", "Make your skin rock hard to shrug off arrows!(Costs 15 MP)", new Level(2), new SkillLevel(4));
+    public AttackBuffSkill(Player player){
+        super("Rage Boost", "Get mad to increase your attack! (Costs 25 MP)", new Level(3), new SkillLevel(3));
         this.player = player;
         CoolDown = false;
     }
@@ -27,21 +27,21 @@ public class DefenseBuffSkill extends Skill{
         }
         CoolDown = true;
         int time = 10;
-        int mpCost = 20;
-        int defense = 15;
+        int mpCost = 25;
+        int attack = 15;
         if (getLvl() == 2){
             mpCost = 30;
             time = 15;
-            defense = 15;
+            attack = 15;
         }
         else if (getLvl() == 3){
             mpCost = 40;
             time = 30;
-            defense = 20;
+            attack = 20;
         }
         if (player.checkCast(-mpCost)) {
             player.modifyMP(-mpCost);
-            player.modifyDef(defense);
+            player.modifyAtk(attack);
             duration.schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -61,7 +61,7 @@ public class DefenseBuffSkill extends Skill{
         duration.cancel();
         duration.purge();
         duration = null;
-        player.modifyDef(-15);
+        player.modifyAtk(-15);
         CoolDown = false;
     }
 

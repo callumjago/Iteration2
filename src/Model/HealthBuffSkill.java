@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DefenseBuffSkill extends Skill{
+public class HealthBuffSkill extends Skill{
     private Player player;
     private Timer duration;
     private boolean CoolDown;
+    private int oldMaxHP;
 
-    public DefenseBuffSkill(Player player){
-        super("Iron Flesh", "Make your skin rock hard to shrug off arrows!(Costs 15 MP)", new Level(2), new SkillLevel(4));
+    public HealthBuffSkill(Player player){
+        super("Fortify Health", "Buff your constitution! (Costs 30 MP)", new Level(4), new SkillLevel(3));
         this.player = player;
         CoolDown = false;
     }
@@ -26,22 +27,24 @@ public class DefenseBuffSkill extends Skill{
             duration = new Timer();
         }
         CoolDown = true;
+        oldMaxHP = player.getMaxHP();
         int time = 10;
-        int mpCost = 20;
-        int defense = 15;
+        int mpCost = 30;
+        int health = 25;
         if (getLvl() == 2){
-            mpCost = 30;
+            mpCost = 35;
             time = 15;
-            defense = 15;
+            health = 50;
         }
         else if (getLvl() == 3){
             mpCost = 40;
             time = 30;
-            defense = 20;
+            health = 75;
         }
         if (player.checkCast(-mpCost)) {
             player.modifyMP(-mpCost);
-            player.modifyDef(defense);
+            player.setMaxHP(health+oldMaxHP);
+            player.modifyHP(health);
             duration.schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -61,7 +64,7 @@ public class DefenseBuffSkill extends Skill{
         duration.cancel();
         duration.purge();
         duration = null;
-        player.modifyDef(-15);
+        player.setMaxHP(oldMaxHP);
         CoolDown = false;
     }
 
