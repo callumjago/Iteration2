@@ -212,11 +212,10 @@ public class TeleportIR implements Interaction{
 				int exp = Integer.parseInt(input.next());
 				String tag = input.next();
 				
-				String description = input.nextLine();
-				System.out.println(description + "/////////");
+				String description = input.nextLine() + input.nextLine();
 				
 				
-				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
+				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag);
 				
 				switch(tag) {
 				case "Hostile":

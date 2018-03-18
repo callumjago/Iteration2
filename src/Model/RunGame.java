@@ -172,12 +172,12 @@ public class RunGame extends Application {
         Dialogue dialogue = new Dialogue(canvas);
 
         NPC shopKeeper = new ShopKeeper(dialogue);
-        gameState.addEntity(shopKeeper);
+       // gameState.addEntity(shopKeeper);
         shopKeeper.setPosition(new Point(8,0));
         shopKeeper.setOrientation(new Angle(90));
 
         NPC villager1 = new Villager(dialogue);
-        gameState.addEntity(villager1);
+        //gameState.addEntity(villager1);
         villager1.setPosition(new Point(8,8));
         villager1.setOrientation(new Angle(270));
 

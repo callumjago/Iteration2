@@ -1,5 +1,7 @@
-lsls
-Orc 6 6 90 1 1 1 100 100 1 1 1 0 0
-
-Vendor 2 2 90 1 1 1 100 100 1 1 1 0 0
-
+Name - PointX - PointY - Angle - Armor - Weapon - Ring - Health - Mana - Attack - Defense - Level - Wallet - ExpValue - Tag
+Orc      5        5       90       1       1       1      10000      100    1           1        1      50         50	Hostile
+ur mom
+Orc      6        6       90       1       1       1      100      100    1           1        1      50         50	Hostile
+ur mom
+Vendor   2        2       90       1       1       1      100      100    1           1        1      100        0	Friendly
+ur dad
