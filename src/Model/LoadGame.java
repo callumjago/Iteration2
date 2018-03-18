@@ -390,7 +390,7 @@ public class LoadGame {
 				String description = input.nextLine() + input.nextLine();
 				
 				
-				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
+				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag);
 				
 				switch(tag) {
 				case "Hostile":

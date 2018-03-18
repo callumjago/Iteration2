@@ -1,16 +1,16 @@
-Location: 3 3
+Location: 4 7
 MapID: 1
 Armor: 1
 Weapon: 1
 Ring: 1
-Hp: 100
-Mp: 100
-Atk: 0
-Def: 0
-Lvl: 0
+HP: 100
+MP: 100
+Attack: 1
+Defense: 1
+Level: 1
 Exp: 0
-Money: 0
+Wallet: 50
 Angle: 0
-Class: 1
+Class: 0
 Sprite: 0
-Name: dwasd
+Name: wads

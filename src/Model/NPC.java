@@ -8,11 +8,13 @@ public class NPC extends SentientEntity {
 	private int ExpUponDeath;
 	private int detectionRange;
 	private String description;
+	private String tag;
 	
-	NPC(String name, String _description, Point pos, Angle theta,  Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney, int _exp){
+	NPC(String name, String _description, Point pos, Angle theta,  Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney, int _exp, String tag){
 		super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
 		ExpUponDeath = _exp;
 		description = _description;
+		this.tag = tag;
 	}
 	
 	NPC(){
@@ -65,6 +67,10 @@ public class NPC extends SentientEntity {
 	
 	public String getDescription() {
 		return description;
+	}
+
+	public String getTag(){
+		return tag;
 	}
 
 
