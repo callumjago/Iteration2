@@ -46,7 +46,6 @@ public class DefenseBuffSkill extends Skill{
                 @Override
                 public void run() {
                     RemoveSkill();
-                    CoolDown = false;
                 }
             }, time * 1000);
         }
