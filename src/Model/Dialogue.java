@@ -56,12 +56,10 @@ public class Dialogue {
     public void displayNextDialogue(){
 
         dialogueUI.display();
-        //System.out.println(currentTextNode.getTextType());
         if(currentTextNode.getTextType() == "S") { // displays statement
             dialogueUI.displayStatement();
         }
         else if(currentTextNode.getTextType() == "Q") { // displays question and its answers
-            //System.out.println("made it here");
             dialogueUI.displayQuestion();
             ArrayList<String> answers = new ArrayList<>();
             ArrayList<TextNode> answerNodes = currentTextNode.getChildren();
@@ -71,13 +69,6 @@ public class Dialogue {
             }
             dialogueUI.displayAnswers(answers);
         }
-        /*
-        else if(currentTextNode.getTextType() == "A") {
-            ArrayList<String> answers = new ArrayList<>();
-            TextNode curr = currentTextNode;
-
-            //dialogueUI.displayAnswers();
-        }*/
     }
 
     public void checkForContinue() {
@@ -121,4 +112,6 @@ public class Dialogue {
     }
 
     public void setCurrentNPCTalking(NPC npc) { currentNPCTalking = npc; }
+
+    public NPC getCurrentNPCTalking() { return currentNPCTalking; }
 }

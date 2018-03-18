@@ -25,6 +25,7 @@ public class ShopKeeper extends NPC {
         shopTypes.add("S");
 
         shopKeeperTree = new DialogueTree(shopString,shopTypes);
+        this.setName("Shopkeeper");
     }
 
     public void talk() {

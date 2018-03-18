@@ -21,6 +21,7 @@ public class Villager extends NPC {
         villagerTypes.add("S");
 
         villagerDialogueTree = new DialogueTree(villagerString,villagerTypes);
+        this.setName("Villager");
     }
 
     public void talk() {

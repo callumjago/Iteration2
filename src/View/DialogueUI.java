@@ -48,17 +48,12 @@ public class DialogueUI {
     }
 
     public void display() {
-        gc.setFill(Color.WHITE);
+        gc.setFill(Color.SILVER);
         gc.fillRoundRect(dialogueX,dialogueY,dialogueWidth,dialogueHeight,10,10);
         gc.setTextAlign(TextAlignment.CENTER);
         gc.setTextBaseline(VPos.CENTER);
-        /*
-        gc.fillText(
-                "Text centered on your Canvas",
-                Math.round(canvas.getWidth()  / 2),
-                Math.round(canvas.getHeight() / 2)
-        ); */
-
+        gc.setFill(Color.BLACK);
+        gc.fillText(dialogue.getCurrentNPCTalking().getName(),375,610);
     }
 
     public void displayStatement() {
@@ -66,13 +61,14 @@ public class DialogueUI {
         gc.setFill(Color.BLACK);
         gc.fillText(dialogue.getCurrentDialogue(),375,650);
         statementShowing = true;
+        gc.fillPolygon(new double[]{dialogueX+dialogueWidth-15, dialogueX+dialogueWidth-15, dialogueX+dialogueWidth-5},
+                new double[]{dialogueY+dialogueHeight-15, dialogueY+dialogueHeight-5, dialogueY+dialogueHeight-10}, 3);
     }
 
     public void displayQuestion() {
         statementShowing = false;
         gc.setFill(Color.BLACK);
-        gc.fillText(dialogue.getCurrentDialogue(),375,625);
-        //System.out.println("displaying question");
+        gc.fillText(dialogue.getCurrentDialogue(),375,640);
     }
 
     public void displayAnswers(ArrayList<String> answers) {
@@ -82,13 +78,11 @@ public class DialogueUI {
         for(int i = 1; i <= currentAmountOfAnswers; i++) {
             gc.setFill(Color.BLACK);
             gc.fillText(answers.get(i-1),(int)(dialogueX+175*((double)i/currentAmountOfAnswers)),dialogueY + 75);
-            //System.out.println("displaying answer");
         }
     }
 
     public void userClicked() { // called when user clicks
-        //System.out.println("User has clicked");
-        System.out.println(getSelectedAnswer());
+        //System.out.println(getSelectedAnswer());
         if (statementShowing && statementContinueCollisionTest(mouseController.getMouseX(),mouseController.getMouseY()) == 1)
             dialogue.checkForContinue();
         if (answerShowing && getSelectedAnswer() != -1)
@@ -105,7 +99,7 @@ public class DialogueUI {
         Bound bound;
         for(int i = 1; i <= currentAmountOfAnswers; i++) {
             bound = getAnswerBound(i);
-            System.out.println("x: " + mouseX + " y: " + mouseY);
+            //System.out.println("x: " + mouseX + " y: " + mouseY);
             if(bound.collisionTest(mouseX, mouseY)) {
                 return i;
             }

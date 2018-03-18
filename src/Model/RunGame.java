@@ -132,7 +132,8 @@ public class RunGame extends Application {
 
         //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
-        //Disabled because enabling breaks ingame menus clicking
+        //Disabled because enabling breaks in game menus clicking
+
         /*
         Dialogue dialogue = new Dialogue(canvas);
 
