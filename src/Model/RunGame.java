@@ -107,9 +107,9 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
 
         gameState.setPlayer(p);
-        NPC npc = new NPC();
-        npc.setAI(new HostileAI(npc, gameState));
-        gameState.addEntity(npc);
+        //NPC npc = new NPC();
+        //npc.setAI(new HostileAI(npc, gameState));
+        //gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         gameState.setTileSet(tileSet);

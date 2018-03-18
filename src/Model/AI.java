@@ -86,10 +86,10 @@ public abstract class AI {
             }
         }
         Point current = goal;
-        /*while(entity.getPosition().x != current.x || entity.getPosition().y != current.y) {
+        while(entity.getPosition().x != current.x || entity.getPosition().y != current.y) {
             path.add(current);
             current = nodeList.get(current);
-        }*/
+        }
 
         return path;
     }
