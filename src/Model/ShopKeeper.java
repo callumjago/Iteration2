@@ -6,6 +6,7 @@ public class ShopKeeper extends NPC {
 
     Dialogue dialogue;
     DialogueTree shopKeeperTree;
+    private boolean isTrading;
 
     private ArrayList<String> shopString = new ArrayList<>();
     private ArrayList<String> shopTypes = new ArrayList<>();
@@ -23,9 +24,11 @@ public class ShopKeeper extends NPC {
         shopTypes.add("A");
         shopTypes.add("S");
         shopTypes.add("S");
+        addToInventory(new Ring());
 
         shopKeeperTree = new DialogueTree(shopString,shopTypes);
         this.setName("Shopkeeper");
+        isTrading = false;
     }
 
     public void talk() {
@@ -36,8 +39,16 @@ public class ShopKeeper extends NPC {
 
     public void checkForAnswerEvent() { // If user selects yes to open shop
         if (dialogue.getCurrentDialogue() == "Awesome!") {
-            System.out.println("Time to open the shop for you to browse!");
+            isTrading = true;
         }
+    }
+
+    public boolean isTrading() {
+        return isTrading;
+    }
+
+    public void setIsTrading(boolean bool) {
+        isTrading = bool;
     }
 
 }

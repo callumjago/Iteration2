@@ -6,6 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 public class MenuView {
     private Canvas canvas;
@@ -54,6 +55,7 @@ public class MenuView {
         for(int i = 0; i < state.getMenuSize(); i++) {
             gc.setFill(Color.GRAY);
             bound = ui.getMenuBound(i);
+
             if(bound.collisionTest(state.getMouseX(), state.getMouseY())) {
                 gc.setFill(Color.BLUE);
             }
@@ -65,6 +67,7 @@ public class MenuView {
 
             //drawText
             gc.setFont(menuFont);
+            gc.setTextAlign(TextAlignment.LEFT);
             gc.setFill(Color.BLACK);
             gc.fillText(state.getMenuListName(i), bound.getBoundLeft()+40, bound.getBoundTop()+(bound.getHeight()/2)+5);
 

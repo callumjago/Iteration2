@@ -11,6 +11,7 @@ public class GameState {
     private MovementHandler moveHandler;
     private InteractionHandler interactionHandler;
     private PickPocketInteraction pickPocketInteraction;
+    private Transaction transaction;
 
     public GameState() {
         interactions = new ArrayList<Interaction>();
@@ -18,6 +19,7 @@ public class GameState {
         moveHandler = new MovementHandler(this);
         interactionHandler = new InteractionHandler();
         pickPocketInteraction = null;
+        transaction = null;
     }
 
     public Player getPlayer() {
@@ -47,6 +49,11 @@ public class GameState {
     public PickPocketInteraction getPickPocketInteraction() {
         return pickPocketInteraction;
     }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
     public void pickPocket(int index, boolean success) {
         if(pickPocketInteraction == null) {
             return;
@@ -60,7 +67,15 @@ public class GameState {
 
         pickPocketInteraction.applyEffect(index);
         pickPocketInteraction = null;
+    }
 
+    public void performTransaction(int index) {
+        if(transaction == null) {
+            return;
+        }
+
+        transaction.applyEffect(index);
+        transaction = null;
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
@@ -157,8 +172,12 @@ public class GameState {
     public void handleInteractions() {
         interactionHandler.generateInteractions(this, interactions);
         for (int i = 0; i < interactions.size(); i++) {
-            if(interactions.get(i) instanceof PickPocketInteraction) {
+            if(interactions.get(i) instanceof PickPocketInteraction) {//Pick pocket attempt
                 pickPocketInteraction = (PickPocketInteraction) interactions.get(i);
+                continue;
+            }
+            if(interactions.get(i) instanceof Transaction) {//Transaction started
+                transaction = (Transaction) interactions.get(i);
                 continue;
             }
             interactions.get(i).applyEffect();
