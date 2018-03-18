@@ -43,6 +43,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.Q);
         playerControls.add(KeyCode.SPACE);
         playerControls.add(KeyCode.ENTER);
+        playerControls.add(KeyCode.L);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -55,6 +56,7 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("NW");
         controlFunctions.add("Attack");
         controlFunctions.add("Projectile");
+        controlFunctions.add("AngleProj");
 
 
         isListeningforRebind = false;
@@ -101,20 +103,25 @@ public class PlayerController extends SubKeyController {
         } else if(code == playerControls.get(8)) {//Attack
             player.setAttemptAttack(true);
         } else if(code == playerControls.get(9)) {//Attack
-            InfluenceRadius n = new InfluenceRadius(player.getForewardPosition(), 2);
+            InfluenceRadius n = new InfluenceRadius(player.getForewardPosition(4), 2);
             int j = 0;
-            n.extendInfluence();
-            n.extendInfluence();
-            n.extendInfluence();
 //            while (j != 3) {
                 for (int i = 0; i < n.getInfluence().size(); i++) {
-                    gs.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), 100, 5));
+                    gs.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), 100, 0));
                     //System.out.println("putting new projectile at " + n.getInfluence().get(i).getX() +","+ n.getInfluence().get(i).getY() + "\n");
                 }
                 n.extendInfluence();
                 j++;
 //            }
-
+        } else if (code == playerControls.get(10)) {
+            InfluenceRadius n = new InfluenceRadius(player.getForewardPosition(1), 5, player.getOrientation());
+//            n.skipToStep(3);
+            for (int j = 0; j < 5; j++) {
+                for (int i = 0; i < n.getInfluence().size(); i++) {
+                    gs.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), 100, 0));
+                }
+                n.extendInfluence();
+            }
         }
     }
 
