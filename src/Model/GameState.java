@@ -171,17 +171,14 @@ public class GameState {
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
         boolean ranged = true;
-        switch (tag) {
-            case "bow":
+        if (tag.equals("bow")) {
                 this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), 100, 10, 0));
                 getPlayer().modifyArrowCount(-1);
-                break;
         }
         while (it.hasNext()) {
             entity = it.next();
             if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if(ranged != true)
-                {
+                if(ranged != true) {
                     interactions.add(new DamageIR((SentientEntity) entity, damage));
                 }
                 return true;

@@ -22,9 +22,7 @@ public class AttackAction implements Interaction {
         tag = entity.getWeaponTag();
         pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
         if(pos != null) {
-            System.out.println("something");
             for (Point pt : pos) {
-                System.out.println("something");
                 gs.AttackCollision(pt.x, pt.y, actAmt, tag);
             }
         }
