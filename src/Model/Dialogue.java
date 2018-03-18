@@ -88,9 +88,16 @@ public class Dialogue {
     }
 
     public void answerSelected(int nodeNumber) {
+        currentTextNode = currentAnswerNodes.get(nodeNumber - 1);
         //System.out.println(currentAnswerNodes.size());
-        currentTextNode = currentAnswerNodes.get(nodeNumber-1).getChild(0);
-        displayNextDialogue();
+        if (currentAnswerNodes.get(nodeNumber-1).getChildren().size() != 0) {
+            currentTextNode = currentAnswerNodes.get(nodeNumber - 1).getChild(0);
+            displayNextDialogue();
+        }
+        else {
+            dialogueUI.exitDialogue();
+            dialogueOpen = false;
+        }
         currentNPCTalking.checkForAnswerEvent();
     }
 

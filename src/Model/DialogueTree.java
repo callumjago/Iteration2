@@ -31,9 +31,11 @@ public class DialogueTree {
                     answerCount++;
                     i++;
                 }
-                for(TextNode answer : current.getChildren()){
-                    answer.addChild(new TextNode(textList.get(i),textTypes.get(i)));
-                    i++;
+                if (i < textList.size()) {
+                    for(TextNode answer : current.getChildren()) {
+                        answer.addChild(new TextNode(textList.get(i), textTypes.get(i)));
+                        i++;
+                    }
                 }
             } else if (prevTextType == "A") { // TODO might need to fix (with for each answer)
                 // does nothing now

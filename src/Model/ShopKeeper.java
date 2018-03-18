@@ -17,13 +17,9 @@ public class ShopKeeper extends NPC {
         shopString.add("Would you like to purchase some goods?");
         shopString.add("Yes");
         shopString.add("No");
-        shopString.add("Awesome!");
-        shopString.add("Wow, unbelievable.");
         shopTypes.add("Q");
         shopTypes.add("A");
         shopTypes.add("A");
-        shopTypes.add("S");
-        shopTypes.add("S");
         addToInventory(new Ring());
 
         shopKeeperTree = new DialogueTree(shopString,shopTypes);
@@ -38,7 +34,7 @@ public class ShopKeeper extends NPC {
     }
 
     public void checkForAnswerEvent() { // If user selects yes to open shop
-        if (dialogue.getCurrentDialogue() == "Awesome!") {
+        if (dialogue.getCurrentDialogue() == "Yes") {
             isTrading = true;
         }
     }
