@@ -121,6 +121,7 @@ public class RunGame extends Application {
         gameState.setPlayer(p);
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
         p.getPlayerClass().addSkill(new Charm(p, gameState));
+        p.getPlayerClass().addSkill(new DetectTrapSkill(p));
         p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
