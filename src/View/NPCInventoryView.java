@@ -6,6 +6,7 @@ import Model.NPC;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 
 
 public class NPCInventoryView {
@@ -47,6 +48,7 @@ public class NPCInventoryView {
         }
         gc.fillRect(viewBound.getBoundLeft()+5, viewBound.getBoundTop()+5 + entryHeight*index, entryWidth-10, entryHeight-10);
         gc.setFill(Color.BLACK);
+        gc.setTextAlign(TextAlignment.LEFT);
         gc.fillText(item.getName(), viewBound.getBoundLeft()+10, viewBound.getBoundTop()+30 + entryHeight*index);
     }
 

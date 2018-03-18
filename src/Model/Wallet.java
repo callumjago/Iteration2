@@ -62,11 +62,11 @@ public class Wallet {
     }
 
     public void decreaseMoney(int amt){
-        if (Money - amt <= 0){
+        if (Money + amt <= 0){
             Money = 0;
         }
         else{
-            Money -= amt;
+            Money += amt;
         }
     }
 }

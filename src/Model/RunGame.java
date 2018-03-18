@@ -1,12 +1,10 @@
 package Model;
 
-import Controller.PlayerController;
+import Controller.*;
 import View.MapView;
 import View.MenuView;
-import Controller.KeyController;
-import Controller.MenuController;
-import Controller.PickPocketController;
 import View.NPCInventoryView;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -126,6 +124,8 @@ public class RunGame extends Application {
         keyController.addController(pc);
         PickPocketController ppc = new PickPocketController();
         keyController.addController(ppc);
+        TransactionController tc = new TransactionController();
+        keyController.addController(tc);
         gameState.setTileSet(tileSet);
        // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
 
@@ -137,6 +137,8 @@ public class RunGame extends Application {
         menu.addSubMenu(new ControlsMenu(pc));
         menu.addSubMenu(new SaveGameMenu(save));
         menu.addSubMenu(new QuitGameMenu());
+
+        NPCInventoryView inventoryView = new NPCInventoryView(canvas);
 
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
         //Map map = new Map(gameState);
@@ -152,7 +154,7 @@ public class RunGame extends Application {
 
         //Disabled because enabling breaks in game menus clicking
 
-        /*
+
         Dialogue dialogue = new Dialogue(canvas);
 
         NPC shopKeeper = new ShopKeeper(dialogue);
@@ -164,7 +166,7 @@ public class RunGame extends Application {
         gameState.addEntity(villager1);
         villager1.setPosition(new Point(8,8));
         villager1.setOrientation(new Angle(270));
-        */
+
 
         mv.render(gameState);
         new AnimationTimer() {
@@ -177,6 +179,10 @@ public class RunGame extends Application {
                 //map.updateGameState(gameState);
                 // map.Tick();
                 if(menu.isOpen()) {//render menu
+                    if(!dialogue.getDialogueOpen()) {
+                        canvas.setOnMouseMoved(menu.getMenuMouseController());
+                        canvas.setOnMouseClicked(menu.getMenuClickHandler());
+                    }
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
                     if(keyController.getKeyPressed() && ticksSincePlayerInput > 5) {//Immediately responds if player input registered
@@ -200,15 +206,20 @@ public class RunGame extends Application {
 
                     if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing
                         ppc.setPickPocketInteraction(gameState.getPickPocketInteraction());
-                        NPCInventoryView inventoryView = new NPCInventoryView(canvas);
+
 
                         inventoryView.render(gameState.getPickPocketInteraction().getNpc(), ppc.getSelectedIndex());
                         ppc.handlePickPocket(gameState);
 
                     }
+                    if(gameState.getTransaction() != null) {
+                        tc.setTransaction(gameState.getTransaction());
+                        inventoryView.render(gameState.getTransaction().getMerchant(), 0);
+                        tc.handleTransaction(gameState);
+                    }
                 }
 
-                //dialogue.startDialogue();
+                dialogue.startDialogue();
 
                 // Checks if players health is <= 0 for gameover screen
                 //playerDeath.checkIfDead();

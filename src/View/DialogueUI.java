@@ -124,4 +124,9 @@ public class DialogueUI {
     public void exitDialogue() { gc.clearRect(dialogueX,dialogueY,dialogueWidth,dialogueHeight); }
 
     public int getCurrentAmountOfAnswer() { return currentAmountOfAnswers; }
+
+    public void setControls() {
+        canvas.setOnMouseClicked(ach);
+        canvas.setOnMouseMoved(mouseController);
+    }
 }

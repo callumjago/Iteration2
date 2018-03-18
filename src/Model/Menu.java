@@ -116,4 +116,11 @@ public class Menu {
     public boolean isOpen() {
         return open;
     }
+
+    public MenuClickHandler getMenuClickHandler() {
+        return mch;
+    }
+    public MenuMouseController getMenuMouseController() {
+        return mmc;
+    }
 }

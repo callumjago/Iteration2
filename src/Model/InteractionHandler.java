@@ -38,6 +38,14 @@ public class InteractionHandler {
                     }
                 }
             }
+
+            if(ent instanceof ShopKeeper) {
+                if(((ShopKeeper)ent).isTrading()) {
+                    interactions.add(new Transaction((ShopKeeper)ent, GS.getPlayer()));
+                    System.out.println("Shopping");
+                    ((ShopKeeper)ent).setIsTrading(false);
+                }
+            }
         }
 
         if(GS.getPlayer().isPickpocketing()) {

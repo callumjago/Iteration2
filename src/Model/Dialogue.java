@@ -114,7 +114,12 @@ public class Dialogue {
         currentTextNode = textNode;
     }
 
-    public void setDialogueOpen(boolean bool) { dialogueOpen = bool; }
+    public void setDialogueOpen(boolean bool) {
+        dialogueOpen = bool;
+        if(bool) {
+            dialogueUI.setControls();
+        }
+    }
 
     public void setDialogueTree(DialogueTree newDialogueTree) {
         this.dialogueTree = newDialogueTree;
@@ -124,4 +129,8 @@ public class Dialogue {
     public void setCurrentNPCTalking(NPC npc) { currentNPCTalking = npc; }
 
     public NPC getCurrentNPCTalking() { return currentNPCTalking; }
+
+    public boolean getDialogueOpen() {
+        return dialogueOpen;
+    }
 }
