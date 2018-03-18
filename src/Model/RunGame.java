@@ -131,6 +131,7 @@ public class RunGame extends Application {
         p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
+        p.getPlayerClass().addSkill(new ArrowHailSkill(p,gameState));
         p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
 
         NPC npc = new NPC();
