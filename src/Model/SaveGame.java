@@ -11,7 +11,6 @@ public class SaveGame {
     public SaveGame(GameState gs) {
         this.gs = gs;
         mapID = gs.getPlayer().getMapID();
-        saveGame();
     }
 
     public void saveGame(){
@@ -40,11 +39,9 @@ public class SaveGame {
             pw.println("Level: " + gs.getPlayer().getLvl());
             pw.println("Exp: " + gs.getPlayer().getExp());
             pw.println("Wallet: " + gs.getPlayer().getWallet().getMoney());
+            pw.println("Angle: " + gs.getPlayer().getOrientation());
             pw.println("Class: " + "0");//gs.getPlayer().getClass());
-            //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
-            pw.println("Sprite: " + 1);
-            //TODO sprite
-
+            pw.println("Sprite: " + gs.getPlayer().getSprite());
             pw.println("Name: " + gs.getPlayer().getName());
             pw.close();
         }catch(Exception e){

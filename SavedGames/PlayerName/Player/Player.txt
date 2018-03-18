@@ -1,4 +1,4 @@
-Location: 2 2
+Location: 6 7
 MapID: 1
 Armor: 1
 Weapon: 1
@@ -10,6 +10,7 @@ Defense: 1
 Level: 1
 Exp: 0
 Wallet: 0
+Angle: Model.Angle@7045d09e
 Class: 0
-Sprite: 1
-Name: BOB
+Sprite: 0
+Name: asfdsfd

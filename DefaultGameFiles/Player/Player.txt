@@ -9,6 +9,5 @@ Atk: 0
 Def: 0
 Lvl: 0
 Exp: 0
-Sprite: 0
-Money: 0
+Wallet: 0
 Angle: 0
