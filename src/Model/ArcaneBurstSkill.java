@@ -14,6 +14,10 @@ public class ArcaneBurstSkill extends Skill {
 
     @Override
     public void ApplySkill() {
+        if (!player.checkLvl(getReqLvl())){
+            System.out.println("Level not high enough to use skill!");
+            return;
+        }
         int damage = 75;
         int range = 2;
         int mpCost = 50;

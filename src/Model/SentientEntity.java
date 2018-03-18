@@ -271,6 +271,8 @@ public abstract class SentientEntity extends Entity {
 
     public boolean checkCast(int mpCost){ return MP.checkCast(mpCost); }
 
+    public boolean checkLvl(Level lvl) {return Lvl.checkLevel(lvl); }
+
 
     public void addToInventory(Item i){
         inventory.addItem(i);
