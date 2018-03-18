@@ -149,9 +149,13 @@ public class LoadGame {
 									tile.setObject(ring);
 									break;
 								}
-							
-								break;
-							}
+							break;
+						case 'L':
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							MPAE mp = new MPAE(x);
+							tile.setObject(mp);
+							break;
+						}
 					}
 					
 					tileSet.get(j).add(tile);
@@ -203,6 +207,7 @@ public class LoadGame {
 							ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
 					
 					player.setEquipArmor(armor);
+					System.out.println(player.getEquipArmor().getName());
 					break;
 				case 3: //equiping weapon
 					input.next();
@@ -388,11 +393,12 @@ public class LoadGame {
 					int money = Integer.parseInt(input.next());
 					int exp = Integer.parseInt(input.next());
 					String tag = input.next();
+					int maxHP = Integer.parseInt(input.next());
 				
 					String description = input.nextLine() + input.nextLine();
 				
 				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag);
+					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
 				
 					switch(tag) {
 					case "Hostile":

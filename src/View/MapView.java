@@ -140,7 +140,7 @@ public class MapView {
             if(entities.get(i) instanceof SentientEntity) {
                 x = tileWidth*entities.get(i).getPosition().x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2)+5;
                 y = tileHeight*entities.get(i).getPosition().y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2)+5;
-                float healthPercentage = (float)((SentientEntity) entities.get(i)).getHP()/(float)((SentientEntity) entities.get(i)).getMaxHP();
+                float healthPercentage = (float)((SentientEntity) entities.get(i)).getHP()/(float)((NPC) entities.get(i)).getMaxHP();
                 gc.setFill(Color.GRAY);
                 gc.fillRect(x, y, tileWidth-10, 5);
                 gc.setFill(Color.RED);

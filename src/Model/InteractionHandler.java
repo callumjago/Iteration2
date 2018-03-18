@@ -36,6 +36,9 @@ public class InteractionHandler {
                     else if (tile.getTileObjectID() == 9) {  // OneShot
                         interactions.add(new OneShotIR(tile, (SentientEntity) ent, tile.getValue()));
                     }
+                    else if(tile.getTileObjectID() == 10) {
+                    	interactions.add(new ManaIR((SentientEntity) ent, tile.getValue()));
+                    }
                 }
             }
 

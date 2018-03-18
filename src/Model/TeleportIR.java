@@ -161,7 +161,12 @@ public class TeleportIR implements Interaction{
 								}
 							
 								break;
-							}
+						case 'L':
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							MPAE mp = new MPAE(x);
+							tile.setObject(mp);
+							break;
+						}
 					}
 					
 					tileSet.get(j).add(tile);
@@ -213,12 +218,12 @@ public class TeleportIR implements Interaction{
 					int money = Integer.parseInt(input.next());
 					int exp = Integer.parseInt(input.next());
 					String tag = input.next();
-				
+					int maxHP = Integer.parseInt(input.next());
+					
 					String description = input.nextLine() + input.nextLine();
 				
 				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag);
-				
+					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
 					switch(tag) {
 					case "Hostile":
 						npc.setAI(new HostileAI(npc, state));
@@ -231,7 +236,7 @@ public class TeleportIR implements Interaction{
 				}
 				
 				else {
-					/*//damage
+				/*	//damage
 					int damage = Integer.parseInt(input.next());
 					//position x
 					int x = Integer.parseInt(input.next());
