@@ -136,9 +136,10 @@ public class TeleportIR implements Interaction{
 									int lvl = ecodex.getLevelReq(id);
 									int damage = ecodex.getStatPoints(id);
 									int attackSpeed = ecodex.getAttackSpeed(id);
+									AttackOr orientation = new AttackOr(ecodex.getOrientation(id));
 									Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
 									Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
-											damage, 0, attackSpeed, accuracy, ecodex.getRange(id) );
+											damage, orientation , attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
 								
 									tile.setObject(weapon);
 									break;
@@ -203,7 +204,7 @@ public class TeleportIR implements Interaction{
 				
 					id = Integer.parseInt(input.next());
 					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
-						ecodex.getOrientation(id), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id));
+						new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
 				
 					id = Integer.parseInt(input.next());
 					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));

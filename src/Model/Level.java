@@ -76,4 +76,7 @@ public class Level {
     public void setExpToNextLevel(int expToNextLevel) {
         ExpToNextLevel = expToNextLevel;
     }
+
+    public boolean checkLevel(Level level) { return level.getLevel() <= Lvl; }
+
 }

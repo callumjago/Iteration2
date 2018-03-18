@@ -24,6 +24,7 @@ public class ControlsMenu extends SubMenu {
     @Override
     MenuState generateSubMenuState(MenuState menuState) {
         menuState.addMenuItem(cmi);
+        menuState.setScrollOffset(getScrollOffset());
         return menuState;
     }
 
@@ -37,5 +38,17 @@ public class ControlsMenu extends SubMenu {
     @Override
     int subMenuSize() {
         return pc.getNumOfControls();
+    }
+
+    public void scrollUp() {
+        if(getScrollOffset() > 0) {
+            setScrollOffset(getScrollOffset()-1);
+        }
+    }
+    public void scrollDown() {
+        if(getScrollOffset() < pc.getNumOfControls()-8) {
+            setScrollOffset(getScrollOffset()+1);
+        }
+
     }
 }

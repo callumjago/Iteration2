@@ -18,6 +18,10 @@ public class DefenseBuffSkill extends Skill{
     @Override
     public void ApplySkill() {
         if (CoolDown) {return;}
+        else if (!player.checkLvl(getReqLvl())){
+            System.out.println("Level not high enough to use skill!");
+            return;
+        }
         if (duration == null){
             duration = new Timer();
         }
