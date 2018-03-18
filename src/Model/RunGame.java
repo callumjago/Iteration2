@@ -66,21 +66,59 @@ public class RunGame extends Application {
 
         menuView = new MenuView(canvas);
 
+        ArrayList<ArrayList<Tile>> tileSet = new ArrayList<>();
+        for(int i = 0; i < 10; i++) {
+            tileSet.add(new ArrayList<>());
+            for(int j = 0; j < 10; j++) {
+            	tileSet.get(i).add(new Tile(new Point(i, j), 0));
+            }
+        }
+
+        // OneShot Test Item
+        Tile objt = new Tile(0);
+        objt.setObject(new OneShotItem(1,-12));
+        tileSet.get(4).set(4, objt);
+
+        // HealingAE Test Item
+        Tile objt2 = new Tile(0);
+        objt2.setObject(new HealingAE(1));
+        tileSet.get(4).set(5, objt2);
+
+        // DamageAE Test Item
+        Tile objt3 = new Tile(0);
+        objt3.setObject(new DamageAE(1));
+        tileSet.get(4).set(6, objt3);
+
+        // ExperienceAE Test Item
+        Tile objt4 = new Tile(0);
+        objt4.setObject(new ExperienceAE(1));
+        tileSet.get(4).set(7, objt4);
+
+        // Item Interaction
+        Tile objh = new Tile(0);
+        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
+        tileSet.get(4).set(3, objh);
+
+        //Map Transition
+        Tile obj5 = new Tile(0);
+        obj5.setObject(new Teleport(1));
+        tileSet.get(4).set(2, obj5);
+
         GameState gameState = new GameState();
-        Map map = new Map(gameState);
+
         gameState.setPlayer(p);
         NPC npc = new NPC();
         npc.setAI(new HostileAI(npc, gameState));
         gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
-        
-        load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory());
-        load.loadGame();
+        gameState.setTileSet(tileSet);
+        Map map = new Map(gameState);
 
         //gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
         
         SaveGame save = new SaveGame(map.getState());
+
 
         menu.addSubMenu(new InventoryMenu(p.getInventory()));
         menu.addSubMenu(new EquipmentMenu(p));
