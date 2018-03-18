@@ -22,11 +22,12 @@ public class AttackAction implements Interaction {
         tag = entity.getWeaponTag();
         pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
         if(pos != null) {
-            System.out.println("something");
+            if(tag == "bow") {
+                gs.addEntity(new Projectile(entity.getForewardPosition(), entity.getOrientation().getDegree(), 100, 10, 0));
+            }else{
             for (Point pt : pos) {
-                System.out.println("something");
-                gs.AttackCollision(pt.x, pt.y, actAmt, tag);
-            }
+                gs.AttackCollision(pt.x, pt.y, actAmt);
+            }}
         }
     }
 
@@ -39,7 +40,7 @@ public class AttackAction implements Interaction {
         pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
         if(pos != null) {
             for (Point pt : pos) {
-                gs.AttackCollision(pt.x, pt.y, actAmt, "");
+                gs.AttackCollision(pt.x, pt.y, actAmt);
             }
         }
     }

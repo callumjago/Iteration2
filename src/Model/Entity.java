@@ -236,10 +236,8 @@ public abstract class Entity {
             Point adj = new Point();
             adj.x = getPosition().x + incX*i;
             adj.y = getPosition().y + incY*i;
-            System.out.println("sdfsdf");
             System.out.println(getPosition().x + incX*i);
             System.out.println(getPosition().y + incY*i);
-            System.out.println("sdfsdf");
             quex.add(adj);
         }
         return quex;
