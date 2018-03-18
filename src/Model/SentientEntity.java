@@ -15,9 +15,10 @@ public abstract class SentientEntity extends Entity {
     private Defense Def;
     private Level Lvl;
     private Wallet Coffer;
+    private AttackOr AtOr;
     private boolean attemptAttack;
+    private int WeaRange;
     private boolean attemptInteract;
-
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
         Name = name;
@@ -129,6 +130,10 @@ public abstract class SentientEntity extends Entity {
     public Weapon getEquipWeapon() {
         return EquipWeapon;
     }
+
+    public AttackOr getAtOr(){return getEquipWeapon().getAttackOrientation();}
+
+    public int getWeaRange(){return getEquipWeapon().getRange();}
 
     public void setEquipWeapon(Weapon equipWeapon) {
         EquipWeapon = equipWeapon;

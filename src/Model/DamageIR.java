@@ -14,6 +14,10 @@ public class DamageIR implements Interaction{
             _dmgAmt = -1;
         }
         dmgAmt = _dmgAmt;
+        System.out.println("Damage Interaction: !!!!! ");
+        System.out.println(entity.getPosition());
+        System.out.println(entity.getHP());
+
     }
 
     public void applyEffect() {

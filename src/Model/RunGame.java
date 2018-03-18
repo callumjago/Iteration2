@@ -56,6 +56,10 @@ public class RunGame extends Application {
         keyController.addController(mc);
 
         Player p = new Player();
+//        p.setPosition(new Point(6, 4));
+//        NPC npc = new NPC();
+//        npc.setPosition(new Point(3,4));
+
         p.setPosition(new Point(6, 5));
 
         //canvas.setOnKeyPressed(p.getPc());
@@ -97,7 +101,10 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
+        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 2));
+        p.setEquipWeapon((Weapon)objh.getObject());
+
+
         tileSet.get(4).set(3, objh);
 
         //Map Transition
@@ -105,8 +112,10 @@ public class RunGame extends Application {
         obj5.setObject(new MapTransition());
         tileSet.get(4).set(2, obj5);
 
+
         GameState gameState = new GameState();
         gameState.setPlayer(p);
+
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
@@ -186,6 +195,7 @@ public class RunGame extends Application {
                         gameState.resetEntityAttempts();
                         tick = 0;
                     }
+//                    System.out.println((npc.getHP()));
                     tick++;
 
                     if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing

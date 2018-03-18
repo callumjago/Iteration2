@@ -117,8 +117,6 @@ public class GameState {
         return t.isPassable();
     }
 
-
-
     public boolean checkEntity(Point point){
         for (Entity ent:entities){
             if (ent.getPosition() == point) return true;
@@ -152,6 +150,20 @@ public class GameState {
             }
         }
         return true;
+    }
+
+    public Boolean AttackCollision(int x, int y, int damage) {
+        Iterator<Entity> it = entities.iterator();
+        Entity entity = null;
+        while (it.hasNext()) {
+            entity = it.next();
+            if (entity.getPosition().x == x && entity.getPosition().y == y) {
+
+                interactions.add(new DamageIR((SentientEntity) entity, damage));
+                return true;
+            }
+        }
+        return false;
     }
 
     public void handleInteractions() {
@@ -200,6 +212,12 @@ public class GameState {
     public void playerTick() {
         if(getPlayer().getAttemptMove()) {
             moveHandler.checkMove(getPlayer(), getPlayer().getOrientation());
+        }
+        if(getPlayer().isAttemptAttack())
+        {
+            getPlayer().setAttemptAttack(false);
+            System.out.println("Attempt Attack true");
+            AttackAction a = new AttackAction(getPlayer(), this);
         }
         handleInteractions();
     }

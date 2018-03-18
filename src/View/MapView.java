@@ -59,7 +59,6 @@ public class MapView {
         drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
         renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition());
         //renderEntityAttacks(gameState.getEntities(), gameState.getPlayerPosition());
-
         hudView.render(gameState.getPlayer());
         renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
 
@@ -99,6 +98,16 @@ public class MapView {
 
     }
 
+//    private void drawNPCs(ArrayList<Entity> npcs, Point playerPos) {
+//
+//        for(int i = 1; i < npcs.size(); i++) {
+//            if(!(npcs.get(i) instanceof Projectile)) {
+//                int x = tileWidth * npcs.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) (canvas.getWidth() / 2);
+//                int y = tileHeight * npcs.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) (canvas.getHeight() / 2);
+//                drawRotatedImage(sprites.getPlayerSprite(0), npcs.get(i).getOrientation().getDegree(), x, y);
+//            }
+//        }
+//    }
     private void drawNPCs(ArrayList<Entity> npcs, Point playerPos) {
 
         for(int i = 1; i < npcs.size(); i++) {
@@ -139,7 +148,6 @@ public class MapView {
             }
         }
     }
-
 
     private void drawRotatedImage(Image image, double angle, double tlpx, double tlpy) {
         gc.save(); // saves the current state on stack, including the current transform

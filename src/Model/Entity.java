@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.*;
+import java.util.*;
 
 public abstract class Entity {
 	
@@ -133,6 +134,93 @@ public abstract class Entity {
         }
     }
 
+    //direction
+    //tiles 1 - 2 away
+    //y-1 = north
+    //y+1 = south
+    //x-1 = west
+    //x+1 = east
+
+    public Queue<Point> getNearbyLoc(AttackOr weapon, int Range) {
+        Queue<Point> que = new LinkedList<Point>();
+        int dir = orientation.getDegree();
+        switch (weapon.getOrientation()) {
+            case 0:
+                switch (orientation.getDegree()) {
+                    case 0:
+                        //East
+                        que = tranAck(que,  Range, 1,  0);
+                        break;
+                    case 45:
+                        //SouthEast
+                        que = tranAck(que,  Range, 1,  1);
+                        break;
+                    case 90:
+                        //South
+                        que = tranAck(que,  Range, 0,  1);
+                        break;
+                    case 135:
+                        //SouthWest
+                        que = tranAck(que,  Range, -1,  1);
+                        break;
+                    case 180:
+                        //West
+                        que = tranAck(que,  Range, -1,  0);
+                        break;
+                    case 225:
+                        //NorthWest
+                        que = tranAck(que,  Range, -1,  -1);
+                        break;
+                    case 270:
+                        //North
+                        que = tranAck(que,  Range, 0,  -1);
+                        break;
+                    case 315:
+                        //NorthEast
+                        que = tranAck(que,  Range, 1,  -1);
+                        break;
+                    case 360:
+                        //East
+                        que = tranAck(que,  Range, 1,  0);
+                        break;
+                }
+                return que;
+            case 1:
+                if(dir>270)
+                {
+                    que = tranAck(que,  Range, 1,  0);
+                }
+                else if(dir > 180 && dir < 270)
+                {
+
+                }
+                else if(dir > 90 && dir < 180)
+                {
+
+                }
+                else {
+
+                }
+
+
+        }
+        return  que;
+    }
+
+    public Queue<Point> tranAck(Queue<Point> que, int Range, int incX, int incY){
+        Queue<Point> quex = new LinkedList<Point>();
+        for(int i = 1; i <= Range; i++) {
+            Point adj = new Point();
+            adj.x = getPosition().x + incX*i;
+            adj.y = getPosition().y + incY*i;
+            System.out.println("sdfsdf");
+            System.out.println(getPosition().x + incX*i);
+            System.out.println(getPosition().y + incY*i);
+            System.out.println("sdfsdf");
+            quex.add(adj);
+        }
+        return quex;
+    }
     public int getDegree(){ return orientation.getDegree(); }
 
     public int getX(){ return (int) position.getX();}

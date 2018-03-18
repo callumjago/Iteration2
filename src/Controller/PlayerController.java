@@ -106,7 +106,6 @@ public class PlayerController extends SubKeyController {
             player.moveSouthWest();
         } else if(code == playerControls.get(7)) {//MoveNW
             player.moveNorthWest();
-
         } else if(code == playerControls.get(8)) {//Aim Mode
             player.toggleMovement();
         } else if(code == playerControls.get(9)) {//Attack
