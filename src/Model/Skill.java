@@ -18,6 +18,7 @@ public abstract class Skill {
         ReqLvl = reqLvl;
     }
 
+
     public String getName() {
         return Name;
     }

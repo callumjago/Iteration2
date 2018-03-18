@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.GameState;
+import Model.InfluenceRadius;
 import Model.Player;
 import Model.Projectile;
 import javafx.event.EventHandler;
@@ -100,7 +101,20 @@ public class PlayerController extends SubKeyController {
         } else if(code == playerControls.get(8)) {//Attack
             player.setAttemptAttack(true);
         } else if(code == playerControls.get(9)) {//Attack
-            gs.addEntity(new Projectile(getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
+            InfluenceRadius n = new InfluenceRadius(player.getForewardPosition(), 2);
+            int j = 0;
+            n.extendInfluence();
+            n.extendInfluence();
+            n.extendInfluence();
+//            while (j != 3) {
+                for (int i = 0; i < n.getInfluence().size(); i++) {
+                    gs.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), 100, 5));
+                    //System.out.println("putting new projectile at " + n.getInfluence().get(i).getX() +","+ n.getInfluence().get(i).getY() + "\n");
+                }
+                n.extendInfluence();
+                j++;
+//            }
+
         }
     }
 
