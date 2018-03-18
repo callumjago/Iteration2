@@ -39,7 +39,7 @@ public class AttackAction implements Interaction {
         pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
         if(pos != null) {
             for (Point pt : pos) {
-                gs.AttackCollision(pt.x, pt.y, actAmt);
+                gs.AttackCollision(pt.x, pt.y, actAmt, "");
             }
         }
     }
