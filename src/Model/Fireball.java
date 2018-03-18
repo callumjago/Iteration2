@@ -7,13 +7,17 @@ public class Fireball extends Skill {
     private GameState GS;
 
     public Fireball(Player player, GameState GS){
-        super("Cast Fireball", "Incinerate your foes with a spicy fireball! (Costs 10 MP)", new Level(2), new SkillLevel(5));
+        super("Cast Fireball", "Incinerate your foes with a spicy fireball! (Costs 10 MP)", new Level(1), new SkillLevel(5));
         this.player = player;
         this.GS = GS;
     }
 
     @Override
     public void ApplySkill() {
+        if (!player.checkLvl(getReqLvl())){
+            System.out.println("Level not high enough to use skill!");
+            return;
+        }
         int damage = 30;
         int range = 6;
         int mpCost = 10;
@@ -27,7 +31,7 @@ public class Fireball extends Skill {
             mpCost = 20;
             range = 8;
         }
-        else if (getLvl() == 2){
+        else if (getLvl() == 4){
             damage = 60;
             mpCost = 25;
             range = 10;

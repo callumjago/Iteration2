@@ -126,8 +126,9 @@ public class LoadGame {
 									int damage = ecodex.getStatPoints(id);
 									int attackSpeed = ecodex.getAttackSpeed(id);
 									Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
+									AttackOr orientation = new AttackOr(ecodex.getOrientation(id));
 									Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
-											damage, 0, attackSpeed, accuracy, ecodex.getRange(id) );
+											damage, orientation, attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
 								
 									tile.setObject(weapon);
 									break;
@@ -149,9 +150,13 @@ public class LoadGame {
 									tile.setObject(ring);
 									break;
 								}
-							
-								break;
-							}
+							break;
+						case 'L':
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							MPAE mp = new MPAE(x);
+							tile.setObject(mp);
+							break;
+						}
 					}
 					
 					tileSet.get(j).add(tile);
@@ -203,13 +208,14 @@ public class LoadGame {
 							ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
 					
 					player.setEquipArmor(armor);
+					System.out.println(player.getEquipArmor().getName());
 					break;
 				case 3: //equiping weapon
 					input.next();
 					id = Integer.parseInt(input.next());
 					if(id <= 0) id = 1;
 					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
-							ecodex.getStatPoints(id), 0, ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id));
+							ecodex.getStatPoints(id), new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
 					player.setEquipWeapon(weapon);
 					break;
 				case 4: //equiping ring
@@ -311,7 +317,7 @@ public class LoadGame {
 						int attackSpeed = ecodex.getAttackSpeed(id);
 						Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
 						Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
-								damage, 0, attackSpeed, accuracy, ecodex.getRange(id) );
+								damage, new AttackOr(ecodex.getOrientation(id)), attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
 						
 						inventory.addItem(weapon);
 						break;
@@ -375,7 +381,7 @@ public class LoadGame {
 				
 					id = Integer.parseInt(input.next());
 					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
-						ecodex.getOrientation(id), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id));
+						new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
 				
 					id = Integer.parseInt(input.next());
 					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
@@ -388,11 +394,12 @@ public class LoadGame {
 					int money = Integer.parseInt(input.next());
 					int exp = Integer.parseInt(input.next());
 					String tag = input.next();
+					int maxHP = Integer.parseInt(input.next());
 				
 					String description = input.nextLine() + input.nextLine();
 				
 				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag);
+					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
 				
 					switch(tag) {
 					case "Hostile":

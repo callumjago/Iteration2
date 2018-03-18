@@ -127,6 +127,13 @@ public class SaveGame {
                     	else
                     		pw.print(((OneShotItem)tiles.get(j).get(i).getObject()).getOneShotID());
                     	break;
+                    case 10:
+                    	pw.print('L');
+                    	if(tiles.get(j).get(i).getObject().getValue() < 9)
+                    		pw.print("0" + tiles.get(j).get(i).getObject().getValue());
+                    	else
+                    		pw.print(tiles.get(j).get(i).getObject().getValue());
+                    	break;
                     }
                     
                     pw.print(" ");
@@ -173,7 +180,7 @@ public class SaveGame {
             System.out.println("the map id that the file will be saved is " + mapID);
             //Name Sprite Position Armor Weapon Ring HP MP Def Atk Lvl Exp Angle Wallet
             //Projectile Sprite Position damage range Angle
-            pw.println("Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag");
+            pw.println("Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP");
             for(int i = 1; i < npc.size();i++){
                 if(npc.get(i) instanceof SentientEntity){
                     if((((SentientEntity) npc.get(i)).getName().equals("Vendor")))
@@ -194,7 +201,8 @@ public class SaveGame {
                     pw.print(((SentientEntity) npc.get(i)).getLvl() + "       ");
                     pw.print(((SentientEntity) npc.get(i)).getWallet().getMoney() + "         ");
                     pw.print(((SentientEntity) npc.get(i)).getExp() + "      ");
-                    pw.print(((NPC) npc.get(i)).getTag());
+                    pw.print(((NPC) npc.get(i)).getTag() + "  ");
+                    pw.print(((NPC) npc.get(i)).getMaxHP());
                     
                     pw.println();
                     pw.println(((NPC) npc.get(i)).getDescription());

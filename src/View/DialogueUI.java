@@ -48,6 +48,7 @@ public class DialogueUI {
     }
 
     public void display() {
+        gc.setFont(gc.getFont());
         gc.setFill(Color.SILVER);
         gc.fillRoundRect(dialogueX,dialogueY,dialogueWidth,dialogueHeight,10,10);
         gc.setTextAlign(TextAlignment.CENTER);
@@ -57,6 +58,7 @@ public class DialogueUI {
     }
 
     public void displayStatement() {
+        gc.setFont(gc.getFont());
         answerShowing = false;
         gc.setFill(Color.BLACK);
         gc.fillText(dialogue.getCurrentDialogue(),375,650);
@@ -66,12 +68,14 @@ public class DialogueUI {
     }
 
     public void displayQuestion() {
+        gc.setFont(gc.getFont());
         statementShowing = false;
         gc.setFill(Color.BLACK);
         gc.fillText(dialogue.getCurrentDialogue(),375,640);
     }
 
     public void displayAnswers(ArrayList<String> answers) {
+        gc.setFont(gc.getFont());
         statementShowing = false;
         answerShowing = true;
         currentAmountOfAnswers = answers.size();

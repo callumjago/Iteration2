@@ -47,7 +47,9 @@ public class MapView {
 
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
-                    gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)),x, y, tileWidth, tileHeight);
+                    if(!(gameState.getTileAt(i, j).getObject() instanceof Trap) || gameState.getPlayer().canDetectTraps()) {
+                        gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)), x, y, tileWidth, tileHeight);
+                    }
                 }
                 if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
                     //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
@@ -140,7 +142,7 @@ public class MapView {
             if(entities.get(i) instanceof SentientEntity) {
                 x = tileWidth*entities.get(i).getPosition().x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2)+5;
                 y = tileHeight*entities.get(i).getPosition().y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2)+5;
-                float healthPercentage = (float)((SentientEntity) entities.get(i)).getHP()/(float)((SentientEntity) entities.get(i)).getMaxHP();
+                float healthPercentage = (float)((SentientEntity) entities.get(i)).getHP()/(float)((NPC) entities.get(i)).getMaxHP();
                 gc.setFill(Color.GRAY);
                 gc.fillRect(x, y, tileWidth-10, 5);
                 gc.setFill(Color.RED);

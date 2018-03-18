@@ -7,6 +7,7 @@ public class ShopKeeper extends NPC {
     Dialogue dialogue;
     DialogueTree shopKeeperTree;
     private boolean isTrading;
+    private float priceModifyer;
 
     private ArrayList<String> shopString = new ArrayList<>();
     private ArrayList<String> shopTypes = new ArrayList<>();
@@ -25,6 +26,7 @@ public class ShopKeeper extends NPC {
         shopKeeperTree = new DialogueTree(shopString,shopTypes);
         this.setName("Shopkeeper");
         isTrading = false;
+        priceModifyer = 1f;
     }
 
     public void talk() {
@@ -45,6 +47,20 @@ public class ShopKeeper extends NPC {
 
     public void setIsTrading(boolean bool) {
         isTrading = bool;
+    }
+
+    public void modifyPriceModifyer(float delta) {
+        if(priceModifyer + delta < 0) {
+            priceModifyer = 0;
+        }
+        if(priceModifyer + delta > 1) {
+            priceModifyer = 1;
+        }
+        priceModifyer += delta;
+    }
+
+    public float getPriceModifyer() {
+        return priceModifyer;
     }
 
 }

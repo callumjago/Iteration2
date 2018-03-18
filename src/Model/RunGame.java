@@ -99,7 +99,9 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, 0, 5, new Accuracy(100), 1));
+        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
+        p.setEquipWeapon((Weapon)objh.getObject());
+
 
         tileSet.get(4).set(3, objh);
 
@@ -108,6 +110,12 @@ public class RunGame extends Application {
         obj5.setObject(new Teleport(1));
         tileSet.get(4).set(2, obj5);
 
+        // Trap test
+        Tile obj6 = new Tile(0);
+        obj6.setObject(new Trap(-50,0));
+        tileSet.get(4).set(8, obj6);
+
+        p.setLevel(5);
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);
@@ -117,10 +125,18 @@ public class RunGame extends Application {
         //gameState.addEntity(npc);
 
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
+        p.getPlayerClass().addSkill(new Charm(p, gameState));
+        p.getPlayerClass().addSkill(new DetectTrapSkill(p));
+        p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
+        p.getPlayerClass().addSkill(new AttackBuffSkill(p));
+        p.getPlayerClass().addSkill(new HealthBuffSkill(p));
+        p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
-        
+        p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
+        p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
+
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         PickPocketController ppc = new PickPocketController();
@@ -223,15 +239,13 @@ public class RunGame extends Application {
 
                     if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing
                         ppc.setPickPocketInteraction(gameState.getPickPocketInteraction());
-
-
                         inventoryView.render(gameState.getPickPocketInteraction().getNpc(), ppc.getSelectedIndex());
                         ppc.handlePickPocket(gameState);
 
                     }
-                    if(gameState.getTransaction() != null) {
+                    if(gameState.getTransaction() != null) {//Player is trading
                         tc.setTransaction(gameState.getTransaction());
-                        inventoryView.render(gameState.getTransaction().getMerchant(), 0);
+                        inventoryView.render(gameState.getTransaction().getMerchant(), tc.getSelectedIndex());
                         tc.handleTransaction(gameState);
                     }
                 }

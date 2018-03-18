@@ -13,6 +13,10 @@ public class BindWoundsSkill extends Skill {
 
     @Override
     public void ApplySkill() {
+        if (!player.checkLvl(getReqLvl())){
+            System.out.println("Level not high enough to use skill!");
+            return;
+        }
         int mpCost = 5;
         int HP = 10;
         if (getLvl() == 2){

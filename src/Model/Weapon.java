@@ -10,16 +10,16 @@ public class Weapon extends Equipment {
     private int AttackSpeed;
     private Accuracy Acy;
     private int Range;
+    private String tag;
 
-    public Weapon(int EQID, Level reqLvl, String name, String description, int attackPoints,
-                  int attackOrientation, int attackSpeed, Accuracy accuracy, int range)
-    {
+    public Weapon(int EQID, Level reqLvl, String name, String description, int attackPoints, AttackOr attackOrientation, int attackSpeed, Accuracy accuracy, int range, String tag_) {
         super(EQID, reqLvl, name, description);
         AttackPoints = attackPoints;
-        AttackOrientation = new AttackOr(attackOrientation);
+        AttackOrientation = attackOrientation;
         AttackSpeed = attackSpeed;
         Acy = accuracy;
         Range = range;
+        tag = tag_;
     }
 
     public Weapon(){
@@ -75,6 +75,8 @@ public class Weapon extends Equipment {
     public void setRange(int range) {
         Range = range;
     }
+
+    public String getTag() { return tag; }
 
     @Override
     ArrayList<String> getStats() {

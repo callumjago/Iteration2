@@ -22,6 +22,7 @@ public abstract class SentientEntity extends Entity {
 
     private int WeaRange;
     private boolean attemptInteract;
+    private Quiver quiver;
 
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
@@ -58,6 +59,9 @@ public abstract class SentientEntity extends Entity {
         // Add starting equipment here
         EquipArmor = new Armor();
         EquipRing = new Ring();
+
+        quiver = new Quiver(5);
+        quiver.modifyArrowCount(5);
     }
 
     public void modifyHP(int delta){
@@ -151,6 +155,8 @@ public abstract class SentientEntity extends Entity {
         EquipWeapon = equipWeapon;
     }
 
+    public String getWeaponTag(){return getEquipWeapon().getTag();}
+
     public Ring getEquipRing() {
     	if(EquipRing == null) {
     		EquipRing = new Ring();
@@ -159,9 +165,21 @@ public abstract class SentientEntity extends Entity {
         return EquipRing;
     }
 
+    public void setLevel(int lvl) {Lvl.setLevel(lvl); }
+
     public void setEquipRing(Ring equipRing) {
         EquipRing = equipRing;
     }
+
+    public int getArrowCount() {
+        return quiver.getArrowCount();
+    }
+
+    public void modifyArrowCount(int delta) {
+        quiver.modifyArrowCount(delta);
+    }
+
+
 
     public Boolean isDead() {
         if (HP.isDead()){
@@ -259,33 +277,11 @@ public abstract class SentientEntity extends Entity {
         return statsList;
     }
 
-
-    public Point getForewardPosition() {
-
-        Point pos = getPosition();
-        if(getOrientation().getDegree() == 0) {
-            return new Point(pos.x+1, pos.y);
-        } else if(getOrientation().getDegree() == 45) {
-            return new Point(pos.x+1, pos.y+1);
-        } else if(getOrientation().getDegree() == 90) {
-            return new Point(pos.x, pos.y + 1);
-        } else if(getOrientation().getDegree() == 135) {
-            return new Point(pos.x-1, pos.y+1);
-        } else if(getOrientation().getDegree() == 180) {
-            return new Point(pos.x-1, pos.y);
-        } else if(getOrientation().getDegree() == 225) {
-            return new Point(pos.x-1, pos.y-1);
-        } else if(getOrientation().getDegree() == 270) {
-            return new Point(pos.x, pos.y-1);
-        } else if(getOrientation().getDegree() == 315) {
-            return new Point(pos.x+1, pos.y-1);
-        } else {
-            return new Point(pos.x+1, pos.y);
-        }
-    }
-
-
     public boolean checkCast(int mpCost){ return MP.checkCast(mpCost); }
+
+    public boolean checkUse(int hpCost){ return HP.checkUse(hpCost); }
+
+    public boolean checkLvl(Level lvl) {return Lvl.checkLevel(lvl); }
 
 
     public void addToInventory(Item i){
@@ -324,4 +320,26 @@ public abstract class SentientEntity extends Entity {
 
     public void talk() {}
 
+    public Point getForewardPosition(int n) {
+        Point pos = getPosition();
+        if(getOrientation().getDegree() == 0) {
+            return new Point(pos.x+n, pos.y);
+        } else if(getOrientation().getDegree() == 45) {
+            return new Point(pos.x+n, pos.y+n);
+        } else if(getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y+n);
+        } else if(getOrientation().getDegree() == 135) {
+            return new Point(pos.x-n, pos.y+n);
+        } else if(getOrientation().getDegree() == 180) {
+            return new Point(pos.x-n, pos.y);
+        } else if(getOrientation().getDegree() == 225) {
+            return new Point(pos.x-n, pos.y-n);
+        } else if(getOrientation().getDegree() == 270) {
+            return new Point(pos.x, pos.y-n);
+        } else if(getOrientation().getDegree() == 315) {
+            return new Point(pos.x+n, pos.y-n);
+        } else {
+            return new Point(pos.x+n, pos.y);
+        }
+    }
 }

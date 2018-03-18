@@ -43,8 +43,11 @@ public class Health implements Stat{
         }
         else {
             MaxHealthPoints = maxHealthPoints;
+            if (HealthPoints > maxHealthPoints) HealthPoints = MaxHealthPoints;
         }
     }
+
+    public boolean checkUse(int cost) {return (HealthPoints+cost > 0);}
 
     public void modify(int delta){
         if (delta > 0){
