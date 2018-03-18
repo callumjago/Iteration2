@@ -1,2 +1,7 @@
-H Y P E B O Y 0 0 null Model.Weapon@2a81b706 null 100 100 1 1 1 0 Model.Angle@7a2b8b19 
-Projectile 5 1 1 7000 Model.Angle@198d5be5 
+Name - PointX - PointY - Angle - Armor - Weapon - Ring - Health - Mana - Attack - Defense - Level - Wallet - ExpValue
+Orc      5        5       90       0       0       0      100      100    1           1        1      50         50
+ur mom
+Orc      6        6       90       0       0       0      100      100    1           1        1      50         50
+ur mom
+Vendor   2        2       90       0       0       0      100      100    1           1        1      100        0
+ur dad
