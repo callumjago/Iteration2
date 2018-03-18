@@ -47,6 +47,8 @@ public class Health implements Stat{
         }
     }
 
+    public boolean checkUse(int cost) {return (HealthPoints+cost > 0);}
+
     public void modify(int delta){
         if (delta > 0){
             heal(delta);

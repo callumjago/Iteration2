@@ -125,6 +125,7 @@ public class RunGame extends Application {
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
         p.getPlayerClass().addSkill(new AttackBuffSkill(p));
         p.getPlayerClass().addSkill(new HealthBuffSkill(p));
+        p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
 
