@@ -99,7 +99,7 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 2));
+        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
         p.setEquipWeapon((Weapon)objh.getObject());
 
 
@@ -120,18 +120,29 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
+<<<<<<< HEAD
+=======
+        p.getPlayerClass().addSkill(new Charm(p, gameState));
+        p.getPlayerClass().addSkill(new DetectTrapSkill(p));
+        p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
+>>>>>>> ef7ae02cb051d320791894ef4689d7a1ee6bff19
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
         p.getPlayerClass().addSkill(new AttackBuffSkill(p));
         p.getPlayerClass().addSkill(new HealthBuffSkill(p));
+        p.getPlayerClass().addSkill(new HeavyStrikeSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
+<<<<<<< HEAD
         p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
         p.getPlayerClass().addSkill(new StunStrikeSkill(p,gameState));
+=======
+        p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
+>>>>>>> ef7ae02cb051d320791894ef4689d7a1ee6bff19
 
         NPC npc = new NPC();
-        npc.setAI(new FriendlyAI(npc, gameState));
+        npc.setAI(new HostileAI(npc, gameState));
         gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
