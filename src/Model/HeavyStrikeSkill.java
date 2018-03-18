@@ -2,18 +2,19 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Timer;
-import java.util.TimerTask;
 
-public class ArcaneBashSkill extends Skill {
+public class HeavyStrikeSkill extends Skill {
     private Player player;
     private GameState GS;
     private double modifier;
+    private Timer duration;
+    private boolean CoolDown;
 
-
-    public ArcaneBashSkill(Player player, GameState GS){
-        super("Arcane Bash", "Sacrifice HP to deal massive staff modifier!", new Level(1), new SkillLevel(4));
+    public HeavyStrikeSkill(Player player, GameState GS){
+        super("Heavy Strike", "Sacrifice HP to deal massive two-handed damage!", new Level(2), new SkillLevel(3));
         this.player = player;
         this.GS = GS;
+        CoolDown = false;
     }
 
     @Override
@@ -23,18 +24,18 @@ public class ArcaneBashSkill extends Skill {
             return;
         }
         //else if (player.)
-        modifier = 2;
+        modifier = 2.5;
         int hpCost = 10;
         if (getLvl() == 2){
-            modifier = 2.5;
+            modifier = 3.5;
             hpCost = 20;
         }
         else if (getLvl() == 3){
-            modifier = 3.5;
+            modifier = 5;
             hpCost = 30;
         }
         else if (getLvl() == 4){
-            modifier = 5;
+            modifier = 6;
             hpCost = 40;
         }
         if (player.checkUse(-hpCost)){
