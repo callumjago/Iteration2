@@ -163,12 +163,9 @@ public class RunGame extends Application {
 
         MusicHandler musicHandler = new MusicHandler();
 
-        //MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,musicHandler,mainStage,mainScene);
+        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,musicHandler,mainStage,mainScene);
 
         //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
-
-        //Disabled because enabling breaks in game menus clicking
-
 
         Dialogue dialogue = new Dialogue(canvas);
 

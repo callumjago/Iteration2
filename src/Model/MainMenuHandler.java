@@ -41,13 +41,16 @@ public class MainMenuHandler {
             musicHandler.playMainMenuMusic();
         }
         else if(menuNumber == 1) { // Main Scene
+            //musicHandler.stopMainMenuMusic();
             mainStage.setScene(mainScene);
-            musicHandler.stopMainMenuMusic();
+            //musicHandler.playVillageMusic();
         }
         else if(menuNumber == 2) // New Game (Character Creation)
             mainStage.setScene(characterCreationMenu.generateScene());
-        else if(menuNumber == 3) // Exits Game
+        else if(menuNumber == 3) { // Exits Game
+            //musicHandler.stopVillageMusic();
             mainStage.close();
+        }
         else if(menuNumber == 4) // GameOver Screen
             mainStage.setScene(gameOverMenu.generateScene());
     }
