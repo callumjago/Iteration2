@@ -210,7 +210,7 @@ public class SaveGame {
                     pw.print((int)((Projectile) npc.get(i)).getPosition().getX() + " " +
                             (int)((Projectile) npc.get(i)).getPosition().getY() + " ");
                     pw.print(((Projectile) npc.get(i)).getRange() + " ");
-                    pw.print(((Projectile) npc.get(i)).getOrientation() + " ");
+                    pw.print(((Projectile) npc.get(i)).getOrientation().getDegree() + " ");
 
                 }
 

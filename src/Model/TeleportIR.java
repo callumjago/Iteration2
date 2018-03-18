@@ -189,47 +189,63 @@ public class TeleportIR implements Interaction{
 			
 			while(input.hasNextLine()) {
 				String name = input.next();
-				Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
-				Angle angle = new Angle(Integer.parseInt(input.next()));
+				if(name.compareToIgnoreCase("Projectile") != 0) {
+					Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
+					Angle angle = new Angle(Integer.parseInt(input.next()));
 				
-				int id = Integer.parseInt(input.next());
-				EquipmentCodex ecodex = new EquipmentCodex();
-				Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
+					int id = Integer.parseInt(input.next());
+					EquipmentCodex ecodex = new EquipmentCodex();
+					Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
 				
-				id = Integer.parseInt(input.next());
-				Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
+					id = Integer.parseInt(input.next());
+					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
 						ecodex.getOrientation(id), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id));
 				
-				id = Integer.parseInt(input.next());
-				Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
+					id = Integer.parseInt(input.next());
+					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
 				
-				int HP = Integer.parseInt(input.next());
-				int MP = Integer.parseInt(input.next());
-				int Atck = Integer.parseInt(input.next());
-				int Def = Integer.parseInt(input.next());
-				int lvl = Integer.parseInt(input.next());
-				int money = Integer.parseInt(input.next());
-				int exp = Integer.parseInt(input.next());
-				String tag = input.next();
+					int HP = Integer.parseInt(input.next());
+					int MP = Integer.parseInt(input.next());
+					int Atck = Integer.parseInt(input.next());
+					int Def = Integer.parseInt(input.next());
+					int lvl = Integer.parseInt(input.next());
+					int money = Integer.parseInt(input.next());
+					int exp = Integer.parseInt(input.next());
+					String tag = input.next();
 				
-				String description = input.nextLine() + input.nextLine();
+					String description = input.nextLine() + input.nextLine();
 				
 				
-				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag);
+					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag);
 				
-				switch(tag) {
-				case "Hostile":
-					npc.setAI(new HostileAI(npc, state));
-					break;
-				case "Friendly":
-					//npc.setAI(new FriendlyAI());
-					break;
+					switch(tag) {
+					case "Hostile":
+						npc.setAI(new HostileAI(npc, state));
+						break;
+					case "Friendly":
+						//npc.setAI(new FriendlyAI());
+						break;
+					}
+					state.getEntities().add(npc);
 				}
 				
-				state.getEntities().add(npc);
+				else {
+					/*//damage
+					int damage = Integer.parseInt(input.next());
+					//position x
+					int x = Integer.parseInt(input.next());
+					//position y
+					int y = Integer.parseInt(input.next());
+					Point pos = new Point(x, y);
+					//range
+					int range = Integer.parseInt(input.next());
+					//degree
+					int degree = Integer.parseInt(input.next());
+					
+					state.getEntities().add(new Projectile(pos, degree, damage, range, 0));*/
+				}
 				
-				System.out.println("HELP!!!!");
-				//input = new Scanner(br_map.readLine());
+				
 			}
 			
 			input.close();
