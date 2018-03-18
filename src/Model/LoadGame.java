@@ -361,10 +361,11 @@ public class LoadGame {
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			br_map.readLine();
 			br_map.readLine();
-			Scanner input = new Scanner(br_map.readLine());
+			Scanner input = new Scanner(br_map);
 			
 			while(input.hasNextLine()) {
 				String name = input.next();
+				System.out.println(name);
 				Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
 				Angle angle = new Angle(Integer.parseInt(input.next()));
 				
@@ -388,7 +389,7 @@ public class LoadGame {
 				int exp = Integer.parseInt(input.next());
 				String tag = input.next();
 				
-				String description = br_map.readLine();
+				String description = input.nextLine() + input.nextLine();
 				
 				
 				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
@@ -403,6 +404,8 @@ public class LoadGame {
 				}
 				
 				state.getEntities().add(npc);
+				
+				System.out.println("HELP!!!!");
 				//input = new Scanner(br_map.readLine());
 			}
 			
