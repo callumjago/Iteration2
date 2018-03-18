@@ -1,9 +1,7 @@
 package View;
 
-import Model.Entity;
-import Model.GameState;
-import Model.Projectile;
-import Model.SentientEntity;
+
+import Model.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -36,6 +34,7 @@ public class MapView {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         int x, y;
 
+
         for(int i = 0; i < gameState.getWidth(); i++) {
             for(int j = 0; j < gameState.getHeight(); j++) {
 
@@ -45,14 +44,14 @@ public class MapView {
 
                 gc.drawImage(sprites.getTerrainSprite(gameState.getTerrainTypeAt(i, j)), x, y, tileWidth, tileHeight);
 
-                if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
 
-                    //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
-                    drawRotatedImage(sprites.getPlayerSprite(0), gameState.getPlayer().getOrientation().getDegree(), x, y);
-                }
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
                     gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)),x, y, tileWidth, tileHeight);
+                }
+                if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
+                    //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
+                    drawRotatedImage(sprites.getPlayerSprite(0), gameState.getPlayer().getOrientation().getDegree(), x, y);
                 }
             }
         }
@@ -60,9 +59,10 @@ public class MapView {
         drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
         renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition());
         //renderEntityAttacks(gameState.getEntities(), gameState.getPlayerPosition());
-
         hudView.render(gameState.getPlayer());
         renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
+
+        //renderPickPocketMenu(gameState.getPickPocketInteraction());
     }
 
 
@@ -92,18 +92,30 @@ public class MapView {
                 x = tileWidth * projectiles.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) canvas.getWidth() / 2;
                 y = tileHeight * projectiles.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) canvas.getHeight() / 2;
 
-                drawRotatedImage(sprites.getArrowSprite(), projectiles.get(i).getOrientation().getDegree(), x, y);
+                drawRotatedImage(sprites.getProjectileSprite(((Projectile) projectiles.get(i)).getProjectileID()), projectiles.get(i).getOrientation().getDegree(), x, y);
             }
         }
 
     }
 
+//    private void drawNPCs(ArrayList<Entity> npcs, Point playerPos) {
+//
+//        for(int i = 1; i < npcs.size(); i++) {
+//            if(!(npcs.get(i) instanceof Projectile)) {
+//                int x = tileWidth * npcs.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) (canvas.getWidth() / 2);
+//                int y = tileHeight * npcs.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) (canvas.getHeight() / 2);
+//                drawRotatedImage(sprites.getPlayerSprite(0), npcs.get(i).getOrientation().getDegree(), x, y);
+//            }
+//        }
+//    }
     private void drawNPCs(ArrayList<Entity> npcs, Point playerPos) {
 
         for(int i = 1; i < npcs.size(); i++) {
-            int x = tileWidth*npcs.get(i).getPosition().x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2);
-            int y = tileHeight*npcs.get(i).getPosition().y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2);
-            drawRotatedImage(sprites.getPlayerSprite(0), npcs.get(i).getOrientation().getDegree(), x, y);
+            if(!(npcs.get(i) instanceof Projectile)) {
+                int x = tileWidth * npcs.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) (canvas.getWidth() / 2);
+                int y = tileHeight * npcs.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) (canvas.getHeight() / 2);
+                drawRotatedImage(sprites.getPlayerSprite(0), npcs.get(i).getOrientation().getDegree(), x, y);
+            }
         }
     }
 
@@ -137,7 +149,6 @@ public class MapView {
         }
     }
 
-
     private void drawRotatedImage(Image image, double angle, double tlpx, double tlpy) {
         gc.save(); // saves the current state on stack, including the current transform
         rotate(gc, angle, tlpx + tileWidth / 2, tlpy + tileHeight / 2);
@@ -164,4 +175,5 @@ public class MapView {
             return new Point(pos.x, pos.y-range);
         }
     }
+
 }

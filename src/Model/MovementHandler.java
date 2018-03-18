@@ -11,45 +11,44 @@ public class MovementHandler {
 
     public void checkMove(Entity e, Angle dir){
         if (dir.getDegree() == 270) {//NORTH
-            if (State.checkMove(e,(int) e.getPosition().getX(),(int) e.getPosition().getY()-1)){
-                e.setPosition(new Point(e.getPosition().x, e.getPosition().y-1));
+            if (State.checkMove(e,(int) e.getPosition().getX(),(int) e.getPosition().getY()-1, true)){
+                e.setPosition(new Point(e.getX(), e.getY()-1));
             }
         }
         else if (dir.getDegree() == 315) {//NORTHEAST
-            if (State.checkMove(e,(int) e.getPosition().getX()+1,(int) e.getPosition().getY()-1)){
-                e.setPosition(new Point(e.getPosition().x+1, e.getPosition().y-1));
+            if (State.checkMove(e,(int) e.getPosition().getX()+1,(int) e.getPosition().getY()-1, true)){
+                e.setPosition(new Point(e.getX()+1, e.getY()-1));
             }
         }
         else if (dir.getDegree() == 225) {//NORTHWEST
-            if (State.checkMove(e,(int) e.getPosition().getX()-1,(int) e.getPosition().getY()-1)){
-                e.setPosition(new Point(e.getPosition().x-1, e.getPosition().y-1));
+            if (State.checkMove(e,(int) e.getPosition().getX()-1,(int) e.getPosition().getY()-1, true)){
+                e.setPosition(new Point(e.getX()-1, e.getY()-1));
             }
         }
         else if (dir.getDegree() == 90) {//SOUTH
-            if (State.checkMove(e,(int) e.getPosition().getX(),(int) e.getPosition().getY()+1)){
-                e.setPosition(new Point(e.getPosition().x, e.getPosition().y+1));
+            if (State.checkMove(e,(int) e.getPosition().getX(),(int) e.getPosition().getY()+1, true)){
+                e.setPosition(new Point(e.getX(), e.getY()+1));
             }
         }
         else if (dir.getDegree() == 45) {//SOUTHEAST
-            if (State.checkMove(e,(int) e.getPosition().getX()+1,(int) e.getPosition().getY()+1)){
-                e.setPosition(new Point(e.getPosition().x+1, e.getPosition().y+1));
+            if (State.checkMove(e,(int) e.getPosition().getX()+1,(int) e.getPosition().getY()+1, true)){
+                e.setPosition(new Point(e.getX()+1, e.getY()+1));
             }
         }
-
         else if (dir.getDegree() == 135) {//SOUTHWEST
-            if (State.checkMove(e,(int) e.getPosition().getX()-1,(int) e.getPosition().getY()+1)){
-                e.setPosition(new Point(e.getPosition().x-1, e.getPosition().y+1));
+            if (State.checkMove(e,(int) e.getPosition().getX()-1,(int) e.getPosition().getY()+1, true)){
+                e.setPosition(new Point(e.getX()-1, e.getY()+1));
 
             }
         }
         else if (dir.getDegree() == 0) {//EAST
-            if (State.checkMove(e,(int) e.getPosition().getX()+1,(int) e.getPosition().getY())){
-                e.setPosition(new Point(e.getPosition().x+1, e.getPosition().y));
+            if (State.checkMove(e,(int) e.getPosition().getX()+1,(int) e.getPosition().getY(), true)){
+                e.setPosition(new Point(e.getX()+1, e.getY()));
             }
         }
         else if (dir.getDegree() == 180) {//WEST
-            if (State.checkMove(e,(int) e.getPosition().getX()-1,(int) e.getPosition().getY())){
-                e.setPosition(new Point(e.getPosition().x-1, e.getPosition().y));
+            if (State.checkMove(e,(int) e.getPosition().getX()-1,(int) e.getPosition().getY(), true)){
+                e.setPosition(new Point(e.getX()-1, e.getY()));
             }
         }
         else {

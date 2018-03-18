@@ -26,8 +26,8 @@ public class TeleportIR implements Interaction{
 		try {
 			int size = state.getEntities().size();
 			
-			for(int i = 2; i < size; i++) {
-				state.removeEntity(state.getEntities().get(2));
+			for(int i = 1; i < size; i++) {
+				state.removeEntity(state.getEntities().get(1));
 			}
 			
 			TeleportCodex tcodex = new TeleportCodex();
@@ -96,7 +96,7 @@ public class TeleportIR implements Interaction{
 							String itag = icodex.getTag(x);
 							
 							if(itag == "InteractiveItem") { //temporary
-								tile.setObject(new KeyItem(icodex.getLevelReq(x)));
+								//tile.setObject(new KeyItem(icodex.getLevelReq(x)));
 							}
 							
 							else if(itag.compareToIgnoreCase("health") == 0) {

@@ -72,3 +72,5 @@ public class NPC extends SentientEntity {
 	public void talk() {}
 
 }
+
+

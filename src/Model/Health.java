@@ -95,6 +95,11 @@ public class Health implements Stat{
         return;
     }
 
+    @Override
+    public String getName() {
+        return "Health";
+    }
+
     public Boolean isDead(){
         return HealthPoints == 0;
     }

@@ -13,6 +13,7 @@ public class MainMenuHandler {
     StartingMenu startingMenu;
     CharacterCreationMenu characterCreationMenu;
     GameOverMenu gameOverMenu;
+    MusicHandler musicHandler;
     //LoadGameMenu loadGameMenu;
     //SettingsMenu settingsMenu;
     //ExitGame exitGame;
@@ -21,13 +22,14 @@ public class MainMenuHandler {
     Scene mainScene;
     Stage mainStage;
 
-    public MainMenuHandler(Player player, SaveGame saveGame, LoadGame loadGame,Stage mainStage,Scene mainScene, RunGame _run, GameState _state)
+    public MainMenuHandler(Player player, SaveGame saveGame, LoadGame loadGame,Stage mainStage,Scene mainScene, RunGame _run, GameState _state, MusicHandler musicHandler)
     {
         this.mainStage = mainStage;
         this.mainScene = mainScene;
 
         startingMenu = new StartingMenu(this, _run);
         characterCreationMenu = new CharacterCreationMenu(this, player, _state);
+        this.musicHandler = musicHandler;
         gameOverMenu = new GameOverMenu(this);
 
         changeMenu(0); // Sets scene to starting scene
@@ -35,10 +37,14 @@ public class MainMenuHandler {
 
     public void changeMenu(int menuNumber) {
 
-        if(menuNumber == 0) // Starting Scene (Main Menu)
+        if(menuNumber == 0) { // Starting Scene (Main Menu)
             mainStage.setScene(startingMenu.generateScene());
-        else if(menuNumber == 1) // Main Scene
+            musicHandler.playMainMenuMusic();
+        }
+        else if(menuNumber == 1) { // Main Scene
             mainStage.setScene(mainScene);
+            musicHandler.stopMainMenuMusic();
+        }
         else if(menuNumber == 2) // New Game (Character Creation)
             mainStage.setScene(characterCreationMenu.generateScene());
         else if(menuNumber == 3) // Exits Game

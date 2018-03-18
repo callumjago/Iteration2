@@ -90,7 +90,7 @@ public class LoadGame {
 							String itag = icodex.getTag(x);
 							
 							if(itag == "key") { //temporary
-								tile.setObject(new KeyItem(icodex.getLevelReq(x)));
+								//tile.setObject(new KeyItem(icodex.getLevelReq(x)));
 							}
 							
 							else if(itag.compareToIgnoreCase("health") == 0) {
@@ -342,9 +342,9 @@ public class LoadGame {
 				}
 				
 				else if(temp.charAt(0) == '2') { //check if item is an Interactive item
-					KeyItem key = new KeyItem(icodex.getStatPoints(id));
+					//KeyItem key = new KeyItem(icodex.getStatPoints(id));
 					
-					inventory.addItem(key);
+					//inventory.addItem(key);
 				}
 				
 				else System.out.println("Invalid ItemID");

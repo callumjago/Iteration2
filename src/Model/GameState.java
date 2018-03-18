@@ -5,31 +5,33 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class GameState {
-    private Player player;
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
     private ArrayList<Interaction> interactions;
     private MovementHandler moveHandler;
     private InteractionHandler interactionHandler;
+    private PickPocketInteraction pickPocketInteraction;
+    private Transaction transaction;
 
     public GameState() {
         interactions = new ArrayList<Interaction>();
         entities = new ArrayList<Entity>();
         moveHandler = new MovementHandler(this);
         interactionHandler = new InteractionHandler();
+        pickPocketInteraction = null;
+        transaction = null;
     }
 
     public Player getPlayer() {
-        return player;
+        return (Player) entities.get(0);
     }
     public Point getPlayerPosition() {
-        return player.getPosition();
+        return entities.get(0).getPosition();
     }
 
     public ArrayList<ArrayList<Tile>> getTileSet() {
         return tileSet;
     }
-
 
     public ArrayList<Entity> getEntities() {
         return entities;
@@ -41,12 +43,39 @@ public class GameState {
         return tileSet.get(x).get(y).getTileObjectID();
     }
     public void setPlayer(Player player) {
-        entities.add(player);
-        this.player = player;
-        if (entities == null){
-            entities = new ArrayList<Entity>();
+        entities.add(0,player);
+    }
+
+    public PickPocketInteraction getPickPocketInteraction() {
+        return pickPocketInteraction;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void pickPocket(int index, boolean success) {
+        if(pickPocketInteraction == null) {
+            return;
         }
-        entities.add(player);
+        if(!success) {//Pickpocket failed
+            pickPocketInteraction.getNpc().setAI(new HostileAI(pickPocketInteraction.getNpc(), this));
+            ((Player)entities.get(0)).setPickpocketing(false);
+            pickPocketInteraction = null;
+            return;
+        }
+
+        pickPocketInteraction.applyEffect(index);
+        pickPocketInteraction = null;
+    }
+
+    public void performTransaction(int index) {
+        if(transaction == null) {
+            return;
+        }
+
+        transaction.applyEffect(index);
+        transaction = null;
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
@@ -82,7 +111,14 @@ public class GameState {
         return tileSet.get(0).size();
     }
 
-    public boolean checkMove(Entity src, int x, int y){ // Returns true if move is good
+    public Entity getEntity(Point p) {
+        for (Entity ent : entities) {
+            if (ent.getPosition().equals(p)) return ent;
+        }
+        return null;
+    }
+
+    public boolean checkMove(Entity src, int x, int y, boolean realMove){ // Returns true if move is good
         Tile t =  getTileAt(x,y);
         if (t == null){
             if (src instanceof Projectile){
@@ -90,23 +126,38 @@ public class GameState {
             }
             return false;
         }
-        else if (!entityCollision(src,x,y)) {
+        else if (!entityCollision(src,x,y,realMove)) {
             return false;
         }
         return t.isPassable();
     }
 
-    public Boolean entityCollision(Entity src, int x, int y) {
+    public boolean checkEntity(Point point){
+        for (Entity ent:entities){
+            if (ent.getPosition() == point) return true;
+        }
+        return false;
+    }
+
+    private boolean entityCollision(Entity src, int x, int y, boolean realMove) {
+        // X and Y are the prospective coordinates the src wants to move to.
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
         while (it.hasNext()) {
             entity = it.next();
-            if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if (entity instanceof Projectile && src instanceof SentientEntity) {
+            if (entity.getX() == x && entity.getY() == y && (!entity.equals(src))) {
+                /*System.out.println("Entity: " + entity.getX() + ", " + entity.getY());
+                System.out.println("Move Requester: " + src.getX() + ", " + src.getY());
+                System.out.println("X and Y: " + x + ", " + y);
+
+                /*if(entity.getPosition().y != src.getPosition().y || entity.getPosition().x != src.getPosition().x) {
+                    return false;
+                }*/
+                if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
-                    System.out.println("Damage Interaction");
+                    System.out.println("Damage Interaction: " + x + ", " + y );
                 }
-                else if (src instanceof Projectile && entity instanceof SentientEntity) {
+                else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
                     System.out.println("Damage Interaction");
                 }
@@ -116,16 +167,39 @@ public class GameState {
         return true;
     }
 
+    public Boolean AttackCollision(int x, int y, int damage) {
+        Iterator<Entity> it = entities.iterator();
+        Entity entity = null;
+        while (it.hasNext()) {
+            entity = it.next();
+            if (entity.getPosition().x == x && entity.getPosition().y == y) {
+
+                interactions.add(new DamageIR((SentientEntity) entity, damage));
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void handleInteractions() {
         interactionHandler.generateInteractions(this, interactions);
         for (int i = 0; i < interactions.size(); i++) {
+            if(interactions.get(i) instanceof PickPocketInteraction) {//Pick pocket attempt
+                pickPocketInteraction = (PickPocketInteraction) interactions.get(i);
+                continue;
+            }
+            if(interactions.get(i) instanceof Transaction) {//Transaction started
+                transaction = (Transaction) interactions.get(i);
+                continue;
+            }
             interactions.get(i).applyEffect();
-            interactions.clear();
         }
+        interactions.clear();
     }
 
     public void addEntity(Entity e){
         entities.add(e);
+        entityCollision(e,e.getX(),e.getY(),true);
     }
 
     public  void removeEntity(Entity e){
@@ -143,20 +217,27 @@ public class GameState {
                 }
             }
             if (ent instanceof NPC) {
+                if(((NPC) ent).isDead()) {
+                    entities.remove(i);
+                }
                 ((NPC)ent).tick();
             }
             if (ent.getAttemptMove()) {
                 moveHandler.checkMove(ent, ent.getOrientation());
-
             }
             handleInteractions();
         }
     }
 
     public void playerTick() {
-        if(player.getAttemptMove()) {
-            moveHandler.checkMove(player, player.getOrientation());
-
+        if(getPlayer().getAttemptMove()) {
+            moveHandler.checkMove(getPlayer(), getPlayer().getOrientation());
+        }
+        if(getPlayer().isAttemptAttack())
+        {
+            getPlayer().setAttemptAttack(false);
+            System.out.println("Attempt Attack true");
+            AttackAction a = new AttackAction(getPlayer(), this);
         }
         handleInteractions();
     }

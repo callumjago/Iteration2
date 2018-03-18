@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Weapon extends Equipment {
 
     private int AttackPoints;
-    private int AttackOrientation;
+    private AttackOr AttackOrientation;
     private int AttackSpeed;
     private Accuracy Acy;
     private int Range;
@@ -16,7 +16,7 @@ public class Weapon extends Equipment {
     {
         super(EQID, reqLvl, name, description);
         AttackPoints = attackPoints;
-        AttackOrientation = attackOrientation;
+        AttackOrientation = new AttackOr(attackOrientation);
         AttackSpeed = attackSpeed;
         Acy = accuracy;
         Range = range;
@@ -26,7 +26,6 @@ public class Weapon extends Equipment {
         super();
         // Change default values as needed
         AttackPoints = 0;
-        AttackOrientation = 0;
         AttackSpeed = 0;
         Acy = new Accuracy();
         Range = 0;
@@ -45,11 +44,11 @@ public class Weapon extends Equipment {
         AttackPoints = attackPoints;
     }
 
-    public int getAttackOrientation() {
+    public AttackOr getAttackOrientation() {
         return AttackOrientation;
     }
 
-    public void setAttackOrientation(int attackOrientation) {
+    public void setAttackOrientation(AttackOr attackOrientation) {
         AttackOrientation = attackOrientation;
     }
 

@@ -52,7 +52,6 @@ public class Menu {
     }
 
     public void Escape() {
-        System.out.println("OPENING");
         open = !open;
     }
     public void Enter() {
@@ -116,5 +115,12 @@ public class Menu {
 
     public boolean isOpen() {
         return open;
+    }
+
+    public MenuClickHandler getMenuClickHandler() {
+        return mch;
+    }
+    public MenuMouseController getMenuMouseController() {
+        return mmc;
     }
 }

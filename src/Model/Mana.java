@@ -68,11 +68,11 @@ public class Mana implements Stat{
     }
 
     public void deplete(int depAmt){
-        if (MagicPoints - depAmt <= 0){
+        if (MagicPoints + depAmt <= 0){
             MagicPoints = 0;
         }
         else{
-            MagicPoints = MagicPoints - depAmt;
+            MagicPoints = MagicPoints + depAmt;
         }
     }
 
@@ -90,4 +90,14 @@ public class Mana implements Stat{
     public void clearModifier() {
         return;
     }
+
+    public boolean checkCast(int mpCost){
+        return (mpCost+MagicPoints >= 0);
+    }
+
+    @Override
+    public String getName() {
+        return "Mana";
+    }
+
 }

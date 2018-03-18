@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class PassiveSkill extends Skill{
 
     private Stat Misc;
@@ -10,7 +12,7 @@ public class PassiveSkill extends Skill{
     }
 
     public PassiveSkill(String name, String description, Level reqLvl, Stat misc, int modifier) {
-        super(name,description,reqLvl);
+        super(name,description,reqLvl,new SkillLevel());
         Misc = misc;
         Modifier = modifier;
     }
@@ -27,6 +29,11 @@ public class PassiveSkill extends Skill{
     @Override
     public void RemoveSkill() {
         Misc.modify(-1*Modifier);
+    }
+
+    @Override
+    void getSpecificStats(ArrayList<String> stats) {
+        stats.add(Misc.getName() + ": " + Modifier);
     }
 
 }
