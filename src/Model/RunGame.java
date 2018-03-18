@@ -117,6 +117,7 @@ public class RunGame extends Application {
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
+        p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         NPC npc = new NPC();
         npc.setAI(new FriendlyAI(npc, gameState));
         gameState.addEntity(npc);

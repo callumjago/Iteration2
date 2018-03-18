@@ -199,6 +199,7 @@ public class GameState {
 
     public void addEntity(Entity e){
         entities.add(e);
+        entityCollision(e,e.getX(),e.getY(),true);
     }
 
     public  void removeEntity(Entity e){
