@@ -16,6 +16,7 @@ public abstract class SentientEntity extends Entity {
     private Level Lvl;
     private Wallet Coffer;
     private boolean attemptAttack;
+    private int mapID;
 
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
@@ -45,6 +46,7 @@ public abstract class SentientEntity extends Entity {
         inventory = new Inventory();
         EquipWeapon = new Weapon();
         attemptAttack = false;
+        mapID = 1;
         // Add starting equipment here
     }
 
@@ -257,5 +259,13 @@ public abstract class SentientEntity extends Entity {
 
     public Wallet getWallet(){
         return Coffer;
+    }
+    
+    public int getMapID(){
+        return mapID;
+    }
+
+    public void setMapID(int mapID){
+        this.mapID = mapID;
     }
 }

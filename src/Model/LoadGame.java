@@ -240,19 +240,23 @@ public class LoadGame {
 					input.next();
 					player.gainExp(Integer.parseInt(input.next()));
 					break;	
-				case 11:
+				case 11: //Wallet
 					input.next();
 					input.next();
 					break;
-				case 12: //setting player class
+				case 12: //Orientation
+					input.next();
+					player.setOrientation(new Angle(Integer.parseInt(input.next())));
+					break;
+				case 13: //setting player class
 					input.next();
 					input.next();
 					break;
-				case 13: //setting player sprite
+				case 14: //setting player sprite
 					input.next();
 					player.setSprite(Integer.parseInt(input.next()));
 					break;
-				case 14: //setting player Name
+				case 15: //setting player Name
 					input.next();
 					player.setName(input.next());
 					System.out.println(player.getName());
@@ -262,7 +266,7 @@ public class LoadGame {
 				++i;
 		
 				
-				if(i > 14) break;
+				if(i > 15) break;
 			}
     		
     	}
@@ -280,6 +284,8 @@ public class LoadGame {
 			EquipmentCodex ecodex = new EquipmentCodex();
 			
 			Scanner input = new Scanner(br_map.readLine());
+			
+			if(!input.hasNext()) return;
 			
 			input.next();
 			

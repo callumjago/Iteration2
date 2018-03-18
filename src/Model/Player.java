@@ -3,8 +3,6 @@ import Controller.PlayerController;
 import java.awt.*;
 
 public class Player extends SentientEntity {
-    //private PlayerClass Class;
-   private int mapID;
    //holds the index to then player sprite
    private int sprite;
 
@@ -15,22 +13,12 @@ public class Player extends SentientEntity {
 
     Player() {
         super(); // Attribute classes fill with default values
-        //Class = new PlayerClass();
-        mapID= 1;
-
+        //Class = new PlayerClass()
     }
 	
     public void addItem(Item item) {
         getInventory().addItem(item);
 	}
-
-    public int getMapID(){
-        return mapID;
-    }
-
-    public void setMapID(int mapID){
-        this.mapID = mapID;
-    }
     
     public int getSprite() {
     	return sprite;

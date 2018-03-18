@@ -41,7 +41,13 @@ public class SaveGame {
             pw.println("Wallet: " + gs.getPlayer().getWallet().getMoney());
             pw.println("Angle: " + gs.getPlayer().getOrientation());
             pw.println("Class: " + "0");//gs.getPlayer().getClass());
+<<<<<<< HEAD
             pw.println("Sprite: " + gs.getPlayer().getSprite());
+=======
+            //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
+            pw.println("Sprite: " + 1);
+            
+>>>>>>> 3316020ffb495c7eaaa265e42e21276134b45b8d
             pw.println("Name: " + gs.getPlayer().getName());
             pw.close();
         }catch(Exception e){
