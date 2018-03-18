@@ -83,7 +83,7 @@ public class DialogueUI {
 
     public void userClicked() { // called when user clicks
         //System.out.println(getSelectedAnswer());
-        if (statementShowing && statementContinueCollisionTest(mouseController.getMouseX(),mouseController.getMouseY()) == 1)
+        if (statementShowing && dialogue.statementContinueCollisionTest(mouseController.getMouseX(),mouseController.getMouseY()) == 1)
             dialogue.checkForContinue();
         if (answerShowing && getSelectedAnswer() != -1)
             dialogue.answerSelected(getSelectedAnswer());
@@ -107,13 +107,7 @@ public class DialogueUI {
         return -1;
     }
 
-    public int statementContinueCollisionTest(int mouseX,int mouseY) {
-        Bound bound = getStatementContinueBound();
-        if(bound.collisionTest(mouseX, mouseY)) {
-            return 1;
-        } else
-            return -1;
-    }
+
 
     public Bound getAnswerBound(int index) {
         return new Bound(dialogueX + dialogueWidth * (index-1)/currentAmountOfAnswers, dialogueX + dialogueWidth * index/currentAmountOfAnswers, dialogueY+(dialogueHeight/2), dialogueY+dialogueHeight);
@@ -127,7 +121,7 @@ public class DialogueUI {
         return statementShowing;
     }
 
-    public void exitDialogue() {
-        gc.clearRect(dialogueX,dialogueY,dialogueWidth,dialogueHeight);
-    }
+    public void exitDialogue() { gc.clearRect(dialogueX,dialogueY,dialogueWidth,dialogueHeight); }
+
+    public int getCurrentAmountOfAnswer() { return currentAmountOfAnswers; }
 }

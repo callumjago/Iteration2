@@ -34,7 +34,7 @@ public class ShopKeeper extends NPC {
         dialogue.setDialogueOpen(true);
     }
 
-    public void checkForAnswerEvent() {
+    public void checkForAnswerEvent() { // If user selects yes to open shop
         if (dialogue.getCurrentDialogue() == "Awesome!") {
             System.out.println("Time to open the shop for you to browse!");
         }

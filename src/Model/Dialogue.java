@@ -1,5 +1,6 @@
 package Model;
 
+import View.Bound;
 import javafx.scene.canvas.Canvas;
 
 import View.DialogueUI;
@@ -23,6 +24,7 @@ public class Dialogue {
 
     public Dialogue(Canvas canvas) {
         dialogueUI = new DialogueUI(this,canvas);
+        // Default dialogue
         testString.add("How are you?");
         testString.add("Good");
         testString.add("Bad");
@@ -90,6 +92,14 @@ public class Dialogue {
         currentTextNode = currentAnswerNodes.get(nodeNumber-1).getChild(0);
         displayNextDialogue();
         currentNPCTalking.checkForAnswerEvent();
+    }
+
+    public int statementContinueCollisionTest(int mouseX,int mouseY) {
+        Bound bound = dialogueUI.getStatementContinueBound();
+        if(bound.collisionTest(mouseX, mouseY)) {
+            return 1;
+        } else
+            return -1;
     }
 
     public String getStartingDialogue() {
