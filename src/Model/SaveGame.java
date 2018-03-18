@@ -129,7 +129,10 @@ public class SaveGame {
                     	break;
                     case 10:
                     	pw.print('L');
-                    	pw.print(tiles.get(j).get(i).getValue());
+                    	if(tiles.get(j).get(i).getObject().getValue() < 9)
+                    		pw.print("0" + tiles.get(j).get(i).getObject().getValue());
+                    	else
+                    		pw.print(tiles.get(j).get(i).getObject().getValue());
                     	break;
                     }
                     

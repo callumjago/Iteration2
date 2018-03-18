@@ -34,14 +34,14 @@ public class TeleportIR implements Interaction{
 		entity.setMapID(mapID);
 		entity.setPosition(destination);
 		
+		int size = state.getEntities().size();
+		
+		for(int i = 1; i < size; i++) {
+			state.removeEntity(state.getEntities().get(1));
+		}
+		
 		
 		try {
-			int size = state.getEntities().size();
-			
-			for(int i = 1; i < size; i++) {
-				state.removeEntity(state.getEntities().get(1));
-			}
-		
 			File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 			Scanner s_map = new Scanner(br_map.readLine());
@@ -100,7 +100,7 @@ public class TeleportIR implements Interaction{
 							ItemCodex icodex = new ItemCodex();
 							String itag = icodex.getTag(x);
 							
-							if(itag == "InteractiveItem") { //temporary
+							if(itag == "key") { //temporary
 								//tile.setObject(new KeyItem(icodex.getLevelReq(x)));
 							}
 							
@@ -112,8 +112,9 @@ public class TeleportIR implements Interaction{
 							}
 							break;
 						case 'I': //one shot item
-							x = (int)temp.charAt(3)-48;
-							tile.setObject(new OneShotItem(x, 10));
+							OneShotCodex ocodex = new OneShotCodex();
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							tile.setObject(new OneShotItem(x, ocodex.getStatPoints(x)));
 							break;
 						case 'J': //npc
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
@@ -159,8 +160,7 @@ public class TeleportIR implements Interaction{
 									tile.setObject(ring);
 									break;
 								}
-							
-								break;
+							break;
 						case 'L':
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							MPAE mp = new MPAE(x);
@@ -175,8 +175,6 @@ public class TeleportIR implements Interaction{
 				input.close();
 			}
 			state.setTileSet(tileSet);
-			System.out.println(tileSet.size());
-			System.out.println(tileSet.get(0).size());
 		}
 		catch(Exception e) {
 			e.printStackTrace();
