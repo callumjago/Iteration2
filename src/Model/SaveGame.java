@@ -165,46 +165,58 @@ public class SaveGame {
 
 
         //System.out.println("THE NUMBER OF NENEITES: " + npc.size());
+        AI ai;
 
         try{
             PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Maps/Map"
                     + mapID + "/NPC" + mapID + ".txt");
 
-
+            System.out.println("the map id that the file will be saved is " + mapID);
             //Name Sprite Position Armor Weapon Ring HP MP Def Atk Lvl Exp Angle Wallet
             //Projectile Sprite Position damage range Angle
-                for(int i = 2; i < npc.size();i++){
-                    if(npc.get(i) instanceof SentientEntity){
-                        pw.print(((SentientEntity) npc.get(i)).getName() + " ");
-                        //TODO sprite field for entity
-                       // pw.print(((SentientEntity) npc.get(i)).getSprite() + " ");
-                        pw.print((int)((SentientEntity) npc.get(i)).getPosition().getX() + " "+ (int)((SentientEntity) npc.get(i)).getPosition().getY() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getEquipArmor() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getEquipWeapon() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getEquipRing() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getHP() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getMP() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getDef() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getAtk() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getLvl() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getExp() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getOrientation() + " ");
-                        pw.print(((SentientEntity) npc.get(i)).getWallet().getMoney());
-                    }
-                    else{
-                        pw.print("Projectile ");
-                        //TODO sprite field for entity
-                       // pw.print(((Projectile) npc.get(i)).getSprite() + " ");
-                        pw.print(((Projectile) npc.get(i)).getDamage() + " ");
-                        pw.print((int)((Projectile) npc.get(i)).getPosition().getX() + " " +
-                                (int)((Projectile) npc.get(i)).getPosition().getY() + " ");
-                        pw.print(((Projectile) npc.get(i)).getRange() + " ");
-                        pw.print(((Projectile) npc.get(i)).getOrientation() + " ");
+            pw.println("Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag");
+            for(int i = 1; i < npc.size();i++){
+                if(npc.get(i) instanceof SentientEntity){
+                    if((((SentientEntity) npc.get(i)).getName().equals("Vendor")))
+                        pw.print(((SentientEntity) npc.get(i)).getName() + "        ");
+                    else if (((((SentientEntity) npc.get(i)).getName().equals("Orc"))))
+                        pw.print(((SentientEntity) npc.get(i)).getName() + "           ");
+                    //TODO sprite field for entity
+                    // pw.print(((SentientEntity) npc.get(i)).getSprite() + " ");
+                    pw.print((int)((SentientEntity) npc.get(i)).getPosition().getX() + "        "+ (int)((SentientEntity) npc.get(i)).getPosition().getY() + "      ");
+                    pw.print(((SentientEntity) npc.get(i)).getOrientation().getDegree() + "       ");
+                    pw.print(((SentientEntity) npc.get(i)).getEquipArmor().getEQID() + "        ");
+                    pw.print(((SentientEntity) npc.get(i)).getEquipWeapon().getEQID() + "       ");
+                    pw.print(((SentientEntity) npc.get(i)).getEquipRing().getEQID() + "       ");
+                    pw.print(((SentientEntity) npc.get(i)).getHP() + "       ");
+                    pw.print(((SentientEntity) npc.get(i)).getMP() + "       ");
+                    pw.print(((SentientEntity) npc.get(i)).getAtk() + "          ");
+                    pw.print(((SentientEntity) npc.get(i)).getDef() + "       ");
+                    pw.print(((SentientEntity) npc.get(i)).getLvl() + "       ");
+                    pw.print(((SentientEntity) npc.get(i)).getWallet().getMoney() + "         ");
+                    pw.print(((SentientEntity) npc.get(i)).getExp() + "      ");
+                    pw.print(((NPC) npc.get(i)).getTag());
 
-                    }
-                    pw.println();
+                    //TODO do we need a tag in the document?
+                }
+                else{
+                    pw.print("Projectile ");
+                    //TODO sprite field for entity
+                    // pw.print(((Projectile) npc.get(i)).getSprite() + " ");
+                    pw.print(((Projectile) npc.get(i)).getDamage() + " ");
+                    pw.print((int)((Projectile) npc.get(i)).getPosition().getX() + " " +
+                            (int)((Projectile) npc.get(i)).getPosition().getY() + " ");
+                    pw.print(((Projectile) npc.get(i)).getRange() + " ");
+                    pw.print(((Projectile) npc.get(i)).getOrientation() + " ");
+
+                }
+                pw.println();
+                pw.println(((NPC) npc.get(i)).getDescription());
+
             }
-        pw.close();
+
+
+            pw.close();
         }catch(Exception e){
             e.printStackTrace();
         }
