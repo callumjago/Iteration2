@@ -26,7 +26,14 @@ public class TeleportIR implements Interaction{
 	}
 	
 	public void applyEffect() {
+		TeleportCodex tcodex = new TeleportCodex();
+		mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
+		Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
+		entity.setMapID(mapID);
+		entity.setPosition(destination);
+		
 		save.saveGame();
+		
 		
 		try {
 			int size = state.getEntities().size();
@@ -34,13 +41,6 @@ public class TeleportIR implements Interaction{
 			for(int i = 1; i < size; i++) {
 				state.removeEntity(state.getEntities().get(1));
 			}
-			
-			TeleportCodex tcodex = new TeleportCodex();
-			mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
-			Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
-		
-			entity.setMapID(mapID);
-			entity.setPosition(destination);
 		
 			File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/Map" + mapID + ".txt");
 			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
@@ -190,6 +190,7 @@ public class TeleportIR implements Interaction{
 			while(input.hasNextLine()) {
 				String name = input.next();
 				if(name.compareToIgnoreCase("Projectile") != 0) {
+					System.out.println(name);
 					Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
 					Angle angle = new Angle(Integer.parseInt(input.next()));
 				

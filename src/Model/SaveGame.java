@@ -202,7 +202,7 @@ public class SaveGame {
 
                     //TODO do we need a tag in the document?
                 }
-                else{
+               /* else{
                     pw.print("Projectile ");
                     //TODO sprite field for entity
                     // pw.print(((Projectile) npc.get(i)).getSprite() + " ");
@@ -212,7 +212,7 @@ public class SaveGame {
                     pw.print(((Projectile) npc.get(i)).getRange() + " ");
                     pw.print(((Projectile) npc.get(i)).getOrientation().getDegree() + " ");
 
-                }
+                }*/
 
             }
 

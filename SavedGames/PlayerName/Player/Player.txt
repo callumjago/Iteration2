@@ -1,4 +1,4 @@
-Location: 7 7
+Location: 2 2
 MapID: 2
 Armor: 1
 Weapon: 1
@@ -10,7 +10,7 @@ Defense: 1
 Level: 1
 Exp: 0
 Wallet: 50
-Angle: 0
-Class: 0
+Angle: 90
+Class: 1
 Sprite: 0
-Name: dwasd
+Name: asd
