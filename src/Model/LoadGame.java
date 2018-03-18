@@ -363,7 +363,7 @@ public class LoadGame {
 			br_map.readLine();
 			Scanner input = new Scanner(br_map.readLine());
 			
-			while(input != null) {
+			while(input.hasNextLine()) {
 				String name = input.next();
 				Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
 				Angle angle = new Angle(Integer.parseInt(input.next()));
@@ -386,12 +386,24 @@ public class LoadGame {
 				int lvl = Integer.parseInt(input.next());
 				int money = Integer.parseInt(input.next());
 				int exp = Integer.parseInt(input.next());
+				String tag = input.next();
 				
 				String description = br_map.readLine();
 				
 				
 				NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
-				input = new Scanner(br_map.readLine());
+				
+				switch(tag) {
+				case "Hostile":
+					npc.setAI(new HostileAI(npc, state));
+					break;
+				case "Friendly":
+					//npc.setAI(new FriendlyAI());
+					break;
+				}
+				
+				state.getEntities().add(npc);
+				//input = new Scanner(br_map.readLine());
 			}
 			
 			input.close();
