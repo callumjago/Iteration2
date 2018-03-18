@@ -20,7 +20,7 @@ public class Rogue implements PlayerClass {
         RangedSkillPoints = new ClassStat();
     }
 
-    private void generateCompleteSkillSet(){
+    private void generateCompleteSkillSet() {
         CompleteSkillSet = new ArrayList<Skill>();
         //CompleteSkillSet.add(new PassiveSkill("Fortify OH","Strengthens OH attacks by 5",new Level(2),));
     }
@@ -36,8 +36,8 @@ public class Rogue implements PlayerClass {
     }
 
     @Override
-    public Skill[] getTotalSkills() {
-        return (Skill[]) SkillSet.toArray();
+    public ArrayList<Skill> getTotalSkills() {
+        return SkillSet;
     }
 
     private Boolean checkUnlock(Level newLvl){
@@ -51,5 +51,25 @@ public class Rogue implements PlayerClass {
             // Raise Class Stats Up?
         }
 
+    }
+
+    public int getSneakSkill(){
+        return SneakSkillPoints.getClassStat();
+    }
+
+    public ClassStat getTrapSkillPoints() {
+        return TrapSkillPoints;
+    }
+
+    public ClassStat getPickPocketSkillPoints() {
+        return PickPocketSkillPoints;
+    }
+
+    public ClassStat getRangedSkillPoints() {
+        return RangedSkillPoints;
+    }
+
+    public void setRangedSkillPoints(ClassStat rangedSkillPoints) {
+        RangedSkillPoints = rangedSkillPoints;
     }
 }

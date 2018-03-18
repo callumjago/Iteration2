@@ -13,6 +13,8 @@ public class NPC extends SentientEntity {
 	NPC(){
 		ExpUponDeath = 10;
 		detectionRange = 4;
+		addToInventory(new Ring());
+		addToInventory(new Armor());
 
 	}
 	
@@ -51,6 +53,8 @@ public class NPC extends SentientEntity {
 		ai.tick();
 	}
 
+
 	public void checkForAnswerEvent() {}
 	public void talk() {}
+
 }

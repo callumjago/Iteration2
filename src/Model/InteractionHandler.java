@@ -39,5 +39,14 @@ public class InteractionHandler {
                 }
             }
         }
+
+        if(GS.getPlayer().isPickpocketing()) {
+            Entity entity = GS.getEntity(GS.getPlayer().getForewardPosition());
+            if(entity != null) {
+                if(entity instanceof NPC) {
+                    interactions.add(new PickPocketInteraction((NPC)entity, GS.getPlayer()));
+                }
+            }
+        }
     }
 }

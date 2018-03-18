@@ -15,6 +15,7 @@ public class Ring extends Equipment {
     public Ring() {
         super();
 		this.setName("Ring");
+		Effect = new PassiveSkill("Magic Ring", "Does some shit", new Level(1), new Health(), 5);
     }
 
     @Override
@@ -24,7 +25,11 @@ public class Ring extends Equipment {
 
     @Override
     ArrayList<String> getStats() {
-        return null;
+        ArrayList<String> stats = new ArrayList<>();
+        stats.add("Name: " + getName());
+        stats.add(Effect.getName());
+        stats.addAll(Effect.getStats());
+        return stats;
     }
     public Skill getEffect() {
         return Effect;

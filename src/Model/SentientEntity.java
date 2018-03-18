@@ -30,6 +30,7 @@ public abstract class SentientEntity extends Entity {
         Def = new Defense(initDef);
         Lvl = new Level(initLvl);
         Coffer = new Wallet(initMoney);
+
         inventory = new Inventory();
         attemptAttack = false;
         attemptInteract = false;
@@ -44,10 +45,13 @@ public abstract class SentientEntity extends Entity {
         Def = new Defense();
         Lvl = new Level();
         Coffer = new Wallet();
+        Coffer.increaseMoney(50);
         inventory = new Inventory();
         EquipWeapon = new Weapon();
         attemptAttack = false;
         // Add starting equipment here
+        EquipArmor = new Armor();
+        EquipRing = new Ring();
     }
 
     public void modifyHP(int delta){
@@ -80,11 +84,15 @@ public abstract class SentientEntity extends Entity {
 
     public int getEXP() { return Lvl.getExperience(); }
 
+    public void setMaxHP(int x) { HP.setMaxHealthPoints(x);}
+
     public int getEXPRemaining() { return Lvl.getExpToNextLevel(); }
 
     public int getMP(){
         return MP.getMagicPoints();
     }
+
+    public int getMaxMP() { return MP.getMaxMagicPoints(); }
 
     public int getAtk(){
         return Atk.getAttackPoints();
@@ -230,7 +238,9 @@ public abstract class SentientEntity extends Entity {
         return statsList;
     }
 
-    public Point getForwardPosition() {
+
+    public Point getForewardPosition() {
+
         Point pos = getPosition();
         if(getOrientation().getDegree() == 0) {
             return new Point(pos.x+1, pos.y);
@@ -252,6 +262,10 @@ public abstract class SentientEntity extends Entity {
             return new Point(pos.x+1, pos.y);
         }
     }
+
+
+    public boolean checkCast(int mpCost){ return MP.checkCast(mpCost); }
+
 
     public void addToInventory(Item i){
         inventory.addItem(i);

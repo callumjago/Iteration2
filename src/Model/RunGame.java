@@ -5,6 +5,8 @@ import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
 import Controller.MenuController;
+import Controller.PickPocketController;
+import View.NPCInventoryView;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -31,6 +33,8 @@ public class RunGame extends Application {
     @Override
     public void start(Stage theStage) {
         mainStage = theStage;
+        //mainStage.setFullScreen(true);
+
         mainStage.setTitle("The H Y P E");
 
         Group root = new Group();
@@ -73,7 +77,7 @@ public class RunGame extends Application {
 
         // OneShot Test Item
         Tile objt = new Tile(0);
-        objt.setObject(new OneShotItem(1,-12));
+        objt.setObject(new Obstacle());
         tileSet.get(4).set(4, objt);
 
         // HealingAE Test Item
@@ -102,20 +106,25 @@ public class RunGame extends Application {
         tileSet.get(4).set(2, obj5);
 
         GameState gameState = new GameState();
-
         gameState.setPlayer(p);
+        p.getPlayerClass().addSkill(new Fireball(p,gameState));
+        p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
+        p.getPlayerClass().addSkill(new BindWoundsSkill(p));
         NPC npc = new NPC();
-        npc.setAI(new HostileAI(npc, gameState));
+        npc.setAI(new FriendlyAI(npc, gameState));
         gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
+        PickPocketController ppc = new PickPocketController();
+        keyController.addController(ppc);
         gameState.setTileSet(tileSet);
        // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
 
 
-        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new InventoryMenu(p));
         menu.addSubMenu(new EquipmentMenu(p));
         menu.addSubMenu(new StatsMenu(p));
+        menu.addSubMenu(new SkillsMenu(p));
         menu.addSubMenu(new ControlsMenu(pc));
         menu.addSubMenu(new SaveGameMenu(save));
         menu.addSubMenu(new QuitGameMenu());
@@ -161,7 +170,7 @@ public class RunGame extends Application {
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 15) {//Immediately responds if player input registered
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 5) {//Immediately responds if player input registered
                         gameState.playerTick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
@@ -171,13 +180,22 @@ public class RunGame extends Application {
                     ticksSincePlayerInput++;
 
                     //Npcs are allowed to move periodically
-                    if(tick > 45) {
+                    if(tick > 15) {
                         gameState.tick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
                         tick = 0;
                     }
                     tick++;
+
+                    if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing
+                        ppc.setPickPocketInteraction(gameState.getPickPocketInteraction());
+                        NPCInventoryView inventoryView = new NPCInventoryView(canvas);
+
+                        inventoryView.render(gameState.getPickPocketInteraction().getNpc(), ppc.getSelectedIndex());
+                        ppc.handlePickPocket(gameState);
+
+                    }
                 }
 
                 //dialogue.startDialogue();

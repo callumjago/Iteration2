@@ -10,12 +10,14 @@ public class GameState {
     private ArrayList<Interaction> interactions;
     private MovementHandler moveHandler;
     private InteractionHandler interactionHandler;
+    private PickPocketInteraction pickPocketInteraction;
 
     public GameState() {
         interactions = new ArrayList<Interaction>();
         entities = new ArrayList<Entity>();
         moveHandler = new MovementHandler(this);
         interactionHandler = new InteractionHandler();
+        pickPocketInteraction = null;
     }
 
     public Player getPlayer() {
@@ -40,6 +42,25 @@ public class GameState {
     }
     public void setPlayer(Player player) {
         entities.add(0,player);
+    }
+
+    public PickPocketInteraction getPickPocketInteraction() {
+        return pickPocketInteraction;
+    }
+    public void pickPocket(int index, boolean success) {
+        if(pickPocketInteraction == null) {
+            return;
+        }
+        if(!success) {//Pickpocket failed
+            pickPocketInteraction.getNpc().setAI(new HostileAI(pickPocketInteraction.getNpc(), this));
+            ((Player)entities.get(0)).setPickpocketing(false);
+            pickPocketInteraction = null;
+            return;
+        }
+
+        pickPocketInteraction.applyEffect(index);
+        pickPocketInteraction = null;
+
     }
 
     public void setTileSet(ArrayList<ArrayList<Tile>> tileSet) {
@@ -96,8 +117,13 @@ public class GameState {
         return t.isPassable();
     }
 
-    public void checkEntityInteractions(){
 
+
+    public boolean checkEntity(Point point){
+        for (Entity ent:entities){
+            if (ent.getPosition() == point) return true;
+        }
+        return false;
     }
 
     private boolean entityCollision(Entity src, int x, int y, boolean realMove) {
@@ -131,9 +157,13 @@ public class GameState {
     public void handleInteractions() {
         interactionHandler.generateInteractions(this, interactions);
         for (int i = 0; i < interactions.size(); i++) {
+            if(interactions.get(i) instanceof PickPocketInteraction) {
+                pickPocketInteraction = (PickPocketInteraction) interactions.get(i);
+                continue;
+            }
             interactions.get(i).applyEffect();
-            interactions.clear();
         }
+        interactions.clear();
     }
 
     public void addEntity(Entity e){

@@ -49,7 +49,7 @@ public class Inventory {
 	}
 	
 	public void tossItem(int _index) {
-		if(_index <= 0) {
+		if(_index < 0) {
 			System.out.println("Bag is Empty!");
 			return;
 		}

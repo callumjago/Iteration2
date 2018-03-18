@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public abstract class Skill {
 
     private String Name;
@@ -45,4 +47,15 @@ public abstract class Skill {
     public abstract void ApplySkill();
 
     public abstract void RemoveSkill();
+
+    public ArrayList<String> getStats() {
+        ArrayList<String> stats = new ArrayList<>();
+        stats.add("Name: " + Name);
+        stats.add("Description: " + Description);
+        stats.add("Req Level: " + ReqLvl.getLevel());
+        getSpecificStats(stats);
+        return stats;
+    }
+
+    abstract void getSpecificStats(ArrayList<String> stats);
 }

@@ -17,9 +17,9 @@ public class EquipmentMenu extends SubMenu {
         equipmentTypes.add("Ring");
 
         equipmentItems = new ArrayList<>();
-        equipmentItems.add(new InventoryMenuItem(new ArrayList<>()));
+        equipmentItems.add(new InventoryMenuItem(player.getEquipArmor().getStats()));
         equipmentItems.add(new InventoryMenuItem(player.getEquipWeapon().getStats()));
-        equipmentItems.add(new InventoryMenuItem(new ArrayList<>()));
+        equipmentItems.add(new InventoryMenuItem(player.getEquipRing().getStats()));
 
     }
 

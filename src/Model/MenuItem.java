@@ -54,8 +54,16 @@ public abstract class MenuItem {
         addElement(item);
     }
 
+    public int getNumElements() {
+        return elements.size();
+    }
+
     public void updateElement(int index, String newName) {
         if(index >= elements.size()) { return; }
         elements.get(index).setText(newName);
+    }
+
+    public void clearElements() {
+        elements.clear();
     }
 }
