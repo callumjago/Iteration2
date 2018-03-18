@@ -4,6 +4,7 @@ public class NPC extends SentientEntity {
 	private AI ai;
 	private String dialogue;
 	private int ExpUponDeath;
+	private int detectionRange;
 	
 	NPC(int exp){
 		ExpUponDeath = exp;
@@ -11,6 +12,10 @@ public class NPC extends SentientEntity {
 	
 	NPC(){
 		ExpUponDeath = 10;
+		detectionRange = 4;
+		addToInventory(new Ring());
+		addToInventory(new Armor());
+
 	}
 	
 	public void setAI(AI _ai) {
@@ -36,4 +41,20 @@ public class NPC extends SentientEntity {
 	public void setExpUponDeath(int exp) {
 		ExpUponDeath = exp;
 	}
+
+	public int getDetectionRange() {
+		return detectionRange;
+	}
+
+	public void tick() {
+		if(ai == null) {
+			return;
+		}
+		ai.tick();
+	}
+
+
+	public void checkForAnswerEvent() {}
+	public void talk() {}
+
 }

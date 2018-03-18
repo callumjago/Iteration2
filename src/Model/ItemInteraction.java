@@ -35,8 +35,8 @@ public class ItemInteraction implements Interaction {
         }
 
         else if(value instanceof InteractiveItem) {
-        	//if(entity.getLvl() < ((InteractiveItem)value).getLvlRequirement())
-        		//return;
+        	if(entity.getLvl() < ((InteractiveItem)value).getLvlRequirement())
+        		return;
         }
 
         entity.addToInventory(value);

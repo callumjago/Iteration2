@@ -79,6 +79,11 @@ public class ClassStat implements Stat{
         modifier = 0;
     }
 
+    @Override
+    public String getName() {
+        return "ClassStat";
+    }
+
     public void modify(int delta) {
         modifier += delta;
     }

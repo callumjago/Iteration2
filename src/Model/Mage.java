@@ -36,8 +36,8 @@ public class Mage implements PlayerClass{
     }
 
     @Override
-    public Skill[] getTotalSkills() {
-        return (Skill[]) SkillSet.toArray();
+    public ArrayList<Skill> getTotalSkills() {
+        return SkillSet;
     }
 
     private Boolean checkUnlock(Level newLvl){

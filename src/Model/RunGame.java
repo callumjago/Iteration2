@@ -5,6 +5,8 @@ import View.MapView;
 import View.MenuView;
 import Controller.KeyController;
 import Controller.MenuController;
+import Controller.PickPocketController;
+import View.NPCInventoryView;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -31,6 +33,8 @@ public class RunGame extends Application {
     @Override
     public void start(Stage theStage) {
         mainStage = theStage;
+        //mainStage.setFullScreen(true);
+
         mainStage.setTitle("The H Y P E");
 
         Group root = new Group();
@@ -52,9 +56,11 @@ public class RunGame extends Application {
         keyController.addController(mc);
 
         Player p = new Player();
-        p.setPosition(new Point(6, 4));
-        NPC npc = new NPC();
-        npc.setPosition(new Point(3,4));
+//        p.setPosition(new Point(6, 4));
+//        NPC npc = new NPC();
+//        npc.setPosition(new Point(3,4));
+
+        p.setPosition(new Point(6, 5));
 
         //canvas.setOnKeyPressed(p.getPc());
         for(int i = 0; i < 7; i++) {
@@ -62,9 +68,6 @@ public class RunGame extends Application {
             p.addItem(new Ring());
 
         }
-
-
-
 
         menuView = new MenuView(canvas);
 
@@ -78,7 +81,7 @@ public class RunGame extends Application {
 
         // OneShot Test Item
         Tile objt = new Tile(0);
-        objt.setObject(new OneShotItem(1,-12));
+        objt.setObject(new Obstacle());
         tileSet.get(4).set(4, objt);
 
         // HealingAE Test Item
@@ -111,18 +114,26 @@ public class RunGame extends Application {
 
 
         GameState gameState = new GameState();
-
         gameState.setPlayer(p);
+
+        p.getPlayerClass().addSkill(new Fireball(p,gameState));
+        p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
+        p.getPlayerClass().addSkill(new BindWoundsSkill(p));
+        NPC npc = new NPC();
+        npc.setAI(new FriendlyAI(npc, gameState));
         gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
+        PickPocketController ppc = new PickPocketController();
+        keyController.addController(ppc);
         gameState.setTileSet(tileSet);
-        gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+       // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
 
 
-        menu.addSubMenu(new InventoryMenu(p.getInventory()));
+        menu.addSubMenu(new InventoryMenu(p));
         menu.addSubMenu(new EquipmentMenu(p));
         menu.addSubMenu(new StatsMenu(p));
+        menu.addSubMenu(new SkillsMenu(p));
         menu.addSubMenu(new ControlsMenu(pc));
         menu.addSubMenu(new SaveGameMenu(save));
         menu.addSubMenu(new QuitGameMenu());
@@ -133,9 +144,27 @@ public class RunGame extends Application {
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
-        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene);
+        MusicHandler musicHandler = new MusicHandler();
 
-        PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
+        //MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,musicHandler,mainStage,mainScene);
+
+        //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
+
+        //Disabled because enabling breaks in game menus clicking
+
+        /*
+        Dialogue dialogue = new Dialogue(canvas);
+
+        NPC shopKeeper = new ShopKeeper(dialogue);
+        gameState.addEntity(shopKeeper);
+        shopKeeper.setPosition(new Point(8,0));
+        shopKeeper.setOrientation(new Angle(90));
+
+        NPC villager1 = new Villager(dialogue);
+        gameState.addEntity(villager1);
+        villager1.setPosition(new Point(8,8));
+        villager1.setOrientation(new Angle(270));
+        */
 
         mv.render(gameState);
         new AnimationTimer() {
@@ -150,7 +179,7 @@ public class RunGame extends Application {
                 if(menu.isOpen()) {//render menu
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 15) {//Immediately responds if player input registered
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 5) {//Immediately responds if player input registered
                         gameState.playerTick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
@@ -160,7 +189,7 @@ public class RunGame extends Application {
                     ticksSincePlayerInput++;
 
                     //Npcs are allowed to move periodically
-                    if(tick > 45) {
+                    if(tick > 15) {
                         gameState.tick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
@@ -168,10 +197,21 @@ public class RunGame extends Application {
                     }
 //                    System.out.println((npc.getHP()));
                     tick++;
+
+                    if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing
+                        ppc.setPickPocketInteraction(gameState.getPickPocketInteraction());
+                        NPCInventoryView inventoryView = new NPCInventoryView(canvas);
+
+                        inventoryView.render(gameState.getPickPocketInteraction().getNpc(), ppc.getSelectedIndex());
+                        ppc.handlePickPocket(gameState);
+
+                    }
                 }
 
+                //dialogue.startDialogue();
+
                 // Checks if players health is <= 0 for gameover screen
-                playerDeath.checkIfDead();
+                //playerDeath.checkIfDead();
 
 
 

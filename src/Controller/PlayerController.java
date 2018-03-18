@@ -3,6 +3,7 @@ package Controller;
 import Model.GameState;
 import Model.Player;
 import Model.Projectile;
+import Model.Entity;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -36,12 +37,16 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.RIGHT);
         playerControls.add(KeyCode.DOWN);
         playerControls.add(KeyCode.LEFT);
-        playerControls.add(KeyCode.NUMPAD9);
-        playerControls.add(KeyCode.NUMPAD3);
-        playerControls.add(KeyCode.NUMPAD1);
-        playerControls.add(KeyCode.NUMPAD7);
+        playerControls.add(KeyCode.E);
+        playerControls.add(KeyCode.C);
+        playerControls.add(KeyCode.Z);
+        playerControls.add(KeyCode.Q);
+        playerControls.add(KeyCode.M);
         playerControls.add(KeyCode.SPACE);
         playerControls.add(KeyCode.ENTER);
+        playerControls.add(KeyCode.F);
+        playerControls.add(KeyCode.N);
+
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -52,8 +57,12 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("SE");
         controlFunctions.add("SW");
         controlFunctions.add("NW");
+        controlFunctions.add("Aim");
         controlFunctions.add("Attack");
         controlFunctions.add("Projectile");
+        controlFunctions.add("Interact");
+        controlFunctions.add("PickPocket");
+
 
 
         isListeningforRebind = false;
@@ -97,12 +106,26 @@ public class PlayerController extends SubKeyController {
             player.moveSouthWest();
         } else if(code == playerControls.get(7)) {//MoveNW
             player.moveNorthWest();
-        } else if(code == playerControls.get(8)) {//Attack
-            player.setAttemptAttack(true);
-            System.out.println("play ");
+        } else if(code == playerControls.get(8)) {//Aim Mode
+            player.toggleMovement();
         } else if(code == playerControls.get(9)) {//Attack
-            gs.addEntity(new Projectile(getProjectileStartPoint(), player.getOrientation().getDegree(), 100, 10));
+            player.setAttemptAttack(true);
+        } else if(code == playerControls.get(10)) {//Attack
+            gs.addEntity(new Projectile(player.getForewardPosition(), player.getOrientation().getDegree(), 100, 10, 0));
+        } else if(code == playerControls.get(11)) {//Interact
+            player.setAttemptInteract(true);
+            if (gs.getEntity(player.getForewardPosition()) != null) {
+                gs.getEntity(player.getForewardPosition()).talk();
+            }
+        } else if(code == playerControls.get(12)) {//Attack
+            player.setPickpocketing(true);
+
         }
+    }
+
+    @Override
+    boolean isActive() {
+        return true;
     }
 
 
@@ -128,20 +151,5 @@ public class PlayerController extends SubKeyController {
             return "";
         }
         return playerControls.get(index).toString();
-    }
-
-    private Point getProjectileStartPoint() {
-
-
-        Point pos = player.getPosition();
-        if(player.getOrientation().getDegree() == 0) {
-            return new Point(pos.x+1, pos.y);
-        } else if(player.getOrientation().getDegree() == 90) {
-            return new Point(pos.x, pos.y + 1);
-        } else if(player.getOrientation().getDegree() == 180) {
-            return new Point(pos.x-1, pos.y);
-        } else {
-            return new Point(pos.x, pos.y-1);
-        }
     }
 }

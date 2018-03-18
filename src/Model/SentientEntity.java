@@ -18,7 +18,7 @@ public abstract class SentientEntity extends Entity {
     private AttackOr AtOr;
     private boolean attemptAttack;
     private int WeaRange;
-
+    private boolean attemptInteract;
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
         Name = name;
@@ -31,8 +31,10 @@ public abstract class SentientEntity extends Entity {
         Def = new Defense(initDef);
         Lvl = new Level(initLvl);
         Coffer = new Wallet(initMoney);
+
         inventory = new Inventory();
         attemptAttack = false;
+        attemptInteract = false;
     }
 
     SentientEntity(){ // Attribute classes fill with default values
@@ -44,10 +46,13 @@ public abstract class SentientEntity extends Entity {
         Def = new Defense();
         Lvl = new Level();
         Coffer = new Wallet();
+        Coffer.increaseMoney(50);
         inventory = new Inventory();
         EquipWeapon = new Weapon();
         attemptAttack = false;
         // Add starting equipment here
+        EquipArmor = new Armor();
+        EquipRing = new Ring();
     }
 
     public void modifyHP(int delta){
@@ -76,9 +81,19 @@ public abstract class SentientEntity extends Entity {
 
     public void setHP(int x) { HP.setHealthPoints(x); }
 
+    public int getMaxHP() { return HP.getMaxHealthPoints(); }
+
+    public int getEXP() { return Lvl.getExperience(); }
+
+    public void setMaxHP(int x) { HP.setMaxHealthPoints(x);}
+
+    public int getEXPRemaining() { return Lvl.getExpToNextLevel(); }
+
     public int getMP(){
         return MP.getMagicPoints();
     }
+
+    public int getMaxMP() { return MP.getMaxMagicPoints(); }
 
     public int getAtk(){
         return Atk.getAttackPoints();
@@ -228,6 +243,35 @@ public abstract class SentientEntity extends Entity {
         return statsList;
     }
 
+
+    public Point getForewardPosition() {
+
+        Point pos = getPosition();
+        if(getOrientation().getDegree() == 0) {
+            return new Point(pos.x+1, pos.y);
+        } else if(getOrientation().getDegree() == 45) {
+            return new Point(pos.x+1, pos.y+1);
+        } else if(getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y + 1);
+        } else if(getOrientation().getDegree() == 135) {
+            return new Point(pos.x-1, pos.y+1);
+        } else if(getOrientation().getDegree() == 180) {
+            return new Point(pos.x-1, pos.y);
+        } else if(getOrientation().getDegree() == 225) {
+            return new Point(pos.x-1, pos.y-1);
+        } else if(getOrientation().getDegree() == 270) {
+            return new Point(pos.x, pos.y-1);
+        } else if(getOrientation().getDegree() == 315) {
+            return new Point(pos.x+1, pos.y-1);
+        } else {
+            return new Point(pos.x+1, pos.y);
+        }
+    }
+
+
+    public boolean checkCast(int mpCost){ return MP.checkCast(mpCost); }
+
+
     public void addToInventory(Item i){
         inventory.addItem(i);
     }
@@ -239,4 +283,10 @@ public abstract class SentientEntity extends Entity {
     public void setAttemptAttack(boolean attemptAttack) {
         this.attemptAttack = attemptAttack;
     }
+
+    public boolean isAttemptInteract() { return attemptInteract; }
+
+    public void setAttemptInteract(boolean attemptInteract) { this.attemptInteract = attemptInteract; }
+
+    public void talk() {}
 }

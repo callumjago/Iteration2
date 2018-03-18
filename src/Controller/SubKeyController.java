@@ -9,4 +9,5 @@ public abstract class SubKeyController {
     }
 
     abstract void keyInput(KeyCode code);
+    abstract boolean isActive();
 }

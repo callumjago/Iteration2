@@ -63,6 +63,11 @@ public class Attack implements Stat{
         AddedAttackPoints = 0;
     }
 
+    @Override
+    public String getName() {
+        return "Attack";
+    }
+
     public void raiseBaseStat(int boost){ // Base attack can only be raised upon level up!
         if (boost <= 0){
             return;

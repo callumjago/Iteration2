@@ -63,6 +63,11 @@ public class Defense implements Stat{
         AddedDefensePoints = 0;
     }
 
+    @Override
+    public String getName() {
+        return "Defense";
+    }
+
     public void raiseBaseStat(int boost){ // Base defense can only be raised upon level up!
         if (boost <= 0){
             return;
