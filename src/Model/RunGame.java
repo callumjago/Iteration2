@@ -120,6 +120,7 @@ public class RunGame extends Application {
         GameState gameState = new GameState();
         gameState.setPlayer(p);
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
+        p.getPlayerClass().addSkill(new BrainWashSkill(p, gameState));
         p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
@@ -130,7 +131,7 @@ public class RunGame extends Application {
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
 
         NPC npc = new NPC();
-        npc.setAI(new FriendlyAI(npc, gameState));
+        npc.setAI(new HostileAI(npc, gameState));
         gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
