@@ -197,6 +197,7 @@ public class LoadGame {
 				case 2: //equiping armor
 					input.next();
 					id = Integer.parseInt(input.next());
+					if(id <= 0) id = 1;
 					Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), 
 							ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
 					
@@ -205,6 +206,7 @@ public class LoadGame {
 				case 3: //equiping weapon
 					input.next();
 					id = Integer.parseInt(input.next());
+					if(id <= 0) id = 1;
 					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
 							ecodex.getStatPoints(id), 0, ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id));
 					player.setEquipWeapon(weapon);
@@ -212,6 +214,7 @@ public class LoadGame {
 				case 4: //equiping ring
 					input.next();
 					id = Integer.parseInt(input.next());
+					if(id <= 0) id = 1;
 					System.out.println(id);
 					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
 					player.setEquipRing(ring);
@@ -246,11 +249,12 @@ public class LoadGame {
 					break;
 				case 12: //Orientation
 					input.next();
-					player.setOrientation(new Angle(Integer.parseInt(input.next())));
+					//player.setOrientation(new Angle(Integer.parseInt(input.next())));
+					input.next();
 					break;
 				case 13: //setting player class
 					input.next();
-					input.next();
+					player.setRole(Integer.parseInt(input.next()));
 					break;
 				case 14: //setting player sprite
 					input.next();
@@ -285,7 +289,6 @@ public class LoadGame {
 			
 			Scanner input = new Scanner(br_map.readLine());
 			
-			if(!input.hasNext()) return;
 			
 			input.next();
 			
@@ -353,6 +356,46 @@ public class LoadGame {
     }
     
     public void loadNPC() {
+    	try {
+    		File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/NPC" + mapID + ".txt");
+			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
+			Scanner input = new Scanner(br_map.readLine());
+			
+			while(input != null) {
+				String name = input.next();
+				Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
+				Angle angle = new Angle(Integer.parseInt(input.next()));
+				
+				int id = Integer.parseInt(input.next());
+				EquipmentCodex ecodex = new EquipmentCodex();
+				Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
+				
+				id = Integer.parseInt(input.next());
+				Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
+						ecodex.getOrientation(id), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id));
+				
+				id = Integer.parseInt(input.next());
+				Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
+				
+				int HP = Integer.parseInt(input.next());
+				int MP = Integer.parseInt(input.next());
+				int Atck = Integer.parseInt(input.next());
+				int Def = Integer.parseInt(input.next());
+				int lvl = Integer.parseInt(input.next());
+				int money = Integer.parseInt(input.next());
+				int exp = Integer.parseInt(input.next());
+				
+				String description = br_map.readLine();
+				
+				
+				NPC npc = new NPC(name, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp);
+				
+				input = new Scanner(br_map.readLine());
+			}
+			
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
     	
     }
 

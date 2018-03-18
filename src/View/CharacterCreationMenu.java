@@ -20,7 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-
+import Model.GameState;
 import Model.MainMenuHandler;
 import Model.NewGame;
 import Model.Player;
@@ -28,15 +28,17 @@ import Model.Player;
 public class CharacterCreationMenu {
 
     MainMenuHandler mainMenu;
+    GameState state;
     Scene characterCreationScene;
     Player player;
     private int spriteNumber;
     private int classNumber;
 
-    public CharacterCreationMenu(MainMenuHandler mainMenu, Player player)
+    public CharacterCreationMenu(MainMenuHandler mainMenu, Player player, GameState _state)
     {
         this.mainMenu = mainMenu;
         this.player = player;
+        state = _state;
     }
 
     public Scene generateScene() {
@@ -144,7 +146,7 @@ public class CharacterCreationMenu {
                 //System.out.println(player.getName());
                 //System.out.println(player.getPlayerSpriteNumber());
                 //openIntroMenu();
-                NewGame newGame = new NewGame(nameInput.getText(), classNumber, spriteNumber);
+                NewGame newGame = new NewGame(nameInput.getText(), spriteNumber, classNumber, state);
                 mainMenu.changeMenu(1); // Main Game Scene
             }
             else {

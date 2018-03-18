@@ -77,4 +77,10 @@ public class EquipmentCodex  extends Codex{
 
     }
 
+
+	public int getOrientation(int id) {
+		// TODO Auto-generated method stub
+		return Integer.parseInt(map.get(id).get(8));
+	}
+
 }

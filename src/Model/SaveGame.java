@@ -39,8 +39,8 @@ public class SaveGame {
             pw.println("Level: " + gs.getPlayer().getLvl());
             pw.println("Exp: " + gs.getPlayer().getExp());
             pw.println("Wallet: " + gs.getPlayer().getWallet().getMoney());
-            pw.println("Angle: " + gs.getPlayer().getOrientation());
-            pw.println("Class: " + "0");//gs.getPlayer().getClass());
+            pw.println("Angle: " + gs.getPlayer().getOrientation().getDegree());
+            pw.println("Class: " + gs.getPlayer().getRole());
             //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
             pw.println("Sprite: " + 1);
             
@@ -58,7 +58,7 @@ public class SaveGame {
                                 + mapID + "/Map" + mapID + ".txt");
 
             ArrayList<ArrayList<Tile>> tiles = gs.getTileSet();
-            pw.print(tiles.size() + " " + tiles.get(0).size());
+            pw.print(tiles.get(0).size() + " " + tiles.size());
             pw.println();
             
             for(int i = 0; i < tiles.get(0).size(); i++){

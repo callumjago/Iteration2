@@ -1,18 +1,26 @@
 package Model;
 
+import java.awt.Point;
+
 public class NPC extends SentientEntity {
 	private AI ai;
 	private String dialogue;
 	private int ExpUponDeath;
 	private int detectionRange;
+	private String description;
 	
-	NPC(int exp){
-		ExpUponDeath = exp;
+	NPC(String name, String _description, Point pos, Angle theta,  Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney, int _exp){
+		super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
+		ExpUponDeath = _exp;
+		description = _description;
 	}
 	
 	NPC(){
+		super();
 		ExpUponDeath = 10;
 		detectionRange = 4;
+		addToInventory(new Ring());
+		addToInventory(new Armor());
 
 	}
 	
@@ -50,4 +58,17 @@ public class NPC extends SentientEntity {
 		}
 		ai.tick();
 	}
+	
+	public void setDescriptidon(String _description) {
+		description = _description;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void checkForAnswerEvent() {}
+	public void talk() {}
+
 }

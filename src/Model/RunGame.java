@@ -129,13 +129,12 @@ public class RunGame extends Application {
         
         load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
         
-        
         //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
-        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene, this);
+        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,mainStage,mainScene, this, gameState);
 
         PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
@@ -177,7 +176,7 @@ public class RunGame extends Application {
                 // Checks if players health is <= 0 for gameover screen
                 playerDeath.checkIfDead();
 
-
+                
 
 
             }
