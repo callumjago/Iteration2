@@ -4,54 +4,55 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DefenseBuffSkill extends Skill{
+public class DetectTrapSkill extends Skill {
     private Player player;
     private Timer duration;
-    private boolean CoolDown;
-
-    public DefenseBuffSkill(Player player){
-        super("Iron Flesh", "Make your skin rock hard to shrug off arrows!(Costs 15 MP)", new Level(2), new SkillLevel(4));
+    private boolean coolDown;
+    public DetectTrapSkill(Player player) {
+        super("Detect Traps","Allows you to see traps", new Level(1), new SkillLevel(3));
         this.player = player;
-        CoolDown = false;
+        coolDown = false;
     }
 
     @Override
     public void ApplySkill() {
-        if (CoolDown) {return;}
+        if (coolDown) {return;}
         else if (!player.checkLvl(getReqLvl())){
             System.out.println("Level not high enough to use skill!");
             return;
         }
-        if (duration == null){
-            duration = new Timer();
-        }
-        CoolDown = true;
         int time = 10;
-        int mpCost = 20;
-        int defense = 15;
+        int mpCost = 25;
         if (getLvl() == 2){
-            mpCost = 30;
-            time = 15;
-            defense = 15;
+            mpCost = 35;
+            time = 20;
         }
-        else if (getLvl() == 3){
-            mpCost = 40;
+        else if (getLvl() == 3) {
+            mpCost = 50;
             time = 30;
-            defense = 20;
         }
         if (player.checkCast(-mpCost)) {
             player.modifyMP(-mpCost);
-            player.modifyDef(defense);
+
+
+
+            if (duration == null) {
+                duration = new Timer();
+            }
+            player.setCanDetectTraps(true);
             duration.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    RemoveSkill();
-                }
-            }, time * 1000);
+                    @Override
+                    public void run() {
+                        player.setCanDetectTraps(false);
+                        RemoveSkill();
+                    }
+                }, time * 1000);
+
+
         }
         else{
             System.out.println("Not enough MP!");
-            CoolDown = false;
+            coolDown = false;
         }
     }
 
@@ -60,8 +61,7 @@ public class DefenseBuffSkill extends Skill{
         duration.cancel();
         duration.purge();
         duration = null;
-        player.modifyDef(-15);
-        CoolDown = false;
+        coolDown = false;
     }
 
     @Override

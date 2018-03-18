@@ -167,14 +167,20 @@ public class GameState {
         return true;
     }
 
-    public Boolean AttackCollision(int x, int y, int damage) {
+    public Boolean AttackCollision(int x, int y, int damage, String tag) {
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
+        boolean ranged = true;
+        if (tag.equals("bow")) {
+                this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), 100, 10, 0));
+                getPlayer().modifyArrowCount(-1);
+        }
         while (it.hasNext()) {
             entity = it.next();
             if (entity.getPosition().x == x && entity.getPosition().y == y) {
-
-                interactions.add(new DamageIR((SentientEntity) entity, damage));
+                if(ranged != true) {
+                    interactions.add(new DamageIR((SentientEntity) entity, damage));
+                }
                 return true;
             }
         }
