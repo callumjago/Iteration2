@@ -43,6 +43,7 @@ public class Health implements Stat{
         }
         else {
             MaxHealthPoints = maxHealthPoints;
+            if (HealthPoints > maxHealthPoints) HealthPoints = MaxHealthPoints;
         }
     }
 
