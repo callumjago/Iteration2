@@ -234,8 +234,9 @@ public class GameState {
             if (ent.getAttemptMove()) {
                 moveHandler.checkMove(ent, ent.getOrientation());
             }
-            handleInteractions();
+
         }
+        handleInteractions();
     }
 
     public void playerTick() {
