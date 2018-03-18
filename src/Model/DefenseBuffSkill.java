@@ -10,7 +10,7 @@ public class DefenseBuffSkill extends Skill{
     private boolean CoolDown;
 
     public DefenseBuffSkill(Player player){
-        super("Iron Flesh", "Make your skin rock hard to shrug off arrows!(Costs 15 MP)", new Level(2));
+        super("Iron Flesh", "Make your skin rock hard to shrug off arrows!(Costs 15 MP)", new Level(2), new SkillLevel(4));
         this.player = player;
         CoolDown = false;
     }
@@ -22,14 +22,34 @@ public class DefenseBuffSkill extends Skill{
             duration = new Timer();
         }
         CoolDown = true;
-        player.modifyDef(15);
-        duration.schedule(new TimerTask(){
-            @Override
-            public void run() {
-                RemoveSkill();
-                CoolDown = false;
-            }
-        },15000);
+        int time = 10;
+        int mpCost = 20;
+        int defense = 15;
+        if (getLvl() == 2){
+            mpCost = 30;
+            time = 15;
+            defense = 15;
+        }
+        else if (getLvl() == 3){
+            mpCost = 40;
+            time = 30;
+            defense = 20;
+        }
+        if (player.checkCast(-mpCost)) {
+            player.modifyMP(-mpCost);
+            player.modifyDef(defense);
+            duration.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    RemoveSkill();
+                    CoolDown = false;
+                }
+            }, time * 1000);
+        }
+        else{
+            System.out.println("Not enough MP!");
+            CoolDown = false;
+        }
     }
 
     @Override
