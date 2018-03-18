@@ -99,7 +99,7 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 2));
+        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
         p.setEquipWeapon((Weapon)objh.getObject());
 
 

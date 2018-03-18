@@ -11,8 +11,7 @@ public class AttackAction implements Interaction {
     private GameState gs;
     private Weapon weapon;
     private Queue<Point> pos;
-
-
+    private String tag;
 
     public AttackAction(SentientEntity _entity,  GameState gs) {
         entity = _entity;
@@ -20,12 +19,13 @@ public class AttackAction implements Interaction {
         AttackOr weapon = entity.getAtOr();
         int dir = orientation.getDegree();
         actAmt = entity.getAtk();
+        tag = entity.getWeaponTag();
         pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
         if(pos != null) {
             System.out.println("something");
             for (Point pt : pos) {
                 System.out.println("something");
-                gs.AttackCollision(pt.x, pt.y, actAmt);
+                gs.AttackCollision(pt.x, pt.y, actAmt, tag);
             }
         }
     }

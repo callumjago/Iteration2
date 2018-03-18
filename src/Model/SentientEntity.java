@@ -143,6 +143,8 @@ public abstract class SentientEntity extends Entity {
         EquipWeapon = equipWeapon;
     }
 
+    public String getWeaponTag(){return getEquipWeapon().getTag();}
+
     public Ring getEquipRing() {
         return EquipRing;
     }
