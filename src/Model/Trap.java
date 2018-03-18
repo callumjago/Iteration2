@@ -14,7 +14,7 @@ public class Trap extends OneShotItem {
 
 	@Override
 	public int getValue() {
-		return 0;
+		return damage;
 	}
 
 	public Trap(int  _objectID, int _oneShotID, int _damage, int _requirement){
