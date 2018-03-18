@@ -192,13 +192,18 @@ public abstract class Entity {
     }
 
     public Queue<Point> tranAck(Queue<Point> que, int Range, int incX, int incY){
-        for(int i = 0; i < Range; i++) {
+        Queue<Point> quex = new LinkedList<Point>();
+        for(int i = 1; i <= Range; i++) {
             Point adj = new Point();
             adj.x = getPosition().x + incX*i;
             adj.y = getPosition().y + incY*i;
-            que.add(adj);
+            System.out.println("sdfsdf");
+            System.out.println(getPosition().x + incX*i);
+            System.out.println(getPosition().y + incY*i);
+            System.out.println("sdfsdf");
+            quex.add(adj);
         }
-        return que;
+        return quex;
     }
 
     public boolean getAttemptMove() {
