@@ -7,6 +7,8 @@ import Controller.MenuClickHandler;
 
 import View.MenuUI;
 import javafx.scene.canvas.Canvas;
+
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Menu {
@@ -21,6 +23,7 @@ public class Menu {
     private int selectedInd;
     private int numOfSubMenus;
     private boolean open;
+    private LevelUpMenu levelUpMenu;
 
 
 
@@ -44,6 +47,8 @@ public class Menu {
         selectedInd = 0;
         numOfSubMenus = 0;
         open = false;
+
+        levelUpMenu = null;
     }
 
     public void addSubMenu(SubMenu menu) {
@@ -55,9 +60,10 @@ public class Menu {
         open = !open;
     }
     public void Enter() {
-        if(!open) {
+        if(!open && levelUpMenu == null) {
             return;
         }
+
         if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) != -1) {//Menu entry clicked
             if(ui.menuEntryCollisionTest(mmc.getMouseX(), mmc.getMouseY()) >= SubMenus.size()) {//Out of bounds
                 return;
@@ -74,6 +80,10 @@ public class Menu {
         //Tell sub menu to check for actions
         SubMenus.get(selectedInd).Enter(ui.resizeXCoord(mmc.getMouseX()), ui.resizeYCoord(mmc.getMouseY())); //This shit is garbage
 
+
+        if(levelUpMenu != null) {
+            levelUpMenu.click(getMouseCoords(), canvas);
+        }
     }
 
     public void Up() {
@@ -122,5 +132,13 @@ public class Menu {
     }
     public MenuMouseController getMenuMouseController() {
         return mmc;
+    }
+
+    public Point getMouseCoords() {
+        return new Point(mmc.getMouseX(), mmc.getMouseY());
+    }
+
+    public void setLevelUpMenu(LevelUpMenu levelUpMenu) {
+        this.levelUpMenu = levelUpMenu;
     }
 }
