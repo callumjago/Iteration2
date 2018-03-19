@@ -1,6 +1,7 @@
 package Model;
 
 import Controller.*;
+import View.LevelUpMenuView;
 import View.MapView;
 import View.MenuView;
 import View.NPCInventoryView;
@@ -94,7 +95,7 @@ public class RunGame extends Application {
 
         // ExperienceAE Test Item
         Tile objt4 = new Tile(0);
-        objt4.setObject(new ExperienceAE(1));
+        objt4.setObject(new ExperienceAE(20));
         tileSet.get(4).set(7, objt4);
 
         // Item Interaction
@@ -158,6 +159,7 @@ public class RunGame extends Application {
         LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
         //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
+        LevelUpMenuView levelUpMenuView = new LevelUpMenuView(canvas);
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
@@ -227,6 +229,16 @@ public class RunGame extends Application {
                         inventoryView.render(gameState.getTransaction().getMerchant(), tc.getSelectedIndex());
                         tc.handleTransaction(gameState);
                     }
+                }
+
+                if(gameState.getLevelUpMenu() != null) {
+                    levelUpMenuView.render(gameState.getLevelUpMenu(), menu.getMouseCoords());
+                    menu.setLevelUpMenu(gameState.getLevelUpMenu());
+
+                    if(gameState.getLevelUpMenu().isLevelUpApplied()) {
+                        menu.setLevelUpMenu(null);
+                    }
+
                 }
 
                 dialogue.startDialogue();
