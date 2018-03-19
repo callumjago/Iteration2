@@ -37,4 +37,13 @@ public class Ring extends Equipment {
     public void setEffect(Skill effect) {
         Effect = effect;
     }
+
+    public void ApplySkill() {
+        Effect.ApplySkill();
+        return;
+    }
+
+    public void RemoveSkill() {
+        Effect.RemoveSkill();
+    }
 }
