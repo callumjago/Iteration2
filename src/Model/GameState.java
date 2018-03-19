@@ -170,13 +170,11 @@ public class GameState {
     public Boolean AttackCollision(int x, int y, int damage) {
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
-        boolean ranged = true;
-        while (it.hasNext()) {
+        boolean ranged = false;
+        while (it.hasNext() && ranged != true) {
             entity = it.next();
             if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if(ranged != true) {
-                    interactions.add(new DamageIR((SentientEntity) entity, damage));
-                }
+                interactions.add(new DamageIR((SentientEntity) entity, damage));
                 return true;
             }
         }

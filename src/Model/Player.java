@@ -7,7 +7,6 @@ public class Player extends SentientEntity {
     private Boolean Sneaking;
     private PlayerClass Class;
     private boolean isPickpocketing;
-    private boolean canDetectTraps;
 
     Player(Point pos, Angle theta, String name, PlayerClass PC, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
@@ -21,8 +20,6 @@ public class Player extends SentientEntity {
         Sneaking = false;
         Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
         Class.addSkill(new DefenseBuffSkill(this));
-
-        canDetectTraps = false;
     }
 
     public PlayerClass getPlayerClass(){
@@ -62,14 +59,6 @@ public class Player extends SentientEntity {
             return 0;
         }
 
-    }
-
-    public boolean canDetectTraps() {
-        return canDetectTraps;
-    }
-
-    public void setCanDetectTraps(boolean canDetectTraps) {
-        this.canDetectTraps = canDetectTraps;
     }
 
     public void applySkill(int skillIndex) {

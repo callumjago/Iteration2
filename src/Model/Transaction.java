@@ -15,8 +15,7 @@ public class Transaction implements Interaction {
 
     public void applyEffect(int index) {
         System.out.println("hi");
-        int itemPrice = 10;
-        int cost = (int)(itemPrice*merchant.getPriceModifyer());
+        int cost = 10;
         if(player.getMoney() < cost) {//Not enough money
             return;
         }
