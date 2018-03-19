@@ -262,12 +262,13 @@ public class LoadGame {
 					break;
 				case 13: //setting player class
 					input.next();
-					player.setRole(Integer.parseInt(input.next()));
+					input.next();
 					break;
 				case 14: //setting player sprite
 					input.next();
 					playerClass = Integer.parseInt(input.next());
 					Sprites sprite = new Sprites();
+					player.setRole(playerClass);
 					player.setSprite(sprite.getPlayerSprite(playerClass));
 					break;
 				case 15: //setting player Name
