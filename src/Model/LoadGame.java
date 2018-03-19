@@ -252,7 +252,7 @@ public class LoadGame {
 					break;	
 				case 11: //Wallet
 					input.next();
-					player.modifyMoney(Integer.parseInt(input.next()));
+					player.modifyMoney(Integer.parseInt(input.next()) - player.getMoney());
 					break;
 				case 12: //Orientation
 					input.next();
