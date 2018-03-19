@@ -19,6 +19,10 @@ public class Projectile extends Entity{
 		return damage;
 	}
 
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
+
 	public Boolean Tick(){
 		if (range > 0) {
 			moveForward();

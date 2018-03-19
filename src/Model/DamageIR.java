@@ -20,6 +20,10 @@ public class DamageIR implements Interaction{
 
     }
 
+    public void setDmgAmt(int dmgAmt) {
+        this.dmgAmt = dmgAmt;
+    }
+
     public void applyEffect() {
         entity.modifyHP(dmgAmt);
     }

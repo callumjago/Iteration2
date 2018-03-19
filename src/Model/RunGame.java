@@ -100,8 +100,10 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
-        p.setEquipWeapon((Weapon)objh.getObject());
+//        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
+        p.setEquipWeapon(new Weapon(5, new Level(1), "bow", "bow",
+                6, new AttackOr (0), 5, new Accuracy(100), 7, "bow"));
+//        p.setEquipWeapon((Weapon)objh.getObject());
 
 
         tileSet.get(4).set(3, objh);
@@ -195,6 +197,7 @@ public class RunGame extends Application {
             	
             	//map.updateGameState(gameState);
             	//map.Tick();
+
 
                 if(menu.isOpen()) {//render menu
                     if(!dialogue.getDialogueOpen()) {

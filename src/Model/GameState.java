@@ -161,10 +161,21 @@ public class GameState {
                     return false;
                 }*/
                 if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
+
+                    if((this.getPlayer().isSneaking() == true) && (entity.getDegree() - src.getDegree() == 90)){
+                        ((Projectile) entity).setDamage(((Projectile) entity).getDamage()*2);
+                        System.out.println(src.getDegree() - entity.getDegree());
+                        System.out.println("Backstab");
+                    }
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
                     System.out.println("Damage Interaction: " + x + ", " + y );
                 }
                 else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
+                    if((this.getPlayer().isSneaking() == true) && (src.getDegree() - entity.getDegree() == 90)){
+                        ((Projectile) src).setDamage(((Projectile) src).getDamage()*2);
+                        System.out.println(src.getDegree() - entity.getDegree());
+                        System.out.println("Backstab");
+                    }
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
                     System.out.println("Damage Interaction");
                 }
@@ -179,11 +190,11 @@ public class GameState {
         Entity entity = null;
         Random rand = new Random();
         int  n = rand.nextInt(100) + 1;
+        if(tag=="bow"){
         if(accuracy>n){
             System.out.println("hit");
-        if (tag.equals("bow")) {
-                this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), damage, 10, 0));
-                getPlayer().modifyArrowCount(-1);
+            this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getDegree(), damage, 10, 0));
+            getPlayer().modifyArrowCount(-1);
         }else {
         while (it.hasNext()) {
             entity = it.next();
