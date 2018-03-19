@@ -3,6 +3,7 @@ package Model;
 import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -28,6 +29,7 @@ public class LoadGame {
     	loadPlayer();
     	loadMap();
     	loadInventory();
+    	loadSkill();
     	loadNPC();
     }
 
@@ -518,4 +520,30 @@ public class LoadGame {
     			e.printStackTrace();
     		}
 		}
-    }
+	
+	public void loadSkill() {
+		try {
+			File file = new File(path + "/SavedGames/PlayerName/Player/Skills.txt");
+			BufferedReader br_map = new BufferedReader(new FileReader(file));
+	
+			ItemCodex icodex = new ItemCodex();
+			EquipmentCodex ecodex = new EquipmentCodex();
+	
+			Scanner input = new Scanner(br_map.readLine());
+			SkillCodex scodex = new SkillCodex();
+			
+			while(input.hasNext()) {
+				int id = Integer.parseInt(input.next());
+				switch(scodex.getName(id)) {
+				case "Observation":
+					
+					break;
+				case "BindWounds":
+					break;
+				}
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
