@@ -156,13 +156,13 @@ public class GameState {
                 if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
                     if (src instanceof NPC) {
-                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) src));
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) src, this));
                     }
                 }
                 else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
                     if (entity instanceof NPC) {
-                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity));
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
                     }
                 }
                 return false;
@@ -185,7 +185,7 @@ public class GameState {
                 if(ranged != true) {
                     interactions.add(new DamageIR((SentientEntity) entity, damage));
                     if (entity instanceof NPC) {
-                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity));
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
                     }
                 }
                 return true;
