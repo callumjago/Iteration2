@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/Inventory1.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/Inventory1.txt" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/NPC1.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/NPC1.txt" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/Map2.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/Map2.txt" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/NPC2.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/NPC2.txt" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Inventory.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Inventory.txt" />
       <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/AttackAction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/AttackAction.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/DamageIR.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/DamageIR.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractionHandler.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractionHandler.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenu.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/LoadGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/LoadGame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MapTransition.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MapTransition.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Player.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Player.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Projectile.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Projectile.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Ring.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Ring.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu$1.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu.class" />
-      <change beforePath="$PROJECT_DIR$/src/Model/AttackAction.java" afterPath="$PROJECT_DIR$/src/Model/AttackAction.java" />
       <change beforePath="$PROJECT_DIR$/src/Model/GameState.java" afterPath="$PROJECT_DIR$/src/Model/GameState.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,7 +18,7 @@
       <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2289">
+            <state relative-caret-position="0">
               <caret line="125" column="30" lean-forward="false" selection-start-line="125" selection-start-column="30" selection-end-line="125" selection-end-column="30" />
               <folding />
             </state>
@@ -57,76 +35,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CharacterCreationMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/CharacterCreationMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2499">
-              <caret line="139" column="47" lean-forward="false" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeleportIR.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/TeleportIR.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="338" column="48" lean-forward="false" selection-start-line="338" selection-start-column="48" selection-end-line="338" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SentientEntity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SentientEntity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2376">
-              <caret line="258" column="21" lean-forward="false" selection-start-line="258" selection-start-column="21" selection-end-line="258" selection-end-column="21" />
+            <state relative-caret-position="129">
+              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ring.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Ring.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-              <folding>
-                <element signature="e#1132#1133#0" expanded="true" />
-                <element signature="e#1168#1169#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2688">
-              <caret line="148" column="5" lean-forward="false" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttackAction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AttackAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/AttackAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="639">
               <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
+      <file leaf-file-name="DamageInteraction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/DamageInteraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="191" column="38" lean-forward="true" selection-start-line="191" selection-start-column="38" selection-end-line="191" selection-end-column="38" />
+            <state relative-caret-position="42">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -155,6 +88,7 @@
     <findStrings>
       <find>ArcaneBashSkill</find>
       <find>gameState</find>
+      <find>Sys</find>
     </findStrings>
     <replaceStrings>
       <replace>CrossSlashSkill</replace>
@@ -180,8 +114,8 @@
         <option value="$PROJECT_DIR$/src/Model/Ring.java" />
         <option value="$PROJECT_DIR$/src/Model/SentientEntity.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/Model/GameState.java" />
         <option value="$PROJECT_DIR$/src/Model/AttackAction.java" />
+        <option value="$PROJECT_DIR$/src/Model/GameState.java" />
       </list>
     </option>
   </component>
@@ -434,13 +368,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Model/ConfirmationMenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-108">
@@ -628,7 +555,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#8030#8031#0" expanded="true" />
+            <element signature="e#8064#8065#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -731,20 +661,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2289">
+        <state relative-caret-position="0">
           <caret line="125" column="30" lean-forward="false" selection-start-line="125" selection-start-column="30" selection-end-line="125" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Ring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-          <folding>
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -772,26 +691,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Ring.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="258" column="21" lean-forward="false" selection-start-line="258" selection-start-column="21" selection-end-line="258" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="583">
+          <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <folding>
+            <element signature="e#1132#1133#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/DamageInteraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="191" column="38" lean-forward="true" selection-start-line="191" selection-start-column="38" selection-end-line="191" selection-end-column="38" />
+        <state relative-caret-position="42">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/AttackAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="639">
           <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="270" column="48" lean-forward="false" selection-start-line="270" selection-start-column="48" selection-end-line="270" selection-end-column="48" />
+          <folding>
+            <element signature="e#8030#8031#0" expanded="true" />
+            <element signature="e#8064#8065#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding />
         </state>
       </provider>

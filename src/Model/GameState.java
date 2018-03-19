@@ -157,8 +157,6 @@ public class GameState {
 
                     if((this.getPlayer().isSneaking() == true) && (entity.getDegree() - src.getDegree() == 90)){
                         ((Projectile) entity).setDamage(((Projectile) entity).getDamage()*2);
-                        System.out.println(src.getDegree() - entity.getDegree());
-                        System.out.println("Backstab");
                     }
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
                     if (src instanceof NPC) {
@@ -168,8 +166,6 @@ public class GameState {
                 else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
                     if((this.getPlayer().isSneaking() == true) && (src.getDegree() - entity.getDegree() == 90)){
                         ((Projectile) src).setDamage(((Projectile) src).getDamage()*2);
-                        System.out.println(src.getDegree() - entity.getDegree());
-                        System.out.println("Backstab");
                     }
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
                     if (entity instanceof NPC) {
@@ -186,28 +182,27 @@ public class GameState {
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
         Random rand = new Random();
-        int  n = rand.nextInt(100) + 1;
-        if(tag=="bow"){
-        if(accuracy>n){
-            System.out.println("hit");
-            this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getDegree(), damage, 10, 0));
-            getPlayer().modifyArrowCount(-1);
-        }else {
-        while (it.hasNext()) {
-            entity = it.next();
-            if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if((this.getPlayer().isSneaking() == true) && (this.getPlayer().getDegree() - entity.getDegree() == 90)){
-                    damage = damage*2;
-                    System.out.println(this.getPlayer().getOrientation().getDegree() - entity.getOrientation().getDegree());
-                    System.out.println("Backstab");
+        int n = rand.nextInt(100) + 1;
+        if (tag == "bow") {
+            if (accuracy > n) {
+                this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getDegree(), damage, 10, 0));
+                getPlayer().modifyArrowCount(-1);
+            } else {
+                while (it.hasNext()) {
+                    entity = it.next();
+                    if (entity.getPosition().x == x && entity.getPosition().y == y) {
+                        if ((this.getPlayer().isSneaking() == true) && (getPlayer().getDegree() == entity.getDegree())) {
+                            damage = damage * 2;
+                        }
+                        interactions.add(new DamageIR((SentientEntity) entity, damage));
+                        return true;
+                    }
                 }
-                    interactions.add(new DamageIR((SentientEntity) entity, damage));
-                return true;
             }
-        }}}
-        else { System.out.println("miss");}
+        }
         return false;
     }
+
 
     public void handleInteractions() {
         interactionHandler.generateInteractions(this, interactions);
@@ -274,7 +269,6 @@ public class GameState {
         if(getPlayer().isAttemptAttack())
         {
             getPlayer().setAttemptAttack(false);
-            System.out.println("Attempt Attack true");
             AttackAction a = new AttackAction(getPlayer(), this);
         }
         handleInteractions();
