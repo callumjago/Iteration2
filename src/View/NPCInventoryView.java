@@ -3,6 +3,7 @@ package View;
 import Model.Inventory;
 import Model.Item;
 import Model.NPC;
+import Model.Player;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -31,6 +32,18 @@ public class NPCInventoryView {
     public void render(NPC npc, int selectedIndex) {
         this.selectedIndex = selectedIndex;
         Inventory inventory = npc.getInventory();
+
+        gc.setFill(Color.BLACK);
+        gc.fillRect(viewBound.getBoundLeft(), viewBound.getBoundTop(), viewBound.getWidth(), viewBound.getHeight());
+
+        for(int i = 0; i < inventory.numOfItems(); i++) {
+            renderItem(inventory.getItem(i), i);
+        }
+    }
+
+    public void render(Player player, int selectedIndex) {
+        this.selectedIndex = selectedIndex;
+        Inventory inventory = player.getInventory();
 
         gc.setFill(Color.BLACK);
         gc.fillRect(viewBound.getBoundLeft(), viewBound.getBoundTop(), viewBound.getWidth(), viewBound.getHeight());

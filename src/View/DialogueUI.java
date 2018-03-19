@@ -105,6 +105,7 @@ public class DialogueUI {
             bound = getAnswerBound(i);
             //System.out.println("x: " + mouseX + " y: " + mouseY);
             if(bound.collisionTest(mouseX, mouseY)) {
+                System.out.println(i);
                 return i;
             }
         }

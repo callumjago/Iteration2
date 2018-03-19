@@ -4,6 +4,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import Controller.TransactionController;
+
 public class GameState {
     private ArrayList<ArrayList<Tile>> tileSet;
     private ArrayList<Entity> entities;
@@ -14,6 +16,9 @@ public class GameState {
     private Transaction transaction;
     private LevelUpMenu levelUpMenu;
     private MusicHandler musicHandler;
+    private Dialogue dialogue;
+    private TransactionController transactionController;
+
 
     public GameState() {
         interactions = new ArrayList<Interaction>();
@@ -75,6 +80,8 @@ public class GameState {
         pickPocketInteraction.applyEffect(index);
         pickPocketInteraction = null;
     }
+
+    //public void set
 
     public void performTransaction(int index) {
         if(transaction == null) {
@@ -275,4 +282,12 @@ public class GameState {
 
     public MusicHandler getMusicHandler() { return this.musicHandler; }
     public void setMusicHandler(MusicHandler musicHandler) { this.musicHandler = musicHandler; }
+
+    public Dialogue getDialogue() { return this.dialogue; }
+    public void setDialogue(Dialogue dialogue) { this.dialogue = dialogue; }
+
+    public void setTransactionAsNull() { transaction = null; }
+
+    public void setTransactionController(TransactionController tc) { transactionController = tc; }
+    public TransactionController getTransactionController() { return transactionController; }
 }

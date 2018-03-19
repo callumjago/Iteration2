@@ -130,9 +130,11 @@ public class RunGame extends Application {
         keyController.addController(pc);
         PickPocketController ppc = new PickPocketController();
         keyController.addController(ppc);
-        TransactionController tc = new TransactionController();
+        TransactionController tc = new TransactionController(gameState);
         keyController.addController(tc);
         gameState.setTileSet(tileSet);
+
+        gameState.setTransactionController(tc);
 
         Map map = new Map(gameState);
 
@@ -170,11 +172,12 @@ public class RunGame extends Application {
         //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
         Dialogue dialogue = new Dialogue(canvas);
+        gameState.setDialogue(dialogue);
 
-        NPC shopKeeper = new ShopKeeper(dialogue);
+        //NPC shopKeeper = new ShopKeeper(dialogue);
        // gameState.addEntity(shopKeeper);
-        shopKeeper.setPosition(new Point(8,0));
-        shopKeeper.setOrientation(new Angle(90));
+        //shopKeeper.setPosition(new Point(8,0));
+        //shopKeeper.setOrientation(new Angle(90));
 
         NPC villager1 = new Villager(dialogue);
         //gameState.addEntity(villager1);
@@ -226,10 +229,14 @@ public class RunGame extends Application {
                         ppc.handlePickPocket(gameState);
 
                     }
-                    if(gameState.getTransaction() != null) {//Player is trading
+                    if(gameState.getTransaction() != null && !tc.getCloseRequest()) {//Player is trading
                         tc.setTransaction(gameState.getTransaction());
-                        inventoryView.render(gameState.getTransaction().getMerchant(), tc.getSelectedIndex());
+                        if (gameState.getTransaction().getMerchant().isSelling())
+                            inventoryView.render(p, tc.getSelectedIndex());
+                        else
+                            inventoryView.render(gameState.getTransaction().getMerchant(), tc.getSelectedIndex());
                         tc.handleTransaction(gameState);
+
                     }
                 }
 

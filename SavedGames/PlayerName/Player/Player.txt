@@ -9,8 +9,8 @@ Atk: 0
 Def: 0
 Lvl: 0
 Exp: 0
-Money: 0
+Money: 50
 Angle: 0
 Class: 0
 Sprite: 0
-Name: g
+Name: ewrer

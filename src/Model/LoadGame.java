@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import View.Sprites;
+import javafx.scene.canvas.Canvas;
 
 public class LoadGame {
     private GameState state;
@@ -405,10 +406,16 @@ public class LoadGame {
 					int maxHP = Integer.parseInt(input.next());
 				
 					String description = input.nextLine() + input.nextLine();
-				
-				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
-				
+
+					NPC npc;
+
+					if (tag.equals("ShopKeeper")) {
+						npc = new ShopKeeper(state.getDialogue(),name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+					}
+					else {
+						npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+					}
+
 					switch(tag) {
 					case "Hostile":
 						npc.setAI(new HostileAI(npc, state));
