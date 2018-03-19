@@ -197,7 +197,9 @@ public class GameState {
                     }
                     System.out.println("Attack Collision");
                     interactions.add(new DamageInteraction((SentientEntity) entity, damage));
-                    interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
+                    if(!(entity instanceof Player)) {
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
+                    }
                     return true;
                 }
             }
@@ -254,6 +256,10 @@ public class GameState {
                     entities.remove(i);
                 }
                 ((NPC)ent).tick();
+                if(((SentientEntity)ent).isAttemptAttack()) {
+                    ((SentientEntity) ent).setAttemptAttack(false);
+                    AttackAction a = new AttackAction((SentientEntity) ent, this);
+                }
             }
             if (ent.getAttemptMove()) {
                 moveHandler.checkMove(ent, ent.getOrientation());

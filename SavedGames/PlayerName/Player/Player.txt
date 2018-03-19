@@ -12,5 +12,5 @@ Exp: 0
 Money: 0
 Angle: 0
 Class: 0
-Sprite: 1
-Name: b
+Sprite: 0
+Name: f
