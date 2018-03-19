@@ -1,5 +1,5 @@
-Name - PointX - PointY - Angle - Armor - Weapon - Ring - Health - Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -   MaxHP - Range
-Orc      25        25       90       1       1       1      3000      100    1           1        1      50         50	Hostile 3000     6
+Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP - Range
+Orc        25        25      90       1        1       1       3000       100       1          1       1       50         0      Hostile  3000 2
 ur mom
-Orc      26        26       90       1       1       1      100      100    1           1        1      50         50	Hostile  100     6
+Orc        26        26      90       1        1       1       100       100       1          1       1       50         0      Hostile  100 3
 ur mom
