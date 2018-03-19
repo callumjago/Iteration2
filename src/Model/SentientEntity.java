@@ -130,6 +130,10 @@ public abstract class SentientEntity extends Entity {
         return inventory;
     }
 
+    public Item getItem(int index) {return inventory.getItem(index);}
+
+    public void remove(Item i){inventory.remove(i);}
+
     public Armor getEquipArmor() {
     	if(EquipArmor == null) {
     		EquipArmor = new Armor();
@@ -158,6 +162,12 @@ public abstract class SentientEntity extends Entity {
     }
 
     public String getWeaponTag(){return getEquipWeapon().getTag();}
+
+    public void add(ArrayList<Item> i) {inventory.add(i);}
+
+    public ArrayList<Item> getBag() {return inventory.getBag();}
+
+    public void tossItem(int i){inventory.tossItem(i);}
 
     public Ring getEquipRing() {
     	if(EquipRing == null) {

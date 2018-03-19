@@ -126,7 +126,8 @@ public class RunGame extends Application {
         //NPC npc = new NPC();
         //npc.setAI(new HostileAI(npc, gameState));
         //gameState.addEntity(npc);
-
+        p.addItem(new ManaPotion(6,10,"Mp Gob","Restores 10 MP"));
+        p.addItem(new HealthPotion(1,20,"HP Elixir","Restores 20 HP"));
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         PickPocketController ppc = new PickPocketController();
@@ -140,8 +141,6 @@ public class RunGame extends Application {
         //gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
         
         SaveGame save = new SaveGame(map.getState());
-
-
 
         menu.addSubMenu(new InventoryMenu(p));
         menu.addSubMenu(new EquipmentMenu(p));

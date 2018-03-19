@@ -11,6 +11,7 @@ public class StunStrikeSkill extends Skill {
     private Timer duration;
     private boolean CoolDown;
     private SentientEntity target;
+    
 
     public StunStrikeSkill(Player player, GameState GS){
         super("Stun Strike", "Deal a heavy blow that stuns target", new Level(3), new SkillLevel(3));

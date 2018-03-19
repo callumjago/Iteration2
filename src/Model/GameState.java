@@ -153,13 +153,6 @@ public class GameState {
         while (it.hasNext()) {
             entity = it.next();
             if (entity.getX() == x && entity.getY() == y && (!entity.equals(src))) {
-                /*System.out.println("Entity: " + entity.getX() + ", " + entity.getY());
-                System.out.println("Move Requester: " + src.getX() + ", " + src.getY());
-                System.out.println("X and Y: " + x + ", " + y);
-
-                /*if(entity.getPosition().y != src.getPosition().y || entity.getPosition().x != src.getPosition().x) {
-                    return false;
-                }*/
                 if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
 
                     if((this.getPlayer().isSneaking() == true) && (entity.getDegree() - src.getDegree() == 90)){
@@ -168,7 +161,9 @@ public class GameState {
                         System.out.println("Backstab");
                     }
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
-                    System.out.println("Damage Interaction: " + x + ", " + y );
+                    if (src instanceof NPC) {
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) src, this));
+                    }
                 }
                 else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
                     if((this.getPlayer().isSneaking() == true) && (src.getDegree() - entity.getDegree() == 90)){
@@ -177,7 +172,9 @@ public class GameState {
                         System.out.println("Backstab");
                     }
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
-                    System.out.println("Damage Interaction");
+                    if (entity instanceof NPC) {
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
+                    }
                 }
                 return false;
             }

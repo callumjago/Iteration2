@@ -99,7 +99,7 @@ public class Mage implements PlayerClass{
     }
 
     public int getSkillPointsAssignable() {
-        return skillPointsAssignable;
+        return 5;
     }
 
 

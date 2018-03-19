@@ -5,3 +5,5 @@ Orc      6        6       90       1       1       1      100      100    1     
 ur mom
 Vendor   2        2       90       1       1       1      100      100    1           1        1      100        0	Friendly 100
 ur dad
+ShoopKeeper 8 2 90 1 1 1 100 100 1 1 1 100 0 Friendly 100
+Hello

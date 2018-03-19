@@ -16,6 +16,7 @@ public class LoadGame {
     private Inventory inventory;
     private int mapID;
     private String path;
+    private int playerClass;
 
 
     public LoadGame(GameState _state, Player _player, Inventory _inventory){
@@ -98,10 +99,10 @@ public class LoadGame {
 							}
 							
 							else if(itag.compareToIgnoreCase("health") == 0) {
-								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
+								tile.setObject(new HealthPotion(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
 							}
 							else if(itag.compareToIgnoreCase("mana") == 0) {
-								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
+								tile.setObject(new ManaPotion(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
 							}
 							break;
 						case 'I': //one shot item
@@ -263,12 +264,14 @@ public class LoadGame {
 					break;
 				case 13: //setting player class
 					input.next();
-					player.setRole(Integer.parseInt(input.next()));
+					input.next();
 					break;
 				case 14: //setting player sprite
 					input.next();
+					playerClass = Integer.parseInt(input.next());
 					Sprites sprite = new Sprites();
-					player.setSprite(sprite.getPlayerSprite(Integer.parseInt(input.next())));
+					player.setClass(playerClass);
+					player.setSprite(sprite.getPlayerSprite(playerClass));
 					break;
 				case 15: //setting player Name
 					input.next();
@@ -344,10 +347,18 @@ public class LoadGame {
 				}
 				
 				else if(temp.charAt(0) == '1') { //check if item is an UseItem
-					UseItem useItem = new UseItem(id, icodex.getStatPoints(id), 
+					if(icodex.getTag(id).compareToIgnoreCase("health") == 0) {
+						HealthPotion healthP = new HealthPotion(id, icodex.getStatPoints(id), 
 							icodex.getName(id), icodex.getDescription(id));
+						inventory.addItem(healthP);
+					}
+					else if(icodex.getTag(id).compareToIgnoreCase("mana") == 0) {
+						ManaPotion mana = new ManaPotion(id, icodex.getStatPoints(id), 
+							icodex.getName(id), icodex.getDescription(id));
+						inventory.addItem(mana);
+					}
 					
-					inventory.addItem(useItem);
+
 				}
 				
 				else if(temp.charAt(0) == '2') { //check if item is an Interactive item
@@ -401,8 +412,9 @@ public class LoadGame {
 					String description = input.nextLine() + input.nextLine();
 				
 				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
-				
+					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
+					npc.modifyMoney(money);
+					
 					switch(tag) {
 					case "Hostile":
 						npc.setAI(new HostileAI(npc, state));
@@ -502,10 +514,16 @@ public class LoadGame {
 						}
 				
 						else if(temp.charAt(0) == '1') { //check if item is an UseItem
-							UseItem useItem = new UseItem(id, icodex.getStatPoints(id), 
-								icodex.getName(id), icodex.getDescription(id));
-					
-							((NPC)npc.get(i)).getInventory().addItem(useItem);
+							if(icodex.getTag(id).compareToIgnoreCase("health") == 0) {
+								HealthPotion healthP = new HealthPotion(id, icodex.getStatPoints(id), 
+									icodex.getName(id), icodex.getDescription(id));
+								((NPC)npc.get(i)).getInventory().addItem(healthP);
+							}
+							else if(icodex.getTag(id).compareToIgnoreCase("mana") == 0) {
+								ManaPotion mana = new ManaPotion(id, icodex.getStatPoints(id), 
+									icodex.getName(id), icodex.getDescription(id));
+								((NPC)npc.get(i)).getInventory().addItem(mana);
+							}
 						}
 				
 						else if(temp.charAt(0) == '2') { //check if item is an Interactive item
@@ -525,25 +543,215 @@ public class LoadGame {
 	
 	public void loadSkill() {
 		try {
-			File file = new File(path + "/SavedGames/PlayerName/Player/Skills.txt");
-			BufferedReader br_map = new BufferedReader(new FileReader(file));
-	
-			ItemCodex icodex = new ItemCodex();
-			EquipmentCodex ecodex = new EquipmentCodex();
-	
-			Scanner input = new Scanner(br_map.readLine());
-			SkillCodex scodex = new SkillCodex();
+			if(playerClass == 0) {
+				File file = new File(path + "/SavedGames/PlayerName/Player/WarriorSkills.txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(file));
+		
+				Scanner input = new Scanner(br_map);
+				
+				input.next();
+				ObservationSkill obs = new ObservationSkill(player);
+				obs.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(obs);
+				
+				input.next();
+				BindWoundsSkill bindW = new BindWoundsSkill(player);
+				bindW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindW);
+				
+				input.next();
+				CrossSlashSkill cross = new CrossSlashSkill(player, state);
+				cross.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(cross);
+				
+				input.next();
+				HeavyStrikeSkill heavy = new HeavyStrikeSkill(player, state);
+				heavy.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(heavy);
+				
+				input.next();
+				StunStrikeSkill stun = new StunStrikeSkill(player, state);
+				stun.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(stun);
+			}
 			
-			while(input.hasNext()) {
+			else if(playerClass == 1) {
+				File file = new File(path + "/SavedGames/PlayerName/Player/MageSkills.txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(file));
+		
+				Scanner input = new Scanner(br_map);
+				
+				input.next();
+				ObservationSkill obs = new ObservationSkill(player);
+				obs.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(obs);
+				
+				input.next();
+				BindWoundsSkill bindW = new BindWoundsSkill(player);
+				bindW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindW);
+				
+				input.next();
+				BindEnchantmentSkill bindE = new BindEnchantmentSkill(player, state);
+				bindE.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindE);
+				
+				input.next();
+				BrainWashSkill brainW = new BrainWashSkill(player, state);
+				brainW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(brainW);
+				
+				input.next();
+				ArcaneBashSkill arcaneB = new ArcaneBashSkill(player, state);
+				arcaneB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(arcaneB);
+				
+				input.next();
+				ArcaneBurstSkill arcaneBrst = new ArcaneBurstSkill(player, state);
+				arcaneBrst.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(arcaneBrst);
+				
+				input.next();
+				AttackBuffSkill attackB = new AttackBuffSkill(player);
+				attackB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(attackB);
+				
+				input.next();
+				CastLightningSkill castL = new CastLightningSkill(player, state);
+				castL.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(castL);
+				
+				input.next();
+				Charm charm = new Charm(player, state);
+				charm.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(charm);
+				
+				input.next();
+				DefenseBuffSkill defenseB = new DefenseBuffSkill(player);
+				defenseB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(defenseB);
+				
+				input.next();
+				Fireball fireball = new Fireball(player, state);
+				fireball.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(fireball);
+				
+				input.next();
+				HealthBuffSkill healthB = new HealthBuffSkill(player);
+				healthB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(healthB);
+			}
+			
+			else if(playerClass == 2) {
+				File file = new File(path + "/SavedGames/PlayerName/Player/RogueSkills.txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(file));
+		
+				Scanner input = new Scanner(br_map);
+				
+				input.next();
+				ObservationSkill obs = new ObservationSkill(player);
+				obs.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(obs);
+				
+				input.next();
+				BindWoundsSkill bindW = new BindWoundsSkill(player);
+				bindW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindW);
+				
+				input.next();
+				ArrowHailSkill arrowH = new ArrowHailSkill(player, state);
+				arrowH.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(arrowH);
+				
+				input.next();
+				DetectTrapSkill detect = new DetectTrapSkill(player);
+				detect.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(detect);
+				
+				input.next();
+				RemoveTrapSkill remove = new RemoveTrapSkill(player, state);
+				remove.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(remove);
+			}
+			
+			/*while(input.hasNext()) {
 				int id = Integer.parseInt(input.next());
+				System.out.println(scodex.getName(id));
 				switch(scodex.getName(id)) {
 				case "Observation":
 					
 					break;
 				case "BindWounds":
+					BindWoundsSkill bindW = new BindWoundsSkill(player);
+					player.getPlayerClass().addSkill(bindW);
+					break;
+				case "BindEnchantment":
+					BindEnchantmentSkill bindE = new BindEnchantmentSkill(player, state);
+					player.getPlayerClass().addSkill(bindE);
+					break;
+				case "BrainWash":
+					BrainWashSkill brainW = new BrainWashSkill(player, state);
+					player.getPlayerClass().addSkill(brainW);
+					break;
+				case "ArcaneBash":
+					ArcaneBashSkill arcaneB = new ArcaneBashSkill(player, state);
+					player.getPlayerClass().addSkill(arcaneB);
+					break;
+				case "ArcaneBurst":
+					ArcaneBurstSkill arcaneBrst = new ArcaneBurstSkill(player, state);
+					player.getPlayerClass().addSkill(arcaneBrst);
+					break;
+				case "ArrowHail":
+					ArrowHailSkill arrowH = new ArrowHailSkill(player, state);
+					player.getPlayerClass().addSkill(arrowH);
+					break;
+				case "AttackBuff":
+					AttackBuffSkill attackB = new AttackBuffSkill(player);
+					player.getPlayerClass().addSkill(attackB);
+					break;
+				case "CastLightning":
+					CastLightningSkill castL = new CastLightningSkill(player, state);
+					player.getPlayerClass().addSkill(castL);
+					break;
+				case "Charm":
+					Charm charm = new Charm(player, state);
+					player.getPlayerClass().addSkill(charm);
+					break;
+				case "CrossSlash":
+					CrossSlashSkill cross = new CrossSlashSkill(player, state);
+					player.getPlayerClass().addSkill(cross);
+					break;
+				case "DefenseBuff":
+					DefenseBuffSkill defenseB = new DefenseBuffSkill(player);
+					player.getPlayerClass().addSkill(defenseB);
+					break;
+				case "FireBall":
+					Fireball fireball = new Fireball(player, state);
+					player.getPlayerClass().addSkill(fireball);
+					System.out.println("Testing");
+					break;
+				case "DetectTrap":
+					DetectTrapSkill detectS = new DetectTrapSkill(player);
+					player.getPlayerClass().addSkill(detectS);
+					break;
+				case "RemoveTrap":
+					RemoveTrapSkill removeT = new RemoveTrapSkill(player, state);
+					player.getPlayerClass().addSkill(removeT);
+					break;
+				case "HealthBuff":
+					HealthBuffSkill healthB = new HealthBuffSkill(player);
+					player.getPlayerClass().addSkill(healthB);
+					break;
+				case "HeavyStrike":
+					HeavyStrikeSkill heavyS = new HeavyStrikeSkill(player, state);
+					player.getPlayerClass().addSkill(heavyS);
+					break;
+				case "StunStrike":
+					StunStrikeSkill stunS = new StunStrikeSkill(player, state);
+					player.getPlayerClass().addSkill(stunS);
 					break;
 				}
-			}
+			}*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

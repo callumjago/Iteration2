@@ -7,10 +7,11 @@ public class Ring extends Equipment {
 
     private Skill Effect;
 
-    public Ring(int EQID, Level reqLvl, String name, String description) {
-        super(EQID, reqLvl, name, description);
+    public Ring(int EQID, String name, String description,String skillName, String skillDesc, Level reqLvl, Level ringLevel, Stat stat, int modifyAmt) {
+        super(EQID, ringLevel, name, description);
+        Effect = new PassiveSkill(skillName, skillDesc, reqLvl, stat, modifyAmt);
     }
-
+    
     public Ring() {
         super();
 		this.setName("Ring");

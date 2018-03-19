@@ -59,7 +59,9 @@ public class MapView {
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
         drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
-        renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition());
+
+        renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition(), gameState.getPlayer().getObservationLevel());
+
         //renderEntityAttacks(gameState.getEntities(), gameState.getPlayerPosition());
         hudView.render(gameState.getPlayer());
         renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
@@ -136,7 +138,8 @@ public class MapView {
 //        }
 //    }
 
-    private void renderEnemyHealthBars(ArrayList<Entity> entities, Point playerPos) {
+    private void renderEnemyHealthBars(ArrayList<Entity> entities, Point playerPos, int playerObservationLevel) {
+        if(playerObservationLevel == 0) { return; }
         int x, y;
         for(int i = 1; i < entities.size(); i++) {
             if(entities.get(i) instanceof SentientEntity) {
@@ -147,8 +150,13 @@ public class MapView {
                 gc.fillRect(x, y, tileWidth-10, 5);
                 gc.setFill(Color.RED);
                 gc.fillRect(x, y, (tileWidth-10)*healthPercentage, 5);
+
+                if(playerObservationLevel != 2) { continue; }
+                gc.setFill(Color.BLACK);
+                gc.fillText(Integer.toString( ((SentientEntity)entities.get(i)).getLvl()), x+10, y-4);
             }
         }
+
     }
 
     private void drawRotatedImage(Image image, double angle, double tlpx, double tlpy) {

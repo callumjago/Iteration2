@@ -105,10 +105,10 @@ public class TeleportIR implements Interaction{
 							}
 							
 							else if(itag.compareToIgnoreCase("health") == 0) {
-								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
+								tile.setObject(new HealthPotion(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
 							}
 							else if(itag.compareToIgnoreCase("mana") == 0) {
-								tile.setObject(new UseItem(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
+								tile.setObject(new ManaPotion(x, icodex.getStatPoints(x), icodex.getName(x), icodex.getDescription(x)));
 							}
 							break;
 						case 'I': //one shot item
@@ -323,10 +323,16 @@ public class TeleportIR implements Interaction{
 						}
 				
 						else if(temp.charAt(0) == '1') { //check if item is an UseItem
-							UseItem useItem = new UseItem(id, icodex.getStatPoints(id), 
-								icodex.getName(id), icodex.getDescription(id));
-					
-							((NPC)npc.get(i)).getInventory().addItem(useItem);
+							if(icodex.getTag(id).compareToIgnoreCase("health") == 0) {
+								HealthPotion healthP = new HealthPotion(id, icodex.getStatPoints(id), 
+									icodex.getName(id), icodex.getDescription(id));
+								((NPC)npc.get(i)).getInventory().addItem(healthP);
+							}
+							else if(icodex.getTag(id).compareToIgnoreCase("mana") == 0) {
+								ManaPotion mana = new ManaPotion(id, icodex.getStatPoints(id), 
+									icodex.getName(id), icodex.getDescription(id));
+								((NPC)npc.get(i)).getInventory().addItem(mana);
+							}
 						}
 				
 						else if(temp.charAt(0) == '2') { //check if item is an Interactive item

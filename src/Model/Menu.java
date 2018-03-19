@@ -60,7 +60,10 @@ public class Menu {
         open = !open;
     }
     public void Enter() {
-        if(!open && levelUpMenu == null) {
+        if(!open) {
+            if(levelUpMenu != null) {
+                levelUpMenu.click(getMouseCoords(), canvas);
+            }
             return;
         }
 
