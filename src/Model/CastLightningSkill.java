@@ -33,21 +33,34 @@ public class CastLightningSkill extends Skill{
             }
             if (player.checkCast(-mpCost)){
                 player.modifyMP(-mpCost);
-                Entity p = null;
-                for (int i = 0; i < range; ++i){
-                    if (p == null) {
-                        p = new Projectile(player.getForewardPosition(), player.getDegree(), damage, 0, 1);
-                    }
-                    else{
-                        p = new Projectile(p.getForewardPosition(), p.getDegree(),damage,0,1);
-                    }
-                    GS.addEntity(p);
-                }
+                attemptCast(range, damage);
             }
             else{
                 System.out.println("Not enough MP!");
             }
         }
+
+    private void attemptCast(int range, int damage) {
+        double rand = Math.random();
+        double req = 0;
+        if (getLvl() == 0) req = .75;
+        if (getLvl() == 1) req = .5;
+        if (getLvl() == 2) req = 0.0;
+        if (rand > req) {
+            Entity p = null;
+            for (int i = 0; i < range; ++i){
+                if (p == null) {
+                    p = new Projectile(player.getForewardPosition(), player.getDegree(), damage, 0, 1);
+                }
+                else{
+                    p = new Projectile(p.getForewardPosition(), p.getDegree(),damage,0,1);
+                }
+                GS.addEntity(p);
+            }
+        } else {
+        }
+
+    }
 
         @Override
         public void RemoveSkill() {

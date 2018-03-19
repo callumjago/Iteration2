@@ -13,4 +13,8 @@ Money: 0
 Angle: 0
 Class: 0
 Sprite: 0
+<<<<<<< HEAD
+Name: n
+=======
 Name: dwasd
+>>>>>>> f4d8fb848252aea930cb2291e3af167d32b7c104

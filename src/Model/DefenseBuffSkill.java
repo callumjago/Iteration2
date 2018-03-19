@@ -41,7 +41,7 @@ public class DefenseBuffSkill extends Skill{
         }
         if (player.checkCast(-mpCost)) {
             player.modifyMP(-mpCost);
-            player.modifyDef(defense);
+            castAttempt(defense, time);
             duration.schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -52,6 +52,20 @@ public class DefenseBuffSkill extends Skill{
         else{
             System.out.println("Not enough MP!");
             CoolDown = false;
+        }
+    }
+
+    private void castAttempt(int defense, int time) {
+        double rand = Math.random();
+        double req = 0;
+        if (getLvl() == 0) req = .75;
+        if (getLvl() == 1) req = .5;
+        if (getLvl() == 2) req = 0.0;
+        if (rand > req) {
+            player.modifyDef(defense);
+
+        } else {
+            player.modifyDef(-defense);
         }
     }
 
