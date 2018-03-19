@@ -350,21 +350,21 @@ public class SaveGame {
                    		if(((Equipment)itemList.get(x)).getEQID() < 9)
                    			pw.write("00" + ((Equipment)itemList.get(x)).getEQID() + " ");
                    		else
-                   			pw.write('0' + ((Equipment)itemList.get(x)).getEQID() + " ");
+                   			pw.write("0" + ((Equipment)itemList.get(x)).getEQID() + " ");
                    	}
                    	
                    	else if(itemList.get(x) instanceof UseItem) {
                    		if(itemList.get(x).getItemID() < 9)
                    			pw.write("10" + itemList.get(x).getItemID() + " ");
                    		else
-                   			pw.write('1' + itemList.get(x).getItemID() + " ");
+                   			pw.write("0" + itemList.get(x).getItemID() + " ");
                    	}
                    	
                    	else if(itemList.get(x) instanceof InteractiveItem) {
                    		if(itemList.get(x).getItemID() < 9)
                    			pw.write("20" + itemList.get(x).getItemID() + " ");
                    		else
-                   			pw.write('2' + itemList.get(x).getItemID() + " ");
+                   			pw.write("2" + itemList.get(x).getItemID() + " ");
                    	}
                   }
                     pw.println();

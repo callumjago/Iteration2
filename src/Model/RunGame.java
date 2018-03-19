@@ -178,10 +178,10 @@ public class RunGame extends Application {
         //shopKeeper.setPosition(new Point(8,0));
         //shopKeeper.setOrientation(new Angle(90));
 
-        NPC villager1 = new Villager(dialogue);
+        //NPC villager1 = new Villager(dialogue);
         //gameState.addEntity(villager1);
-        villager1.setPosition(new Point(8,8));
-        villager1.setOrientation(new Angle(270));
+        //villager1.setPosition(new Point(8,8));
+        //villager1.setOrientation(new Angle(270));
 
 
         mv.render(gameState);

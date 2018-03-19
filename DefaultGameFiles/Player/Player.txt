@@ -9,5 +9,5 @@ Atk: 0
 Def: 0
 Lvl: 0
 Exp: 0
-Money: 50
+Money: 0
 Angle: 0
