@@ -35,6 +35,7 @@ public class LevelUpMenu {
     }
 
     public void apply() {
+
         for(int i = 0; i < skillChangeValues.size(); i++) {
             System.out.println(skillChangeValues.get(i));
             for(int j = 0; j < skillChangeValues.get(i); j++) {
@@ -61,7 +62,7 @@ public class LevelUpMenu {
     }
 
     public void click(Point p, Canvas canvas) {
-
+        System.out.println("CLICL");
         for(int i = 0; i < getNumSkills(); i++) {
             if(getMinusBound(i, (int)canvas.getWidth()).collisionTest(p.x, p.y)) {//Clicked on minus
                 if(skillChangeValues.get(i) > 0) {

@@ -108,7 +108,7 @@ public class Rogue implements PlayerClass {
     }
 
     public int getSkillPointsAssignable() {
-        return skillPointsAssignable;
+        return 5;
     }
 
     @Override
