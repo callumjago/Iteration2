@@ -13,6 +13,7 @@ public class GameState {
     private PickPocketInteraction pickPocketInteraction;
     private Transaction transaction;
     private LevelUpMenu levelUpMenu;
+    private MusicHandler musicHandler;
 
     public GameState() {
         interactions = new ArrayList<Interaction>();
@@ -271,4 +272,7 @@ public class GameState {
             entities.get(i).resetAttemptMove();
         }
     }
+
+    public MusicHandler getMusicHandler() { return this.musicHandler; }
+    public void setMusicHandler(MusicHandler musicHandler) { this.musicHandler = musicHandler; }
 }

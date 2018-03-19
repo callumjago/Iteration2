@@ -7,6 +7,15 @@ import java.io.File;
 
 public class MusicHandler {
 
+    GameState state;
+
+    private boolean isPlaying;
+
+    public MusicHandler(GameState state) {
+        this.state = state;
+        state.setMusicHandler(this);
+    }
+
     private String track1Path = System.getProperty("user.dir") + "/music/mainMenuMusic.mp3";
     private String track2Path = System.getProperty("user.dir") + "/music/villageMusic.mp3";
 
@@ -18,6 +27,7 @@ public class MusicHandler {
     private MediaPlayer villageMusicPlayer = new MediaPlayer(villageMusic);
     */
     public void playMainMenuMusic() {
+        isPlaying = true;
         mainMenuMusicPlayer.setStartTime(new javafx.util.Duration(22000));
         mainMenuMusicPlayer.setVolume(0.25);
         mainMenuMusicPlayer.setCycleCount(100);
@@ -25,7 +35,19 @@ public class MusicHandler {
     }
 
     public void stopMainMenuMusic() {
+        isPlaying = false;
         mainMenuMusicPlayer.stop();
+    }
+
+    public void toggleMainMenuMusic() {
+        if (isPlaying) {
+            mainMenuMusicPlayer.pause();
+            isPlaying = false;
+        }
+        else {
+            mainMenuMusicPlayer.play();
+            isPlaying = true;
+        }
     }
 
     /*

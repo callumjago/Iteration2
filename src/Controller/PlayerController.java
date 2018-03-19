@@ -49,6 +49,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.N);
         playerControls.add(KeyCode.R);
         playerControls.add(KeyCode.L);
+        playerControls.add(KeyCode.PERIOD);
 
         controlFunctions = new ArrayList<>();
         controlFunctions.add("Up");
@@ -66,6 +67,7 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("PickPocket");
         controlFunctions.add("Run");
         controlFunctions.add("Sneak");
+        controlFunctions.add("Mute");
 
         isListeningforRebind = false;
         rebindIndex = 0;
@@ -140,6 +142,9 @@ public class PlayerController extends SubKeyController {
         }
         else if (code == playerControls.get(14)){
             player.toggleSneak();
+        }
+        else if (code == playerControls.get(15)){
+            gs.getMusicHandler().toggleMainMenuMusic();
         }
     }
 
