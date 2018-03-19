@@ -40,6 +40,7 @@ public class InventoryMenu extends SubMenu {
 
             player.tossItem(getSubMenuSelectedIndex());
             setSubMenuSelectedIndex(getSubMenuSelectedIndex()-getScrollOffset()-1);
+            scrollUp();
         } else if(generateInventoryMenuItem().collisionCheckByName("Drop Item", mouseX, mouseY)) {
             inventory.tossItem(getSubMenuSelectedIndex());
         }
@@ -64,7 +65,7 @@ public class InventoryMenu extends SubMenu {
 
     private InventoryMenuItem generateInventoryMenuItem() {
         InventoryMenuItem temp = new InventoryMenuItem(new ArrayList<>());
-        System.out.println(getSubMenuSelectedIndex());
+        
         if(inventory.getItem(getSubMenuSelectedIndex()) instanceof Equipment) {
             temp.addButton(new Bound(450, 750, 575, 650), "Equip Item");
         } else {
