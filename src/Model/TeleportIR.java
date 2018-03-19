@@ -237,6 +237,7 @@ public class TeleportIR implements Interaction{
 						int exp = Integer.parseInt(input.next());
 						String tag = input.next();
 						int maxHP = Integer.parseInt(input.next());
+						int range = Integer.parseInt(input.next());
 					
 						String description = input.nextLine() + input.nextLine();
 
@@ -244,6 +245,9 @@ public class TeleportIR implements Interaction{
 
 						if (tag.equals("ShopKeeper")) {
 							npc = new ShopKeeper(state.getDialogue(), name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+						}
+						else if (tag.equals("Villager")) {
+							npc = new Villager(state.getDialogue(),name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
 						}
 						else {
 							npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
@@ -255,6 +259,7 @@ public class TeleportIR implements Interaction{
 
 						switch(tag) {
 						case "Hostile":
+							npc.setDetectionRange(range);
 							npc.setAI(new HostileAI(npc, state));
 							break;
 						case "Friendly":
@@ -287,7 +292,7 @@ public class TeleportIR implements Interaction{
 				br_map.close();
 	    	}catch(Exception e) {
 	    		e.printStackTrace();
-	    	}    	
+	    	}     	
 	    	
 	    	loadNPCInv(state.getEntities());
 	    }

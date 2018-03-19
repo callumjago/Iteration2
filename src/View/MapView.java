@@ -47,7 +47,7 @@ public class MapView {
 
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
-                    if(!(gameState.getTileAt(i, j).getObject() instanceof Trap) || gameState.getPlayer().canDetectTraps()) {
+                    if(!((gameState.getTileAt(i, j).getObject() instanceof OneShotItem && ((OneShotItem)gameState.getTileAt(i, j).getObject()).getOneShotID() == 2)) || gameState.getPlayer().canDetectTraps()) {
                         gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)), x, y, tileWidth, tileHeight);
                     }
                 }

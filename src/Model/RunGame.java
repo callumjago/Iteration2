@@ -105,7 +105,7 @@ public class RunGame extends Application {
 
         // Trap test
         Tile obj6 = new Tile(0);
-        obj6.setObject(new Trap(-50,0));
+        obj6.setObject(new OneShotItem(-50,0, 5));
         tileSet.get(4).set(8, obj6);
 
         p.setLevel(5);
