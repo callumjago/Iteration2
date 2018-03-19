@@ -209,42 +209,45 @@ public abstract class SentientEntity extends Entity {
 
     public void unequipArmor(){
         if (EquipArmor != null) {
-            //inventory.addItem(EquipArmor);
-            // Remove Modifier
+            Def.modify(-EquipArmor.getDefensePoints());
+            inventory.addItem(EquipArmor);
         } else {
             return;
         }
     }
     public void unequipWeapon(){
         if (EquipWeapon != null) {
-            //inventory.addItem(EquipWeapon);
-            // Remove Modifier
+            Atk.modify(-EquipWeapon.getAttackPoints());
+            inventory.addItem(EquipWeapon);
         } else {
             return;
         }
     }
     public void unequipRing(){
         if (EquipRing != null) {
-            //inventory.addItem(EquipRing);
-            // Remove Modifier
+            EquipRing.RemoveSkill();
+            inventory.addItem(EquipRing);
         } else {
             return;
         }
     }
-    
+
     public void equipGear(Equipment e) {
-        if (e instanceof Armor) { 
+        if (e instanceof Armor) {
             unequipArmor();
             EquipArmor = (Armor) e;
-        } 
+            Def.modify(((Armor) e).getDefensePoints());
+        }
         else if (e instanceof Weapon) {
             unequipWeapon();
             EquipWeapon = (Weapon) e;
-        } 
+            Atk.modify(((Weapon) e).getAttackPoints());
+        }
         else if (e instanceof Ring) {
             unequipRing();
             EquipRing = (Ring) e;
-        } 
+            ((Ring)e).ApplySkill();
+        }
         else {
             return;
         }

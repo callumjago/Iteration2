@@ -1,7 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="" />
+    <list default="true" id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/Inventory1.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/Inventory1.txt" />
+      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/NPC1.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/NPC1.txt" />
+      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/Map2.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/Map2.txt" />
+      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/NPC2.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map2/NPC2.txt" />
+      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Inventory.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Inventory.txt" />
+      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/KeyController.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/KeyController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/MenuController$1.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/MenuController$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/MenuController.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/MenuController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/PlayerController.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/PlayerController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/SubKeyController.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/SubKeyController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/AI.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/AI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/AOE.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/AOE.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Angle.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Angle.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Armor.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Armor.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Attack.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Attack.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/AttackAction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/AttackAction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/ClassStat.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/ClassStat.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/DamageAE.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/DamageAE.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Defense.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Defense.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/DisplayItem.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/DisplayItem.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Entity.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Entity.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/EntityInteraction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/EntityInteraction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Equipment.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Equipment.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/ExperienceAE.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/ExperienceAE.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/FriendlyAI.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/FriendlyAI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/GameObject.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/GameObject.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/HealingAE.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/HealingAE.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Health.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Health.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/HostileAI.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/HostileAI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InstantDeath.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InstantDeath.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InstantDeathIR.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InstantDeathIR.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Interaction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Interaction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractionHandler.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractionHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractiveItem.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractiveItem.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Inventory.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Inventory.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenu.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenuItem.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenuItem.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Item.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Item.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/ItemInteraction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/ItemInteraction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Level.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Level.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/LoadGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/LoadGame.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Mage.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Mage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MainMenuHandler.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MainMenuHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Mana.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Mana.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Map.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Map.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MapTransition.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MapTransition.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Menu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Menu.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MenuItem.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MenuItem.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MovementHandler.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MovementHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MusicHandler.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MusicHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/NPC.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/NPC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Obstacle.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Obstacle.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/OneShotItem.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/OneShotItem.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/PassiveSkill.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/PassiveSkill.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Player.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Player.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/PlayerClass.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/PlayerClass.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/PlayerDeath.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/PlayerDeath.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Projectile.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Projectile.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Ring.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Ring.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Rogue.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Rogue.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGame.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGameMenu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGameMenu.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Skill.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Skill.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Stat.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Stat.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Teleport.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Teleport.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Tile.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Tile.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Transaction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Transaction.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Wallet.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Wallet.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Warrior.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Warrior.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Weapon.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Weapon.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu$1.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/CharacterCreationMenu.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/MapView.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/MapView.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/MenuItemView.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/MenuItemView.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/MenuView.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/MenuView.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/Sprites.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/Sprites.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/StartingMenu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/StartingMenu.class" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Ring.java" afterPath="$PROJECT_DIR$/src/Model/Ring.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/RunGame.java" afterPath="$PROJECT_DIR$/src/Model/RunGame.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SentientEntity.java" afterPath="$PROJECT_DIR$/src/Model/SentientEntity.java" />
+      <change beforePath="$PROJECT_DIR$/src/View/CharacterCreationMenu.java" afterPath="$PROJECT_DIR$/src/View/CharacterCreationMenu.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,29 +102,42 @@
       <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1353">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="125" column="35" lean-forward="false" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CharacterCreationMenu.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CharacterCreationMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/CharacterCreationMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="116" column="52" lean-forward="true" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
+            <state relative-caret-position="97">
+              <caret line="139" column="47" lean-forward="true" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/MapView.java">
+      <file leaf-file-name="SentientEntity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1762">
-              <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+            <state relative-caret-position="231">
+              <caret line="232" column="5" lean-forward="true" selection-start-line="232" selection-start-column="5" selection-end-line="232" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ring.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Ring.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+              <folding>
+                <element signature="e#984#985#0" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,31 +145,11 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="148" column="90" lean-forward="false" selection-start-line="148" selection-start-column="90" selection-end-line="148" selection-end-column="90" />
+            <state relative-caret-position="2625">
+              <caret line="148" column="5" lean-forward="false" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1245#1246#0" expanded="true" />
-                <element signature="e#1273#1274#0" expanded="true" />
-                <element signature="e#1783#1784#0" expanded="true" />
-                <element signature="e#1824#1825#0" expanded="true" />
-                <element signature="e#2174#2175#0" expanded="true" />
-                <element signature="e#2226#2227#0" expanded="true" />
-                <element signature="e#2650#2651#0" expanded="true" />
-                <element signature="e#2684#2685#0" expanded="true" />
-                <element signature="e#2735#2736#0" expanded="true" />
-                <element signature="e#2776#2777#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Entity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -77,7 +157,7 @@
       <file leaf-file-name="DefenseBuffSkill.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/DefenseBuffSkill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
+            <state relative-caret-position="924">
               <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
               <folding />
             </state>
@@ -87,7 +167,7 @@
       <file leaf-file-name="ArcaneBashSkill.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBashSkill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="168">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
@@ -97,7 +177,7 @@
       <file leaf-file-name="AttackAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/AttackAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
+            <state relative-caret-position="504">
               <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding />
             </state>
@@ -107,12 +187,9 @@
       <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5460">
-              <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-              <folding>
-                <marker date="1521420042107" expanded="true" signature="8551:8557" ph="{...}" />
-                <marker date="1521420042107" expanded="true" signature="8597:8713" ph="{...}" />
-              </folding>
+            <state relative-caret-position="3843">
+              <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,8 +197,8 @@
       <file leaf-file-name="PlayerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="113" column="42" lean-forward="false" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
+            <state relative-caret-position="2163">
+              <caret line="115" column="42" lean-forward="false" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -139,9 +216,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ArcaneBashSkill</find>
+      <find>gameState</find>
     </findStrings>
     <replaceStrings>
       <replace>CrossSlashSkill</replace>
+      <replace>state</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -159,14 +238,16 @@
         <option value="$PROJECT_DIR$/src/Model/CrossSlashSkill.java" />
         <option value="$PROJECT_DIR$/src/Model/GameState.java" />
         <option value="$PROJECT_DIR$/src/Model/AttackAction.java" />
-        <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
         <option value="$PROJECT_DIR$/src/Model/Player.java" />
         <option value="$PROJECT_DIR$/src/Controller/PlayerController.java" />
+        <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
         <option value="$PROJECT_DIR$/src/View/CharacterCreationMenu.java" />
+        <option value="$PROJECT_DIR$/src/Model/SentientEntity.java" />
+        <option value="$PROJECT_DIR$/src/Model/Ring.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1032" />
@@ -189,6 +270,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,20 +292,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Iteration2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Iteration2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -359,57 +434,36 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1102" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32800853" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21614583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11331901" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11493018" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -422,28 +476,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Model/AttackAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/BindWoundsSkill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ConfirmationMenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -509,8 +541,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="252">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -648,21 +680,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding>
-            <marker date="1521420042107" expanded="true" signature="8551:8557" ph="{...}" />
-            <marker date="1521420042107" expanded="true" signature="8597:8713" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -691,7 +713,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/DefenseBuffSkill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
+        <state relative-caret-position="924">
           <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
           <folding />
         </state>
@@ -715,7 +737,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBashSkill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="168">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
@@ -730,18 +752,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5460">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding>
-            <marker date="1521420042107" expanded="true" signature="8551:8557" ph="{...}" />
-            <marker date="1521420042107" expanded="true" signature="8597:8713" ph="{...}" />
-          </folding>
+        <state relative-caret-position="3843">
+          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/AttackAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
+        <state relative-caret-position="504">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding />
         </state>
@@ -757,36 +776,61 @@
     <entry file="file://$PROJECT_DIR$/src/Model/SleepSpell.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="148" column="90" lean-forward="false" selection-start-line="148" selection-start-column="90" selection-end-line="148" selection-end-column="90" />
+        <state relative-caret-position="2625">
+          <caret line="148" column="5" lean-forward="false" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1245#1246#0" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1783#1784#0" expanded="true" />
-            <element signature="e#1824#1825#0" expanded="true" />
-            <element signature="e#2174#2175#0" expanded="true" />
-            <element signature="e#2226#2227#0" expanded="true" />
-            <element signature="e#2650#2651#0" expanded="true" />
-            <element signature="e#2684#2685#0" expanded="true" />
-            <element signature="e#2735#2736#0" expanded="true" />
-            <element signature="e#2776#2777#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1353">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="113" column="42" lean-forward="false" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
+        <state relative-caret-position="2163">
+          <caret line="115" column="42" lean-forward="false" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/MapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Ring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding>
+            <element signature="e#984#985#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/CharacterCreationMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="139" column="47" lean-forward="true" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="125" column="35" lean-forward="false" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/SentientEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="232" column="5" lean-forward="true" selection-start-line="232" selection-start-column="5" selection-end-line="232" selection-end-column="5" />
           <folding />
         </state>
       </provider>

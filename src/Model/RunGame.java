@@ -125,25 +125,6 @@ public class RunGame extends Application {
         //npc.setAI(new HostileAI(npc, gameState));
         //gameState.addEntity(npc);
 
-        p.getPlayerClass().addSkill(new Fireball(p,gameState));
-
-        p.getPlayerClass().addSkill(new Charm(p, gameState));
-        p.getPlayerClass().addSkill(new DetectTrapSkill(p));
-        p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
-
-        p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
-        p.getPlayerClass().addSkill(new BindWoundsSkill(p));
-        p.getPlayerClass().addSkill(new AttackBuffSkill(p));
-        p.getPlayerClass().addSkill(new HealthBuffSkill(p));
-        p.getPlayerClass().addSkill(new HeavyStrikeSkill(p,gameState));
-        p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
-        p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
-        p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
-        p.getPlayerClass().addSkill(new ArrowHailSkill(p,gameState));
-        p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
-        p.getPlayerClass().addSkill(new StunStrikeSkill(p,gameState));
-        p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
-
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         PickPocketController ppc = new PickPocketController();
@@ -182,7 +163,7 @@ public class RunGame extends Application {
         final long startNanoTime = System.nanoTime();
         final long delta = 1000000000/ticksPerSecond;
 
-        MusicHandler musicHandler = new MusicHandler();
+        MusicHandler musicHandler = new MusicHandler(gameState);
 
         MainMenuHandler mainMenu = new MainMenuHandler(p,save,load, mainStage, mainScene, this, gameState, musicHandler);
 
