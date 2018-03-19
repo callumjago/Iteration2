@@ -160,6 +160,11 @@ public class LoadGame {
 							MPAE mp = new MPAE(x);
 							tile.setObject(mp);
 							break;
+						case 'M':
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							MapTransition map = new MapTransition(x);
+							tile.setObject(map);
+							break;
 						}
 					}
 					
@@ -418,7 +423,7 @@ public class LoadGame {
 						npc.setAI(new HostileAI(npc, state));
 						break;
 					case "Friendly":
-						//npc.setAI(new FriendlyAI());
+						npc.setAI(new FriendlyAI(npc, state));
 						break;
 					}
 					state.getEntities().add(npc);
@@ -671,85 +676,6 @@ public class LoadGame {
 				remove.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
 				player.getPlayerClass().addSkill(remove);
 			}
-			
-			/*while(input.hasNext()) {
-				int id = Integer.parseInt(input.next());
-				System.out.println(scodex.getName(id));
-				switch(scodex.getName(id)) {
-				case "Observation":
-					
-					break;
-				case "BindWounds":
-					BindWoundsSkill bindW = new BindWoundsSkill(player);
-					player.getPlayerClass().addSkill(bindW);
-					break;
-				case "BindEnchantment":
-					BindEnchantmentSkill bindE = new BindEnchantmentSkill(player, state);
-					player.getPlayerClass().addSkill(bindE);
-					break;
-				case "BrainWash":
-					BrainWashSkill brainW = new BrainWashSkill(player, state);
-					player.getPlayerClass().addSkill(brainW);
-					break;
-				case "ArcaneBash":
-					ArcaneBashSkill arcaneB = new ArcaneBashSkill(player, state);
-					player.getPlayerClass().addSkill(arcaneB);
-					break;
-				case "ArcaneBurst":
-					ArcaneBurstSkill arcaneBrst = new ArcaneBurstSkill(player, state);
-					player.getPlayerClass().addSkill(arcaneBrst);
-					break;
-				case "ArrowHail":
-					ArrowHailSkill arrowH = new ArrowHailSkill(player, state);
-					player.getPlayerClass().addSkill(arrowH);
-					break;
-				case "AttackBuff":
-					AttackBuffSkill attackB = new AttackBuffSkill(player);
-					player.getPlayerClass().addSkill(attackB);
-					break;
-				case "CastLightning":
-					CastLightningSkill castL = new CastLightningSkill(player, state);
-					player.getPlayerClass().addSkill(castL);
-					break;
-				case "Charm":
-					Charm charm = new Charm(player, state);
-					player.getPlayerClass().addSkill(charm);
-					break;
-				case "CrossSlash":
-					CrossSlashSkill cross = new CrossSlashSkill(player, state);
-					player.getPlayerClass().addSkill(cross);
-					break;
-				case "DefenseBuff":
-					DefenseBuffSkill defenseB = new DefenseBuffSkill(player);
-					player.getPlayerClass().addSkill(defenseB);
-					break;
-				case "FireBall":
-					Fireball fireball = new Fireball(player, state);
-					player.getPlayerClass().addSkill(fireball);
-					System.out.println("Testing");
-					break;
-				case "DetectTrap":
-					DetectTrapSkill detectS = new DetectTrapSkill(player);
-					player.getPlayerClass().addSkill(detectS);
-					break;
-				case "RemoveTrap":
-					RemoveTrapSkill removeT = new RemoveTrapSkill(player, state);
-					player.getPlayerClass().addSkill(removeT);
-					break;
-				case "HealthBuff":
-					HealthBuffSkill healthB = new HealthBuffSkill(player);
-					player.getPlayerClass().addSkill(healthB);
-					break;
-				case "HeavyStrike":
-					HeavyStrikeSkill heavyS = new HeavyStrikeSkill(player, state);
-					player.getPlayerClass().addSkill(heavyS);
-					break;
-				case "StunStrike":
-					StunStrikeSkill stunS = new StunStrikeSkill(player, state);
-					player.getPlayerClass().addSkill(stunS);
-					break;
-				}
-			}*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
