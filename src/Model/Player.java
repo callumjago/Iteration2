@@ -8,11 +8,15 @@ public class Player extends SentientEntity {
     private PlayerClass Class;
     private boolean isPickpocketing;
     private boolean canDetectTraps;
+    private int PlayerSpeed;
+    private boolean Running;
 
     Player(Point pos, Angle theta, String name, PlayerClass PC, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
         Sneaking = false;
         Class = PC;
+        PlayerSpeed = 10;
+        Running = false;
     }
 
     Player() {
@@ -21,12 +25,23 @@ public class Player extends SentientEntity {
         Sneaking = false;
         Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
         Class.addSkill(new DefenseBuffSkill(this));
-
+        PlayerSpeed = 10;
         canDetectTraps = false;
+        Running = false;
     }
 
     public PlayerClass getPlayerClass(){
         return Class;
+    }
+
+    public void toggleRun(){
+        if (Running && !Sneaking){
+            PlayerSpeed = 10;
+        }
+        else{
+            PlayerSpeed = 5;
+        }
+        Running = !Running;
     }
 	
     public void addItem(Item item) {
@@ -48,10 +63,31 @@ public class Player extends SentientEntity {
 
     public void Sneak() {
         Sneaking = true;
+        PlayerSpeed = 15;
     }
 
     public void stopSneaking(){
+        PlayerSpeed = 10;
         Sneaking = false;
+    }
+
+    public void toggleSneak(){
+        if (Sneaking){
+            PlayerSpeed = 10;
+            Sneaking = false;
+        }
+        else{
+            Sneaking = true;
+            PlayerSpeed = 15;
+        }
+    }
+
+    public int getPlayerSpeed() {
+        return PlayerSpeed;
+    }
+
+    public void setPlayerSpeed(int playerSpeed) {
+        PlayerSpeed = playerSpeed;
     }
 
     public int getSneakAmount(){

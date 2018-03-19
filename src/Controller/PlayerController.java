@@ -47,6 +47,7 @@ public class PlayerController extends SubKeyController {
         playerControls.add(KeyCode.ENTER);
         playerControls.add(KeyCode.F);
         playerControls.add(KeyCode.N);
+        playerControls.add(KeyCode.R);
         playerControls.add(KeyCode.L);
 
         controlFunctions = new ArrayList<>();
@@ -63,7 +64,8 @@ public class PlayerController extends SubKeyController {
         controlFunctions.add("Projectile");
         controlFunctions.add("Interact");
         controlFunctions.add("PickPocket");
-        controlFunctions.add("AngleProj");
+        controlFunctions.add("Run");
+        controlFunctions.add("Sneak");
 
         isListeningforRebind = false;
         rebindIndex = 0;
@@ -132,6 +134,12 @@ public class PlayerController extends SubKeyController {
             }
             n.extendInfluence();
             j++;
+        }
+        else if (code == playerControls.get(13)){
+            player.toggleRun();
+        }
+        else if (code == playerControls.get(14)){
+            player.toggleSneak();
         }
     }
 

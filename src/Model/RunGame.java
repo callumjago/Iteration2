@@ -197,7 +197,7 @@ public class RunGame extends Application {
                     }
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 5) {//Immediately responds if player input registered
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > p.getPlayerSpeed()) {//Immediately responds if player input registered
                         gameState.playerTick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
@@ -213,7 +213,6 @@ public class RunGame extends Application {
                         gameState.resetEntityAttempts();
                         tick = 0;
                     }
-//                    System.out.println((npc.getHP()));
                     tick++;
 
                     if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing
