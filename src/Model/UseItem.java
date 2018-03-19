@@ -1,44 +1,28 @@
 package Model;
 
-public class UseItem extends Item {
-	private int effect;
+public abstract class UseItem extends Item {
 	private int value;
 	private String name;
 	private String description;
 	
 	public UseItem() {
 		super();
-		effect = 0;
 		name = "Healing Potion";
 		description = "A potion that restores lost HP";
-		setValue();
+		value = getValue();
 	}
 	
-	public UseItem(int _itemID, int _effect, String _name, String _description) {
+	public UseItem(int _itemID, int _value, String _name, String _description) {
 		super(_itemID);
-		effect = _effect;
 		name = _name;
 		description = _description;
-		setValue();
+		value = _value;
 	}
 	
-	public UseItem(int _effect, String _name, String _description) {
+	public UseItem(String _name, String _description) {
 		super();
-		effect = _effect;
 		name = _name;
 		description = _description;
-	}
-	
-	public void setValue() {
-		switch(effect) {
-		case 0: //Healing
-			value = 5;
-			break;
-			
-		case 1: //Damage
-			value = -5;
-			break;
-		}
 	}
 	
 	public void setValue(int _value) {
@@ -56,5 +40,7 @@ public class UseItem extends Item {
 	public String getDescription() {
 		return description;
 	}
+
+	public abstract void use(Player player);
 }
 

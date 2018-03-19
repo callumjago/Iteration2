@@ -13,4 +13,4 @@ Money: 0
 Angle: 0
 Class: 0
 Sprite: 0
-Name: s
+Name: z

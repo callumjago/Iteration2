@@ -130,6 +130,8 @@ public abstract class SentientEntity extends Entity {
         return inventory;
     }
 
+    public void remove(Item i){inventory.remove(i);}
+
     public Armor getEquipArmor() {
     	if(EquipArmor == null) {
     		EquipArmor = new Armor();
