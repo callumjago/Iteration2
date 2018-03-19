@@ -428,7 +428,7 @@ public class LoadGame {
 					NPC npc;
 
 					if (tag.equals("ShopKeeper")) {
-						npc = new ShopKeeper(state.getDialogue(),name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+						npc = new ShopKeeper(state.getDialogue(), name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
 					}
 					else {
 						npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);

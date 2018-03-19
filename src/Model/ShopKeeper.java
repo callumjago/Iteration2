@@ -15,7 +15,7 @@ public class ShopKeeper extends NPC {
     private ArrayList<String> shopTypes = new ArrayList<>();
 
     public ShopKeeper(Dialogue dialogue, String name, String _description, Point pos, Angle theta, Armor initArm, Weapon initWeapon, Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney, int _exp, String tag, int _maxHP){
-        super();
+        super(name, _description, pos, theta, initArm, initWeapon, initRing, initHP, initMP, initAtk, initDef, initLvl, initMoney, _exp, tag, _maxHP);
 
         this.setPosition(pos);
 

@@ -286,11 +286,9 @@ public class SaveGame {
             //Projectile Sprite Position damage range Angle
             pw.println("Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP");
             for(int i = 1; i < npc.size();i++){
-                if(npc.get(i) instanceof SentientEntity){
-                    if((((SentientEntity) npc.get(i)).getName().equals("Vendor")))
-                        pw.print(((SentientEntity) npc.get(i)).getName() + "        ");
-                    else if (((((SentientEntity) npc.get(i)).getName().equals("Orc"))))
-                        pw.print(((SentientEntity) npc.get(i)).getName() + "           ");
+                if(true){
+                    pw.print(((SentientEntity) npc.get(i)).getName() + "        ");
+                    
                     //TODO sprite field for entity
                     // pw.print(((SentientEntity) npc.get(i)).getSprite() + " ");
                     pw.print((int)((SentientEntity) npc.get(i)).getPosition().getX() + "        "+ (int)((SentientEntity) npc.get(i)).getPosition().getY() + "      ");

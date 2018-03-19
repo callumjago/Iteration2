@@ -228,7 +228,6 @@ public class TeleportIR implements Interaction{
 						if(id > 40) {
 							ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), entity.getHealth(),  ecodex.getRingAmount(id));
 						}
-						
 						int HP = Integer.parseInt(input.next());
 						int MP = Integer.parseInt(input.next());
 						int Atck = Integer.parseInt(input.next());
@@ -240,11 +239,20 @@ public class TeleportIR implements Interaction{
 						int maxHP = Integer.parseInt(input.next());
 					
 						String description = input.nextLine() + input.nextLine();
+
+						NPC npc;
+
+						if (tag.equals("ShopKeeper")) {
+							npc = new ShopKeeper(state.getDialogue(), name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+						}
+						else {
+							npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+						}
 					
 					
-						NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
+						//NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
 						npc.modifyMoney(money);
-						
+
 						switch(tag) {
 						case "Hostile":
 							npc.setAI(new HostileAI(npc, state));
