@@ -219,14 +219,14 @@ public abstract class Entity {
                 }
                 else if(dir > 180 && dir < 270)
                 {
-
+                	que = tranAck(que,  Range, 1,  0);
                 }
                 else if(dir > 90 && dir < 180)
                 {
-
+                	que = tranAck(que,  Range, 1,  0);
                 }
                 else {
-
+                	que = tranAck(que,  Range, 1,  0);
                 }
 
 

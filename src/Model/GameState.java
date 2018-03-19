@@ -1,5 +1,8 @@
 package Model;
 import java.util.Random;
+
+
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,6 +21,7 @@ public class GameState {
     private MusicHandler musicHandler;
     private Dialogue dialogue;
     private TransactionController transactionController;
+    private int cd;
 
 
     public GameState() {
@@ -28,6 +32,7 @@ public class GameState {
         pickPocketInteraction = null;
         transaction = null;
         levelUpMenu = null;
+        cd = 0;
     }
 
     public Player getPlayer() {
@@ -267,9 +272,19 @@ public class GameState {
         }
         if(getPlayer().isAttemptAttack())
         {
-            getPlayer().setAttemptAttack(false);
-            AttackAction a = new AttackAction(getPlayer(), this);
+        	if(cd == 0) {
+        		getPlayer().setAttemptAttack(false);
+            	AttackAction a = new AttackAction(getPlayer(), this);
+            	cd = getPlayer().getEquipWeapon().getAttackSpeed();
+            }
+        	else {
+        		getPlayer().setAttemptAttack(false);
+        		System.out.println("Attak is on cooldown; wait: " + cd);
+        	}
         }
+        
+        if(cd != 0) --cd;
+        
         handleInteractions();
     }
 

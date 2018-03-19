@@ -24,6 +24,7 @@ public class AttackAction implements Interaction {
         accuracy = entity.getEquipWeapon().getAccuracy();
         System.out.println(entity.getEquipWeapon().getTag());
         pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
+        System.out.println(pos.toString());
         if(pos != null) {
             for (Point pt : pos) {
                 gs.AttackCollision(pt.x, pt.y, actAmt, tag, accuracy);
