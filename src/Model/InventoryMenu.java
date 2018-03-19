@@ -24,19 +24,19 @@ public class InventoryMenu extends SubMenu {
     @Override
     MenuState generateSubMenuState(MenuState menuState) {
         //Get menu item for selected item
-        menuState.addMenuItem(currentItem);
+        menuState.addMenuItem(generateInventoryMenuItem());
         menuState.setScrollOffset(getScrollOffset());
         return menuState;
     }
 
     @Override
     void Enter(int mouseX, int mouseY) {
-        if(currentItem.collisionCheckByName("Equip Item", mouseX, mouseY)) {
+        if(generateInventoryMenuItem().collisionCheckByName("Equip Item", mouseX, mouseY)) {
             player.equipGear((Equipment)inventory.getItem(getSubMenuSelectedIndex()));
             inventory.tossItem(getSubMenuSelectedIndex());
-        } else if(currentItem.collisionCheckByName("Use Item", mouseX, mouseY)) {
+        } else if(generateInventoryMenuItem().collisionCheckByName("Use Item", mouseX, mouseY)) {
             ((UseItem) player.getItem(getSubMenuSelectedIndex())).use(player);
-        } else if(currentItem.collisionCheckByName("Drop Item", mouseX, mouseY)) {
+        } else if(generateInventoryMenuItem().collisionCheckByName("Drop Item", mouseX, mouseY)) {
             inventory.tossItem(getSubMenuSelectedIndex());
         }
     }

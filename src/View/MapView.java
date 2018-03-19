@@ -59,7 +59,9 @@ public class MapView {
         }
         renderGrid(gameState.getPlayerPosition(), gameState.getWidth(), gameState.getHeight());
         drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
-        renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition());
+        if(gameState.getPlayer().getObservationLevel() > 1) {
+            renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition());
+        }
         //renderEntityAttacks(gameState.getEntities(), gameState.getPlayerPosition());
         hudView.render(gameState.getPlayer());
         renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());

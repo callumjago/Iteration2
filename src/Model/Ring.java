@@ -9,6 +9,7 @@ public class Ring extends Equipment {
 
     public Ring(int EQID, Level reqLvl, String name, String description) {
         super(EQID, reqLvl, name, description);
+        Effect = new PassiveSkill("Magic Ring", "Does some shit", new Level(1), new Health(), 5);
     }
 
     public Ring() {

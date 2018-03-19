@@ -19,7 +19,7 @@ public class Player extends SentientEntity {
     private boolean Running;
 	private Image playerSprite;
     private int playerSpriteIndex;
-
+    private int observationLevel;
 
     Player(Point pos, Angle theta, String name, PlayerClass PC, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
@@ -32,11 +32,12 @@ public class Player extends SentientEntity {
     Player() {
         super(); // Attribute classes fill with default values
         //Class = new PlayerClass()
-        Class = new Rogue();
+        Class = new Mage();
         Sneaking = false;
         PlayerSpeed = 10;
         canDetectTraps = false;
         Running = false;
+        observationLevel = 0;
     }
 
     public PlayerClass getPlayerClass(){
@@ -165,4 +166,12 @@ public class Player extends SentientEntity {
 
     public void setSpriteIndex(int playerSprite) { this.playerSpriteIndex = playerSprite; }
     public int getSpriteIndex() { return playerSpriteIndex; }
+
+    public int getObservationLevel() {
+        return observationLevel;
+    }
+
+    public void setObservationLevel(int observationLevel) {
+        this.observationLevel = observationLevel;
+    }
 }

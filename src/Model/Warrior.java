@@ -79,7 +79,7 @@ public class Warrior implements PlayerClass{
     }
 
     public int getSkillPointsAssignable() {
-        return skillPointsAssignable;
+        return 5;
     }
 
     @Override
