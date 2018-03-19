@@ -304,6 +304,7 @@ public class TeleportIR implements Interaction{
 						do {
 							String temp = read.next();
 							int id = ((int)temp.charAt(1) -48) * 10 + (int)temp.charAt(2)-48;
+							System.out.println(id + "##########");
 							String tag = ecodex.getTag(id);
 					
 							if(temp.charAt(0) == '0') { //check if item is an equipment

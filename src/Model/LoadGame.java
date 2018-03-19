@@ -501,7 +501,7 @@ public class LoadGame {
 								Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
 								Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
 										damage, new AttackOr(ecodex.getOrientation(id)), attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
-								
+
 								((NPC)npc.get(i)).getInventory().addItem(weapon);
 								break;
 						
@@ -511,7 +511,7 @@ public class LoadGame {
 								Level level = new Level(ecodex.getLevelReq(id));
 								Armor armor = new Armor(id, level, ecodex.getArmorName(id), ecodex.getArmorDescription(id), 
 										ecodex.getStatPoints(id));
-						
+								
 								((NPC)npc.get(i)).getInventory().addItem(armor);
 								break;
 						
