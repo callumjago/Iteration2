@@ -23,6 +23,7 @@ public class Projectile extends Entity{
 		if (range > 0) {
 			moveForward();
 			range--;
+			damage = (int)(damage*.75);
 			return true;
 		}
 		else {

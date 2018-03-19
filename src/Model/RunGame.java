@@ -126,16 +126,22 @@ public class RunGame extends Application {
         //gameState.addEntity(npc);
 
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
+
         p.getPlayerClass().addSkill(new Charm(p, gameState));
         p.getPlayerClass().addSkill(new DetectTrapSkill(p));
         p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
+
         p.getPlayerClass().addSkill(new BindEnchantmentSkill(p,gameState));
         p.getPlayerClass().addSkill(new BindWoundsSkill(p));
         p.getPlayerClass().addSkill(new AttackBuffSkill(p));
         p.getPlayerClass().addSkill(new HealthBuffSkill(p));
+        p.getPlayerClass().addSkill(new HeavyStrikeSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBashSkill(p,gameState));
         p.getPlayerClass().addSkill(new ArcaneBurstSkill(p,gameState));
         p.getPlayerClass().addSkill(new CastLightningSkill(p,gameState));
+        p.getPlayerClass().addSkill(new ArrowHailSkill(p,gameState));
+        p.getPlayerClass().addSkill(new RemoveTrapSkill(p,gameState));
+        p.getPlayerClass().addSkill(new StunStrikeSkill(p,gameState));
         p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
 
         PlayerController pc = new PlayerController(gameState);
@@ -216,7 +222,7 @@ public class RunGame extends Application {
                     }
                     menuView.render(menu.getActiveMenuState());
                 } else {//render map
-                    if(keyController.getKeyPressed() && ticksSincePlayerInput > 5) {//Immediately responds if player input registered
+                    if(keyController.getKeyPressed() && ticksSincePlayerInput > p.getPlayerSpeed()) {//Immediately responds if player input registered
                         gameState.playerTick();
                         mv.render(gameState);
                         gameState.resetEntityAttempts();
@@ -232,7 +238,6 @@ public class RunGame extends Application {
                         gameState.resetEntityAttempts();
                         tick = 0;
                     }
-//                    System.out.println((npc.getHP()));
                     tick++;
 
                     if(gameState.getPickPocketInteraction() != null) {//Player is pickpocketing

@@ -9,6 +9,7 @@ public class ArcaneBashSkill extends Skill {
     private GameState GS;
     private double modifier;
 
+
     public ArcaneBashSkill(Player player, GameState GS){
         super("Arcane Bash", "Sacrifice HP to deal massive staff modifier!", new Level(1), new SkillLevel(4));
         this.player = player;

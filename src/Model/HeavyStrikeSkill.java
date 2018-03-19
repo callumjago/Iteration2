@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DefenseBuffSkill extends Skill{
+public class HeavyStrikeSkill extends Skill {
     private Player player;
+    private GameState GS;
+    private double modifier;
     private Timer duration;
     private boolean CoolDown;
 
-    public DefenseBuffSkill(Player player){
-        super("Iron Flesh", "Make your skin rock hard to shrug off arrows!(Costs 15 MP)", new Level(2), new SkillLevel(4));
+    public HeavyStrikeSkill(Player player, GameState GS){
+        super("Heavy Strike", "Sacrifice HP to deal massive two-handed damage, but beware the stun after!", new Level(2), new SkillLevel(4));
         this.player = player;
+        this.GS = GS;
         CoolDown = false;
     }
 
@@ -26,32 +29,36 @@ public class DefenseBuffSkill extends Skill{
             duration = new Timer();
         }
         CoolDown = true;
-        int time = 10;
-        int mpCost = 20;
-        int defense = 15;
+        //else if (player.)
+        modifier = 2.5;
+        int hpCost = 10;
         if (getLvl() == 2){
-            mpCost = 30;
-            time = 15;
-            defense = 15;
+            modifier = 3.5;
+            hpCost = 20;
         }
         else if (getLvl() == 3){
-            mpCost = 40;
-            time = 30;
-            defense = 20;
+            modifier = 5;
+            hpCost = 30;
         }
-        if (player.checkCast(-mpCost)) {
-            player.modifyMP(-mpCost);
-            player.modifyDef(defense);
+        else if (getLvl() == 4){
+            modifier = 6;
+            hpCost = 40;
+        }
+        if (player.checkUse(-hpCost)){
+            player.modifyHP(-hpCost);
+            new AttackAction(player,GS,(int)modifier);
+            player.toggleMovement();
             duration.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     RemoveSkill();
+                    player.toggleMovement();
+                    CoolDown = false;
                 }
-            }, time * 1000);
+            }, 3000);
         }
         else{
-            System.out.println("Not enough MP!");
-            CoolDown = false;
+            System.out.println("Not enough HP!");
         }
     }
 
@@ -60,8 +67,6 @@ public class DefenseBuffSkill extends Skill{
         duration.cancel();
         duration.purge();
         duration = null;
-        player.modifyDef(-15);
-        CoolDown = false;
     }
 
     @Override

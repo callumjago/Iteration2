@@ -12,5 +12,5 @@ Exp: 0
 Wallet: 0
 Angle: 90
 Class: 0
-Sprite: 0
-Name: dwasd
+Sprite: 2
+Name: wdasd
