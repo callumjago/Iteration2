@@ -36,6 +36,7 @@ public class InventoryMenu extends SubMenu {
             inventory.tossItem(getSubMenuSelectedIndex());
         } else if(generateInventoryMenuItem().collisionCheckByName("Use Item", mouseX, mouseY)) {
             ((UseItem) player.getItem(getSubMenuSelectedIndex())).use(player);
+            player.tossItem(getSubMenuSelectedIndex());
         } else if(generateInventoryMenuItem().collisionCheckByName("Drop Item", mouseX, mouseY)) {
             inventory.tossItem(getSubMenuSelectedIndex());
         }

@@ -163,6 +163,12 @@ public abstract class SentientEntity extends Entity {
 
     public String getWeaponTag(){return getEquipWeapon().getTag();}
 
+    public void add(ArrayList<Item> i) {inventory.add(i);}
+
+    public ArrayList<Item> getBag() {return inventory.getBag();}
+
+    public void tossItem(int i){inventory.tossItem(i);}
+
     public Ring getEquipRing() {
     	if(EquipRing == null) {
     		EquipRing = new Ring();
