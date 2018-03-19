@@ -39,4 +39,8 @@ public class ItemCodex extends Codex {
 
     }
 
+    public int getValue(int ID){
+        return Integer.parseInt(map.get(ID).get(5));
+    }
+
 }
