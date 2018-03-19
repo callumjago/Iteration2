@@ -37,6 +37,21 @@ public class BindEnchantmentSkill extends Skill {
         }
         if (player.checkCast(-mpCost)) {
             player.modifyMP(-mpCost);
+            attemptCast(time);
+        }
+        else{
+            System.out.println("Not enough MP!");
+            CoolDown = false;
+        }
+    }
+
+    private void attemptCast(int time) {
+        double rand = Math.random();
+        double req = 0;
+        if (getLvl() == 0) req = .75;
+        if (getLvl() == 1) req = .5;
+        if (getLvl() == 2) req = 0.0;
+        if (rand > req) {
             Entity ent = GS.getEntity(player.getForewardPosition());
             if (ent != null && ent instanceof SentientEntity) {
                 target = (SentientEntity) ent;
@@ -55,11 +70,9 @@ public class BindEnchantmentSkill extends Skill {
             else{
                 System.out.println("No target found :( !");
             }
+        } else {
         }
-        else{
-            System.out.println("Not enough MP!");
-            CoolDown = false;
-        }
+
     }
 
     @Override

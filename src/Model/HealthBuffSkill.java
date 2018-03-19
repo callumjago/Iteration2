@@ -43,8 +43,7 @@ public class HealthBuffSkill extends Skill{
         }
         if (player.checkCast(-mpCost)) {
             player.modifyMP(-mpCost);
-            player.setMaxHP(health+oldMaxHP);
-            player.modifyHP(health);
+            attemptCast(health);
             duration.schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -57,6 +56,21 @@ public class HealthBuffSkill extends Skill{
             System.out.println("Not enough MP!");
             CoolDown = false;
         }
+    }
+
+    private void attemptCast(int health) {
+        double rand = Math.random();
+        double req = 0;
+        if (getLvl() == 0) req = .75;
+        if (getLvl() == 1) req = .5;
+        if (getLvl() == 2) req = 0.0;
+        if (rand > req) {
+            player.setMaxHP(health+oldMaxHP);
+            player.modifyHP(health);
+        } else {
+            player.modifyHP((int)(-health*.25));
+        }
+
     }
 
     @Override
