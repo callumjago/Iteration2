@@ -73,7 +73,7 @@ public class SaveGame {
                     case 1:
                     	pw.print("B00");
                     	break;
-                    case 2:
+                    case 3:
                     	pw.print("C00");
                     	break;
                     case 4: 
@@ -155,10 +155,26 @@ public class SaveGame {
             ArrayList<Item> itemList = gs.getPlayer().getInventory().getBag();
 
             for(int i = 0; i < itemList.size(); i++){
-            	if(itemList.get(i).getItemID() > 9)
-            		pw.write(itemList.get(i).getObjectID() + "" + itemList.get(i).getItemID() + " ");
-            	else
-            		pw.write(itemList.get(i).getObjectID() + "" + "0" + "1" + " ");
+            	if(itemList.get(i) instanceof Equipment) {
+            		if(((Equipment)itemList.get(i)).getEQID() < 9)
+            			pw.write("00" + ((Equipment)itemList.get(i)).getEQID());
+            		else
+            			pw.write('0' + ((Equipment)itemList.get(i)).getEQID());
+            	}
+            	
+            	else if(itemList.get(i) instanceof UseItem) {
+            		if(itemList.get(i).getItemID() < 9)
+            			pw.write("10" + itemList.get(i).getItemID());
+            		else
+            			pw.write('1' + itemList.get(i).getItemID());
+            	}
+            	
+            	else if(itemList.get(i) instanceof InteractiveItem) {
+            		if(itemList.get(i).getItemID() < 9)
+            			pw.write("20" + itemList.get(i).getItemID());
+            		else
+            			pw.write('2' + itemList.get(i).getItemID());
+            	}
             }
            pw.close();
        }catch(Exception e){
@@ -237,19 +253,32 @@ public class SaveGame {
            PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Maps/Map"
                    + mapID + "/Inventory" + mapID + ".txt");
 
-           for (int i = 2; i < npc.size(); i++) {
+           for (int i = 1; i < npc.size(); i++) {
                if (npc.get(i) instanceof SentientEntity) {
                    ArrayList<Item> itemList = ((SentientEntity) npc.get(i)).getInventory().getBag();
 
-                   //TODO REMOVE THIS
-                   System.out.println("ITEM LIST SIZE: " + itemList.size());
-
-                   for(int j = 0; j < itemList.size(); j++) {
-                       //TODO REMOVE THIS
-                       System.out.println("OBJECT ID: " + itemList.get(j).getObjectID());
-                       System.out.println("ITEM ID: " + itemList.get(j).getItemID());
-                       pw.write(itemList.get(j).getObjectID() + "" + itemList.get(j).getItemID() + " ");
-                   }
+                   for(int x = 0; x < itemList.size(); x++){
+                   	if(itemList.get(x) instanceof Equipment) {
+                   		if(((Equipment)itemList.get(x)).getEQID() < 9)
+                   			pw.write("00" + ((Equipment)itemList.get(x)).getEQID() + " ");
+                   		else
+                   			pw.write('0' + ((Equipment)itemList.get(x)).getEQID() + " ");
+                   	}
+                   	
+                   	else if(itemList.get(x) instanceof UseItem) {
+                   		if(itemList.get(x).getItemID() < 9)
+                   			pw.write("10" + itemList.get(x).getItemID() + " ");
+                   		else
+                   			pw.write('1' + itemList.get(x).getItemID() + " ");
+                   	}
+                   	
+                   	else if(itemList.get(x) instanceof InteractiveItem) {
+                   		if(itemList.get(x).getItemID() < 9)
+                   			pw.write("20" + itemList.get(x).getItemID() + " ");
+                   		else
+                   			pw.write('2' + itemList.get(x).getItemID() + " ");
+                   	}
+                  }
                     pw.println();
                }
 
