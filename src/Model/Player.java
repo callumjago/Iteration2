@@ -1,5 +1,8 @@
 package Model;
 import Controller.PlayerController;
+
+import javafx.scene.image.Image;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -8,6 +11,7 @@ public class Player extends SentientEntity {
     private PlayerClass Class;
     private boolean isPickpocketing;
     private boolean canDetectTraps;
+    private Image playerSprite;
 
     Player(Point pos, Angle theta, String name, PlayerClass PC, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
@@ -92,4 +96,7 @@ public class Player extends SentientEntity {
     public void setPickpocketing(boolean bool) {
         isPickpocketing = bool;
     }
+
+    public void setSprite(Image sprite) { this.playerSprite = sprite; }
+    public Image getSprite() { return playerSprite; }
 }
