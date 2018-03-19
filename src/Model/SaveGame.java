@@ -19,6 +19,7 @@ public class SaveGame {
         saveInventory();
         saveNPC();
         saveNPCInv();
+        savePlayerSkills();
     }
     private void savePlayer() {
 
@@ -51,6 +52,86 @@ public class SaveGame {
 
 
     }
+
+    private void savePlayerSkills() {
+
+        try {
+
+
+
+
+            if(gs.getPlayer().getPlayerClass() instanceof Warrior){
+                PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Player/WarriorSkills.txt");
+
+               // System.out.println("WHATS THIS: "  + gs.getPlayer().getPlayerClass().getSkill(0).getLvl());
+
+                pw.println("Observation: " + gs.getPlayer().getPlayerClass().getSkill(0).getLvl());
+                pw.println("BindWounds: " + gs.getPlayer().getPlayerClass().getSkill(1).getLvl());
+                pw.println("StunStrike: " + gs.getPlayer().getPlayerClass().getSkill(2).getLvl());
+                pw.println("HeavyStrike: " + gs.getPlayer().getPlayerClass().getSkill(3).getLvl());
+                pw.print("CrossSlash: " + gs.getPlayer().getPlayerClass().getSkill(4).getLvl());
+
+
+                pw.close();
+
+            }
+
+
+            if(gs.getPlayer().getPlayerClass() instanceof Mage){
+                PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Player/MageSkills.txt");
+
+                // System.out.println("WHATS THIS: "  + gs.getPlayer().getPlayerClass().getSkill(0).getLvl());
+
+                pw.println("Observation: " + gs.getPlayer().getPlayerClass().getSkill(0).getLvl());
+                pw.println("BindWounds: " + gs.getPlayer().getPlayerClass().getSkill(1).getLvl());
+                pw.println("BindEnchantment: " + gs.getPlayer().getPlayerClass().getSkill(2).getLvl());
+                pw.println("BrainWash: " + gs.getPlayer().getPlayerClass().getSkill(3).getLvl());
+                pw.println("ArcaneBash: " + gs.getPlayer().getPlayerClass().getSkill(4).getLvl());
+                pw.println("ArcaneBurst: " + gs.getPlayer().getPlayerClass().getSkill(5).getLvl());
+                pw.println("AttackBuff: " + gs.getPlayer().getPlayerClass().getSkill(6).getLvl());
+                pw.println("CastLightning: " + gs.getPlayer().getPlayerClass().getSkill(7).getLvl());
+                pw.println("Charm: " + gs.getPlayer().getPlayerClass().getSkill(8).getLvl());
+                pw.println("DefenseBuff: " + gs.getPlayer().getPlayerClass().getSkill(9).getLvl());
+                pw.println("FireBall: " + gs.getPlayer().getPlayerClass().getSkill(10).getLvl());
+                pw.print("HealthBuff: " + gs.getPlayer().getPlayerClass().getSkill(11).getLvl());
+
+
+                pw.close();
+
+            }
+
+
+
+            if(gs.getPlayer().getPlayerClass() instanceof Rogue){
+                PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Player/RogueSkills.txt");
+
+                // System.out.println("WHATS THIS: "  + gs.getPlayer().getPlayerClass().getSkill(0).getLvl());
+
+                pw.println("Observation: " + gs.getPlayer().getPlayerClass().getSkill(0).getLvl());
+                pw.println("BindWounds: " + gs.getPlayer().getPlayerClass().getSkill(1).getLvl());
+                pw.println("ArrowHail: " + gs.getPlayer().getPlayerClass().getSkill(2).getLvl());
+                pw.println("DetectTrap: " + gs.getPlayer().getPlayerClass().getSkill(3).getLvl());
+                pw.print("RemoveTrap: " + gs.getPlayer().getPlayerClass().getSkill(4).getLvl());
+
+
+                pw.close();
+
+            }
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
+
+
+
+
     private void saveMap(){
         try{
             PrintWriter pw = new PrintWriter(System.getProperty("user.dir") + "/SavedGames/PlayerName/Maps/Map"
