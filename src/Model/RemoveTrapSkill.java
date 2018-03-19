@@ -8,7 +8,7 @@ public class RemoveTrapSkill extends Skill {
 
     private GameState GS;
     private Player player;
-    private Trap target;
+    private OneShotItem target;
     private Tile targetTile;
     //private Timer duration;
     private boolean CoolDown;
@@ -40,8 +40,10 @@ public class RemoveTrapSkill extends Skill {
         if (player.checkCast(-mpCost)) {
                 player.modifyMP(-mpCost);
                 GameObject go = GS.getTile(player.getForewardPosition()).getObject();
-                if (go != null && go instanceof Trap) {
-                    target = (Trap) go;
+                OneShotCodex ocodex = new OneShotCodex();
+                int id = ((OneShotItem)go).getOneShotID();
+                if (go != null && ocodex.getTag(id).compareToIgnoreCase("trap") == 0) {
+                    target = (OneShotItem) go;
                     targetTile = GS.getTile(player.getForewardPosition());
                     attemptToDisable(target,targetTile);
                 } else {
@@ -61,7 +63,7 @@ public class RemoveTrapSkill extends Skill {
         CoolDown = false;
     }
 
-    private void attemptToDisable(Trap trap,Tile trapTile) {
+    private void attemptToDisable(OneShotItem trap,Tile trapTile) {
 
         double randomNumber = Math.random();
         //System.out.println(randomNumber);
