@@ -44,7 +44,7 @@ public class Player extends SentientEntity {
         getInventory().addItem(item);
 	}
     
-    public int getSprite() {
+    public int getSpriteIndex() {
     	return sprite;
     }
     

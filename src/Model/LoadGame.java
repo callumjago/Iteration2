@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import View.Sprites;
+
 public class LoadGame {
     private GameState state;
     private Player player;
@@ -264,7 +266,8 @@ public class LoadGame {
 					break;
 				case 14: //setting player sprite
 					input.next();
-					player.setSprite(Integer.parseInt(input.next()));
+					Sprites sprite = new Sprites();
+					player.setSprite(sprite.getPlayerSprite(Integer.parseInt(input.next())));
 					break;
 				case 15: //setting player Name
 					input.next();

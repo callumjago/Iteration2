@@ -41,7 +41,7 @@ public class SaveGame {
             pw.println("Angle: " + gs.getPlayer().getOrientation().getDegree());
             pw.println("Class: " + gs.getPlayer().getRole());
 
-            pw.println("Sprite: " + gs.getPlayer().getSprite());
+            pw.println("Sprite: " + gs.getPlayer().getSpriteIndex());
             //TODO. player has no sprite attribute --->>>> pw.write("Sprite: " );
             pw.println("Name: " + gs.getPlayer().getName());
             pw.close();
