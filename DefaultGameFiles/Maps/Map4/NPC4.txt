@@ -1,0 +1,13 @@
+Name - PointX - PointY - Angle - Armor - Weapon - Ring - Health - Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -   MaxHP - Range
+Orc      2        1       0       1       1       1      10000      100    1           1        1      50         50	Hostile 10000     6
+ur mom1
+Orc      4        1       0       2       1       1      100      100    1           1        1      50         50	Hostile  100       6
+ur mom2
+Orc     7      7       90       2       1       1      100      100    1           1        1      100        0	Hostile 100                6
+ur dad3
+Orc      7       8       90       4       1       1      10000      100    1           1        1      50         50	Hostile 10000      6
+ur mom4
+Orc      7        9       90       4       1       1      100      100    1           1        1      50         50	Hostile  100        6
+ur mom5
+Orc    17       7       90       8       5       5      10000      1000    8           1        1      100        0	Hostile 100         6
+ur dad6
