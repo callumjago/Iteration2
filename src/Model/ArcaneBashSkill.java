@@ -39,11 +39,24 @@ public class ArcaneBashSkill extends Skill {
         }
         if (player.checkUse(-hpCost)){
             player.modifyHP(-hpCost);
-            new AttackAction(player,GS,(int)modifier);
+            attemptCast();
         }
         else{
             System.out.println("Not enough HP!");
         }
+    }
+
+    private void attemptCast() {
+        double rand = Math.random();
+        double req = 0;
+        if (getLvl() == 0) req = .75;
+        if (getLvl() == 1) req = .5;
+        if (getLvl() == 2) req = 0.0;
+        if (rand > req) {
+            new AttackAction(player,GS,(int)modifier);
+        } else {
+        }
+
     }
 
     @Override

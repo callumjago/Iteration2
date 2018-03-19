@@ -33,6 +33,20 @@ public class ArcaneBurstSkill extends Skill {
         }
         if (player.checkCast(-mpCost)){
             player.modifyMP(-mpCost);
+            attemptCast(range, damage);
+        }
+        else{
+            System.out.println("Not enough MP!");
+        }
+    }
+
+    private void attemptCast(int range, int damage) {
+        double rand = Math.random();
+        double req = 0;
+        if (getLvl() == 0) req = .75;
+        if (getLvl() == 1) req = .5;
+        if (getLvl() == 2) req = 0.0;
+        if (rand > req) {
             InfluenceRadius n = new InfluenceRadius(player.getPosition(), range);
             n.extendInfluence();
             for (int j = 0; j < range; j++){
@@ -42,12 +56,12 @@ public class ArcaneBurstSkill extends Skill {
                 n.extendInfluence();
                 damage = (int)(damage*.75);
             }
-        }
-        else{
-            System.out.println("Not enough MP!");
-        }
-    }
 
+        } else {
+
+        }
+
+    }
     @Override
     public void RemoveSkill() {
         return;
