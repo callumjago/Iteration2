@@ -76,4 +76,8 @@ public class Inventory {
 		
 		MAX_SIZE = max;
 	}
+
+    public void remove(Item i) {
+		bag.remove(i);
+    }
 }
