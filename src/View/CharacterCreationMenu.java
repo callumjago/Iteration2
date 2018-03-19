@@ -143,7 +143,7 @@ public class CharacterCreationMenu {
                     player.setDefensePoints(8);
                     */
                 player.setName(nameInput.getText());
-                //player.setPlayerSprite(imageView.getImage());
+                player.setSprite(imageView.getImage());
                 //main.newGame(nameInput.getText(), spriteNumber);
                 //isMenuOpen = false;
                 //System.out.println(player.getName());

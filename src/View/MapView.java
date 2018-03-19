@@ -53,7 +53,7 @@ public class MapView {
                 }
                 if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
                     //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);
-                    drawRotatedImage(sprites.getPlayerSprite(0), gameState.getPlayer().getOrientation().getDegree(), x, y);
+                    drawRotatedImage(gameState.getPlayer().getSprite(), gameState.getPlayer().getOrientation().getDegree(), x, y);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class MapView {
             if(!(npcs.get(i) instanceof Projectile)) {
                 int x = tileWidth * npcs.get(i).getPosition().x - (playerPos.x * tileWidth) + (int) (canvas.getWidth() / 2);
                 int y = tileHeight * npcs.get(i).getPosition().y - (playerPos.y * tileHeight) + (int) (canvas.getHeight() / 2);
-                drawRotatedImage(sprites.getPlayerSprite(0), npcs.get(i).getOrientation().getDegree(), x, y);
+                drawRotatedImage(sprites.getNPCSprite(0), npcs.get(i).getOrientation().getDegree(), x, y);
             }
         }
     }

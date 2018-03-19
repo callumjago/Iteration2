@@ -10,6 +10,7 @@ public class Sprites {
     private ArrayList<Image> objectSprites;
     private ArrayList<Image> terrainSprites;
     private ArrayList<Image> playerSprites;
+    private ArrayList<Image> npcSprites;
 //    private ArrayList<Image> NPCSprites;
     private ArrayList<Image> projectileSprites;
     private Image mapTransitionSprite;
@@ -25,6 +26,7 @@ public class Sprites {
         objectSprites = new ArrayList<Image>();
         terrainSprites = new ArrayList<Image>();
         playerSprites = new ArrayList<Image>();
+        npcSprites = new ArrayList<Image>();
 
         projectileSprites = new ArrayList<>();
         System.out.println(workingDir);
@@ -34,11 +36,11 @@ public class Sprites {
     private void initializeSprites() {
 
 
-        playerSprites.add(getImage(workingDir + "/sprites/testCharacter.png"));
-        playerSprites.add(getImage(workingDir + "/sprites/characterGirl.png"));
-        playerSprites.add(getImage(workingDir + "/sprites/characterAdventurer.png"));
-        playerSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
-//        NPCSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
+        playerSprites.add(getImage(workingDir + "/sprites/warrior.png"));
+        playerSprites.add(getImage(workingDir + "/sprites/mage.png"));
+        playerSprites.add(getImage(workingDir + "/sprites/rogue.png"));
+        //playerSprites.add(getImage(workingDir + "/sprites/characterSoldier.png"));
+        npcSprites.add(getImage(workingDir + "/sprites/villager1.png"));
 
         terrainSprites.add(getImage(workingDir + "/sprites/grass.png"));
         terrainSprites.add(getImage(workingDir + "/sprites/water.png"));
@@ -66,6 +68,10 @@ public class Sprites {
 
     public Image getPlayerSprite(int ind) {
         return playerSprites.get(ind);
+    }
+
+    public Image getNPCSprite(int ind) {
+        return npcSprites.get(ind);
     }
 
 //    public Image getNPCSprite(int ind) {
