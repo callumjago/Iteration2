@@ -286,7 +286,7 @@ public class SaveGame {
             //Projectile Sprite Position damage range Angle
             pw.println("Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP");
             for(int i = 1; i < npc.size();i++){
-                if(true){
+                if(!(npc.get(i) instanceof Projectile)){
                     pw.print(((SentientEntity) npc.get(i)).getName() + "        ");
                     
                     //TODO sprite field for entity
