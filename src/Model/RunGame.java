@@ -67,7 +67,7 @@ public class RunGame extends Application {
             p.addItem(new Ring());
 
         }
-        
+
         menuView = new MenuView(canvas);
 
         ArrayList<ArrayList<Tile>> tileSet = new ArrayList<>();
