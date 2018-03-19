@@ -116,6 +116,8 @@ public class CharacterCreationMenu {
                     */
                 player.setName(nameInput.getText());
                 player.setSprite(imageView.getImage());
+                player.setSpriteIndex(characterSprites.getSelectionModel().getSelectedIndex());
+                player.setClass(characterSprites.getValue().toString());
                 //main.newGame(nameInput.getText(), spriteNumber);
                 //isMenuOpen = false;
                 //System.out.println(player.getName());

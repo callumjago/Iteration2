@@ -14,6 +14,7 @@ public class Player extends SentientEntity {
     private int PlayerSpeed;
     private boolean Running;
 	private Image playerSprite;
+    private int playerSpriteIndex;
 
     Player(Point pos, Angle theta, String name, PlayerClass PC, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
@@ -36,6 +37,16 @@ public class Player extends SentientEntity {
 
     public PlayerClass getPlayerClass(){
         return Class;
+    }
+
+    public void setClass(String classString)
+    {
+        if(classString == "Warrior")
+            Class = new Warrior();
+        else if(classString == "Mage")
+            Class = new Warrior();
+        else if(classString == "Rogue")
+            Class = new Warrior();
     }
 
     public void toggleRun(){
@@ -134,4 +145,7 @@ public class Player extends SentientEntity {
 
     public void setSprite(Image sprite) { this.playerSprite = sprite; }
     public Image getSprite() { return playerSprite; }
+
+    public void setSpriteIndex(int playerSprite) { this.playerSpriteIndex = playerSprite; }
+    public int getSpriteIndex() { return playerSpriteIndex; }
 }
