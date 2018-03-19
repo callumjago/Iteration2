@@ -1,5 +1,5 @@
 package Model;
-
+import java.util.Random;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -161,12 +161,19 @@ public class GameState {
             entity = it.next();
             if (entity.getX() == x && entity.getY() == y && (!entity.equals(src))) {
                 if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
+
+                    if((this.getPlayer().isSneaking() == true) && (entity.getDegree() - src.getDegree() == 90)){
+                        ((Projectile) entity).setDamage(((Projectile) entity).getDamage()*2);
+                    }
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
                     if (src instanceof NPC) {
                         interactions.add(new NPC_DeathIR(getPlayer(), (NPC) src, this));
                     }
                 }
                 else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
+                    if((this.getPlayer().isSneaking() == true) && (src.getDegree() - entity.getDegree() == 90)){
+                        ((Projectile) src).setDamage(((Projectile) src).getDamage()*2);
+                    }
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
                     if (entity instanceof NPC) {
                         interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
@@ -178,28 +185,31 @@ public class GameState {
         return true;
     }
 
-    public Boolean AttackCollision(int x, int y, int damage, String tag) {
+    public Boolean AttackCollision(int x, int y, int damage, String tag, int accuracy) {
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
-        boolean ranged = true;
-        if (tag.equals("bow")) {
-                addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), 100, 10, 0));
+        Random rand = new Random();
+        int n = rand.nextInt(100) + 1;
+        if (tag == "bow") {
+            if (accuracy > n) {
+                this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getDegree(), damage, 10, 0));
                 getPlayer().modifyArrowCount(-1);
-        }
-        while (it.hasNext()) {
-            entity = it.next();
-            if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if(ranged != true) {
-                    interactions.add(new DamageIR((SentientEntity) entity, damage));
-                    if (entity instanceof NPC) {
-                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
+            } else {
+                while (it.hasNext()) {
+                    entity = it.next();
+                    if (entity.getPosition().x == x && entity.getPosition().y == y) {
+                        if ((this.getPlayer().isSneaking() == true) && (getPlayer().getDegree() == entity.getDegree())) {
+                            damage = damage * 2;
+                        }
+                        interactions.add(new DamageIR((SentientEntity) entity, damage));
+                        return true;
                     }
                 }
-                return true;
             }
         }
         return false;
     }
+
 
     public void handleInteractions() {
         interactionHandler.generateInteractions(this, interactions);
@@ -266,7 +276,6 @@ public class GameState {
         if(getPlayer().isAttemptAttack())
         {
             getPlayer().setAttemptAttack(false);
-            System.out.println("Attempt Attack true");
             AttackAction a = new AttackAction(getPlayer(), this);
         }
         handleInteractions();

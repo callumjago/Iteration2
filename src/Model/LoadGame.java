@@ -225,7 +225,9 @@ public class LoadGame {
 					if(id <= 0) id = 1;
 					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
 							ecodex.getStatPoints(id), new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
-					player.setEquipWeapon(weapon);
+					Weapon weapon1 = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id),
+							ecodex.getStatPoints(id), new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), "bow");
+					player.setEquipWeapon(weapon1);
 					break;
 				case 4: //equiping ring
 					input.next();
