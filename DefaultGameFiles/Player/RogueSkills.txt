@@ -1,0 +1,5 @@
+Observation: 1
+BindWounds: 1
+ArrowHail: 1
+DetectTrap: 1
+RemoveTrap: 1

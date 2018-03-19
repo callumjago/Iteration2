@@ -1,0 +1,12 @@
+Observation: 1
+BindWounds: 1
+BindEnchantment: 1
+BrainWash: 1
+ArcaneBash: 1
+ArcaneBurst: 1
+AttackBuff: 1
+CastLightning: 1
+Charm: 1
+DefenseBuff: 1
+FireBall: 1
+HealthBuff: 1

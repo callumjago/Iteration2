@@ -1,0 +1,5 @@
+Observation: 1
+BindWounds: 1
+StunStike: 1
+HeavyStrike: 1
+CrossSlash: 1
