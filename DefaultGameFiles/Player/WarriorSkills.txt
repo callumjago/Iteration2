@@ -1,0 +1,5 @@
+Observation: 0
+BindWounds: 0
+StunStrike: 0
+HeavyStrike: 0
+CrossSlash: 0

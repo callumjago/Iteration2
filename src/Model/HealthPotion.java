@@ -8,6 +8,5 @@ public class HealthPotion extends UseItem {
     @Override
     public void use(Player player) {
         player.modifyHP(getValue());
-        player.remove(this);
     }
 }

@@ -37,13 +37,26 @@ public class BindWoundsSkill extends Skill {
         }
         if (player.checkCast(-mpCost)){
             player.modifyMP(-mpCost);
-            player.modifyHP(HP);
+            attemptCast(HP);
         }
         else{
             System.out.println("Not enough MP!");
         }
     }
 
+    private void attemptCast(int HP) {
+        double rand = Math.random();
+        double req = 0;
+        if (getLvl() == 0) req = .75;
+        if (getLvl() == 1) req = .5;
+        if (getLvl() == 2) req = 0.0;
+        if (rand > req) {
+            player.modifyHP(HP);
+        } else {
+            player.modifyHP((int)(-HP*.25));
+        }
+
+    }
     @Override
     public void RemoveSkill() {
         return;

@@ -29,7 +29,7 @@ public abstract class SubMenu {
         return selectedInd;
     }
     public void setSubMenuSelectedIndex(int index) {
-        if(index >= subMenuSize()) {
+        if(index+scrollOffset >= subMenuSize()) {
             return;
         }
         selectedInd = index+scrollOffset;

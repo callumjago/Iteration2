@@ -10,7 +10,7 @@ public class InteractionHandler {
         ArrayList<ArrayList<Tile>> tileset = GS.getTileSet();
         for (Entity ent : entities) {
             Tile tile = GS.getTile(ent.getPosition());
-            if (ent instanceof SentientEntity) { // Means a generation needs to be implemented
+            if (ent instanceof Player) { // Means a generation needs to be implemented
                 if (tile.getObject() != null) {
                     if (tile.getTileObjectID() == 2) { // Map Transition
                         interactions.add(new TeleportIR((SentientEntity) ent, GS, tile.getObject(), ((SentientEntity) ent).getInventory()));

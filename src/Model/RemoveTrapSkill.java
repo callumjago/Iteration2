@@ -38,15 +38,16 @@ public class RemoveTrapSkill extends Skill {
             //time = 30;
         }
         if (player.checkCast(-mpCost)) {
-            player.modifyMP(-mpCost);
-            GameObject go = GS.getTile(player.getForewardPosition()).getObject();
-            if (go != null && go instanceof Trap) {
-                target = (Trap) go;
-                targetTile = GS.getTile(player.getForewardPosition());
-                attemptToDisable(target,targetTile);
-            } else {
-                System.out.println("No target found :( !");
-            }
+                player.modifyMP(-mpCost);
+                GameObject go = GS.getTile(player.getForewardPosition()).getObject();
+                if (go != null && go instanceof Trap) {
+                    target = (Trap) go;
+                    targetTile = GS.getTile(player.getForewardPosition());
+                    attemptToDisable(target,targetTile);
+                } else {
+                    System.out.println("No target found :( !");
+                }
+
         } else{
             System.out.println("Not enough MP!");
             CoolDown = false;
@@ -60,7 +61,7 @@ public class RemoveTrapSkill extends Skill {
         CoolDown = false;
     }
 
-    public void attemptToDisable(Trap trap,Tile trapTile) {
+    private void attemptToDisable(Trap trap,Tile trapTile) {
 
         double randomNumber = Math.random();
         //System.out.println(randomNumber);

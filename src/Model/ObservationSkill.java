@@ -21,15 +21,13 @@ public class ObservationSkill extends Skill {
             System.out.println("Level not high enough to use skill!");
             return;
         }
-        int time = 10;
-        int mpCost = 25;
+        int time = 60;
+        int mpCost = 5;
         if (getLvl() == 2){
-            mpCost = 35;
-            time = 20;
+            time = 80;
         }
         else if (getLvl() == 3) {
-            mpCost = 50;
-            time = 30;
+            time = 120;
         }
         if (player.checkCast(-mpCost)) {
             player.modifyMP(-mpCost);

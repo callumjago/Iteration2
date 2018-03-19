@@ -8,6 +8,5 @@ public class ManaPotion extends UseItem {
     @Override
     public void use(Player player) {
         player.modifyMP(getValue());
-        player.remove(this);
     }
 }

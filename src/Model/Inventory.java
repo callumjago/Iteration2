@@ -43,24 +43,19 @@ public class Inventory {
     public int numOfItems() {
         return bag.size();
     }
-
-	/*public void addItem(Item item) {
-		if(bag.size() >= MAX_SIZE) {
-			System.out.println("Bag is Full!");
-			return;
-		}
-		bag.add(item);
-	}*/
 	
 	public Item getItem(int _index) {
 		return bag.get(_index);
 	}
+
+	public void add(ArrayList<Item> i){bag.addAll(i);}
 	
 	public void tossItem(int _index) {
 		if(_index < 0) {
 			System.out.println("Bag is Empty!");
 			return;
 		}
+		if(_index >= bag.size()) { return; }
 		bag.remove(_index);
 	}
 	

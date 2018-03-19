@@ -30,6 +30,9 @@ public class EquipmentMenu extends SubMenu {
 
     @Override
     MenuState generateSubMenuState(MenuState menuState) {
+        equipmentItems.get(0).setStats(player.getEquipArmor().getStats());
+        equipmentItems.get(1).setStats(player.getEquipWeapon().getStats());
+        equipmentItems.get(2).setStats(player.getEquipRing().getStats());
         menuState.addMenuItem(equipmentItems.get(getSubMenuSelectedIndex()));
         return menuState;
     }

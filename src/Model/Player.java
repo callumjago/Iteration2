@@ -32,11 +32,8 @@ public class Player extends SentientEntity {
     Player() {
         super(); // Attribute classes fill with default values
         //Class = new PlayerClass()
-        Class = new Rogue();
+        Class = new Mage();
         Sneaking = false;
-        Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
-        Class.addSkill(new DefenseBuffSkill(this));
-        Class.addSkill(new ObservationSkill(this));
         PlayerSpeed = 10;
         canDetectTraps = false;
         Running = false;
@@ -48,13 +45,13 @@ public class Player extends SentientEntity {
 
     }
 
-    public void setClass(String classString)
+    public void setClass(int classInt)
     {
-        if(classString == "Warrior")
+        if(classInt == 0)
             Class = new Warrior();
-        else if(classString == "Mage")
+        else if(classInt == 1)
             Class = new Mage();
-        else if(classString == "Rogue")
+        else if(classInt == 2)
             Class = new Rogue();
     }
 
