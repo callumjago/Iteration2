@@ -10,13 +10,21 @@ public class Warrior implements PlayerClass{
     private ClassStat OneHandedSkillPoints;
     private ClassStat TwoHandedSkillPoints;
     private ClassStat BareFistSkillPoints;
-
+    private int skillPointsAssignable;
+    ArrayList<String> classStatsList;
     public Warrior(){
         SkillSet = new ArrayList<Skill>();
         generateCompleteSkillSet();
         OneHandedSkillPoints = new ClassStat();
         TwoHandedSkillPoints = new ClassStat();
         BareFistSkillPoints = new ClassStat();
+
+        skillPointsAssignable = 0;
+
+        classStatsList = new ArrayList<>();
+        classStatsList.add("One Handed");
+        classStatsList.add("Two Handed");
+        classStatsList.add("Bare Fists");
     }
 
     private void generateCompleteSkillSet(){
@@ -49,5 +57,42 @@ public class Warrior implements PlayerClass{
             SkillSet.add(CompleteSkillSet.remove(0));
             // Raise Class Stats Up?
         }
+    }
+
+    @Override
+    public void raiseSkill(int index) {
+        if(skillPointsAssignable == 0) { return; }
+        switch(index) {
+            case 0:
+                OneHandedSkillPoints.raiseBaseStat(1);
+                break;
+            case 1:
+                TwoHandedSkillPoints.raiseBaseStat(1);
+                break;
+            case 2:
+                BareFistSkillPoints.raiseBaseStat(1);
+                break;
+
+
+        }
+        skillPointsAssignable--;
+    }
+
+    public int getSkillPointsAssignable() {
+        return skillPointsAssignable;
+    }
+
+    @Override
+    public ArrayList<String> getClassStats() {
+        return classStatsList;
+    }
+
+    @Override
+    public ArrayList<Integer> getClassStatValues() {
+        ArrayList<Integer> statVals = new ArrayList<>();
+        statVals.add(OneHandedSkillPoints.getClassStat());
+        statVals.add(TwoHandedSkillPoints.getClassStat());
+        statVals.add(BareFistSkillPoints.getClassStat());
+        return  statVals;
     }
 }
