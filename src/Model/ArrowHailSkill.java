@@ -2,12 +2,12 @@ package Model;
 
 import java.util.ArrayList;
 
-public class ArcaneBurstSkill extends Skill {
+public class ArrowHailSkill extends Skill {
     private Player player;
     private GameState GS;
 
-    public ArcaneBurstSkill(Player player, GameState GS){
-        super("Arcane Burst", "Blast Arcane energy to damage foes around you!", new Level(5), new SkillLevel(3));
+    public ArrowHailSkill(Player player, GameState GS){
+        super("Arrow Hail", "Launch a volley of arrows to damage foes around you!", new Level(5), new SkillLevel(3));
         this.player = player;
         this.GS = GS;
     }
@@ -20,27 +20,26 @@ public class ArcaneBurstSkill extends Skill {
         }
         int damage = 75;
         int range = 2;
-        int mpCost = 50;
+        int mpCost = 20;
         if (getLvl() == 2){
             damage = 100;
-            mpCost = 60;
+            mpCost = 30;
             range = 3;
         }
         else if (getLvl() == 3){
             damage = 150;
-            mpCost = 75;
+            mpCost = 40;
             range = 4;
         }
         if (player.checkCast(-mpCost)){
             player.modifyMP(-mpCost);
-            InfluenceRadius n = new InfluenceRadius(player.getPosition(), range);
+            InfluenceRadius n = new InfluenceRadius(player.getPosition(), range, player.getOrientation());
             n.extendInfluence();
             for (int j = 0; j < range; j++){
                 for (int i = 0; i < n.getInfluence().size(); i++) {
-                    GS.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), damage, 0,2));
+                    GS.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), damage, range,0));
                 }
                 n.extendInfluence();
-                damage = (int)(damage*.75);
             }
         }
         else{

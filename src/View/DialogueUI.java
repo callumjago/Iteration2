@@ -23,9 +23,9 @@ public class DialogueUI {
     GraphicsContext gc;
     MenuMouseController mouseController;
 
-    int dialogueX = 250;
+    int dialogueX = 100;
     int dialogueY = 600;
-    int dialogueWidth = 250;
+    int dialogueWidth = 550;
     int dialogueHeight = 100;
 
     int currentAmountOfAnswers = 0;
@@ -81,7 +81,7 @@ public class DialogueUI {
         currentAmountOfAnswers = answers.size();
         for(int i = 1; i <= currentAmountOfAnswers; i++) {
             gc.setFill(Color.BLACK);
-            gc.fillText(answers.get(i-1),(int)(dialogueX+175*((double)i/currentAmountOfAnswers)),dialogueY + 75);
+            gc.fillText(answers.get(i-1),(int)(dialogueX+375*((double)i/currentAmountOfAnswers)),dialogueY + 75);
         }
     }
 
