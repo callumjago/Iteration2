@@ -35,7 +35,7 @@ public class InventoryMenu extends SubMenu {
             player.equipGear((Equipment)inventory.getItem(getSubMenuSelectedIndex()));
             inventory.tossItem(getSubMenuSelectedIndex());
         } else if(currentItem.collisionCheckByName("Use Item", mouseX, mouseY)) {
-            //TODO
+            ((UseItem) player.getItem(getSubMenuSelectedIndex())).use(player);
         } else if(currentItem.collisionCheckByName("Drop Item", mouseX, mouseY)) {
             inventory.tossItem(getSubMenuSelectedIndex());
         }
