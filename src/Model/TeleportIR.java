@@ -211,15 +211,24 @@ public class TeleportIR implements Interaction{
 					
 						int id = Integer.parseInt(input.next());
 						EquipmentCodex ecodex = new EquipmentCodex();
-						Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
-					
+						Armor armor = null;
+						if(id >= 26 && id < 41) {
+							armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
+						}
+						
 						id = Integer.parseInt(input.next());
-						Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
-							new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
-					
+						Weapon weapon = null;
+						if(id > 0 && id < 26) {
+							weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
+									new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
+						}
+						
 						id = Integer.parseInt(input.next());
-						Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), entity.getHealth(),  ecodex.getRingAmount(id));
-					
+						Ring ring = null;
+						if(id > 40) {
+							ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), entity.getHealth(),  ecodex.getRingAmount(id));
+						}
+						
 						int HP = Integer.parseInt(input.next());
 						int MP = Integer.parseInt(input.next());
 						int Atck = Integer.parseInt(input.next());
