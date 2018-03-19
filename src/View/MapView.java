@@ -47,7 +47,9 @@ public class MapView {
 
 
                 if(gameState.getObjectID(i, j) > 0) {//Draw tile object
-                    gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)),x, y, tileWidth, tileHeight);
+                    if(!(gameState.getTileAt(i, j).getObject() instanceof Trap) || gameState.getPlayer().canDetectTraps()) {
+                        gc.drawImage(sprites.getObjectSprite(gameState.getObjectID(i, j)), x, y, tileWidth, tileHeight);
+                    }
                 }
                 if(gameState.getPlayerPosition().x == i && gameState.getPlayerPosition().y == j) {//Draw Player
                     //gc.drawImage(sprites.getPlayerSprite(0),x, y, tileWidth, tileHeight);

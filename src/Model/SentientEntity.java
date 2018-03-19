@@ -286,5 +286,26 @@ public abstract class SentientEntity extends Entity {
 
     public void talk() {}
 
-
+    public Point getForewardPosition(int n) {
+        Point pos = getPosition();
+        if(getOrientation().getDegree() == 0) {
+            return new Point(pos.x+n, pos.y);
+        } else if(getOrientation().getDegree() == 45) {
+            return new Point(pos.x+n, pos.y+n);
+        } else if(getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y+n);
+        } else if(getOrientation().getDegree() == 135) {
+            return new Point(pos.x-n, pos.y+n);
+        } else if(getOrientation().getDegree() == 180) {
+            return new Point(pos.x-n, pos.y);
+        } else if(getOrientation().getDegree() == 225) {
+            return new Point(pos.x-n, pos.y-n);
+        } else if(getOrientation().getDegree() == 270) {
+            return new Point(pos.x, pos.y-n);
+        } else if(getOrientation().getDegree() == 315) {
+            return new Point(pos.x+n, pos.y-n);
+        } else {
+            return new Point(pos.x+n, pos.y);
+        }
+    }
 }

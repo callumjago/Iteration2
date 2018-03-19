@@ -23,6 +23,7 @@ public abstract class Skill {
         SkillLvl = Skilllvl;
     }
 
+
     public String getName() {
         return Name;
     }

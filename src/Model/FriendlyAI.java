@@ -11,6 +11,7 @@ public class FriendlyAI extends AI{
 
     @Override
     void tick() {
+
         ArrayList<Entity> entities = getGameState().getEntities();
         int closestEntityDistance = Integer.MAX_VALUE;
         int closestEntityIndex = -1;
