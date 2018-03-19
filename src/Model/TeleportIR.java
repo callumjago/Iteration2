@@ -218,14 +218,14 @@ public class TeleportIR implements Interaction{
 						
 						id = Integer.parseInt(input.next());
 						Weapon weapon = null;
-						if(id > 0 && id < 26) {
+						if((id > 0 && id < 26) || id == 46) {
 							weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
 									new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
 						}
 						
 						id = Integer.parseInt(input.next());
 						Ring ring = null;
-						if(id > 40) {
+						if(id > 40 || id != 46) {
 							ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), entity.getHealth(),  ecodex.getRingAmount(id));
 						}
 						int HP = Integer.parseInt(input.next());

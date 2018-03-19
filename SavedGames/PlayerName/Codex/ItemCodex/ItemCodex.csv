@@ -9,3 +9,5 @@ ID,Tag,StatPoints,LevelReq,Description,Name,Value
 8,mana,15,1,c,manapotion3,20
 9,mana,20,1,d,manapotion4,25
 10,mana,25,1,e,manapotion5,30
+11,mana,10,1,Restores 10 MP, Mp Gob,15
+12,health,20,1,Restores 20 HP, HP Elixir,25
