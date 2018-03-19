@@ -10,6 +10,8 @@ public class Mage implements PlayerClass{
     private ClassStat BoonSkillPoints;
     private ClassStat BaneSkillPoints;
     private ClassStat StaffSkillPoints;
+    private int skillPointsAssignable;
+    ArrayList<String> classStatsList;
 
     public Mage() {
         SkillSet = new ArrayList<Skill>();
@@ -18,6 +20,14 @@ public class Mage implements PlayerClass{
         BoonSkillPoints = new ClassStat();
         BaneSkillPoints = new ClassStat();
         StaffSkillPoints = new ClassStat();
+
+        skillPointsAssignable = 0;
+
+        classStatsList = new ArrayList<>();
+        classStatsList.add("Enchantment");
+        classStatsList.add("Boon");
+        classStatsList.add("Bane");
+        classStatsList.add("Staff");
     }
 
     private void generateCompleteSkillSet(){
@@ -51,4 +61,46 @@ public class Mage implements PlayerClass{
             // Raise Class Stats Up?
         }
     }
+
+    @Override
+    public void raiseSkill(int index) {
+        if(skillPointsAssignable == 0) { return; }
+        switch(index) {
+            case 0:
+                EnchantmentSkilPoints.raiseBaseStat(1);
+                break;
+            case 1:
+                BoonSkillPoints.raiseBaseStat(1);
+                break;
+            case 2:
+                BaneSkillPoints.raiseBaseStat(1);
+                break;
+            case 3:
+                StaffSkillPoints.raiseBaseStat(1);
+                break;
+
+        }
+        skillPointsAssignable--;
+    }
+
+    @Override
+    public ArrayList<String> getClassStats() {
+        return classStatsList;
+    }
+
+    @Override
+    public ArrayList<Integer> getClassStatValues() {
+        ArrayList<Integer> statVals = new ArrayList<>();
+        statVals.add(EnchantmentSkilPoints.getClassStat());
+        statVals.add(BoonSkillPoints.getClassStat());
+        statVals.add(BaneSkillPoints.getClassStat());
+        statVals.add(StaffSkillPoints.getClassStat());
+        return  statVals;
+    }
+
+    public int getSkillPointsAssignable() {
+        return skillPointsAssignable;
+    }
+
+
 }

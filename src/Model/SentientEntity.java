@@ -20,6 +20,7 @@ public abstract class SentientEntity extends Entity {
     private int WeaRange;
     private boolean attemptInteract;
     private Quiver quiver;
+    private boolean hasLeveledUp;
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
         Name = name;
@@ -54,6 +55,7 @@ public abstract class SentientEntity extends Entity {
         // Add starting equipment here
         EquipArmor = new Armor();
         EquipRing = new Ring();
+        hasLeveledUp = false;
 
         quiver = new Quiver(5);
         quiver.modifyArrowCount(5);
@@ -183,7 +185,10 @@ public abstract class SentientEntity extends Entity {
             Atk.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*5));
             Def.raiseBaseStat((int)(Math.log10((Lvl.getLevel()))*3));
             gainExp(expAmt);
+            hasLeveledUp = true;
+
         }
+
     }
 
     public void unequipArmor(){
@@ -286,26 +291,35 @@ public abstract class SentientEntity extends Entity {
 
     public void talk() {}
 
+
     public Point getForewardPosition(int n) {
         Point pos = getPosition();
-        if(getOrientation().getDegree() == 0) {
-            return new Point(pos.x+n, pos.y);
-        } else if(getOrientation().getDegree() == 45) {
-            return new Point(pos.x+n, pos.y+n);
-        } else if(getOrientation().getDegree() == 90) {
-            return new Point(pos.x, pos.y+n);
-        } else if(getOrientation().getDegree() == 135) {
-            return new Point(pos.x-n, pos.y+n);
-        } else if(getOrientation().getDegree() == 180) {
-            return new Point(pos.x-n, pos.y);
-        } else if(getOrientation().getDegree() == 225) {
-            return new Point(pos.x-n, pos.y-n);
-        } else if(getOrientation().getDegree() == 270) {
-            return new Point(pos.x, pos.y-n);
-        } else if(getOrientation().getDegree() == 315) {
-            return new Point(pos.x+n, pos.y-n);
+        if (getOrientation().getDegree() == 0) {
+            return new Point(pos.x + n, pos.y);
+        } else if (getOrientation().getDegree() == 45) {
+            return new Point(pos.x + n, pos.y + n);
+        } else if (getOrientation().getDegree() == 90) {
+            return new Point(pos.x, pos.y + n);
+        } else if (getOrientation().getDegree() == 135) {
+            return new Point(pos.x - n, pos.y + n);
+        } else if (getOrientation().getDegree() == 180) {
+            return new Point(pos.x - n, pos.y);
+        } else if (getOrientation().getDegree() == 225) {
+            return new Point(pos.x - n, pos.y - n);
+        } else if (getOrientation().getDegree() == 270) {
+            return new Point(pos.x, pos.y - n);
+        } else if (getOrientation().getDegree() == 315) {
+            return new Point(pos.x + n, pos.y - n);
         } else {
-            return new Point(pos.x+n, pos.y);
+            return new Point(pos.x + n, pos.y);
         }
+    }
+
+    public boolean hasLeveledUp() {
+        return hasLeveledUp;
+    }
+    public void resetLevelUp() {
+        hasLeveledUp = false;
+
     }
 }

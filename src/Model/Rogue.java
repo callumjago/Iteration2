@@ -10,6 +10,8 @@ public class Rogue implements PlayerClass {
     private ClassStat TrapSkillPoints;
     private ClassStat SneakSkillPoints;
     private ClassStat RangedSkillPoints;
+    private int skillPointsAssignable;
+    ArrayList<String> classStatsList;
 
     public Rogue() {
         SkillSet = new ArrayList<Skill>();
@@ -18,6 +20,14 @@ public class Rogue implements PlayerClass {
         TrapSkillPoints = new ClassStat();
         SneakSkillPoints = new ClassStat();
         RangedSkillPoints = new ClassStat();
+
+        skillPointsAssignable = 5;
+
+        classStatsList = new ArrayList<>();
+        classStatsList.add("Pick Pocket");
+        classStatsList.add("Trap");
+        classStatsList.add("Sneak");
+        classStatsList.add("Ranged");
     }
 
     private void generateCompleteSkillSet() {
@@ -48,6 +58,7 @@ public class Rogue implements PlayerClass {
     public void LevelUp(Level newLvl) {
         if (checkUnlock(newLvl)){
             SkillSet.add(CompleteSkillSet.remove(0));
+
             // Raise Class Stats Up?
         }
 
@@ -72,4 +83,49 @@ public class Rogue implements PlayerClass {
     public void setRangedSkillPoints(ClassStat rangedSkillPoints) {
         RangedSkillPoints = rangedSkillPoints;
     }
+
+    @Override
+    public void raiseSkill(int index) {
+        System.out.println("RAISING");
+        if(skillPointsAssignable == 0) { return; }
+        switch(index) {
+            case 0:
+
+                PickPocketSkillPoints.raiseBaseStat(1);
+                break;
+            case 1:
+                TrapSkillPoints.raiseBaseStat(1);
+                break;
+            case 2:
+                SneakSkillPoints.raiseBaseStat(1);
+                break;
+            case 3:
+                RangedSkillPoints.raiseBaseStat(1);
+                break;
+
+        }
+        skillPointsAssignable--;
+    }
+
+    public int getSkillPointsAssignable() {
+        return skillPointsAssignable;
+    }
+
+    @Override
+    public ArrayList<String> getClassStats() {
+        return classStatsList;
+    }
+
+    @Override
+    public ArrayList<Integer> getClassStatValues() {
+        ArrayList<Integer> statVals = new ArrayList<>();
+        statVals.add(PickPocketSkillPoints.getClassStat());
+        statVals.add(TrapSkillPoints.getClassStat());
+        statVals.add(SneakSkillPoints.getClassStat());
+        statVals.add(RangedSkillPoints.getClassStat());
+        return  statVals;
+    }
+
+
+
 }
