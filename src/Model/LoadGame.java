@@ -551,7 +551,6 @@ public class LoadGame {
 				ObservationSkill obs = new ObservationSkill(player);
 				obs.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
 				player.getPlayerClass().addSkill(obs);
-				input.next(); //TODO remove and add Observation class
 				
 				input.next();
 				BindWoundsSkill bindW = new BindWoundsSkill(player);
