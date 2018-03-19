@@ -22,7 +22,7 @@ public class MainMenuHandler {
     Scene mainScene;
     Stage mainStage;
 
-    public MainMenuHandler(Player player, SaveGame saveGame, LoadGame loadGame,Stage mainStage,Scene mainScene, RunGame _run, GameState _state, MusicHandler musicHandler)
+    public MainMenuHandler(Player player, SaveGame saveGame, LoadGame loadGame, Stage mainStage, Scene mainScene, RunGame _run, GameState _state, MusicHandler musicHandler)
     {
         this.mainStage = mainStage;
         this.mainScene = mainScene;
@@ -42,13 +42,16 @@ public class MainMenuHandler {
             musicHandler.playMainMenuMusic();
         }
         else if(menuNumber == 1) { // Main Scene
+            //musicHandler.stopMainMenuMusic();
             mainStage.setScene(mainScene);
-            musicHandler.stopMainMenuMusic();
+            //musicHandler.playVillageMusic();
         }
         else if(menuNumber == 2) // New Game (Character Creation)
             mainStage.setScene(characterCreationMenu.generateScene());
-        else if(menuNumber == 3) // Exits Game
+        else if(menuNumber == 3) { // Exits Game
+            //musicHandler.stopVillageMusic();
             mainStage.close();
+        }
         else if(menuNumber == 4) // GameOver Screen
             mainStage.setScene(gameOverMenu.generateScene());
     }

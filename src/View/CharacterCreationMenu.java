@@ -57,24 +57,27 @@ public class CharacterCreationMenu {
         // Labels for character creation
         Label chooseName = new Label("Type your character's name");
         chooseName.setFont(Font.font("Verdana",14));
-        Label chooseSprite = new Label("Select a character");
+        Label chooseSprite = new Label("Select a class");
         chooseSprite.setFont(Font.font("Verdana",14));
-        Label chooseClass = new Label("Select a class");
-        chooseClass.setFont(Font.font("Verdana",14));
+        //Label chooseClass = new Label("Select a class");
+        //chooseClass.setFont(Font.font("Verdana",14));
 
-        ChoiceBox characterSprites = new ChoiceBox(FXCollections.observableArrayList("Guy","Girl","Adventurer","Soldier"));
-        characterSprites.setValue("Guy"); //Setting a default choice
+        // Character Creation Choices
+        //ChoiceBox characterClassChoices = new ChoiceBox(FXCollections.observableArrayList("Warrior","Mage","Rogue"));
+        //characterClassChoices.setValue("Warrior"); //Setting a default choice
 
-        Image characterSprite1 = new Image("file:" + System.getProperty("user.dir") + "/sprites/characterGuy.png");
-        Image characterSprite2 = new Image("file:" + System.getProperty("user.dir") + "/sprites/characterGirl.png");
-        Image characterSprite3 = new Image("file:" + System.getProperty("user.dir") + "/sprites/characterAdventurer.png");
-        Image characterSprite4 = new Image("file:" + System.getProperty("user.dir") + "/sprites/characterSoldier.png");
+        ChoiceBox characterSprites = new ChoiceBox(FXCollections.observableArrayList("Warrior","Mage","Rogue"));
+        characterSprites.setValue("Warrior"); //Setting a default choice
+
+        Image characterSprite1 = new Image("file:" + System.getProperty("user.dir") + "/sprites/warrior.png");
+        Image characterSprite2 = new Image("file:" + System.getProperty("user.dir") + "/sprites/mage.png");
+        Image characterSprite3 = new Image("file:" + System.getProperty("user.dir") + "/sprites/rogue.png");
 
         //player.setPlayerSpriteNumber(1);
 
         ImageView imageView = new ImageView(characterSprite1);
 
-        Image[] spriteChoices = {characterSprite1,characterSprite2,characterSprite3,characterSprite4};
+        Image[] spriteChoices = {characterSprite1,characterSprite2,characterSprite3};
 
         // Character Creation Choices
         ChoiceBox characterClassChoices = new ChoiceBox(FXCollections.observableArrayList("Warrior","Mage","Rogue"));
@@ -158,13 +161,13 @@ public class CharacterCreationMenu {
         // Adding buttons and text to characterCreation
         characterCreationGridPane.add(chooseName,1,0);
         characterCreationGridPane.add(nameInput,1,1);
-        characterCreationGridPane.add(chooseSprite,1,2);
-        characterCreationGridPane.add(characterSprites,1,3);
-        characterCreationGridPane.add(chooseClass,1,4);
-        characterCreationGridPane.add(characterClassChoices,1,5);
+        characterCreationGridPane.add(chooseSprite,1,3);
+        characterCreationGridPane.add(characterSprites,1,4);
+        //characterCreationGridPane.add(chooseClass,1,4);
+        //characterCreationGridPane.add(characterClassChoices,1,5);
         characterCreationGridPane.add(characterCreationContinueButton,2,7);
         characterCreationGridPane.add(characterCreationBackButton,0,7);
-        characterCreationGridPane.add(imageView,2,3);
+        characterCreationGridPane.add(imageView,2,4);
         characterCreationGridPane.add(noNameCatch,1,7);
 
         return characterCreationScene;
