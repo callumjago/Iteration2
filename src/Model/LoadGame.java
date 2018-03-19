@@ -422,7 +422,6 @@ public class LoadGame {
 					int maxHP = Integer.parseInt(input.next());
 				
 					String description = input.nextLine() + input.nextLine();
-<<<<<<< HEAD
 
 					NPC npc;
 
@@ -432,14 +431,11 @@ public class LoadGame {
 					else {
 						npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
 					}
-
-=======
 				
 				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
+					//NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
 					npc.modifyMoney(money);
-					
->>>>>>> 563b1438ade7b6d89ecfd5bdf3850036a69a7e56
+
 					switch(tag) {
 					case "Hostile":
 						npc.setAI(new HostileAI(npc, state));
