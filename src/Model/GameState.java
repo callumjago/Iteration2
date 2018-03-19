@@ -76,18 +76,14 @@ public class GameState {
             pickPocketInteraction = null;
             return;
         }
-
         pickPocketInteraction.applyEffect(index);
         pickPocketInteraction = null;
     }
-
-    //public void set
 
     public void performTransaction(int index) {
         if(transaction == null) {
             return;
         }
-
         transaction.applyEffect(index);
         transaction = null;
     }
@@ -161,19 +157,12 @@ public class GameState {
             entity = it.next();
             if (entity.getX() == x && entity.getY() == y && (!entity.equals(src))) {
                 if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
-
-                    if((this.getPlayer().isSneaking() == true) && (entity.getDegree() - src.getDegree() == 90)){
-                        ((Projectile) entity).setDamage(((Projectile) entity).getDamage()*2);
-                    }
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
                     if (src instanceof NPC) {
                         interactions.add(new NPC_DeathIR(getPlayer(), (NPC) src, this));
                     }
                 }
                 else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
-                    if((this.getPlayer().isSneaking() == true) && (src.getDegree() - entity.getDegree() == 90)){
-                        ((Projectile) src).setDamage(((Projectile) src).getDamage()*2);
-                    }
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
                     if (entity instanceof NPC) {
                         interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
@@ -190,20 +179,23 @@ public class GameState {
         Entity entity = null;
         Random rand = new Random();
         int n = rand.nextInt(100) + 1;
-        if (tag == "bow") {
+        if (tag.equals("bow")) {
             if (accuracy > n) {
                 this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getDegree(), damage, 10, 0));
                 getPlayer().modifyArrowCount(-1);
-            } else {
-                while (it.hasNext()) {
-                    entity = it.next();
-                    if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                        if ((this.getPlayer().isSneaking() == true) && (getPlayer().getDegree() == entity.getDegree())) {
-                            damage = damage * 2;
-                        }
-                        interactions.add(new DamageIR((SentientEntity) entity, damage));
-                        return true;
+            }
+        }
+        else {
+            while (it.hasNext()) {
+                entity = it.next();
+                if (entity.getX() == x && entity.getY() == y) {
+                    if ((this.getPlayer().isSneaking() == true) && (getPlayer().getDegree() == entity.getDegree())) {
+                        damage = damage * 2;
                     }
+                    System.out.println("Attack Collision");
+                    interactions.add(new DamageInteraction((SentientEntity) entity, damage));
+                    interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
+                    return true;
                 }
             }
         }
@@ -279,8 +271,6 @@ public class GameState {
             AttackAction a = new AttackAction(getPlayer(), this);
         }
         handleInteractions();
-
-
     }
 
     public void resetEntityAttempts() {

@@ -25,7 +25,7 @@ public class InteractionHandler {
                         interactions.add(new HealingIR((SentientEntity) ent, tile.getValue()));
                     }
                     else if (tile.getTileObjectID() == 6) {  // Damage Effect
-                        interactions.add(new DamageIR((SentientEntity) ent, tile.getValue()));
+                        interactions.add(new DamageInteraction((SentientEntity) ent, tile.getValue()));
                     }
                     else if (tile.getTileObjectID() == 7) {  // Exp Effect
                         interactions.add(new ExperienceIR((SentientEntity) ent, tile.getValue()));

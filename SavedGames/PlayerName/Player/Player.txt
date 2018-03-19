@@ -12,5 +12,5 @@ Exp: 0
 Money: 50
 Angle: 0
 Class: 0
-Sprite: 2
-Name: wqrr
+Sprite: 0
+Name: d
