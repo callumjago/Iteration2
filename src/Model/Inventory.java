@@ -55,7 +55,9 @@ public class Inventory {
 			System.out.println("Bag is Empty!");
 			return;
 		}
-		if(_index >= bag.size()) { return; }
+		if(_index >= bag.size()) {
+		    return;
+		}
 		bag.remove(_index);
 	}
 	

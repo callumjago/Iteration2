@@ -54,6 +54,7 @@ public class ArcaneBashSkill extends Skill {
         if (getLvl() == 2) req = 0.0;
         if (rand > req) {
             new AttackAction(player,GS,(int)modifier);
+            System.out.println("Used");
         } else {
         }
 

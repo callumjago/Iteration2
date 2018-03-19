@@ -3,43 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/NPC1.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Maps/Map1/NPC1.txt" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Inventory.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Inventory.txt" />
-      <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/TransactionController$1.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/TransactionController$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Controller/TransactionController.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Controller/TransactionController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/AI.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/AI.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/AttackAction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/AttackAction.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Entity.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Entity.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/HostileAI.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/HostileAI.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractionHandler.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InteractionHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Inventory.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Inventory.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenu.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/InventoryMenu.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/LoadGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/LoadGame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MainMenuHandler.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MainMenuHandler.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/MapTransition.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/MapTransition.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/NPC.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/NPC.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Player.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Player.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Projectile.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Projectile.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Ring.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Ring.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/RunGame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGame.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SaveGame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/SentientEntity.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/ShopKeeper.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/ShopKeeper.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Transaction.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Transaction.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Villager.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Villager.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/Wallet.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/Wallet.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/DialogueUI.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/DialogueUI.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/View/NPCInventoryView.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/View/NPCInventoryView.class" />
-      <change beforePath="$PROJECT_DIR$/src/Model/AI.java" afterPath="$PROJECT_DIR$/src/Model/AI.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Entity.java" afterPath="$PROJECT_DIR$/src/Model/Entity.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/GameState.java" afterPath="$PROJECT_DIR$/src/Model/GameState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/HostileAI.java" afterPath="$PROJECT_DIR$/src/Model/HostileAI.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ArcaneBashSkill.java" afterPath="$PROJECT_DIR$/src/Model/ArcaneBashSkill.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Inventory.java" afterPath="$PROJECT_DIR$/src/Model/Inventory.java" />
       <change beforePath="$PROJECT_DIR$/src/Model/InventoryMenu.java" afterPath="$PROJECT_DIR$/src/Model/InventoryMenu.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/LoadGame.java" afterPath="$PROJECT_DIR$/src/Model/LoadGame.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/NPC.java" afterPath="$PROJECT_DIR$/src/Model/NPC.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/RunGame.java" afterPath="$PROJECT_DIR$/src/Model/RunGame.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/SentientEntity.java" afterPath="$PROJECT_DIR$/src/Model/SentientEntity.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,11 +34,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoadGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Inventory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Inventory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+              <folding>
+                <element signature="e#1015#1016#0" expanded="true" />
+                <element signature="e#1044#1045#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/LoadGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="541" column="33" lean-forward="true" selection-start-line="541" selection-start-column="33" selection-end-line="541" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArcaneBashSkill.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBashSkill.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -99,31 +90,12 @@
       <file leaf-file-name="InventoryMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/InventoryMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Entity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3091">
-              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+            <state relative-caret-position="231">
+              <caret line="78" column="38" lean-forward="false" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
               <folding>
-                <element signature="e#4737#4744#0" expanded="true" />
+                <element signature="e#2024#2025#0" expanded="true" />
+                <element signature="e#2069#2070#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HostileAI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/HostileAI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -209,17 +181,18 @@
         <option value="$PROJECT_DIR$/src/Model/NPC_DeathIR.java" />
         <option value="$PROJECT_DIR$/src/Model/ManaPotion.java" />
         <option value="$PROJECT_DIR$/src/Model/HealthPotion.java" />
-        <option value="$PROJECT_DIR$/src/Model/Inventory.java" />
         <option value="$PROJECT_DIR$/src/Model/SubMenu.java" />
         <option value="$PROJECT_DIR$/src/Model/AI.java" />
         <option value="$PROJECT_DIR$/src/Model/NPC.java" />
         <option value="$PROJECT_DIR$/src/Model/HostileAI.java" />
         <option value="$PROJECT_DIR$/src/Model/Entity.java" />
         <option value="$PROJECT_DIR$/src/Model/SentientEntity.java" />
-        <option value="$PROJECT_DIR$/src/Model/InventoryMenu.java" />
         <option value="$PROJECT_DIR$/src/Model/GameState.java" />
         <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
         <option value="$PROJECT_DIR$/src/Model/LoadGame.java" />
+        <option value="$PROJECT_DIR$/src/Model/ArcaneBashSkill.java" />
+        <option value="$PROJECT_DIR$/src/Model/InventoryMenu.java" />
+        <option value="$PROJECT_DIR$/src/Model/Inventory.java" />
       </list>
     </option>
   </component>
@@ -555,14 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBashSkill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -748,20 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Inventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="false" />
-            <element signature="e#1309#1310#0" expanded="false" />
-            <element signature="e#1326#1327#0" expanded="false" />
-            <element signature="e#1652#1653#0" expanded="false" />
-            <element signature="e#1675#1676#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1407">
@@ -833,22 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/MenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/InventoryMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -880,6 +815,44 @@
         <state relative-caret-position="45">
           <caret line="541" column="33" lean-forward="true" selection-start-line="541" selection-start-column="33" selection-end-line="541" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBashSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/InventoryMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="78" column="38" lean-forward="false" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+          <folding>
+            <element signature="e#2024#2025#0" expanded="true" />
+            <element signature="e#2069#2070#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Inventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding>
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -38,12 +38,17 @@ public class InventoryMenu extends SubMenu {
             System.out.println(getSubMenuSelectedIndex());
             ((UseItem) player.getItem(getSubMenuSelectedIndex())).use(player);
             player.tossItem(getSubMenuSelectedIndex());
-            setSubMenuSelectedIndex(getSubMenuSelectedIndex()-getScrollOffset()-1);
-            scrollUp();
+            if (getSubMenuSelectedIndex()-getScrollOffset()-1 > 0) {
+                setSubMenuSelectedIndex(getSubMenuSelectedIndex()-getScrollOffset()-1);
+                scrollUp();
+            }
         } else if(generateInventoryMenuItem().collisionCheckByName("Toss Item", mouseX, mouseY)) {
-            inventory.tossItem(getSubMenuSelectedIndex());
-            setSubMenuSelectedIndex(getSubMenuSelectedIndex()-getScrollOffset()-1);
-            scrollUp();
+            System.out.println("Here");
+            player.tossItem(getSubMenuSelectedIndex());
+            if (getSubMenuSelectedIndex()-getScrollOffset()-1 > 0) {
+                setSubMenuSelectedIndex(getSubMenuSelectedIndex()-getScrollOffset()-1);
+                scrollUp();
+            }
         }
     }
 
@@ -66,13 +71,12 @@ public class InventoryMenu extends SubMenu {
 
     private InventoryMenuItem generateInventoryMenuItem() {
         InventoryMenuItem temp = new InventoryMenuItem(new ArrayList<>());
-        
         if(inventory.getItem(getSubMenuSelectedIndex()) instanceof Equipment) {
             temp.addButton(new Bound(450, 750, 575, 650), "Equip Item");
         } else {
             temp.addButton(new Bound(450, 750, 575, 650), "Use Item");
         }
-        temp.addButton(new Bound(450, 750, 675, 750), "Drop Item");
+        temp.addButton(new Bound(450, 750, 675, 750), "Toss Item");
         return temp;
     }
 
