@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Model/NPC_DeathIR.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" afterPath="$PROJECT_DIR$/SavedGames/PlayerName/Player/Player.txt" />
-      <change beforePath="$PROJECT_DIR$/src/Model/RunGame.java" afterPath="$PROJECT_DIR$/src/Model/RunGame.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" afterPath="$PROJECT_DIR$/out/production/Iteration2/Model/GameState.class" />
+      <change beforePath="$PROJECT_DIR$/src/Model/GameState.java" afterPath="$PROJECT_DIR$/src/Model/GameState.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +21,7 @@
       <file leaf-file-name="RunGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-294">
+            <state relative-caret-position="1491">
               <caret line="132" column="63" lean-forward="true" selection-start-line="132" selection-start-column="63" selection-end-line="132" selection-end-column="63" />
               <folding />
             </state>
@@ -35,16 +37,6 @@
                 <element signature="e#3192#3193#0" expanded="true" />
                 <element signature="e#3224#3225#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InventoryMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/InventoryMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="36" column="77" lean-forward="false" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -101,18 +93,31 @@
       <file leaf-file-name="GameState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-651">
-              <caret line="172" column="9" lean-forward="true" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+            <state relative-caret-position="3276">
+              <caret line="182" column="31" lean-forward="true" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
+              <folding>
+                <element signature="e#7392#7393#0" expanded="true" />
+                <element signature="e#7426#7427#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NPC_DeathIR.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/NPC_DeathIR.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HealthPotion.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/HealthPotion.java">
+      <file leaf-file-name="DamageInteraction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/DamageInteraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="189">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,7 +163,6 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/Model/CrossSlashSkill.java" />
-        <option value="$PROJECT_DIR$/src/Model/GameState.java" />
         <option value="$PROJECT_DIR$/src/Model/AttackAction.java" />
         <option value="$PROJECT_DIR$/src/Model/Player.java" />
         <option value="$PROJECT_DIR$/src/Controller/PlayerController.java" />
@@ -171,6 +175,8 @@
         <option value="$PROJECT_DIR$/src/Model/Warrior.java" />
         <option value="$PROJECT_DIR$/src/Model/Mage.java" />
         <option value="$PROJECT_DIR$/src/Model/RunGame.java" />
+        <option value="$PROJECT_DIR$/src/Model/NPC_DeathIR.java" />
+        <option value="$PROJECT_DIR$/src/Model/GameState.java" />
       </list>
     </option>
   </component>
@@ -424,28 +430,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Model/CastLightningSkill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SneakSkill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/RemoveTrap.java" />
-    <entry file="file://$PROJECT_DIR$/src/Model/Talk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Villager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-330">
@@ -568,7 +552,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#7392#7393#0" expanded="true" />
+            <element signature="e#7426#7427#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -808,10 +795,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Inventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <folding>
+            <element signature="e#1704#1705#0" expanded="true" />
+            <element signature="e#1727#1728#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/InventoryMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="36" column="77" lean-forward="false" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/DamageInteraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-294">
+        <state relative-caret-position="1491">
           <caret line="132" column="63" lean-forward="true" selection-start-line="132" selection-start-column="63" selection-end-line="132" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/HealthPotion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/NPC_DeathIR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -824,22 +854,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Inventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-          <folding>
-            <element signature="e#1704#1705#0" expanded="true" />
-            <element signature="e#1727#1728#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-651">
-          <caret line="172" column="9" lean-forward="true" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="3276">
+          <caret line="182" column="31" lean-forward="true" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
+          <folding>
+            <element signature="e#7392#7393#0" expanded="true" />
+            <element signature="e#7426#7427#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

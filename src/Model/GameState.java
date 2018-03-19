@@ -153,20 +153,17 @@ public class GameState {
         while (it.hasNext()) {
             entity = it.next();
             if (entity.getX() == x && entity.getY() == y && (!entity.equals(src))) {
-                /*System.out.println("Entity: " + entity.getX() + ", " + entity.getY());
-                System.out.println("Move Requester: " + src.getX() + ", " + src.getY());
-                System.out.println("X and Y: " + x + ", " + y);
-
-                /*if(entity.getPosition().y != src.getPosition().y || entity.getPosition().x != src.getPosition().x) {
-                    return false;
-                }*/
                 if (entity instanceof Projectile && src instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) src, ((Projectile) entity).getDamage(),this, (Projectile)entity));
-                    System.out.println("Damage Interaction: " + x + ", " + y );
+                    if (src instanceof NPC) {
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) src));
+                    }
                 }
                 else if (src instanceof Projectile && entity instanceof SentientEntity && realMove) {
                     interactions.add(new ProjectileDamageIR((SentientEntity) entity, ((Projectile) src).getDamage(),this, (Projectile)src));
-                    System.out.println("Damage Interaction");
+                    if (entity instanceof NPC) {
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity));
+                    }
                 }
                 return false;
             }
@@ -179,7 +176,7 @@ public class GameState {
         Entity entity = null;
         boolean ranged = true;
         if (tag.equals("bow")) {
-                this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), 100, 10, 0));
+                addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), 100, 10, 0));
                 getPlayer().modifyArrowCount(-1);
         }
         while (it.hasNext()) {
@@ -187,6 +184,9 @@ public class GameState {
             if (entity.getPosition().x == x && entity.getPosition().y == y) {
                 if(ranged != true) {
                     interactions.add(new DamageIR((SentientEntity) entity, damage));
+                    if (entity instanceof NPC) {
+                        interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity));
+                    }
                 }
                 return true;
             }
