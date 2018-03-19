@@ -228,8 +228,6 @@ public abstract class Entity {
                 else {
                 	que = tranAck(que,  Range, 1,  0);
                 }
-
-
         }
         return  que;
     }
@@ -240,10 +238,6 @@ public abstract class Entity {
             Point adj = new Point();
             adj.x = getPosition().x + incX*i;
             adj.y = getPosition().y + incY*i;
-            System.out.println("sdfsdf");
-            System.out.println(getPosition().x + incX*i);
-            System.out.println(getPosition().y + incY*i);
-            System.out.println("sdfsdf");
             quex.add(adj);
         }
         return quex;

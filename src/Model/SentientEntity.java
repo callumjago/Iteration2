@@ -154,6 +154,8 @@ public abstract class SentientEntity extends Entity {
         return EquipWeapon;
     }
 
+    public int getWeaponSpeed() {return EquipWeapon.getAttackSpeed();}
+
     public AttackOr getAtOr(){return getEquipWeapon().getAttackOrientation();}
 
     public int getWeaRange(){return getEquipWeapon().getRange();}

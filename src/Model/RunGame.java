@@ -62,11 +62,6 @@ public class RunGame extends Application {
         p.setPosition(new Point(6, 5));
 
         //canvas.setOnKeyPressed(p.getPc());
-        for(int i = 0; i < 7; i++) {
-            p.addItem(new Armor());
-            p.addItem(new Ring());
-
-        }
 
         menuView = new MenuView(canvas);
 
@@ -101,10 +96,6 @@ public class RunGame extends Application {
         // Item Interaction
         Tile objh = new Tile(0);
         objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
-//        p.setEquipWeapon(new Weapon(5, new Level(1), "bow", "bow",
-//                6, new AttackOr (0), 5, new Accuracy(100), 7, "bow"));
-
-
         tileSet.get(4).set(3, objh);
 
         //Map Transition
@@ -165,9 +156,7 @@ public class RunGame extends Application {
         MusicHandler musicHandler = new MusicHandler(gameState);
 
         MainMenuHandler mainMenu = new MainMenuHandler(p,save,load, mainStage, mainScene, this, gameState, musicHandler);
-
-        //MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,musicHandler,mainStage,mainScene);
-        //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
+        PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
         Dialogue dialogue = new Dialogue(canvas);
         gameState.setDialogue(dialogue);
@@ -191,12 +180,6 @@ public class RunGame extends Application {
             int tick = 0;
             int ticksSincePlayerInput = 0;
             public void handle(long currentNanoTime) {
-                //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
-            	
-            	//map.updateGameState(gameState);
-            	//map.Tick();
-
-
                 if(menu.isOpen()) {//render menu
                     if(!dialogue.getDialogueOpen()) {
                         canvas.setOnMouseMoved(menu.getMenuMouseController());
@@ -252,7 +235,7 @@ public class RunGame extends Application {
                 dialogue.startDialogue();
 
                 // Checks if players health is <= 0 for gameover screen
-                //playerDeath.checkIfDead();
+                playerDeath.checkIfDead();
 
                 
 

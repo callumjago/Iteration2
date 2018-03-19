@@ -37,12 +37,13 @@ public class InventoryMenu extends SubMenu {
         } else if(generateInventoryMenuItem().collisionCheckByName("Use Item", mouseX, mouseY)) {
             System.out.println(getSubMenuSelectedIndex());
             ((UseItem) player.getItem(getSubMenuSelectedIndex())).use(player);
-
             player.tossItem(getSubMenuSelectedIndex());
             setSubMenuSelectedIndex(getSubMenuSelectedIndex()-getScrollOffset()-1);
             scrollUp();
-        } else if(generateInventoryMenuItem().collisionCheckByName("Drop Item", mouseX, mouseY)) {
+        } else if(generateInventoryMenuItem().collisionCheckByName("Toss Item", mouseX, mouseY)) {
             inventory.tossItem(getSubMenuSelectedIndex());
+            setSubMenuSelectedIndex(getSubMenuSelectedIndex()-getScrollOffset()-1);
+            scrollUp();
         }
     }
 

@@ -1,11 +1,8 @@
 package Model;
-import java.util.Random;
-
+import java.util.*;
 
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import Controller.TransactionController;
 
@@ -21,7 +18,8 @@ public class GameState {
     private MusicHandler musicHandler;
     private Dialogue dialogue;
     private TransactionController transactionController;
-    private int cd;
+    private Timer duration;
+    private boolean CoolDown;
 
 
     public GameState() {
@@ -32,7 +30,7 @@ public class GameState {
         pickPocketInteraction = null;
         transaction = null;
         levelUpMenu = null;
-        cd = 0;
+        CoolDown = false;
     }
 
     public Player getPlayer() {
@@ -270,20 +268,24 @@ public class GameState {
         if(getPlayer().getAttemptMove()) {
             moveHandler.checkMove(getPlayer(), getPlayer().getOrientation());
         }
-        if(getPlayer().isAttemptAttack())
+        if(getPlayer().isAttemptAttack() && !CoolDown)
         {
-        	if(cd == 0) {
-        		getPlayer().setAttemptAttack(false);
-            	AttackAction a = new AttackAction(getPlayer(), this);
-            	cd = getPlayer().getEquipWeapon().getAttackSpeed();
+            getPlayer().setAttemptAttack(false);
+            CoolDown = true;
+            AttackAction a = new AttackAction(getPlayer(), this);
+            if (duration == null){
+                duration = new Timer();
             }
-        	else {
-        		getPlayer().setAttemptAttack(false);
-        		System.out.println("Attak is on cooldown; wait: " + cd);
-        	}
+            duration.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    CoolDown = false;
+                }
+            }, getPlayer().getWeaponSpeed() * 1000);
         }
-        
-        if(cd != 0) --cd;
+        else if (getPlayer().isAttemptAttack()){
+            System.out.println("Cannot attack, still on cooldown!");
+        }
         
         handleInteractions();
     }

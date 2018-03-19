@@ -494,71 +494,68 @@ public class LoadGame {
 			Scanner read = null;
 		
 			for(int i = 1; i < size; i++) {
-				read = new Scanner(input.nextLine());
+				if (input.hasNext()) {
+					read = new Scanner(input.nextLine());
+				}
 				
 				if(npc.get(i) instanceof NPC)
 					do {
-						String temp = read.next();
-						int id = ((int)temp.charAt(1) -48) * 10 + (int)temp.charAt(2)-48;
-						String tag = ecodex.getTag(id);
-				
-						if(temp.charAt(0) == '0') { //check if item is an equipment
-							switch(tag) {
-					
-							case "fist":
-							case "ranged":
-							case "staff":
-							case "two-handed":
-							case "one-handed":
-								int lvl = ecodex.getLevelReq(id);
-								int damage = ecodex.getStatPoints(id);
-								int attackSpeed = ecodex.getAttackSpeed(id);
-								Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
-								Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
-										damage, new AttackOr(ecodex.getOrientation(id)), attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
+						if (read.hasNext()) {
+							String temp = read.next();
+							int id = ((int) temp.charAt(1) - 48) * 10 + (int) temp.charAt(2) - 48;
+							String tag = ecodex.getTag(id);
 
-								((NPC)npc.get(i)).getInventory().addItem(weapon);
-								break;
-						
-							case "leather":
-							case "cloth":
-							case "plate":
-								Level level = new Level(ecodex.getLevelReq(id));
-								Armor armor = new Armor(id, level, ecodex.getArmorName(id), ecodex.getArmorDescription(id), 
-										ecodex.getStatPoints(id));
-								
-								((NPC)npc.get(i)).getInventory().addItem(armor);
-								break;
-						
-							case "ring":
-								level = new Level(ecodex.getLevelReq(id));
-								Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, player.getHealth(),  ecodex.getRingAmount(id));
-						
-								((NPC)npc.get(i)).getInventory().addItem(ring);
-								break;
-							}
+							if (temp.charAt(0) == '0') { //check if item is an equipment
+								switch (tag) {
+
+									case "fist":
+									case "ranged":
+									case "staff":
+									case "two-handed":
+									case "one-handed":
+										int lvl = ecodex.getLevelReq(id);
+										int damage = ecodex.getStatPoints(id);
+										int attackSpeed = ecodex.getAttackSpeed(id);
+										Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
+										Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id),
+												damage, new AttackOr(ecodex.getOrientation(id)), attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
+
+										((NPC) npc.get(i)).getInventory().addItem(weapon);
+										break;
+
+									case "leather":
+									case "cloth":
+									case "plate":
+										Level level = new Level(ecodex.getLevelReq(id));
+										Armor armor = new Armor(id, level, ecodex.getArmorName(id), ecodex.getArmorDescription(id),
+												ecodex.getStatPoints(id));
+
+										((NPC) npc.get(i)).getInventory().addItem(armor);
+										break;
+
+									case "ring":
+										level = new Level(ecodex.getLevelReq(id));
+										Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, player.getHealth(), ecodex.getRingAmount(id));
+
+										((NPC) npc.get(i)).getInventory().addItem(ring);
+										break;
+								}
+							} else if (temp.charAt(0) == '1') { //check if item is an UseItem
+								if (icodex.getTag(id).compareToIgnoreCase("health") == 0) {
+									HealthPotion healthP = new HealthPotion(id, icodex.getStatPoints(id),
+											icodex.getName(id), icodex.getDescription(id));
+									((NPC) npc.get(i)).getInventory().addItem(healthP);
+								} else if (icodex.getTag(id).compareToIgnoreCase("mana") == 0) {
+									ManaPotion mana = new ManaPotion(id, icodex.getStatPoints(id),
+											icodex.getName(id), icodex.getDescription(id));
+									((NPC) npc.get(i)).getInventory().addItem(mana);
+								}
+							} else if (temp.charAt(0) == '2') { //check if item is an Interactive item
+								//KeyItem key = new KeyItem(icodex.getStatPoints(id));
+
+								//inventory.addItem(key);
+							} else System.out.println("Invalid ItemID");
 						}
-				
-						else if(temp.charAt(0) == '1') { //check if item is an UseItem
-							if(icodex.getTag(id).compareToIgnoreCase("health") == 0) {
-								HealthPotion healthP = new HealthPotion(id, icodex.getStatPoints(id), 
-									icodex.getName(id), icodex.getDescription(id));
-								((NPC)npc.get(i)).getInventory().addItem(healthP);
-							}
-							else if(icodex.getTag(id).compareToIgnoreCase("mana") == 0) {
-								ManaPotion mana = new ManaPotion(id, icodex.getStatPoints(id), 
-									icodex.getName(id), icodex.getDescription(id));
-								((NPC)npc.get(i)).getInventory().addItem(mana);
-							}
-						}
-				
-						else if(temp.charAt(0) == '2') { //check if item is an Interactive item
-							//KeyItem key = new KeyItem(icodex.getStatPoints(id));
-					
-							//inventory.addItem(key);
-						}
-				
-						else System.out.println("Invalid ItemID");
 					} while(read.hasNext());
 				}
 		}

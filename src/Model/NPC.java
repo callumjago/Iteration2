@@ -32,10 +32,6 @@ public class NPC extends SentientEntity {
 		ai = _ai;
 	}
 	
-	/*public int getMove() {
-		return ai.getMove(); //getMove from ai should return an angle 
-	}*/
-	
 	public String getDialogue() {
 		return dialogue;
 	}

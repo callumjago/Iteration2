@@ -46,7 +46,6 @@ public abstract class AI {
 
 
         while(!queue.isEmpty()) {
-
             vert = queue.remove();
             if(listContainsPoint(visited, vert)) {
                 continue;
@@ -60,9 +59,7 @@ public abstract class AI {
             Point next;
 
             while(!adj.isEmpty()) {
-
                 next = adj.remove();
-
                 //If goal tile is not passable (i.e. player is goal) then it will never be added, so it must be manually checked for here
                 if(next.x == goal.x && next.y == goal.y) {
                     nodeList.put(next, vert);
@@ -78,7 +75,7 @@ public abstract class AI {
                     queue.add(next);
                 }
 
-                //actions.put()
+                //actions.put();
 
             }
             if(found) {
