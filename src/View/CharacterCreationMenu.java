@@ -139,26 +139,7 @@ public class CharacterCreationMenu {
                 else if (characterStatAdvantage.getValue() == "Defense")
                     player.setDefensePoints(8);
                     */
-                player.setName(nameInput.getText());
-                player.setSprite(imageView.getImage());
-                player.setSpriteIndex(characterSprites.getSelectionModel().getSelectedIndex());
-                player.setClass(characterSprites.getValue().toString());
-                player.getPlayerClass().addSkill(new Fireball(player,state));
-                player.getPlayerClass().addSkill(new Charm(player, state));
-                player.getPlayerClass().addSkill(new DetectTrapSkill(player));
-                player.getPlayerClass().addSkill(new RemoveTrapSkill(player,state));
-                player.getPlayerClass().addSkill(new BindEnchantmentSkill(player,state));
-                player.getPlayerClass().addSkill(new BindWoundsSkill(player));
-                player.getPlayerClass().addSkill(new AttackBuffSkill(player));
-                player.getPlayerClass().addSkill(new HealthBuffSkill(player));
-                player.getPlayerClass().addSkill(new HeavyStrikeSkill(player,state));
-                player.getPlayerClass().addSkill(new ArcaneBashSkill(player,state));
-                player.getPlayerClass().addSkill(new ArcaneBurstSkill(player,state));
-                player.getPlayerClass().addSkill(new CastLightningSkill(player,state));
-                player.getPlayerClass().addSkill(new ArrowHailSkill(player,state));
-                player.getPlayerClass().addSkill(new RemoveTrapSkill(player,state));
-                player.getPlayerClass().addSkill(new StunStrikeSkill(player,state));
-                player.getPlayerClass().addSkill(new CrossSlashSkill(player,state));
+                
                 //main.newGame(nameInput.getText(), spriteNumber);
                 //isMenuOpen = false;
                 //System.out.println(player.getName());

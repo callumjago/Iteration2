@@ -139,8 +139,6 @@ public class RunGame extends Application {
         
         SaveGame save = new SaveGame(map.getState());
 
-
-
         menu.addSubMenu(new InventoryMenu(p));
         menu.addSubMenu(new EquipmentMenu(p));
         menu.addSubMenu(new StatsMenu(p));

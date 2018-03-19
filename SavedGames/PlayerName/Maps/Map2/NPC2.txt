@@ -1,0 +1,1 @@
+Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP
