@@ -37,10 +37,11 @@ public class AttackAction implements Interaction {
         AttackOr weapon = entity.getAtOr();
         int dir = orientation.getDegree();
         actAmt = entity.getAtk()*modifier;
+        tag = entity.getWeaponTag();
         pos = entity.getNearbyLoc(weapon, entity.getWeaRange());
         if(pos != null) {
             for (Point pt : pos) {
-                gs.AttackCollision(pt.x, pt.y, actAmt, "", accuracy);
+                gs.AttackCollision(pt.x, pt.y, actAmt, tag, accuracy);
             }
         }
     }

@@ -204,8 +204,8 @@ public class GameState {
                     interactions.add(new DamageIR((SentientEntity) entity, damage));
                 return true;
             }
-        }}}else{            System.out.println("miss");
-        }
+        }}}
+        else { System.out.println("miss");}
         return false;
     }
 
