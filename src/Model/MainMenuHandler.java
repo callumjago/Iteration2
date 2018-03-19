@@ -42,7 +42,7 @@ public class MainMenuHandler {
             musicHandler.playMainMenuMusic();
         }
         else if(menuNumber == 1) { // Main Scene
-            //musicHandler.stopMainMenuMusic();
+            musicHandler.stopMainMenuMusic();
             mainStage.setScene(mainScene);
             //musicHandler.playVillageMusic();
         }

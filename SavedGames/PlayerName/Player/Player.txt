@@ -1,20 +1,16 @@
-Location: 7 7
-MapID: 2
+Location: 3 3
+MapID: 1
 Armor: 26
 Weapon: 1
 Ring: 41
-HP: 100
-MP: 100
-Attack: 1
-Defense: 1
-Level: 1
+Hp: 100
+Mp: 100
+Atk: 0
+Def: 0
+Lvl: 0
 Exp: 0
-Wallet: 0
-Angle: 90
+Money: 0
+Angle: 0
 Class: 0
 Sprite: 0
-<<<<<<< HEAD
-Name: d
-=======
-Name: dwasd
->>>>>>> dea092731bf3ca3eccb10b8f47e0c23964d90151
+Name: qweqe
