@@ -64,6 +64,7 @@ public class ClassStat implements Stat{
         }
         else {
             StatPoints += AddedPoints;
+            System.out.println(StatPoints);
         }
     }
 
