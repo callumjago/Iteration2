@@ -40,6 +40,7 @@ public class ArcaneBurstSkill extends Skill {
                     GS.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), damage, 0,2));
                 }
                 n.extendInfluence();
+                damage = (int)(damage*.75);
             }
         }
         else{
