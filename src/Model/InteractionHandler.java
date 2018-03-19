@@ -44,9 +44,16 @@ public class InteractionHandler {
 
             if(ent instanceof ShopKeeper) {
                 if(((ShopKeeper)ent).isTrading()) {
+                    GS.getTransactionController().setCloseRequest(false);
                     interactions.add(new Transaction((ShopKeeper)ent, GS.getPlayer()));
                     System.out.println("Shopping");
                     ((ShopKeeper)ent).setIsTrading(false);
+                }
+                else if(((ShopKeeper)ent).isSelling()) {
+                    GS.getTransactionController().setCloseRequest(false);
+                    interactions.add(new Transaction((ShopKeeper)ent, GS.getPlayer()));
+                    System.out.println("Selling");
+                    //((ShopKeeper)ent).setIsSelling(false);
                 }
             }
         }

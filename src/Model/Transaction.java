@@ -14,19 +14,36 @@ public class Transaction implements Interaction {
     }
 
     public void applyEffect(int index) {
-        System.out.println("hi");
+        if (merchant.isSelling())
+            sellItem(index);
+        else {
+            System.out.println("Buying");
+            int itemPrice = 10;
+            int cost = (int) (itemPrice * merchant.getPriceModifyer());
+            if (player.getMoney() < cost) { //Not enough money
+                return;
+            }
+
+            Item item = merchant.getInventory().getItem(index);
+            merchant.getInventory().tossItem(index);
+            player.addItem(item);
+
+            player.modifyMoney(-cost);
+        }
+    }
+
+    public void sellItem(int index) {
+        System.out.println("Selling");
         int itemPrice = 10;
         int cost = (int)(itemPrice*merchant.getPriceModifyer());
-        if(player.getMoney() < cost) {//Not enough money
+        if(merchant.getMoney() < cost) {
             return;
         }
-
         Item item = merchant.getInventory().getItem(index);
-        merchant.getInventory().tossItem(index);
-        player.addItem(item);
+        player.getInventory().tossItem(index);
+        merchant.getInventory().addItem(item);
 
-        player.modifyMoney(-cost);
-
+        player.modifyMoney(cost);
     }
 
     public ShopKeeper getMerchant() {

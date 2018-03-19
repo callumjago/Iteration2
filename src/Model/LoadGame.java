@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import View.Sprites;
+import javafx.scene.canvas.Canvas;
 
 public class LoadGame {
     private GameState state;
@@ -224,7 +225,9 @@ public class LoadGame {
 					if(id <= 0) id = 1;
 					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
 							ecodex.getStatPoints(id), new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
-					player.setEquipWeapon(weapon);
+					Weapon weapon1 = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id),
+							ecodex.getStatPoints(id), new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), "bow");
+					player.setEquipWeapon(weapon1);
 					break;
 				case 4: //equiping ring
 					input.next();
@@ -421,11 +424,20 @@ public class LoadGame {
 					int maxHP = Integer.parseInt(input.next());
 				
 					String description = input.nextLine() + input.nextLine();
+
+					NPC npc;
+
+					if (tag.equals("ShopKeeper")) {
+						npc = new ShopKeeper(state.getDialogue(),name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+					}
+					else {
+						npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
+					}
 				
 				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
+					//NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
 					npc.modifyMoney(money);
-					
+
 					switch(tag) {
 					case "Hostile":
 						npc.setAI(new HostileAI(npc, state));

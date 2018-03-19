@@ -8,7 +8,10 @@ public class TransactionController extends SubKeyController {
     private Transaction transaction;
     private int selectedIndex;
     private boolean confirmTransaction;
-    public TransactionController() {
+    private boolean closeRequest;
+    private GameState gameState;
+    public TransactionController(GameState gameState) {
+        this.gameState = gameState;
         selectedIndex = 0;
         confirmTransaction = false;
     }
@@ -20,7 +23,7 @@ public class TransactionController extends SubKeyController {
         }
 
         switch (code) {
-            case ENTER:
+            case B:
                 confirmTransaction = true;
                 break;
             case DOWN:
@@ -32,6 +35,11 @@ public class TransactionController extends SubKeyController {
                 if(selectedIndex > 0) {
                     selectedIndex--;
                 }
+                break;
+            case ESCAPE:
+                transaction = null;
+                closeRequest = true;
+                gameState.getTransaction().getMerchant().setIsSelling(false);
                 break;
 
 
@@ -58,9 +66,13 @@ public class TransactionController extends SubKeyController {
             selectedIndex = 0;
             confirmTransaction = false;
         }
+
     }
 
     public int getSelectedIndex() {
         return selectedIndex;
     }
+
+    public boolean getCloseRequest() { return closeRequest; }
+    public void setCloseRequest(boolean bool) { closeRequest = bool; }
 }

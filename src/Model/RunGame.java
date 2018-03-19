@@ -100,8 +100,10 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
-        p.setEquipWeapon((Weapon)objh.getObject());
+//        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
+        p.setEquipWeapon(new Weapon(5, new Level(1), "bow", "bow",
+                6, new AttackOr (0), 5, new Accuracy(100), 7, "bow"));
+//        p.setEquipWeapon((Weapon)objh.getObject());
 
 
         tileSet.get(4).set(3, objh);
@@ -130,9 +132,11 @@ public class RunGame extends Application {
         keyController.addController(pc);
         PickPocketController ppc = new PickPocketController();
         keyController.addController(ppc);
-        TransactionController tc = new TransactionController();
+        TransactionController tc = new TransactionController(gameState);
         keyController.addController(tc);
         gameState.setTileSet(tileSet);
+
+        gameState.setTransactionController(tc);
 
         Map map = new Map(gameState);
 
@@ -170,11 +174,12 @@ public class RunGame extends Application {
         //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
         Dialogue dialogue = new Dialogue(canvas);
+        gameState.setDialogue(dialogue);
 
-        NPC shopKeeper = new ShopKeeper(dialogue);
+        //NPC shopKeeper = new ShopKeeper(dialogue);
        // gameState.addEntity(shopKeeper);
-        shopKeeper.setPosition(new Point(8,0));
-        shopKeeper.setOrientation(new Angle(90));
+        //shopKeeper.setPosition(new Point(8,0));
+        //shopKeeper.setOrientation(new Angle(90));
 
         NPC villager1 = new Villager(dialogue);
         //gameState.addEntity(villager1);
@@ -194,6 +199,7 @@ public class RunGame extends Application {
             	
             	//map.updateGameState(gameState);
             	//map.Tick();
+
 
                 if(menu.isOpen()) {//render menu
                     if(!dialogue.getDialogueOpen()) {
@@ -226,10 +232,14 @@ public class RunGame extends Application {
                         ppc.handlePickPocket(gameState);
 
                     }
-                    if(gameState.getTransaction() != null) {//Player is trading
+                    if(gameState.getTransaction() != null && !tc.getCloseRequest()) {//Player is trading
                         tc.setTransaction(gameState.getTransaction());
-                        inventoryView.render(gameState.getTransaction().getMerchant(), tc.getSelectedIndex());
+                        if (gameState.getTransaction().getMerchant().isSelling())
+                            inventoryView.render(p, tc.getSelectedIndex());
+                        else
+                            inventoryView.render(gameState.getTransaction().getMerchant(), tc.getSelectedIndex());
                         tc.handleTransaction(gameState);
+
                     }
                 }
 
