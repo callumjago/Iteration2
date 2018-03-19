@@ -27,10 +27,18 @@ public class TeleportIR implements Interaction{
 	public void applyEffect() {
 		save = new SaveGame(state);
 		save.saveGame();
+		Point destination = null;
 		
 		TeleportCodex tcodex = new TeleportCodex();
-		mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
-		Point destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
+		if(obj instanceof Teleport) {
+			mapID = tcodex.getDestinationMap(((Teleport)((AOE)obj)).getValue());
+			destination = tcodex.getDestinationPosition(((Teleport)((AOE)obj)).getValue());
+		}
+		else if(obj instanceof MapTransition) {
+			mapID = tcodex.getDestinationMap(((MapTransition)obj).getValue());
+			destination = tcodex.getDestinationPosition(((MapTransition)obj).getValue());
+		}
+		
 		entity.setMapID(mapID);
 		entity.setPosition(destination);
 		
@@ -132,14 +140,13 @@ public class TeleportIR implements Interaction{
 								case "staff":
 								case "two-handed":
 								case "one-handed":
-									System.out.println(tag);
 									int lvl = ecodex.getLevelReq(id);
 									int damage = ecodex.getStatPoints(id);
 									int attackSpeed = ecodex.getAttackSpeed(id);
-									AttackOr orientation = new AttackOr(ecodex.getOrientation(id));
 									Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
+									AttackOr orientation = new AttackOr(ecodex.getOrientation(id));
 									Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
-											damage, orientation , attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
+											damage, orientation, attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
 								
 									tile.setObject(weapon);
 									break;
@@ -156,7 +163,7 @@ public class TeleportIR implements Interaction{
 								
 								case "ring":
 									level = new Level(ecodex.getLevelReq(id));
-									Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
+									Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, entity.getHealth(),  ecodex.getRingAmount(id));
 								
 									tile.setObject(ring);
 									break;
@@ -166,6 +173,11 @@ public class TeleportIR implements Interaction{
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
 							MPAE mp = new MPAE(x);
 							tile.setObject(mp);
+							break;
+						case 'M':
+							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
+							MapTransition map = new MapTransition(x);
+							tile.setObject(map);
 							break;
 						}
 					}
@@ -184,169 +196,169 @@ public class TeleportIR implements Interaction{
 		loadNPC();
 	}
 	
-	public void loadNPC() {
-		try {
-    		File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/NPC" + mapID + ".txt");
-			BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
-			br_map.readLine();
-			Scanner input = new Scanner(br_map);
-			
-			while(input.hasNextLine()) {
-				String name = input.next();
-				if(name.compareToIgnoreCase("Projectile") != 0) {
-					System.out.println(name);
-					Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
-					Angle angle = new Angle(Integer.parseInt(input.next()));
+	 public void loadNPC() {
+		 try {
+	    		File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/NPC" + mapID + ".txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
+				br_map.readLine();
+				Scanner input = new Scanner(br_map);
 				
-					int id = Integer.parseInt(input.next());
-					EquipmentCodex ecodex = new EquipmentCodex();
-					Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
-				
-					id = Integer.parseInt(input.next());
-					Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
-						new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
-				
-					id = Integer.parseInt(input.next());
-					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
-				
-					int HP = Integer.parseInt(input.next());
-					int MP = Integer.parseInt(input.next());
-					int Atck = Integer.parseInt(input.next());
-					int Def = Integer.parseInt(input.next());
-					int lvl = Integer.parseInt(input.next());
-					int money = Integer.parseInt(input.next());
-					int exp = Integer.parseInt(input.next());
-					String tag = input.next();
-					int maxHP = Integer.parseInt(input.next());
+				while(input.hasNextLine()) {
+					String name = input.next();
+					if(name.compareToIgnoreCase("Projectile") != 0) {
+						Point pos = new Point(Integer.parseInt(input.next()), Integer.parseInt(input.next()));
+						Angle angle = new Angle(Integer.parseInt(input.next()));
 					
-					String description = input.nextLine() + input.nextLine();
-				
-				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
-					switch(tag) {
-					case "Hostile":
-						npc.setAI(new HostileAI(npc, state));
-						break;
-					case "Friendly":
-						//npc.setAI(new FriendlyAI());
-						break;
+						int id = Integer.parseInt(input.next());
+						EquipmentCodex ecodex = new EquipmentCodex();
+						Armor armor = new Armor(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
+					
+						id = Integer.parseInt(input.next());
+						Weapon weapon = new Weapon(id, new Level(ecodex.getLevelReq(id)), ecodex.getArmorName(id), ecodex.getArmorDescription(id), ecodex.getStatPoints(id), 
+							new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
+					
+						id = Integer.parseInt(input.next());
+						Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), entity.getHealth(),  ecodex.getRingAmount(id));
+					
+						int HP = Integer.parseInt(input.next());
+						int MP = Integer.parseInt(input.next());
+						int Atck = Integer.parseInt(input.next());
+						int Def = Integer.parseInt(input.next());
+						int lvl = Integer.parseInt(input.next());
+						int money = Integer.parseInt(input.next());
+						int exp = Integer.parseInt(input.next());
+						String tag = input.next();
+						int maxHP = Integer.parseInt(input.next());
+					
+						String description = input.nextLine() + input.nextLine();
+					
+					
+						NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
+						npc.modifyMoney(money);
+						
+						switch(tag) {
+						case "Hostile":
+							npc.setAI(new HostileAI(npc, state));
+							break;
+						case "Friendly":
+							npc.setAI(new FriendlyAI(npc, state));
+							break;
+						}
+						state.getEntities().add(npc);
 					}
-					state.getEntities().add(npc);
-				}
-				
-				else {
-				/*	//damage
-					int damage = Integer.parseInt(input.next());
-					//position x
-					int x = Integer.parseInt(input.next());
-					//position y
-					int y = Integer.parseInt(input.next());
-					Point pos = new Point(x, y);
-					//range
-					int range = Integer.parseInt(input.next());
-					//degree
-					int degree = Integer.parseInt(input.next());
 					
-					state.getEntities().add(new Projectile(pos, degree, damage, range, 0));*/
+					else {
+						/*//damage
+						int damage = Integer.parseInt(input.next());
+						//position x
+						int x = Integer.parseInt(input.next());
+						//position y
+						int y = Integer.parseInt(input.next());
+						Point pos = new Point(x, y);
+						//range
+						int range = Integer.parseInt(input.next());
+						//degree
+						int degree = Integer.parseInt(input.next());
+						
+						state.getEntities().add(new Projectile(pos, degree, damage, range, 0));*/
+					}
+					
+					
 				}
 				
-				
-			}
+				input.close();
+				br_map.close();
+	    	}catch(Exception e) {
+	    		e.printStackTrace();
+	    	}    	
+	    	
+	    	loadNPCInv(state.getEntities());
+	    }
+	    
+		public void loadNPCInv(ArrayList<Entity> npc) {
+			int size = npc.size();
 			
-			input.close();
-			br_map.close();
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    	}
+			try {
+				File file = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/Inventory" + mapID + ".txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(file));
 		
-		loadNPCInv(state.getEntities());
-	}
-	
-	public void loadNPCInv(ArrayList<Entity> npc) {
-		int size = npc.size();
+				ItemCodex icodex = new ItemCodex();
+				EquipmentCodex ecodex = new EquipmentCodex();
 		
-		try {
-			File file = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/Inventory" + mapID + ".txt");
-			BufferedReader br_map = new BufferedReader(new FileReader(file));
-	
-			ItemCodex icodex = new ItemCodex();
-			EquipmentCodex ecodex = new EquipmentCodex();
-	
-			Scanner input = new Scanner(br_map);
-			Scanner read = null;
-		
-			for(int i = 1; i < size; i++) {
-				read = new Scanner(input.nextLine());
-				
-				if(npc.get(i) instanceof NPC)
-					do {
-						String temp = read.next();
-						System.out.println(temp + "###############");
-						int id = ((int)temp.charAt(1) -48) * 10 + (int)temp.charAt(2)-48;
-						String tag = ecodex.getTag(id);
-				
-						if(temp.charAt(0) == '0') { //check if item is an equipment
-							switch(tag) {
+				Scanner input = new Scanner(br_map);
+				Scanner read = null;
+			
+				for(int i = 1; i < size; i++) {
+					read = new Scanner(input.nextLine());
 					
-							case "fist":
-							case "ranged":
-							case "staff":
-							case "two-handed":
-							case "one-handed":
-								int lvl = ecodex.getLevelReq(id);
-								int damage = ecodex.getStatPoints(id);
-								int attackSpeed = ecodex.getAttackSpeed(id);
-								Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
-								Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
-										damage, new AttackOr(ecodex.getOrientation(id)), attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
-								
-								((NPC)npc.get(i)).getInventory().addItem(weapon);
-								break;
-						
-							case "leather":
-							case "cloth":
-							case "plate":
-								Level level = new Level(ecodex.getLevelReq(id));
-								Armor armor = new Armor(id, level, ecodex.getArmorName(id), ecodex.getArmorDescription(id), 
-										ecodex.getStatPoints(id));
-						
-								((NPC)npc.get(i)).getInventory().addItem(armor);
-								break;
-						
-							case "ring":
-								level = new Level(ecodex.getLevelReq(id));
-								Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
-						
-								((NPC)npc.get(i)).getInventory().addItem(ring);
-								break;
-							}
-						}
-				
-						else if(temp.charAt(0) == '1') { //check if item is an UseItem
-							if(icodex.getTag(id).compareToIgnoreCase("health") == 0) {
-								HealthPotion healthP = new HealthPotion(id, icodex.getStatPoints(id), 
-									icodex.getName(id), icodex.getDescription(id));
-								((NPC)npc.get(i)).getInventory().addItem(healthP);
-							}
-							else if(icodex.getTag(id).compareToIgnoreCase("mana") == 0) {
-								ManaPotion mana = new ManaPotion(id, icodex.getStatPoints(id), 
-									icodex.getName(id), icodex.getDescription(id));
-								((NPC)npc.get(i)).getInventory().addItem(mana);
-							}
-						}
-				
-						else if(temp.charAt(0) == '2') { //check if item is an Interactive item
-							//KeyItem key = new KeyItem(icodex.getStatPoints(id));
+					if(npc.get(i) instanceof NPC)
+						do {
+							String temp = read.next();
+							int id = ((int)temp.charAt(1) -48) * 10 + (int)temp.charAt(2)-48;
+							String tag = ecodex.getTag(id);
 					
-							//inventory.addItem(key);
-						}
-				
-						else System.out.println("Invalid ItemID");
-					} while(read.hasNext());
-				}
-		}
-    		catch(Exception e) {
-    			e.printStackTrace();
-    		}
-		}
+							if(temp.charAt(0) == '0') { //check if item is an equipment
+								switch(tag) {
+						
+								case "fist":
+								case "ranged":
+								case "staff":
+								case "two-handed":
+								case "one-handed":
+									int lvl = ecodex.getLevelReq(id);
+									int damage = ecodex.getStatPoints(id);
+									int attackSpeed = ecodex.getAttackSpeed(id);
+									Accuracy accuracy = new Accuracy(ecodex.getAccuracy(id));
+									Weapon weapon = new Weapon(id, new Level(lvl), ecodex.getWeaponName(id), ecodex.getWeaponDescription(id), 
+											damage, new AttackOr(ecodex.getOrientation(id)), attackSpeed, accuracy, ecodex.getRange(id), ecodex.getTag(id));
+									
+									((NPC)npc.get(i)).getInventory().addItem(weapon);
+									break;
+							
+								case "leather":
+								case "cloth":
+								case "plate":
+									Level level = new Level(ecodex.getLevelReq(id));
+									Armor armor = new Armor(id, level, ecodex.getArmorName(id), ecodex.getArmorDescription(id), 
+											ecodex.getStatPoints(id));
+							
+									((NPC)npc.get(i)).getInventory().addItem(armor);
+									break;
+							
+								case "ring":
+									level = new Level(ecodex.getLevelReq(id));
+									Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, entity.getHealth(),  ecodex.getRingAmount(id));
+							
+									((NPC)npc.get(i)).getInventory().addItem(ring);
+									break;
+								}
+							}
+					
+							else if(temp.charAt(0) == '1') { //check if item is an UseItem
+								if(icodex.getTag(id).compareToIgnoreCase("health") == 0) {
+									HealthPotion healthP = new HealthPotion(id, icodex.getStatPoints(id), 
+										icodex.getName(id), icodex.getDescription(id));
+									((NPC)npc.get(i)).getInventory().addItem(healthP);
+								}
+								else if(icodex.getTag(id).compareToIgnoreCase("mana") == 0) {
+									ManaPotion mana = new ManaPotion(id, icodex.getStatPoints(id), 
+										icodex.getName(id), icodex.getDescription(id));
+									((NPC)npc.get(i)).getInventory().addItem(mana);
+								}
+							}
+					
+							else if(temp.charAt(0) == '2') { //check if item is an Interactive item
+								//KeyItem key = new KeyItem(icodex.getStatPoints(id));
+						
+								//inventory.addItem(key);
+							}
+					
+							else System.out.println("Invalid ItemID");
+						} while(read.hasNext());
+					}
+			}
+	    		catch(Exception e) {
+	    			e.printStackTrace();
+	    		}
+			}
 }

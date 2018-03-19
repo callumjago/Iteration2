@@ -154,6 +154,13 @@ public class SaveGame {
                     case 1:
                     	pw.print("B00");
                     	break;
+                    case 2:
+                    	pw.print('M');
+                    	if(tiles.get(j).get(i).getObject().getValue() < 9)
+                    		pw.print("0" + tiles.get(j).get(i).getObject().getValue());
+                    	else
+                    		pw.print(tiles.get(j).get(i).getObject().getValue());
+                    	break;
                     case 3:
                     	pw.print("C00");
                     	break;
