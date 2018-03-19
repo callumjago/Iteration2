@@ -109,7 +109,7 @@ public class LoadGame {
 						case 'I': //one shot item
 							OneShotCodex ocodex = new OneShotCodex();
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
-							tile.setObject(new OneShotItem(x, ocodex.getStatPoints(x)));
+							tile.setObject(new OneShotItem(x, ocodex.getStatPoints(x), ocodex.getLevelReq(x)));
 							break;
 						case 'J': //npc
 							x = ((int)temp.charAt(2)-48)*10 + (int)temp.charAt(3)-48;
