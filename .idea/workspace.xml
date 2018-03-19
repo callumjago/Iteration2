@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe8e8ff8-7d3b-4bf6-8a6d-0d5bfc48cd89" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Model/ArcaneBurstSkill.java" afterPath="$PROJECT_DIR$/src/Model/ArcaneBurstSkill.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Projectile.java" afterPath="$PROJECT_DIR$/src/Model/Projectile.java" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ArrowHailSkill.java" afterPath="$PROJECT_DIR$/src/Model/ArrowHailSkill.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,17 +28,27 @@
         <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="663">
-              <caret line="210" column="59" lean-forward="false" selection-start-line="210" selection-start-column="59" selection-end-line="210" selection-end-column="59" />
+              <caret line="217" column="59" lean-forward="false" selection-start-line="217" selection-start-column="59" selection-end-line="217" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArcaneBurstSkill.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ArcaneBurstSkill.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBurstSkill.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrowHailSkill.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/ArrowHailSkill.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -59,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+              <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -69,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Projectile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="177">
-              <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+              <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -112,6 +121,7 @@
         <option value="$PROJECT_DIR$/src/Controller/PlayerController.java" />
         <option value="$PROJECT_DIR$/src/Model/Projectile.java" />
         <option value="$PROJECT_DIR$/src/Model/ArcaneBurstSkill.java" />
+        <option value="$PROJECT_DIR$/src/Model/ArrowHailSkill.java" />
       </list>
     </option>
   </component>
@@ -349,13 +359,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Model/ConfirmationMenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -620,8 +623,8 @@
         <state relative-caret-position="84">
           <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
           <folding>
-            <element signature="e#1239#1423#0" expanded="false" />
-            <element signature="e#1422#1423#0" expanded="false" />
+            <element signature="e#1239#1385#0" expanded="false" />
+            <element signature="e#1384#1385#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -693,7 +696,7 @@
     <entry file="file://$PROJECT_DIR$/src/Model/RunGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
-          <caret line="210" column="59" lean-forward="false" selection-start-line="210" selection-start-column="59" selection-end-line="210" selection-end-column="59" />
+          <caret line="217" column="59" lean-forward="false" selection-start-line="217" selection-start-column="59" selection-end-line="217" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -701,7 +704,7 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+          <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -709,7 +712,7 @@
     <entry file="file://$PROJECT_DIR$/src/Model/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -725,7 +728,15 @@
     <entry file="file://$PROJECT_DIR$/src/Model/ArcaneBurstSkill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ArrowHailSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding />
         </state>
       </provider>

@@ -40,6 +40,7 @@ public class ArrowHailSkill extends Skill {
                     GS.addEntity(new Projectile(n.getInfluence().get(i), player.getOrientation().getDegree(), damage, range,0));
                 }
                 n.extendInfluence();
+                damage = (int) (damage*.75);
             }
         }
         else{
