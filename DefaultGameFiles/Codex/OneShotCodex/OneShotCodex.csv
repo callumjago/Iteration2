@@ -1,3 +1,4 @@
 ID,Tag,StatPoints,LevelReq,Description,Name
 1,health,5,0,a,healthOS
-2,trap,-10,5,b,trapOS
+2,trap,10,5,b,trapOS
+3,health,100,0,a,healthOOS

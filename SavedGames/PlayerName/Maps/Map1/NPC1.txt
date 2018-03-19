@@ -1,9 +1,17 @@
 Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP - Range
+Orc        9        5      0       1        1       1       3000       100       1          1       1       50         0      Hostile  3000 3
+ur mom
+Orc        6        6      180       1        1       1       100       100       1          1       1       50         0      Hostile  100 2
+ur mom
+Vendor        4        5      180       1        1       1       100       100       1          1       1       100         0      Friendly  100 0
+ur dad
+Shopkeeper        7        7      90       1        1       1       1000       100       1          1       1       500         0      ShopKeeper  1000 0
+selling that good stuff
 Orc        5        5      90       1        1       1       3000       100       1          1       1       50         0      Hostile  3000 3
 ur mom
 Orc        6        6      90       1        1       1       100       100       1          1       1       50         0      Hostile  100 2
 ur mom
-Vendor        5        4      0       1        1       1       100       100       1          1       1       100         0      Friendly  100 0
+Vendor        4        4      0       1        1       1       100       100       1          1       1       100         0      Friendly  100 0
 ur dad
 Shopkeeper        7        7      90       1        1       1       1000       100       1          1       1       500         0      ShopKeeper  1000 0
 selling that good stuff

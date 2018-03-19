@@ -1,16 +1,16 @@
-Location: 20 1
-MapID: 3
+Location: 25 4
+MapID: 2
 Armor: 26
 Weapon: 10
 Ring: 41
-HP: 100
+HP: 80
 MP: 100
 Attack: 1
 Defense: 1
 Level: 1
 Exp: 0
 Wallet: 0
-Angle: 270
+Angle: 0
 Class: 0
 Sprite: 0
-Name: dasd
+Name: dwasd
