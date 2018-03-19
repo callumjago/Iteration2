@@ -74,6 +74,10 @@ public class NPC extends SentientEntity {
 	public int getMaxHP() {
 		return maxHP;
 	}
+	
+	public void setDetectionRange(int _range) {
+		detectionRange = _range;
+	}
 
 
 	public void checkForAnswerEvent() {}

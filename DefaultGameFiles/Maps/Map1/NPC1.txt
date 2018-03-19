@@ -1,9 +1,9 @@
-Name - PointX - PointY - Angle - Armor - Weapon - Ring - Health - Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -   MaxHP
-Orc      5        5       90       26       1       41      10000      100    1           1        1      50         50	Hostile 10000
+Name - PointX - PointY - Angle - Armor - Weapon - Ring - Health - Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -   MaxHP - Range
+Orc      5        5       90       26       1       41      10000      100    1           1        1      50         50	Hostile 10000     6
 ur mom
-Orc      6        6       90       26       1       41      100      100    1           1        1      50         50	Hostile  100
+Orc      6        6       90       26       1       41      100      100    1           1        1      50         50	Hostile  100      6
 ur mom
-Vendor   2        2       90       26       1       41      100      100    1           1        1      100        0	ShopKeeper 100
+Vendor   2        2       90       26       1       41      100      100    1           1        1      100        0	ShopKeeper 100    0
 ur dad
-Vendor 8 2 	  90 	   26       1       41 100 100 1 1 1 100 0 ShopKeeper 100
+Vendor 8 2 	  90 	   26       1       41 100 100 1 1 1 100 0 ShopKeeper 100 0
 Hello

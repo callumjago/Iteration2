@@ -284,7 +284,7 @@ public class SaveGame {
             System.out.println("the map id that the file will be saved is " + mapID);
             //Name Sprite Position Armor Weapon Ring HP MP Def Atk Lvl Exp Angle Wallet
             //Projectile Sprite Position damage range Angle
-            pw.println("Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP");
+            pw.println("Name -     PointX - PointY - Angle - Armor - Weapon - Ring  -  Health  -  Mana - Attack - Defense - Level - Wallet - ExpValue - Tag -  MaxHP - Range");
             for(int i = 1; i < npc.size();i++){
                 if(!(npc.get(i) instanceof Projectile)){
                     pw.print(((SentientEntity) npc.get(i)).getName() + "        ");
@@ -304,7 +304,8 @@ public class SaveGame {
                     pw.print(((SentientEntity) npc.get(i)).getWallet().getMoney() + "         ");
                     pw.print(((SentientEntity) npc.get(i)).getExp() + "      ");
                     pw.print(((NPC) npc.get(i)).getTag() + "  ");
-                    pw.print(((NPC) npc.get(i)).getMaxHP());
+                    pw.print(((NPC) npc.get(i)).getMaxHP() + " ");
+                    pw.print(((NPC)npc.get(i)).getDetectionRange());
                     
                     pw.println();
                     pw.println(((NPC) npc.get(i)).getDescription());

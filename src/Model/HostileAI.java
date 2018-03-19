@@ -22,13 +22,11 @@ public class HostileAI extends AI{
             Angle moveAngle = getDirection(getEntity().getPosition(), path.get(path.size()-1));
             getEntity().setOrientation(moveAngle);
             if (super.getEntity().isMoveable()) {getEntity().setAttemptMove(true);}
-            System.out.println("AI");
         }
         if(path.size() == 1) {
             Angle moveAngle = getDirection(getEntity().getPosition(), path.get(path.size()-1));
             getEntity().setOrientation(moveAngle);
             if (super.getEntity().isMoveable()) {getEntity().setAttemptMove(true);}
-            System.out.println("AI");
         }
 
 

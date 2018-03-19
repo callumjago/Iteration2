@@ -422,6 +422,7 @@ public class LoadGame {
 					int exp = Integer.parseInt(input.next());
 					String tag = input.next();
 					int maxHP = Integer.parseInt(input.next());
+					int range = Integer.parseInt(input.next());
 				
 					String description = input.nextLine() + input.nextLine();
 
@@ -443,6 +444,7 @@ public class LoadGame {
 
 					switch(tag) {
 					case "Hostile":
+						npc.setDetectionRange(range);
 						npc.setAI(new HostileAI(npc, state));
 						break;
 					case "Friendly":
