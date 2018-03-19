@@ -1,5 +1,5 @@
 package Model;
-
+import java.util.Random;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -174,22 +174,29 @@ public class GameState {
         return true;
     }
 
-    public Boolean AttackCollision(int x, int y, int damage, String tag) {
+    public Boolean AttackCollision(int x, int y, int damage, String tag, int accuracy) {
         Iterator<Entity> it = entities.iterator();
         Entity entity = null;
-        boolean ranged = true;
+        Random rand = new Random();
+        int  n = rand.nextInt(100) + 1;
+        if(accuracy>n){
+            System.out.println("hit");
         if (tag.equals("bow")) {
-                this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), 100, 10, 0));
+                this.addEntity(new Projectile(getPlayer().getForewardPosition(), getPlayer().getOrientation().getDegree(), damage, 10, 0));
                 getPlayer().modifyArrowCount(-1);
-        }
+        }else {
         while (it.hasNext()) {
             entity = it.next();
             if (entity.getPosition().x == x && entity.getPosition().y == y) {
-                if(ranged != true) {
-                    interactions.add(new DamageIR((SentientEntity) entity, damage));
+                if((this.getPlayer().isSneaking() == true) && (this.getPlayer().getDegree() - entity.getDegree() == 90)){
+                    damage = damage*2;
+                    System.out.println(this.getPlayer().getOrientation().getDegree() - entity.getOrientation().getDegree());
+                    System.out.println("Backstab");
                 }
+                    interactions.add(new DamageIR((SentientEntity) entity, damage));
                 return true;
             }
+        }}}else{            System.out.println("miss");
         }
         return false;
     }

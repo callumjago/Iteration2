@@ -133,6 +133,10 @@ public class Player extends SentientEntity {
         }
     }
 
+    public boolean isSneaking(){
+        return Sneaking;
+    }
+
     public boolean canDetectTraps() {
         return canDetectTraps;
     }
