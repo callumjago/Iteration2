@@ -6,7 +6,7 @@ public class Wallet {
 
     public Wallet(int maxMoney) {
         if (maxMoney <= 0) {
-            MaxMoney = 100;
+            MaxMoney = 300;
         }
         else {
             MaxMoney = maxMoney;
@@ -15,7 +15,7 @@ public class Wallet {
     }
 
     public Wallet() {
-        MaxMoney = 100;
+        MaxMoney = 300;
         Money = 0;
     }
 
@@ -25,7 +25,7 @@ public class Wallet {
 
     public void setMaxMoney(int maxMoney) {
         if (maxMoney <= 0) {
-            MaxMoney = 100;
+            MaxMoney = 300;
         }
         else {
             MaxMoney = maxMoney;
