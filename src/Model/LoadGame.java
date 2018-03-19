@@ -123,7 +123,6 @@ public class LoadGame {
 								case "staff":
 								case "two-handed":
 								case "one-handed":
-									System.out.println(tag);
 									int lvl = ecodex.getLevelReq(id);
 									int damage = ecodex.getStatPoints(id);
 									int attackSpeed = ecodex.getAttackSpeed(id);
@@ -210,7 +209,6 @@ public class LoadGame {
 							ecodex.getArmorDescription(id), ecodex.getStatPoints(id));
 					
 					player.setEquipArmor(armor);
-					System.out.println(player.getEquipArmor().getName());
 					break;
 				case 3: //equiping weapon
 					input.next();
@@ -224,7 +222,6 @@ public class LoadGame {
 					input.next();
 					id = Integer.parseInt(input.next());
 					if(id <= 0) id = 1;
-					System.out.println(id);
 					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
 					player.setEquipRing(ring);
 					break;
@@ -272,7 +269,6 @@ public class LoadGame {
 				case 15: //setting player Name
 					input.next();
 					player.setName(input.next());
-					System.out.println(player.getName());
 					break;
 				}
 				
@@ -405,7 +401,6 @@ public class LoadGame {
 				
 					switch(tag) {
 					case "Hostile":
-						System.out.println("###########################");
 						npc.setAI(new HostileAI(npc, state));
 						break;
 					case "Friendly":
@@ -462,7 +457,6 @@ public class LoadGame {
 				if(npc.get(i) instanceof NPC)
 					do {
 						String temp = read.next();
-						System.out.println(temp + "###############");
 						int id = ((int)temp.charAt(1) -48) * 10 + (int)temp.charAt(2)-48;
 						String tag = ecodex.getTag(id);
 				
