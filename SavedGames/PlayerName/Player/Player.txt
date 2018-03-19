@@ -1,0 +1,16 @@
+Location: 3 3
+MapID: 1
+Armor: 26
+Weapon: 1
+Ring: 41
+Hp: 100
+Mp: 100
+Atk: 0
+Def: 0
+Lvl: 0
+Exp: 0
+Money: 0
+Angle: 0
+Class: 0
+Sprite: 0
+Name: dwasd

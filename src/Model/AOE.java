@@ -18,5 +18,4 @@ public abstract class AOE extends GameObject {
     {
         this.ID = id;
     }
-
 }

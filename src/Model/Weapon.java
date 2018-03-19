@@ -12,8 +12,8 @@ public class Weapon extends Equipment {
     private int Range;
     private String tag;
 
-    public Weapon(int ItemID, int EQID, Level reqLvl, String name, String description, int attackPoints, AttackOr attackOrientation, int attackSpeed, Accuracy accuracy, int range, String tag_) {
-        super(ItemID, EQID, reqLvl, name, description);
+    public Weapon(int EQID, Level reqLvl, String name, String description, int attackPoints, AttackOr attackOrientation, int attackSpeed, Accuracy accuracy, int range, String tag_) {
+        super(EQID, reqLvl, name, description);
         AttackPoints = attackPoints;
         AttackOrientation = attackOrientation;
         AttackSpeed = attackSpeed;

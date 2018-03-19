@@ -1,0 +1,14 @@
+Location: 2 2
+MapID: 1
+Armor: 1
+Weapon: 10
+Ring: 1
+HP: 50
+MP: 100
+Attack: 10
+Defense: 10
+Level: 10
+Exp: 5
+Class: 0
+Sprite: 0
+Name: HYPE

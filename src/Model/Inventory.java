@@ -31,6 +31,14 @@ public class Inventory {
         }
         return stringList;
     }
+    
+    public int[] getInventoryIDs(){
+    	int idList[] = new int[bag.size()];
+    	for(int i = 0; i < bag.size(); i++) {
+    		idList[i] = bag.get(i).getItemID();
+    	}
+    	return idList;
+    }
 
     public int numOfItems() {
         return bag.size();

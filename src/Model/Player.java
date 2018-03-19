@@ -7,6 +7,10 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Player extends SentientEntity {
+
+   //holds the index to then player sprite
+   private int sprite;
+   private int role;
     private Boolean Sneaking;
     private PlayerClass Class;
     private boolean isPickpocketing;
@@ -15,6 +19,7 @@ public class Player extends SentientEntity {
     private boolean Running;
 	private Image playerSprite;
     private int playerSpriteIndex;
+
 
     Player(Point pos, Angle theta, String name, PlayerClass PC, Armor initArm, Weapon initWeapon,Ring initRing, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta,name,initArm,initWeapon,initRing,initHP,initMP,initAtk,initDef,initLvl,initMoney);
@@ -26,6 +31,7 @@ public class Player extends SentientEntity {
 
     Player() {
         super(); // Attribute classes fill with default values
+        //Class = new PlayerClass()
         Class = new Rogue();
         Sneaking = false;
         Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
@@ -37,6 +43,7 @@ public class Player extends SentientEntity {
 
     public PlayerClass getPlayerClass(){
         return Class;
+
     }
 
     public void setClass(String classString)
@@ -62,6 +69,18 @@ public class Player extends SentientEntity {
     public void addItem(Item item) {
         getInventory().addItem(item);
 	}
+    
+    public void setSprite(int _sprite) {
+    	sprite = _sprite;
+    }
+    
+    public void setRole(int _role) {
+    	role = _role;
+    }
+    
+    public int getRole() {
+    	return role;
+    }
 
     public ArrayList<String> getSkillsAsStringList() {
         ArrayList<String> skillsList = new ArrayList<>();

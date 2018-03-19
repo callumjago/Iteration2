@@ -17,10 +17,14 @@ public abstract class SentientEntity extends Entity {
     private Wallet Coffer;
     private AttackOr AtOr;
     private boolean attemptAttack;
+
+    private int mapID;
+
     private int WeaRange;
     private boolean attemptInteract;
     private Quiver quiver;
     private boolean hasLeveledUp;
+
     SentientEntity(Point pos, Angle theta, String name, Armor armor, Weapon weapon, Ring ring, int initHP, int initMP, int initAtk, int initDef, int initLvl, int initMoney){
         super(pos,theta);
         Name = name;
@@ -41,7 +45,7 @@ public abstract class SentientEntity extends Entity {
 
     SentientEntity(){ // Attribute classes fill with default values
         super();
-        Name = "H Y P E B O Y";
+        Name = "BOB";
         HP = new Health();
         MP = new Mana();
         Atk = new Attack();
@@ -52,6 +56,7 @@ public abstract class SentientEntity extends Entity {
         inventory = new Inventory();
         EquipWeapon = new Weapon();
         attemptAttack = false;
+        mapID = 1;
         // Add starting equipment here
         EquipArmor = new Armor();
         EquipRing = new Ring();
@@ -126,6 +131,9 @@ public abstract class SentientEntity extends Entity {
     }
 
     public Armor getEquipArmor() {
+    	if(EquipArmor == null) {
+    		EquipArmor = new Armor();
+    	}
         return EquipArmor;
     }
 
@@ -134,6 +142,10 @@ public abstract class SentientEntity extends Entity {
     }
 
     public Weapon getEquipWeapon() {
+    	if(EquipWeapon == null) {
+    		EquipWeapon = new Weapon();
+    	}
+    	
         return EquipWeapon;
     }
 
@@ -148,6 +160,10 @@ public abstract class SentientEntity extends Entity {
     public String getWeaponTag(){return getEquipWeapon().getTag();}
 
     public Ring getEquipRing() {
+    	if(EquipRing == null) {
+    		EquipRing = new Ring();
+    	}
+    	
         return EquipRing;
     }
 
@@ -284,6 +300,24 @@ public abstract class SentientEntity extends Entity {
     public void setAttemptAttack(boolean attemptAttack) {
         this.attemptAttack = attemptAttack;
     }
+
+    
+    public void setLvl(Level _Lvl) {
+    	Lvl = _Lvl;
+    }
+
+    public Wallet getWallet(){
+        return Coffer;
+    }
+    
+    public int getMapID(){
+        return mapID;
+    }
+
+    public void setMapID(int mapID){
+        this.mapID = mapID;
+    }
+
 
     public boolean isAttemptInteract() { return attemptInteract; }
 

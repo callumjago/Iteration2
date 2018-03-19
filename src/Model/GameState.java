@@ -97,7 +97,7 @@ public class GameState {
         }
         return tileSet.get(x).get(y);
     }
-
+    
     public Tile getTile(Point p){
         if (p.getX() < 0 || p.getX() > tileSet.size() - 1) {
             return null;

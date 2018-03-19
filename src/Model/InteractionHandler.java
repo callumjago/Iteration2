@@ -13,13 +13,13 @@ public class InteractionHandler {
             if (ent instanceof SentientEntity) { // Means a generation needs to be implemented
                 if (tile.getObject() != null) {
                     if (tile.getTileObjectID() == 2) { // Map Transition
-                        interactions.add(new MapTransitionIR((SentientEntity) ent, tile.getObject(), GS));
+                        interactions.add(new TeleportIR((SentientEntity) ent, GS, tile.getObject(), ((SentientEntity) ent).getInventory()));
                     }
                     else if (tile.getTileObjectID() == 3) { // Instant Death
-
+                    	interactions.add(new InstantDeathIR((SentientEntity) ent));
                     }
                     else if (tile.getTileObjectID() == 4) { // Teleport
-
+                    	interactions.add(new TeleportIR((SentientEntity) ent, GS, tile.getObject(), ((SentientEntity) ent).getInventory()));
                     }
                     else if (tile.getTileObjectID() == 5) {  // Healing Effect
                         interactions.add(new HealingIR((SentientEntity) ent, tile.getValue()));
@@ -35,6 +35,9 @@ public class InteractionHandler {
                     }
                     else if (tile.getTileObjectID() == 9) {  // OneShot
                         interactions.add(new OneShotIR(tile, (SentientEntity) ent, tile.getValue()));
+                    }
+                    else if(tile.getTileObjectID() == 10) { //MP Effect
+                    	interactions.add(new ManaIR((SentientEntity) ent, tile.getValue()));
                     }
                 }
             }

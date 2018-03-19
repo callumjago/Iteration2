@@ -16,15 +16,18 @@ import java.io.File;
 import java.net.MalformedURLException;
 
 import Model.MainMenuHandler;
+import Model.RunGame;
 
 public class StartingMenu {
 
     MainMenuHandler mainMenu;
     Scene startingScene;
+    RunGame run;
 
-    public StartingMenu(MainMenuHandler mainMenu)
+    public StartingMenu(MainMenuHandler mainMenu, RunGame _run)
     {
         this.mainMenu = mainMenu;
+        run = _run;
     }
 
     public Scene generateScene()
@@ -83,10 +86,11 @@ public class StartingMenu {
 
         Button loadGameButton = new Button("Load Game");
         loadGameButton.setOnAction(e -> {
-            File teststart = new File(System.getProperty("user.dir") + "/Save/Player.txt");
+            File teststart = new File(System.getProperty("user.dir") + "/GameFiles/Player/Player.txt");
             if(teststart.exists()) {
                 //main.loadGame();
                 //mainStage.setScene(mainScene);
+            	run.loadGame();
                 mainMenu.changeMenu(1);
             }
         });

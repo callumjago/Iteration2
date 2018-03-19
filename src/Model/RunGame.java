@@ -26,6 +26,8 @@ public class RunGame extends Application {
     private MenuView menuView;
 
     private KeyController keyController;
+    
+    private LoadGame load;
 
     private final long ticksPerSecond = 2;
 
@@ -47,8 +49,6 @@ public class RunGame extends Application {
 
         keyController = new KeyController();
         canvas.setOnKeyPressed(keyController);
-
-        SaveGame save = new SaveGame();
 
         menu = new Menu(canvas);
         MenuController mc = new MenuController(menu);
@@ -74,7 +74,7 @@ public class RunGame extends Application {
         for(int i = 0; i < 10; i++) {
             tileSet.add(new ArrayList<>());
             for(int j = 0; j < 10; j++) {
-                tileSet.get(i).add(new Tile(new Point(i, j), 0));
+            	tileSet.get(i).add(new Tile(new Point(i, j), 0));
             }
         }
 
@@ -100,7 +100,7 @@ public class RunGame extends Application {
 
         // Item Interaction
         Tile objh = new Tile(0);
-        objh.setObject(new Weapon(0, 0, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
+        objh.setObject(new Weapon(1, new Level(0), "sword", "a sword", 10, new AttackOr (0), 5, new Accuracy(100), 6, "bow"));
         p.setEquipWeapon((Weapon)objh.getObject());
 
 
@@ -108,7 +108,7 @@ public class RunGame extends Application {
 
         //Map Transition
         Tile obj5 = new Tile(0);
-        obj5.setObject(new MapTransition());
+        obj5.setObject(new Teleport(1));
         tileSet.get(4).set(2, obj5);
 
         // Trap test
@@ -120,6 +120,11 @@ public class RunGame extends Application {
 
         GameState gameState = new GameState();
         gameState.setPlayer(p);
+        
+        //NPC npc = new NPC();
+        //npc.setAI(new HostileAI(npc, gameState));
+        //gameState.addEntity(npc);
+
         p.getPlayerClass().addSkill(new Fireball(p,gameState));
 
         p.getPlayerClass().addSkill(new Charm(p, gameState));
@@ -139,10 +144,6 @@ public class RunGame extends Application {
         p.getPlayerClass().addSkill(new StunStrikeSkill(p,gameState));
         p.getPlayerClass().addSkill(new CrossSlashSkill(p,gameState));
 
-
-        NPC npc = new NPC();
-        npc.setAI(new HostileAI(npc, gameState));
-        gameState.addEntity(npc);
         PlayerController pc = new PlayerController(gameState);
         keyController.addController(pc);
         PickPocketController ppc = new PickPocketController();
@@ -150,7 +151,13 @@ public class RunGame extends Application {
         TransactionController tc = new TransactionController();
         keyController.addController(tc);
         gameState.setTileSet(tileSet);
-       // gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+
+        Map map = new Map(gameState);
+
+        //gameState.addEntity(new Projectile(new Point(1,1),0,5, 7000));
+        
+        SaveGame save = new SaveGame(map.getState());
+
 
 
         menu.addSubMenu(new InventoryMenu(p));
@@ -161,9 +168,14 @@ public class RunGame extends Application {
         menu.addSubMenu(new SaveGameMenu(save));
         menu.addSubMenu(new QuitGameMenu());
 
+        
+        load = new LoadGame(map.getState(), map.getState().getPlayer(), map.getState().getPlayer().getInventory()); // Just here to test Main Menu, does nothing
+        
+
+
         NPCInventoryView inventoryView = new NPCInventoryView(canvas);
 
-        LoadGame load = new LoadGame(); // Just here to test Main Menu, does nothing
+
         //Map map = new Map(gameState);
         MapView mv = new MapView(canvas);
         LevelUpMenuView levelUpMenuView = new LevelUpMenuView(canvas);
@@ -172,19 +184,20 @@ public class RunGame extends Application {
 
         MusicHandler musicHandler = new MusicHandler(gameState);
 
-        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,musicHandler,mainStage,mainScene);
+        MainMenuHandler mainMenu = new MainMenuHandler(p,save,load, mainStage, mainScene, this, gameState, musicHandler);
 
+        //MainMenuHandler mainMenu = new MainMenuHandler(p,save,load,musicHandler,mainStage,mainScene);
         //PlayerDeath playerDeath = new PlayerDeath(p,mainMenu);
 
         Dialogue dialogue = new Dialogue(canvas);
 
         NPC shopKeeper = new ShopKeeper(dialogue);
-        gameState.addEntity(shopKeeper);
+       // gameState.addEntity(shopKeeper);
         shopKeeper.setPosition(new Point(8,0));
         shopKeeper.setOrientation(new Angle(90));
 
         NPC villager1 = new Villager(dialogue);
-        gameState.addEntity(villager1);
+        //gameState.addEntity(villager1);
         villager1.setPosition(new Point(8,8));
         villager1.setOrientation(new Angle(270));
 
@@ -197,8 +210,11 @@ public class RunGame extends Application {
             int tick = 0;
             int ticksSincePlayerInput = 0;
             public void handle(long currentNanoTime) {
-                //map.updateGameState(gameState);
-                // map.Tick();
+                //System.out.println(MouseInfo.getPointerInfo().getLocation().x);
+            	
+            	//map.updateGameState(gameState);
+            	//map.Tick();
+
                 if(menu.isOpen()) {//render menu
                     if(!dialogue.getDialogueOpen()) {
                         canvas.setOnMouseMoved(menu.getMenuMouseController());
@@ -252,7 +268,7 @@ public class RunGame extends Application {
                 // Checks if players health is <= 0 for gameover screen
                 //playerDeath.checkIfDead();
 
-
+                
 
 
             }
@@ -262,6 +278,11 @@ public class RunGame extends Application {
 
 
     public static void main(String[] args) {
+
         launch(args);
+    }
+    
+    public void loadGame() {
+    	load.loadGame();
     }
 }
