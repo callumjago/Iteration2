@@ -45,13 +45,13 @@ public class Player extends SentientEntity {
 
     }
 
-    public void setClass(String classString)
+    public void setClass(int classInt)
     {
-        if(classString == "Warrior")
+        if(classInt == 0)
             Class = new Warrior();
-        else if(classString == "Mage")
+        else if(classInt == 1)
             Class = new Mage();
-        else if(classString == "Rogue")
+        else if(classInt == 2)
             Class = new Rogue();
     }
 

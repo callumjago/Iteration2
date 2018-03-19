@@ -268,7 +268,7 @@ public class LoadGame {
 					input.next();
 					playerClass = Integer.parseInt(input.next());
 					Sprites sprite = new Sprites();
-					player.setRole(playerClass);
+					player.setClass(playerClass);
 					player.setSprite(sprite.getPlayerSprite(playerClass));
 					break;
 				case 15: //setting player Name
