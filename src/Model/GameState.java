@@ -200,6 +200,9 @@ public class GameState {
                     if(!(entity instanceof Player)) {
                         interactions.add(new NPC_DeathIR(getPlayer(), (NPC) entity, this));
                     }
+                    if(entity instanceof SentientEntity) {
+                        ((SentientEntity)entity).setAttemptAttack(false);
+                    }
                     return true;
                 }
             }

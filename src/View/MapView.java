@@ -61,7 +61,7 @@ public class MapView {
         drawNPCs(gameState.getEntities(), gameState.getPlayerPosition());
 
         renderEnemyHealthBars(gameState.getEntities(), gameState.getPlayerPosition(), gameState.getPlayer().getObservationLevel());
-
+        renderEntityAttacks(gameState.getEntities(), gameState.getPlayerPosition());
         //renderEntityAttacks(gameState.getEntities(), gameState.getPlayerPosition());
         hudView.render(gameState.getPlayer());
         renderProjectiles(gameState.getEntities(), gameState.getPlayerPosition());
@@ -123,20 +123,20 @@ public class MapView {
         }
     }
 
-//    private void renderEntityAttacks(ArrayList<Entity> entities, Point playerPos) {
-//        int x, y;
-//        Point attackPoint;
-//        for(int i = 0; i < entities.size(); i++) {
-//            if(entities.get(i) instanceof SentientEntity) {
-//                if(entities.get(i).getAttemptAttack()) {
-//                    attackPoint = getAttackPoint((SentientEntity)entities.get(i));
-//                    x = tileWidth*attackPoint.x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2);
-//                    y = tileHeight*attackPoint.y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2);
-//                    drawRotatedImage(sprites.getObjectSprite(8), entities.get(i).getOrientation().getDegree()+90, x, y);
-//                }
-//            }
-//        }
-//    }
+    private void renderEntityAttacks(ArrayList<Entity> entities, Point playerPos) {
+        int x, y;
+        Point attackPoint;
+        for(int i = 0; i < entities.size(); i++) {
+            if(entities.get(i) instanceof SentientEntity) {
+                if(((SentientEntity) entities.get(i)).isAttemptAttack()) {
+                    attackPoint = getAttackPoint((SentientEntity)entities.get(i));
+                    x = tileWidth*attackPoint.x-(playerPos.x*tileWidth)+(int)(canvas.getWidth()/2);
+                    y = tileHeight*attackPoint.y-(playerPos.y*tileHeight)+(int)(canvas.getHeight()/2);
+                    drawRotatedImage(sprites.getObjectSprite(9), entities.get(i).getOrientation().getDegree()+90, x, y);
+                }
+            }
+        }
+    }
 
     private void renderEnemyHealthBars(ArrayList<Entity> entities, Point playerPos, int playerObservationLevel) {
         if(playerObservationLevel == 0) { return; }
