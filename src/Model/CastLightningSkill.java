@@ -50,10 +50,10 @@ public class CastLightningSkill extends Skill{
             Entity p = null;
             for (int i = 0; i < range; ++i){
                 if (p == null) {
-                    p = new Projectile(player.getForewardPosition(), player.getDegree(), damage, 0, 1);
+                    p = new Projectile(player.getForewardPosition(), player.getDegree(), damage, 0, 3);
                 }
                 else{
-                    p = new Projectile(p.getForewardPosition(), p.getDegree(),damage,0,1);
+                    p = new Projectile(p.getForewardPosition(), p.getDegree(),damage,0,3);
                 }
                 GS.addEntity(p);
             }

@@ -60,6 +60,7 @@ public class Sprites {
         projectileSprites.add(getImage(workingDir + "/sprites/arrow.png"));
         projectileSprites.add(getImage(workingDir + "/sprites/fireball.png"));
         projectileSprites.add(getImage(workingDir + "/sprites/bluefireball.png"));
+        projectileSprites.add(getImage(workingDir + "/sprites/lightning.png"));
     }
 
     public Image getTerrainSprite(int terrainID) {
