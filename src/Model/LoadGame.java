@@ -16,6 +16,7 @@ public class LoadGame {
     private Inventory inventory;
     private int mapID;
     private String path;
+    private int playerClass;
 
 
     public LoadGame(GameState _state, Player _player, Inventory _inventory){
@@ -265,8 +266,9 @@ public class LoadGame {
 					break;
 				case 14: //setting player sprite
 					input.next();
+					playerClass = Integer.parseInt(input.next());
 					Sprites sprite = new Sprites();
-					player.setSprite(sprite.getPlayerSprite(Integer.parseInt(input.next())));
+					player.setSprite(sprite.getPlayerSprite(playerClass));
 					break;
 				case 15: //setting player Name
 					input.next();
@@ -407,8 +409,9 @@ public class LoadGame {
 					String description = input.nextLine() + input.nextLine();
 				
 				
-					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, money, exp, tag, maxHP);
-				
+					NPC npc = new NPC(name, description, pos, angle, armor, weapon, ring, HP, MP, Atck, Def, lvl, 500, exp, tag, maxHP);
+					npc.modifyMoney(money);
+					
 					switch(tag) {
 					case "Hostile":
 						npc.setAI(new HostileAI(npc, state));
@@ -537,16 +540,141 @@ public class LoadGame {
 	
 	public void loadSkill() {
 		try {
-			File file = new File(path + "/SavedGames/PlayerName/Player/Skills.txt");
-			BufferedReader br_map = new BufferedReader(new FileReader(file));
-	
-			ItemCodex icodex = new ItemCodex();
-			EquipmentCodex ecodex = new EquipmentCodex();
-	
-			Scanner input = new Scanner(br_map.readLine());
-			SkillCodex scodex = new SkillCodex();
+			if(playerClass == 0) {
+				File file = new File(path + "/SavedGames/PlayerName/Player/WarriorSkills.txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(file));
+		
+				Scanner input = new Scanner(br_map);
+				
+				input.next();
+				//ObservationSkill obs = new ObservationSkill(player);
+				//obs.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				//player.getPlayerClass().addSkill(obs);
+				input.next(); //TODO remove and add Observation class
+				
+				input.next();
+				BindWoundsSkill bindW = new BindWoundsSkill(player);
+				bindW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindW);
+				
+				input.next();
+				CrossSlashSkill cross = new CrossSlashSkill(player, state);
+				cross.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(cross);
+				
+				input.next();
+				HeavyStrikeSkill heavy = new HeavyStrikeSkill(player, state);
+				heavy.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(heavy);
+				
+				input.next();
+				StunStrikeSkill stun = new StunStrikeSkill(player, state);
+				stun.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(stun);
+			}
 			
-			while(input.hasNext()) {
+			else if(playerClass == 1) {
+				File file = new File(path + "/SavedGames/PlayerName/Player/MageSkills.txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(file));
+		
+				Scanner input = new Scanner(br_map);
+				
+				input.next();
+				//ObservationSkill obs = new ObservationSkill(player);
+				//obs.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				//player.getPlayerClass().addSkill(obs);
+				input.next(); //TODO remove and add Observation class
+				
+				input.next();
+				BindWoundsSkill bindW = new BindWoundsSkill(player);
+				bindW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindW);
+				
+				input.next();
+				BindEnchantmentSkill bindE = new BindEnchantmentSkill(player, state);
+				bindE.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindE);
+				
+				input.next();
+				BrainWashSkill brainW = new BrainWashSkill(player, state);
+				brainW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(brainW);
+				
+				input.next();
+				ArcaneBashSkill arcaneB = new ArcaneBashSkill(player, state);
+				arcaneB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(arcaneB);
+				
+				input.next();
+				ArcaneBurstSkill arcaneBrst = new ArcaneBurstSkill(player, state);
+				arcaneBrst.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(arcaneBrst);
+				
+				input.next();
+				AttackBuffSkill attackB = new AttackBuffSkill(player);
+				attackB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(attackB);
+				
+				input.next();
+				CastLightningSkill castL = new CastLightningSkill(player, state);
+				castL.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(castL);
+				
+				input.next();
+				Charm charm = new Charm(player, state);
+				charm.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(charm);
+				
+				input.next();
+				DefenseBuffSkill defenseB = new DefenseBuffSkill(player);
+				defenseB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(defenseB);
+				
+				input.next();
+				Fireball fireball = new Fireball(player, state);
+				fireball.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(fireball);
+				
+				input.next();
+				HealthBuffSkill healthB = new HealthBuffSkill(player);
+				healthB.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(healthB);
+			}
+			
+			else if(playerClass == 2) {
+				File file = new File(path + "/SavedGames/PlayerName/Player/RogueSkills.txt");
+				BufferedReader br_map = new BufferedReader(new FileReader(file));
+		
+				Scanner input = new Scanner(br_map);
+				
+				input.next();
+				//ObservationSkill obs = new ObservationSkill(player);
+				//obs.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				//player.getPlayerClass().addSkill(obs);
+				input.next(); //TODO remove and add Observation class
+				
+				input.next();
+				BindWoundsSkill bindW = new BindWoundsSkill(player);
+				bindW.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(bindW);
+				
+				input.next();
+				ArrowHailSkill arrowH = new ArrowHailSkill(player, state);
+				arrowH.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(arrowH);
+				
+				input.next();
+				DetectTrapSkill detect = new DetectTrapSkill(player);
+				detect.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(detect);
+				
+				input.next();
+				RemoveTrapSkill remove = new RemoveTrapSkill(player, state);
+				remove.setSkillLvl(new SkillLevel(Integer.parseInt(input.next())));
+				player.getPlayerClass().addSkill(remove);
+			}
+			
+			/*while(input.hasNext()) {
 				int id = Integer.parseInt(input.next());
 				System.out.println(scodex.getName(id));
 				switch(scodex.getName(id)) {
@@ -623,7 +751,7 @@ public class LoadGame {
 					player.getPlayerClass().addSkill(stunS);
 					break;
 				}
-			}
+			}*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

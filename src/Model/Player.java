@@ -34,8 +34,6 @@ public class Player extends SentientEntity {
         //Class = new PlayerClass()
         Class = new Rogue();
         Sneaking = false;
-        Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
-        Class.addSkill(new DefenseBuffSkill(this));
         PlayerSpeed = 10;
         canDetectTraps = false;
         Running = false;
