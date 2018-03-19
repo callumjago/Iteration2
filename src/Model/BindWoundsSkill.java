@@ -47,8 +47,8 @@ public class BindWoundsSkill extends Skill {
     private void attemptCast(int HP) {
         double rand = Math.random();
         double req = 0;
-        if (getLvl() == 0) req = .75;
-        if (getLvl() == 1) req = .5;
+        if (getLvl() == 0) req = .1;
+        if (getLvl() == 1) req = .05;
         if (getLvl() == 2) req = 0.0;
         if (rand > req) {
             player.modifyHP(HP);
