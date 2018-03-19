@@ -44,9 +44,9 @@ public class Player extends SentientEntity {
         if(classString == "Warrior")
             Class = new Warrior();
         else if(classString == "Mage")
-            Class = new Warrior();
+            Class = new Mage();
         else if(classString == "Rogue")
-            Class = new Warrior();
+            Class = new Rogue();
     }
 
     public void toggleRun(){
