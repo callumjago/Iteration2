@@ -163,7 +163,7 @@ public class TeleportIR implements Interaction{
 								
 								case "ring":
 									level = new Level(ecodex.getLevelReq(id));
-									Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
+									Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, entity.getHealth(),  ecodex.getRingAmount(id));
 								
 									tile.setObject(ring);
 									break;
@@ -197,7 +197,7 @@ public class TeleportIR implements Interaction{
 	}
 	
 	 public void loadNPC() {
-	    	try {
+		 try {
 	    		File mapFile = new File(path + "/SavedGames/PlayerName/Maps/Map" + mapID + "/NPC" + mapID + ".txt");
 				BufferedReader br_map = new BufferedReader(new FileReader(mapFile));
 				br_map.readLine();
@@ -218,7 +218,7 @@ public class TeleportIR implements Interaction{
 							new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
 					
 						id = Integer.parseInt(input.next());
-						Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
+						Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), entity.getHealth(),  ecodex.getRingAmount(id));
 					
 						int HP = Integer.parseInt(input.next());
 						int MP = Integer.parseInt(input.next());
@@ -327,7 +327,7 @@ public class TeleportIR implements Interaction{
 							
 								case "ring":
 									level = new Level(ecodex.getLevelReq(id));
-									Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
+									Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, entity.getHealth(),  ecodex.getRingAmount(id));
 							
 									((NPC)npc.get(i)).getInventory().addItem(ring);
 									break;

@@ -369,4 +369,8 @@ public abstract class SentientEntity extends Entity {
         hasLeveledUp = false;
 
     }
+    
+    public Health getHealth() {
+    	return HP;
+    }
 }

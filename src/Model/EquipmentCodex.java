@@ -66,14 +66,26 @@ public class EquipmentCodex  extends Codex{
 
     }
     
+    public String getRingSkillName(int ID) {
+    	return (map.get(ID).get(3));
+    }
+    
+    public String getRingSkillDescription(int ID) {
+    	return (map.get(ID).get(4));
+    }
+    
+    public int getRingAmount(int ID) {
+    	return Integer.parseInt((map.get(ID).get(5)));
+    }
+    
     public String getRingDescription(int ID){
 
-        return (map.get(ID).get(3));
+        return (map.get(ID).get(6));
 
     }
     public String getRingName(int ID){
 
-        return (map.get(ID).get(4));
+        return (map.get(ID).get(7));
 
     }
     public int getArmorValue (int ID) {

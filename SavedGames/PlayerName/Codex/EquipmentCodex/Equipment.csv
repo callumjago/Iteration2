@@ -1,0 +1,46 @@
+ID,Tag,LevelReq,StatPoints,AttackSpeed,Range,"Accuracy (percent, 0-100)",Description,Name,AttackOrientation,Value
+1,one-handed,1,5,10,1,75,A bad one handed sword,sword1,0,10
+2,one-handed,2,10,15,1,77,A better than bad one handed sword,sword2,0,15
+3,one-handed,3,15,20,1,79,Still a bad sword,sword3,0,20
+4,one-handed,4,20,25,1,81,Its ok I guess,sword4,0,25
+5,one-handed,5,25,30,1,83,Pretty good one handed sword,sword5,0,30
+6,two-handed,1,10,5,1,80,a,twohand1,1,10
+7,two-handed,2,15,8,1,82,b,twohand2,1,15
+8,two-handed,3,20,11,1,84,c,twohand3,1,20
+9,two-handed,4,25,14,1,86,d,twohand4,1,25
+10,two-handed,5,30,17,1,88,e,twohand5,1,30
+11,ranged,1,5,10,3,70,a,ranged1,0,10
+12,ranged,2,10,15,3,72,b,ranged2,0,15
+13,ranged,3,15,20,4,74,c,ranged3,0,20
+14,ranged,4,20,25,4,76,d,ranged4,0,25
+15,ranged,5,25,30,5,78,e,ranged5,0,30
+16,staff,1,5,10,1,60,a,staff1,0,10
+17,staff,2,10,15,1,62,b,staff2,0,15
+18,staff,3,15,20,1,64,c,staff3,0,20
+19,staff,4,20,25,1,66,d,staff4,0,25
+20,staff,5,25,30,1,68,e,staff5,0,30
+21,fist,1,5,30,1,95,a,fist1,0,10
+22,fist,2,10,25,1,97,b,fist2,0,15
+25,fist,3,15,20,1,98,c,fist3,0,20
+24,fist,4,20,15,1,99,d,fist4,0,25
+25,fist,5,25,10,1,99,e,fist5,0,30
+26,plate,1,30,,,,a,plate1,,10
+27,plate,2,35,,,,b,plate2,,15
+28,plate,3,40,,,,c,plate3,,20
+29,plate,4,45,,,,d,plate4,,25
+30,plate,5,50,,,,e,plate5,,30
+31,leather,1,15,,,,a,leather1,,10
+32,leather,2,20,,,,b,leather2,,15
+33,leather,3,25,,,,c,leather3,,20
+34,leather,4,30,,,,d,leather4,,25
+35,leather,5,35,,,,e,leather5,,30
+36,cloth,1,5,,,,a,cloth1,,10
+37,cloth,2,10,,,,b,cloth2,,15
+38,cloth,3,15,,,,c,cloth3,,20
+39,cloth,4,20,,,,d,cloth4,,25
+40,cloth,5,25,,,,e,cloth5,,30
+41,ring,1,5,Incereased HP,Increases HP,5,a,ringHP,,10
+42,ring,2,10,Increased HP,Increases HP,5,b,ringHP,,15
+43,ring,3,15,Increased HP,Increases HP,5,c,ringHP,,20
+44,ring,4,20,Increased HP,Increases HP,5,d,ringHP,,25
+45,ring,5,25,Increased HP,Increases HP,5,e,ringHP,,30

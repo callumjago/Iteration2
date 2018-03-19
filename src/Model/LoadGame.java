@@ -149,7 +149,7 @@ public class LoadGame {
 								
 								case "ring":
 									level = new Level(ecodex.getLevelReq(id));
-									Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
+									Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, player.getHealth(),  ecodex.getRingAmount(id));
 								
 									tile.setObject(ring);
 									break;
@@ -230,7 +230,7 @@ public class LoadGame {
 					input.next();
 					id = Integer.parseInt(input.next());
 					if(id <= 0) id = 1;
-					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
+					Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), player.getHealth(),  ecodex.getRingAmount(id));
 					player.setEquipRing(ring);
 					break;
 				case 5: //setting hp
@@ -342,7 +342,7 @@ public class LoadGame {
 						
 					case "ring":
 						level = new Level(ecodex.getLevelReq(id));
-						Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
+						Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, player.getHealth(),  ecodex.getRingAmount(id));
 						
 						inventory.addItem(ring);
 						break;
@@ -400,7 +400,7 @@ public class LoadGame {
 						new AttackOr(ecodex.getOrientation(id)), ecodex.getAttackSpeed(id), new Accuracy(ecodex.getAccuracy(id)), ecodex.getRange(id), ecodex.getTag(id));
 				
 					id = Integer.parseInt(input.next());
-					Ring ring = new Ring(id, new Level(ecodex.getLevelReq(id)), ecodex.getRingName(id), ecodex.getRingDescription(id));
+					Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), new Level(ecodex.getLevelReq(id)), player.getHealth(),  ecodex.getRingAmount(id));
 				
 					int HP = Integer.parseInt(input.next());
 					int MP = Integer.parseInt(input.next());
@@ -509,7 +509,7 @@ public class LoadGame {
 						
 							case "ring":
 								level = new Level(ecodex.getLevelReq(id));
-								Ring ring = new Ring(id, level, ecodex.getRingName(id), ecodex.getRingDescription(id));
+								Ring ring = new Ring(id, ecodex.getRingName(id), ecodex.getRingDescription(id), ecodex.getRingName(id), ecodex.getRingDescription(id), level, player.getHealth(),  ecodex.getRingAmount(id));
 						
 								((NPC)npc.get(i)).getInventory().addItem(ring);
 								break;
