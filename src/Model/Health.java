@@ -25,7 +25,7 @@ public class Health implements Stat{
     }
 
     public void setHealthPoints(int healthPoints) {
-        if (healthPoints <= 0) {
+        if (healthPoints < 0) {
             return;
         }
         else {

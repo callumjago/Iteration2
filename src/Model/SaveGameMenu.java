@@ -32,7 +32,7 @@ public class SaveGameMenu extends SubMenu {
     @Override
     void Enter(int mouseX, int mouseY) {
         if(confirmation.collisionCheckByName(saveButtonText, mouseX, mouseY)) {
-            save.save();
+            save.saveGame();
         }
     }
 

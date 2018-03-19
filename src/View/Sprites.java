@@ -54,6 +54,7 @@ public class Sprites {
         objectSprites.add(getImage(workingDir + "/sprites/health2.png"));//HealingAE:5
         objectSprites.add(getImage(workingDir + "/sprites/lava.png"));//DamageAE:6
         objectSprites.add(getImage(workingDir + "/sprites/star.png"));//ExperienceAE
+        objectSprites.add(getImage(workingDir + "/sprites/fountain.png"));//MPAE
         defaultObjectSprite = getImage(workingDir + "/sprites/star.png");
 
         projectileSprites.add(getImage(workingDir + "/sprites/arrow.png"));
@@ -78,6 +79,9 @@ public class Sprites {
 //    }
 
     public Image getObjectSprite(int ind) {
+    	if(ind == 10) {
+    		return objectSprites.get(7);
+    	}
         if(ind >= objectSprites.size()) {
             return defaultObjectSprite;
         }
@@ -101,3 +105,4 @@ public class Sprites {
         return projectileSprites.get(index);
     }
 }
+

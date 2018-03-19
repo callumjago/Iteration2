@@ -56,6 +56,5 @@ public class UseItem extends Item {
 	public String getDescription() {
 		return description;
 	}
-	
-	
 }
+

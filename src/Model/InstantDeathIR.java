@@ -10,7 +10,7 @@ public class InstantDeathIR implements Interaction{
     }
 
     public void applyEffect() {
-        entity.setHP(health);
+        entity.setHP(0);
     }
 }
 

@@ -14,7 +14,7 @@ public class Map {
     }
 
     public void Tick(){
-        //IH.generateInteractions(State);
+        //IH.generateInteractions(State)
     }
 
     public GameState getState() {

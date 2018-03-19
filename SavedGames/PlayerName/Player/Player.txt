@@ -1,0 +1,16 @@
+Location: 4 7
+MapID: 1
+Armor: 26
+Weapon: 1
+Ring: 41
+HP: 100
+MP: 100
+Attack: 1
+Defense: 1
+Level: 1
+Exp: 0
+Wallet: 0
+Angle: 90
+Class: 0
+Sprite: 2
+Name: eqwd

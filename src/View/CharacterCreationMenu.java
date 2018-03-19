@@ -20,20 +20,25 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-
+import Model.GameState;
 import Model.MainMenuHandler;
+import Model.NewGame;
 import Model.Player;
 
 public class CharacterCreationMenu {
 
     MainMenuHandler mainMenu;
+    GameState state;
     Scene characterCreationScene;
     Player player;
+    private int spriteNumber;
+    private int classNumber;
 
-    public CharacterCreationMenu(MainMenuHandler mainMenu, Player player)
+    public CharacterCreationMenu(MainMenuHandler mainMenu, Player player, GameState _state)
     {
         this.mainMenu = mainMenu;
         this.player = player;
+        state = _state;
     }
 
     public Scene generateScene() {
@@ -74,6 +79,29 @@ public class CharacterCreationMenu {
 
         Image[] spriteChoices = {characterSprite1,characterSprite2,characterSprite3};
 
+        // Character Creation Choices
+        ChoiceBox characterClassChoices = new ChoiceBox(FXCollections.observableArrayList("Warrior","Mage","Rogue"));
+        
+        characterClassChoices.getSelectionModel().selectedIndexProperty().addListener(
+        			new ChangeListener<Number>() {
+                        @Override
+                        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                            classNumber = (newValue.intValue());
+                        }
+                    }
+        		);
+        
+        characterSprites.getSelectionModel().selectedIndexProperty().addListener(
+        			new ChangeListener<Number>() {
+                        @Override
+                        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                            //label.setText(spriteChoices[newValue.intValue()]);
+                            imageView.setImage(spriteChoices[newValue.intValue()]);
+                            spriteNumber = (newValue.intValue());
+                        }
+                    }
+        		);
+        
         // Sets size of sprite choice
         imageView.setFitHeight(75);
         imageView.setFitWidth(75);
@@ -123,6 +151,7 @@ public class CharacterCreationMenu {
                 //System.out.println(player.getName());
                 //System.out.println(player.getPlayerSpriteNumber());
                 //openIntroMenu();
+                NewGame newGame = new NewGame(nameInput.getText(), spriteNumber, classNumber, state);
                 mainMenu.changeMenu(1); // Main Game Scene
             }
             else {
@@ -145,5 +174,4 @@ public class CharacterCreationMenu {
 
         return characterCreationScene;
     }
-
 }
