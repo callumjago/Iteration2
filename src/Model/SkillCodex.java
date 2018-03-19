@@ -11,7 +11,7 @@ public class SkillCodex  extends Codex{
 
 
     public boolean requiresGameState(int ID) {
-    	if(map.get(ID).get(0).compareToIgnoreCase("true") == 0) {
+    	if(map.get(ID).get(1).compareToIgnoreCase("true") == 0) {
     		return true;
     	}
     	
@@ -19,7 +19,7 @@ public class SkillCodex  extends Codex{
     }
     
     public String getName(int ID) {
-    	return map.get(ID).get(1);
+    	return map.get(ID).get(0);
     }
 
 }

@@ -7,13 +7,13 @@ ID,Name,GameState?
 6,ArcaneBurst,Y
 7,ArrowHail,Y
 8,AttackBuff,N
-9,CastLignthing,Y
+9,CastLightning,Y
 10,Charm,Y
 11,CrossSlash,Y
 12,DefenseBuff,Y
 13,FireBall,Y
 14,DetectTrap,N
-15,Removetrap,Y
+15,RemoveTrap,Y
 16,HealthBuff,N
 17,HeavyStrike,Y
 18,StunStrike,Y
