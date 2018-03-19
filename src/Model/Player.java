@@ -32,7 +32,7 @@ public class Player extends SentientEntity {
     Player() {
         super(); // Attribute classes fill with default values
         //Class = new PlayerClass()
-        Class = new Rogue();
+        Class = new Mage();
         Sneaking = false;
         Class.addSkill(new PassiveSkill("HYPE", "Buffs HYPE", new Level(1), new Mana(), 5));
         Class.addSkill(new DefenseBuffSkill(this));
