@@ -12,6 +12,7 @@ public class GameState {
     private InteractionHandler interactionHandler;
     private PickPocketInteraction pickPocketInteraction;
     private Transaction transaction;
+    private LevelUpMenu levelUpMenu;
 
     public GameState() {
         interactions = new ArrayList<Interaction>();
@@ -20,6 +21,7 @@ public class GameState {
         interactionHandler = new InteractionHandler();
         pickPocketInteraction = null;
         transaction = null;
+        levelUpMenu = null;
     }
 
     public Player getPlayer() {
@@ -52,6 +54,10 @@ public class GameState {
 
     public Transaction getTransaction() {
         return transaction;
+    }
+
+    public LevelUpMenu getLevelUpMenu() {
+        return levelUpMenu;
     }
 
     public void pickPocket(int index, boolean success) {
@@ -90,7 +96,7 @@ public class GameState {
         }
         return tileSet.get(x).get(y);
     }
-
+    
     public Tile getTile(Point p){
         if (p.getX() < 0 || p.getX() > tileSet.size() - 1) {
             return null;
@@ -197,6 +203,14 @@ public class GameState {
             interactions.get(i).applyEffect();
         }
         interactions.clear();
+
+        if(getPlayer().hasLeveledUp()) {
+            levelUpMenu = new LevelUpMenu(getPlayer().getPlayerClass());
+            getPlayer().resetLevelUp();
+        }
+        if(levelUpMenu != null) {
+            if(levelUpMenu.isLevelUpApplied()) { levelUpMenu = null; }
+        }
     }
 
     public void addEntity(Entity e){
@@ -230,6 +244,7 @@ public class GameState {
 
         }
         handleInteractions();
+
     }
 
     public void playerTick() {
@@ -243,6 +258,8 @@ public class GameState {
             AttackAction a = new AttackAction(getPlayer(), this);
         }
         handleInteractions();
+
+
     }
 
     public void resetEntityAttempts() {
